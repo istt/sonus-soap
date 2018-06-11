@@ -1,0 +1,421 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="parametercriteria.dmpmcriteria.digitparameterhandling.profiles.v04_02_00.sbc.api.ems.sonus.com" xmlns:ns16="charactermatch.parametercriteria.dmpmcriteria.digitparameterhandling.profiles.v04_02_00.sbc.api.ems.sonus.com" xmlns:ns17="paicharactermatch.parametercriteria.dmpmcriteria.digitparameterhandling.profiles.v04_02_00.sbc.api.ems.sonus.com" xmlns:ns14="cpc.parametercriteria.dmpmcriteria.digitparameterhandling.profiles.v04_02_00.sbc.api.ems.sonus.com" xmlns:ns15="forwardcallindicator.parametercriteria.dmpmcriteria.digitparameterhandling.profiles.v04_02_00.sbc.api.ems.sonus.com" xmlns:ns18="fromdisplayname.parametercriteria.dmpmcriteria.digitparameterhandling.profiles.v04_02_00.sbc.api.ems.sonus.com" xmlns:ns9="carriercodedigitmatch.carriercode.parametercriteria.dmpmcriteria.digitparameterhandling.profiles.v04_02_00.sbc.api.ems.sonus.com" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ns5="digitparameterhandling.profiles.v04_02_00.sbc.api.ems.sonus.com" xmlns:ns12="causeofnoid.parametercriteria.dmpmcriteria.digitparameterhandling.profiles.v04_02_00.sbc.api.ems.sonus.com" xmlns:ns13="cliblockingindicator.parametercriteria.dmpmcriteria.digitparameterhandling.profiles.v04_02_00.sbc.api.ems.sonus.com" xmlns:ns6="dmpmcriteria.digitparameterhandling.profiles.v04_02_00.sbc.api.ems.sonus.com" xmlns:ns10="carriercode.parametercriteria.dmpmcriteria.digitparameterhandling.profiles.v04_02_00.sbc.api.ems.sonus.com" xmlns:ns7="prefixtype.parametercriteria.dmpmcriteria.digitparameterhandling.profiles.v04_02_00.sbc.api.ems.sonus.com" xmlns:ns11="carrierselectionparameter.parametercriteria.dmpmcriteria.digitparameterhandling.profiles.v04_02_00.sbc.api.ems.sonus.com" xmlns:ns8="callingname.parametercriteria.dmpmcriteria.digitparameterhandling.profiles.v04_02_00.sbc.api.ems.sonus.com" xmlns:ns2="sonusdmpmcriteria.types.v04_02_00.sbc.api.ems.sonus.com" xmlns:ns1="sonusorcatc.types.v04_02_00.sbc.api.ems.sonus.com" xmlns:ns4="common.sbc.api.ems.sonus.com" xmlns:ns3="additionalcategory.parametercriteria.dmpmcriteria.digitparameterhandling.profiles.v04_02_00.sbc.api.ems.sonus.com">
+
+  <xs:import namespace="sonusorcatc.types.v04_02_00.sbc.api.ems.sonus.com" schemaLocation="SBCV040200APIService_schema66.xsd"/>
+
+  <xs:import namespace="sonusdmpmcriteria.types.v04_02_00.sbc.api.ems.sonus.com" schemaLocation="SBCV040200APIService_schema116.xsd"/>
+
+  <xs:import namespace="additionalcategory.parametercriteria.dmpmcriteria.digitparameterhandling.profiles.v04_02_00.sbc.api.ems.sonus.com" schemaLocation="SBCV040200APIService_schema365.xsd"/>
+
+  <xs:import namespace="common.sbc.api.ems.sonus.com" schemaLocation="SBCV040200APIService_schema325.xsd"/>
+
+  <xs:import namespace="digitparameterhandling.profiles.v04_02_00.sbc.api.ems.sonus.com" schemaLocation="SBCV040200APIService_schema307.xsd"/>
+
+  <xs:import namespace="dmpmcriteria.digitparameterhandling.profiles.v04_02_00.sbc.api.ems.sonus.com" schemaLocation="SBCV040200APIService_schema300.xsd"/>
+
+  <xs:import namespace="prefixtype.parametercriteria.dmpmcriteria.digitparameterhandling.profiles.v04_02_00.sbc.api.ems.sonus.com" schemaLocation="SBCV040200APIService_schema200.xsd"/>
+
+  <xs:import namespace="callingname.parametercriteria.dmpmcriteria.digitparameterhandling.profiles.v04_02_00.sbc.api.ems.sonus.com" schemaLocation="SBCV040200APIService_schema349.xsd"/>
+
+  <xs:import namespace="carriercodedigitmatch.carriercode.parametercriteria.dmpmcriteria.digitparameterhandling.profiles.v04_02_00.sbc.api.ems.sonus.com" schemaLocation="SBCV040200APIService_schema339.xsd"/>
+
+  <xs:import namespace="carriercode.parametercriteria.dmpmcriteria.digitparameterhandling.profiles.v04_02_00.sbc.api.ems.sonus.com" schemaLocation="SBCV040200APIService_schema341.xsd"/>
+
+  <xs:import namespace="carrierselectionparameter.parametercriteria.dmpmcriteria.digitparameterhandling.profiles.v04_02_00.sbc.api.ems.sonus.com" schemaLocation="SBCV040200APIService_schema338.xsd"/>
+
+  <xs:import namespace="causeofnoid.parametercriteria.dmpmcriteria.digitparameterhandling.profiles.v04_02_00.sbc.api.ems.sonus.com" schemaLocation="SBCV040200APIService_schema337.xsd"/>
+
+  <xs:import namespace="cliblockingindicator.parametercriteria.dmpmcriteria.digitparameterhandling.profiles.v04_02_00.sbc.api.ems.sonus.com" schemaLocation="SBCV040200APIService_schema329.xsd"/>
+
+  <xs:import namespace="cpc.parametercriteria.dmpmcriteria.digitparameterhandling.profiles.v04_02_00.sbc.api.ems.sonus.com" schemaLocation="SBCV040200APIService_schema321.xsd"/>
+
+  <xs:import namespace="forwardcallindicator.parametercriteria.dmpmcriteria.digitparameterhandling.profiles.v04_02_00.sbc.api.ems.sonus.com" schemaLocation="SBCV040200APIService_schema275.xsd"/>
+
+  <xs:import namespace="charactermatch.parametercriteria.dmpmcriteria.digitparameterhandling.profiles.v04_02_00.sbc.api.ems.sonus.com" schemaLocation="SBCV040200APIService_schema333.xsd"/>
+
+  <xs:import namespace="paicharactermatch.parametercriteria.dmpmcriteria.digitparameterhandling.profiles.v04_02_00.sbc.api.ems.sonus.com" schemaLocation="SBCV040200APIService_schema213.xsd"/>
+
+  <xs:import namespace="fromdisplayname.parametercriteria.dmpmcriteria.digitparameterhandling.profiles.v04_02_00.sbc.api.ems.sonus.com" schemaLocation="SBCV040200APIService_schema273.xsd"/>
+
+  <xs:complexType name="additionalCategory">
+    <xs:complexContent>
+      <xs:extension base="ns4:sbcEntity">
+        <xs:sequence>
+          <xs:element name="name" type="ns3:name" minOccurs="0"/>
+          <xs:element name="information" type="ns3:information" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="additionalCategoryKey">
+    <xs:complexContent>
+      <xs:extension base="ns4:sbcUnCreatableKey">
+        <xs:sequence>
+          <xs:element name="parentKey" type="ns6:parameterCriteriaKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="prefixType">
+    <xs:complexContent>
+      <xs:extension base="ns4:sbcEntity">
+        <xs:sequence>
+          <xs:element name="name" type="ns7:name" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="prefixTypeKey">
+    <xs:complexContent>
+      <xs:extension base="ns4:sbcUnCreatableKey">
+        <xs:sequence>
+          <xs:element name="parentKey" type="ns6:parameterCriteriaKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="callingName">
+    <xs:complexContent>
+      <xs:extension base="ns4:sbcEntity">
+        <xs:sequence>
+          <xs:element name="callingNameGeneric" type="ns8:callingNameGeneric" minOccurs="0"/>
+          <xs:element name="presentation" type="ns8:presentation" minOccurs="0"/>
+          <xs:element name="typeOfName" type="ns8:typeOfName" minOccurs="0"/>
+          <xs:element name="availability" type="ns8:availability" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="callingNameKey">
+    <xs:complexContent>
+      <xs:extension base="ns4:sbcUnCreatableKey">
+        <xs:sequence>
+          <xs:element name="parentKey" type="ns6:parameterCriteriaKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="carrierCode">
+    <xs:complexContent>
+      <xs:extension base="ns4:sbcEntity">
+        <xs:sequence>
+          <xs:element name="carrierCodeDigitMatch" type="ns10:carrierCodeDigitMatch" minOccurs="0"/>
+          <xs:element name="networkIdPlan" type="ns10:networkIdPlan" minOccurs="0"/>
+          <xs:element name="networkIdType" type="ns10:networkIdType" minOccurs="0"/>
+          <xs:element name="circuitCode" type="ns10:circuitCode" minOccurs="0"/>
+          <xs:element name="presubscriptionIndicator" type="ns10:presubscriptionIndicator" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="carrierCodeKey">
+    <xs:complexContent>
+      <xs:extension base="ns4:sbcUnCreatableKey">
+        <xs:sequence>
+          <xs:element name="parentKey" type="ns6:parameterCriteriaKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="carrierSelectionParameter">
+    <xs:complexContent>
+      <xs:extension base="ns4:sbcEntity">
+        <xs:sequence>
+          <xs:element name="carrierSelection" type="ns11:carrierSelection" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="carrierSelectionParameterKey">
+    <xs:complexContent>
+      <xs:extension base="ns4:sbcUnCreatableKey">
+        <xs:sequence>
+          <xs:element name="parentKey" type="ns6:parameterCriteriaKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="causeOfNoId">
+    <xs:complexContent>
+      <xs:extension base="ns4:sbcEntity">
+        <xs:sequence>
+          <xs:element name="value" type="ns12:value" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="causeOfNoIdKey">
+    <xs:complexContent>
+      <xs:extension base="ns4:sbcUnCreatableKey">
+        <xs:sequence>
+          <xs:element name="parentKey" type="ns6:parameterCriteriaKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="cliBlockingIndicator">
+    <xs:complexContent>
+      <xs:extension base="ns4:sbcEntity">
+        <xs:sequence>
+          <xs:element name="value" type="ns13:value" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="cliBlockingIndicatorKey">
+    <xs:complexContent>
+      <xs:extension base="ns4:sbcUnCreatableKey">
+        <xs:sequence>
+          <xs:element name="parentKey" type="ns6:parameterCriteriaKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="cpc">
+    <xs:complexContent>
+      <xs:extension base="ns4:sbcEntity">
+        <xs:sequence>
+          <xs:element name="callingPartyCategory" type="ns14:callingPartyCategory" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="cpcKey">
+    <xs:complexContent>
+      <xs:extension base="ns4:sbcUnCreatableKey">
+        <xs:sequence>
+          <xs:element name="parentKey" type="ns6:parameterCriteriaKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="dpcIndicator">
+    <xs:complexContent>
+      <xs:extension base="ns4:sbcEntity">
+        <xs:sequence>
+          <xs:element name="dpcInformation" type="ns2:sonusDpcInformationRange" default="none" minOccurs="0"/>
+          <xs:element name="operation" type="ns2:sonusDpcInformationOperationRange" default="ignore" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="dpcIndicatorKey">
+    <xs:complexContent>
+      <xs:extension base="ns4:sbcUnCreatableKey">
+        <xs:sequence>
+          <xs:element name="parentKey" type="ns6:parameterCriteriaKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="forwardCallIndicator">
+    <xs:complexContent>
+      <xs:extension base="ns4:sbcEntity">
+        <xs:sequence>
+          <xs:element name="international" type="ns15:international" minOccurs="0"/>
+          <xs:element name="interworking" type="ns15:interworking" minOccurs="0"/>
+          <xs:element name="isdnIndicator" type="ns15:isdnIndicator" minOccurs="0"/>
+          <xs:element name="isupBiccIndicator" type="ns15:isupBiccIndicator" minOccurs="0"/>
+          <xs:element name="isupBiccPreference" type="ns15:isupBiccPreference" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="forwardCallIndicatorKey">
+    <xs:complexContent>
+      <xs:extension base="ns4:sbcUnCreatableKey">
+        <xs:sequence>
+          <xs:element name="parentKey" type="ns6:parameterCriteriaKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="characterMatch">
+    <xs:complexContent>
+      <xs:extension base="ns4:sbcEntity">
+        <xs:sequence>
+          <xs:element name="operation" type="ns2:sonusCharacterMatchOperationRange" default="ignore" minOccurs="0"/>
+          <xs:element name="value" type="ns16:value" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="characterMatchKey">
+    <xs:complexContent>
+      <xs:extension base="ns4:sbcUnCreatableKey">
+        <xs:sequence>
+          <xs:element name="parentKey" type="ns6:parameterCriteriaKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="paiCharacterMatch">
+    <xs:complexContent>
+      <xs:extension base="ns4:sbcEntity">
+        <xs:sequence>
+          <xs:element name="operation" type="ns2:sonusPaiCharacterMatchOperationRange" default="ignore" minOccurs="0"/>
+          <xs:element name="characterMatch" type="ns17:characterMatch" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="paiCharacterMatchKey">
+    <xs:complexContent>
+      <xs:extension base="ns4:sbcUnCreatableKey">
+        <xs:sequence>
+          <xs:element name="parentKey" type="ns6:parameterCriteriaKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="fromDisplayName">
+    <xs:complexContent>
+      <xs:extension base="ns4:sbcEntity">
+        <xs:sequence>
+          <xs:element name="presentation" type="ns18:presentation" minOccurs="0"/>
+          <xs:element name="availability" type="ns18:availability" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="fromDisplayNameKey">
+    <xs:complexContent>
+      <xs:extension base="ns4:sbcUnCreatableKey">
+        <xs:sequence>
+          <xs:element name="parentKey" type="ns6:parameterCriteriaKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="jurisdictionSwitch">
+    <xs:complexContent>
+      <xs:extension base="ns4:sbcEntity">
+        <xs:sequence>
+          <xs:element name="value" type="xs:string" minOccurs="0"/>
+          <xs:element name="operation" type="ns2:sonusJurisdictionSwitchOperationRange" default="ignore" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="jurisdictionSwitchKey">
+    <xs:complexContent>
+      <xs:extension base="ns4:sbcUnCreatableKey">
+        <xs:sequence>
+          <xs:element name="parentKey" type="ns6:parameterCriteriaKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="olip">
+    <xs:complexContent>
+      <xs:extension base="ns4:sbcEntity">
+        <xs:sequence>
+          <xs:element name="value" type="ns1:sonusOriginatingLineInformationRange" default="aiod" minOccurs="0"/>
+          <xs:element name="operation" type="ns2:sonusOlipOperationRange" default="ignore" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="olipKey">
+    <xs:complexContent>
+      <xs:extension base="ns4:sbcUnCreatableKey">
+        <xs:sequence>
+          <xs:element name="parentKey" type="ns6:parameterCriteriaKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="paiSipDisplayName">
+    <xs:complexContent>
+      <xs:extension base="ns4:sbcEntity">
+        <xs:sequence>
+          <xs:element name="presentation" type="ns2:sonusPresentationRange" default="allowed" minOccurs="0"/>
+          <xs:element name="operation" type="ns2:sonusPaiDisplayNameOperationRange" default="ignore" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="paiSipDisplayNameKey">
+    <xs:complexContent>
+      <xs:extension base="ns4:sbcUnCreatableKey">
+        <xs:sequence>
+          <xs:element name="parentKey" type="ns6:parameterCriteriaKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="paiTelDisplayName">
+    <xs:complexContent>
+      <xs:extension base="ns4:sbcEntity">
+        <xs:sequence>
+          <xs:element name="presentation" type="ns2:sonusPresentationRange" default="allowed" minOccurs="0"/>
+          <xs:element name="operation" type="ns2:sonusPaiDisplayNameOperationRange" default="ignore" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="paiTelDisplayNameKey">
+    <xs:complexContent>
+      <xs:extension base="ns4:sbcUnCreatableKey">
+        <xs:sequence>
+          <xs:element name="parentKey" type="ns6:parameterCriteriaKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="zzCode">
+    <xs:complexContent>
+      <xs:extension base="ns4:sbcEntity">
+        <xs:sequence>
+          <xs:element name="value" type="xs:string" minOccurs="0"/>
+          <xs:element name="operation" type="ns2:sonusZzCodeOperationRange" default="ignore" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="zzCodeKey">
+    <xs:complexContent>
+      <xs:extension base="ns4:sbcUnCreatableKey">
+        <xs:sequence>
+          <xs:element name="parentKey" type="ns6:parameterCriteriaKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+</xs:schema>
+

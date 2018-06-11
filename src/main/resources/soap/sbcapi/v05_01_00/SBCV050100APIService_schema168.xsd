@@ -1,0 +1,377 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="signaling.siptrunkgroup.zone.addresscontext.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns2="sonussiptrunkgroup.types.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns1="sonustc.types.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns4="zone.addresscontext.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns3="common.sbc.api.ems.sonus.com" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ns5="siptrunkgroup.zone.addresscontext.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns6="timers.signaling.siptrunkgroup.zone.addresscontext.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns7="sonushornettc.types.v05_01_00.sbc.api.ems.sonus.com">
+
+  <xs:import namespace="sonustc.types.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema44.xsd"/>
+
+  <xs:import namespace="sonussiptrunkgroup.types.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema48.xsd"/>
+
+  <xs:import namespace="common.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema360.xsd"/>
+
+  <xs:import namespace="zone.addresscontext.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema1.xsd"/>
+
+  <xs:import namespace="siptrunkgroup.zone.addresscontext.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema146.xsd"/>
+
+  <xs:import namespace="timers.signaling.siptrunkgroup.zone.addresscontext.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema23.xsd"/>
+
+  <xs:import namespace="sonushornettc.types.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema90.xsd"/>
+
+  <xs:complexType name="callingParty">
+    <xs:complexContent>
+      <xs:extension base="ns3:sbcEntity">
+        <xs:sequence>
+          <xs:element name="paiForCallingParty" type="ns1:sonusAdminState" default="enabled" minOccurs="0"/>
+          <xs:element name="ppiForCallingParty" type="ns1:sonusAdminState" default="enabled" minOccurs="0"/>
+          <xs:element name="rpiForCallingParty" type="ns1:sonusAdminState" default="enabled" minOccurs="0"/>
+          <xs:element name="fromHdrForCallingParty" type="ns1:sonusAdminState" default="enabled" minOccurs="0"/>
+          <xs:element name="cpcParamFromHeader" type="ns2:sonusSipSigTrunkGroupCpcParamFromHeaderType" default="default" minOccurs="0"/>
+          <xs:element name="trustedSourceForIsup" type="ns1:sonusAdminState" default="enabled" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="callingPartyKey">
+    <xs:complexContent>
+      <xs:extension base="ns3:sbcUnCreatableKey">
+        <xs:sequence>
+          <xs:element name="parentKey" type="ns5:signalingKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="TCPFallback">
+    <xs:complexContent>
+      <xs:extension base="ns3:sbcEntity">
+        <xs:sequence>
+          <xs:element name="maxMTUSupportedOverUDPControl" type="ns1:sonusAdminState" default="disabled" minOccurs="0"/>
+          <xs:element name="maxMTUSupportedOverUDPValue" type="xs:unsignedShort" default="1300" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="TCPFallbackKey">
+    <xs:complexContent>
+      <xs:extension base="ns3:sbcUnCreatableKey">
+        <xs:sequence>
+          <xs:element name="parentKey" type="ns5:signalingKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="P-HeaderExtensions">
+    <xs:complexContent>
+      <xs:extension base="ns3:sbcEntity">
+        <xs:sequence>
+          <xs:element name="useIngressOrigCa" type="ns1:sonusAdminState" default="disabled" minOccurs="0"/>
+          <xs:element name="addEgressOrigCa" type="ns1:sonusAdminState" default="disabled" minOccurs="0"/>
+          <xs:element name="insertpVisitedNetworkID" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="P-HeaderExtensionsKey">
+    <xs:complexContent>
+      <xs:extension base="ns3:sbcUnCreatableKey">
+        <xs:sequence>
+          <xs:element name="parentKey" type="ns5:signalingKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="sdpTransparency">
+    <xs:complexContent>
+      <xs:extension base="ns3:sbcEntity">
+        <xs:sequence>
+          <xs:element name="sdpTransparencyState" type="ns1:sonusAdminState" default="disabled" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="sdpTransparencyKey">
+    <xs:complexContent>
+      <xs:extension base="ns3:sbcUnCreatableKey">
+        <xs:sequence>
+          <xs:element name="parentKey" type="ns5:signalingKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="messageManipulation">
+    <xs:complexContent>
+      <xs:extension base="ns3:sbcEntity">
+        <xs:sequence>
+          <xs:element name="inputAdapterProfile" type="xs:string" minOccurs="0"/>
+          <xs:element name="outputAdapterProfile" type="xs:string" minOccurs="0"/>
+          <xs:element name="includeAppHdrs" type="ns1:sonusAdminState" default="disabled" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="messageManipulationKey">
+    <xs:complexContent>
+      <xs:extension base="ns3:sbcUnCreatableKey">
+        <xs:sequence>
+          <xs:element name="parentKey" type="ns5:signalingKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="causeCodeMapping">
+    <xs:complexContent>
+      <xs:extension base="ns3:sbcEntity">
+        <xs:sequence>
+          <xs:element name="cpcSipCauseMappingProfile" type="xs:string" minOccurs="0"/>
+          <xs:element name="sipCpcCauseMappingProfile" type="xs:string" minOccurs="0"/>
+          <xs:element name="useNonDefaultCauseCodeforARSBlackList" type="ns1:sonusAdminState" default="disabled" minOccurs="0"/>
+          <xs:element name="sipInternalCauseMappingProfile" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="causeCodeMappingKey">
+    <xs:complexContent>
+      <xs:extension base="ns3:sbcUnCreatableKey">
+        <xs:sequence>
+          <xs:element name="parentKey" type="ns5:signalingKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="methods">
+    <xs:complexContent>
+      <xs:extension base="ns3:sbcEntity">
+        <xs:sequence>
+          <xs:element name="message" type="ns2:sonusSipSigTrunkGroupMethodMessageType" default="allow" minOccurs="0"/>
+          <xs:element name="publish" type="ns2:sonusSipSigTrunkGroupMethodPublishType" default="allow" minOccurs="0"/>
+          <xs:element name="options" type="ns2:sonusSipSigTrunkGroupMethodOptionsType" default="allow" minOccurs="0"/>
+          <xs:element name="refer" type="ns2:sonusSipSigTrunkGroupMethodReferType" default="allow" minOccurs="0"/>
+          <xs:element name="subscribe" type="ns2:sonusSipSigTrunkGroupMethodSubscribeType" default="allow" minOccurs="0"/>
+          <xs:element name="notify" type="ns2:sonusSipSigTrunkGroupMethodNotifyType" default="allow" minOccurs="0"/>
+          <xs:element name="info" type="ns2:sonusSipSigTrunkGroupMethodInfoType" default="allow" minOccurs="0"/>
+          <xs:element name="register" type="ns2:sonusSipSigTrunkGroupMethodRegisterType" default="allow" minOccurs="0"/>
+          <xs:element name="update" type="ns2:sonusSipSigTrunkGroupMethodUpdateType" default="allow" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="methodsKey">
+    <xs:complexContent>
+      <xs:extension base="ns3:sbcUnCreatableKey">
+        <xs:sequence>
+          <xs:element name="parentKey" type="ns5:signalingKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="retryCounters">
+    <xs:complexContent>
+      <xs:extension base="ns3:sbcEntity">
+        <xs:sequence>
+          <xs:element name="general" type="xs:unsignedShort" default="7" minOccurs="0"/>
+          <xs:element name="invite" type="xs:unsignedShort" default="6" minOccurs="0"/>
+          <xs:element name="bye" type="xs:unsignedShort" default="3" minOccurs="0"/>
+          <xs:element name="cancel" type="xs:unsignedShort" default="3" minOccurs="0"/>
+          <xs:element name="reInvite" type="xs:unsignedShort" default="3" minOccurs="0"/>
+          <xs:element name="retryOn422" type="xs:unsignedShort" default="5" minOccurs="0"/>
+          <xs:element name="retryOn491" type="xs:unsignedShort" default="5" minOccurs="0"/>
+          <xs:element name="invite200" type="xs:unsignedShort" default="0" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="retryCountersKey">
+    <xs:complexContent>
+      <xs:extension base="ns3:sbcUnCreatableKey">
+        <xs:sequence>
+          <xs:element name="parentKey" type="ns5:signalingKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="timers">
+    <xs:complexContent>
+      <xs:extension base="ns3:sbcEntity">
+        <xs:sequence>
+          <xs:element name="t1" type="xs:unsignedShort" default="500" minOccurs="0"/>
+          <xs:element name="t2" type="xs:unsignedShort" default="4000" minOccurs="0"/>
+          <xs:element name="tcpRetransmitTimer" type="xs:unsignedShort" default="6" minOccurs="0"/>
+          <xs:element name="sctpRetransmitTimer" type="xs:unsignedShort" default="6" minOccurs="0"/>
+          <xs:element name="sessionKeepalive" type="xs:unsignedShort" default="1800" minOccurs="0"/>
+          <xs:element name="nonNatKeepAliveTimer" type="xs:unsignedShort" default="60" minOccurs="0"/>
+          <xs:element name="sessionMinSE" type="xs:unsignedShort" default="90" minOccurs="0"/>
+          <xs:element name="sessionTerminationDeltaTime" type="xs:unsignedShort" default="0" minOccurs="0"/>
+          <xs:element name="ocsDialogTimer" type="xs:unsignedShort" default="1440" minOccurs="0"/>
+          <xs:element name="suspendResumeTimer" type="ns6:suspendResumeTimer" minOccurs="0"/>
+          <xs:element name="bfcpTimer" type="ns6:bfcpTimer" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="timersKey">
+    <xs:complexContent>
+      <xs:extension base="ns3:sbcUnCreatableKey">
+        <xs:sequence>
+          <xs:element name="parentKey" type="ns5:signalingKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="registration">
+    <xs:complexContent>
+      <xs:extension base="ns3:sbcEntity">
+        <xs:sequence>
+          <xs:element name="requireRegistration" type="ns2:sonusSipSigTrunkGroupRegistrationType" default="none" minOccurs="0"/>
+          <xs:element name="expires" type="xs:unsignedShort" default="3600" minOccurs="0"/>
+          <xs:element name="insideExpiresMinimum" type="xs:unsignedInt" default="3600" minOccurs="0"/>
+          <xs:element name="includeXOriginalAddr" type="ns1:sonusAdminState" default="disabled" minOccurs="0"/>
+          <xs:element name="bulkRegisterFormat" type="ns2:sonusBulkRegistration" default="disabled" minOccurs="0"/>
+          <xs:element name="intRefreshFactorMin" type="xs:unsignedShort" default="0" minOccurs="0"/>
+          <xs:element name="intRefreshFactorMax" type="xs:unsignedShort" default="0" minOccurs="0"/>
+          <xs:element name="extRefreshFactorMin" type="xs:unsignedShort" default="0" minOccurs="0"/>
+          <xs:element name="extRefreshFactorMax" type="xs:unsignedShort" default="0" minOccurs="0"/>
+          <xs:element name="alwaysRandomIntExpires" type="ns1:sonusAdminState" default="disabled" minOccurs="0"/>
+          <xs:element name="alwaysRandomExtExpires" type="ns1:sonusAdminState" default="disabled" minOccurs="0"/>
+          <xs:element name="useRUriForRegisterRouting" type="ns1:sonusAdminState" default="disabled" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="registrationKey">
+    <xs:complexContent>
+      <xs:extension base="ns3:sbcUnCreatableKey">
+        <xs:sequence>
+          <xs:element name="parentKey" type="ns5:signalingKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="authentication">
+    <xs:complexContent>
+      <xs:extension base="ns3:sbcEntity">
+        <xs:sequence>
+          <xs:element name="authUserPart" type="xs:string" minOccurs="0"/>
+          <xs:element name="authPassword" type="xs:string" minOccurs="0"/>
+          <xs:element name="intChallengeResponse" type="ns1:sonusAdminState" default="disabled" minOccurs="0"/>
+          <xs:element name="incInternalCredentials" type="ns1:sonusAdminState" default="disabled" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="authenticationKey">
+    <xs:complexContent>
+      <xs:extension base="ns3:sbcUnCreatableKey">
+        <xs:sequence>
+          <xs:element name="parentKey" type="ns5:signalingKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="transportPreference">
+    <xs:complexContent>
+      <xs:extension base="ns3:sbcEntity">
+        <xs:sequence>
+          <xs:element name="preference1" type="ns7:sonusTransportProtocolType" default="none" minOccurs="0"/>
+          <xs:element name="preference2" type="ns7:sonusTransportProtocolType" default="none" minOccurs="0"/>
+          <xs:element name="preference3" type="ns7:sonusTransportProtocolType" default="none" minOccurs="0"/>
+          <xs:element name="preference4" type="ns7:sonusTransportProtocolType" default="none" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="transportPreferenceKey">
+    <xs:complexContent>
+      <xs:extension base="ns3:sbcUnCreatableKey">
+        <xs:sequence>
+          <xs:element name="parentKey" type="ns5:signalingKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="E164Profiles">
+    <xs:complexContent>
+      <xs:extension base="ns3:sbcEntity">
+        <xs:sequence>
+          <xs:element name="e164LocalProfile" type="xs:string" minOccurs="0"/>
+          <xs:element name="e164GlobalProfile" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="E164ProfilesKey">
+    <xs:complexContent>
+      <xs:extension base="ns3:sbcUnCreatableKey">
+        <xs:sequence>
+          <xs:element name="parentKey" type="ns5:signalingKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="X-Headers">
+    <xs:complexContent>
+      <xs:extension base="ns3:sbcEntity">
+        <xs:sequence>
+          <xs:element name="HeaderFlag" type="ns2:headerTypeAllowed" default="none" minOccurs="0"/>
+          <xs:element name="HeaderProfile" type="xs:string" minOccurs="0"/>
+          <xs:element name="IsupProfile" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="X-HeadersKey">
+    <xs:complexContent>
+      <xs:extension base="ns3:sbcUnCreatableKey">
+        <xs:sequence>
+          <xs:element name="parentKey" type="ns5:signalingKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="postDialDelay">
+    <xs:complexContent>
+      <xs:extension base="ns3:sbcEntity">
+        <xs:sequence>
+          <xs:element name="timeOut" type="xs:unsignedInt" default="0" minOccurs="0"/>
+          <xs:element name="responseCode" type="xs:unsignedInt" default="503" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="postDialDelayKey">
+    <xs:complexContent>
+      <xs:extension base="ns3:sbcUnCreatableKey">
+        <xs:sequence>
+          <xs:element name="parentKey" type="ns5:signalingKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+</xs:schema>
+

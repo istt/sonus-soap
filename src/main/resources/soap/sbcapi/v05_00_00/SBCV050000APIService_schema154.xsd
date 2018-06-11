@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="sipadaptorprofile.signaling.profiles.v05_00_00.sbc.api.ems.sonus.com" xmlns:ns2="profiles.v05_00_00.sbc.api.ems.sonus.com" xmlns:ns1="common.sbc.api.ems.sonus.com" xmlns:ns4="sonusgen2sipadaptor.types.v05_00_00.sbc.api.ems.sonus.com" xmlns:ns3="signaling.profiles.v05_00_00.sbc.api.ems.sonus.com" xmlns:tns="sipadaptorprofile.signaling.profiles.v05_00_00.sbc.api.ems.sonus.com" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ns5="criterion.rule.sipadaptorprofile.signaling.profiles.v05_00_00.sbc.api.ems.sonus.com" xmlns:ns6="rule.sipadaptorprofile.signaling.profiles.v05_00_00.sbc.api.ems.sonus.com" xmlns:ns7="action.rule.sipadaptorprofile.signaling.profiles.v05_00_00.sbc.api.ems.sonus.com">
+
+  <xs:import namespace="common.sbc.api.ems.sonus.com" schemaLocation="SBCV050000APIService_schema326.xsd"/>
+
+  <xs:import namespace="profiles.v05_00_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050000APIService_schema197.xsd"/>
+
+  <xs:import namespace="signaling.profiles.v05_00_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050000APIService_schema158.xsd"/>
+
+  <xs:import namespace="sonusgen2sipadaptor.types.v05_00_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050000APIService_schema95.xsd"/>
+
+  <xs:import namespace="criterion.rule.sipadaptorprofile.signaling.profiles.v05_00_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050000APIService_schema319.xsd"/>
+
+  <xs:import namespace="rule.sipadaptorprofile.signaling.profiles.v05_00_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050000APIService_schema171.xsd"/>
+
+  <xs:import namespace="action.rule.sipadaptorprofile.signaling.profiles.v05_00_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050000APIService_schema368.xsd"/>
+
+  <xs:complexType name="cmds">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcEntity">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="cmdsKey">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcUnCreatableKey">
+        <xs:sequence>
+          <xs:element name="parentKey" type="ns3:sipAdaptorProfileKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="rule">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcEntity">
+        <xs:sequence>
+          <xs:element name="ruleIndex" type="xs:unsignedShort" minOccurs="0"/>
+          <xs:element name="applyMatchHeader" type="ns4:sonusSipSmmActionHdrInstance" default="one" minOccurs="0"/>
+          <xs:element name="applyMatchHdrRange" type="ns4:sonusSipSmmActionHdrRange" default="undefined" minOccurs="0"/>
+          <xs:element name="criterion" type="ns6:criterion" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="action" type="ns6:action" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="ruleKey">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcKey">
+        <xs:sequence>
+          <xs:element name="ruleIndex" type="xs:int" minOccurs="0"/>
+          <xs:element name="parentKey" type="ns3:sipAdaptorProfileKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="ruleListWrapper">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcListWrapper">
+        <xs:sequence>
+          <xs:element name="rule" type="tns:rule" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+</xs:schema>
+

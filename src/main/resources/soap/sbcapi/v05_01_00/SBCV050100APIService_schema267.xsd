@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="ipsignalingpeergroup.profiles.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns2="common.sbc.api.ems.sonus.com" xmlns:ns1="sonusipsignalingpeergroup.types.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns4="profiles.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns3="v05_01_00.sbc.api.ems.sonus.com" xmlns:tns="ipsignalingpeergroup.profiles.v05_01_00.sbc.api.ems.sonus.com" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:import namespace="sonusipsignalingpeergroup.types.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema83.xsd"/>
+
+  <xs:import namespace="common.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema360.xsd"/>
+
+  <xs:import namespace="v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema7.xsd"/>
+
+  <xs:import namespace="profiles.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema217.xsd"/>
+
+  <xs:complexType name="ipSignalingPeerGroupData">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcEntity">
+        <xs:sequence>
+          <xs:element name="sequence" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="serviceStatus" type="ns1:sonusServiceStatus" default="outOfService" minOccurs="0"/>
+          <xs:element name="ipAddress" type="xs:string" default="0.0.0.0" minOccurs="0"/>
+          <xs:element name="ipPort" type="xs:unsignedInt" default="0" minOccurs="0"/>
+          <xs:element name="fqdn" type="xs:string" minOccurs="0"/>
+          <xs:element name="fqdnPort" type="xs:unsignedInt" default="0" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="ipSignalingPeerGroupDataKey">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcKey">
+        <xs:sequence>
+          <xs:element name="sequence" type="xs:long" minOccurs="0"/>
+          <xs:element name="parentKey" type="ns4:ipSignalingPeerGroupKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="ipSignalingPeerGroupDataListWrapper">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcListWrapper">
+        <xs:sequence>
+          <xs:element name="ipSignalingPeerGroupData" type="tns:ipSignalingPeerGroupData" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+</xs:schema>
+

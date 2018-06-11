@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="sonussiparsprofile.types.v04_02_00.sbc.api.ems.sonus.com" xmlns:tns="sonussiparsprofile.types.v04_02_00.sbc.api.ems.sonus.com" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:complexType name="SonusResponseProfileTypeUnion">
+    <xs:sequence>
+      <xs:element name="sonusResponseKeywordTypenewBits" type="tns:SonusResponseKeywordTypenewBits" minOccurs="0"/>
+      <xs:element name="sonusResponseKeywordTypenew" type="xs:string" minOccurs="0"/>
+      <xs:element name="sonusResponseProfileErrorCodeType" type="xs:unsignedShort" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="SonusResponseKeywordTypenewBits">
+    <xs:sequence>
+      <xs:element name="all" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="all4xx" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="all5xx" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="all6xx" type="xs:boolean" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="SonusSipArsProfBlkListAlgorithmsTypeBits">
+    <xs:sequence>
+      <xs:element name="timeouts" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="retryafter" type="xs:boolean" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="SonusSipArsProfBlkListAlgRetryAfterTypeBits">
+    <xs:sequence>
+      <xs:element name="sip-503" type="xs:boolean" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:simpleType name="sonusSipArsProfBlkListAlgTimeoutsTypeType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="sip-invite"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusSipArsProfRecAlgType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="probe"/>
+      <xs:enumeration value="timer"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusSipArsProfRecAlgProbeMethodType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="sip-options"/>
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>
+

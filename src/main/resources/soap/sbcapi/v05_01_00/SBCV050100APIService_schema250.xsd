@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="message.action.rule.sipadaptorprofile.signaling.profiles.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns2="rule.sipadaptorprofile.signaling.profiles.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns1="common.sbc.api.ems.sonus.com" xmlns:ns4="sonusgen2sipadaptor.types.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns3="action.rule.sipadaptorprofile.signaling.profiles.v05_01_00.sbc.api.ems.sonus.com" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ns5="uriinfo.message.action.rule.sipadaptorprofile.signaling.profiles.v05_01_00.sbc.api.ems.sonus.com">
+
+  <xs:import namespace="common.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema360.xsd"/>
+
+  <xs:import namespace="rule.sipadaptorprofile.signaling.profiles.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema186.xsd"/>
+
+  <xs:import namespace="action.rule.sipadaptorprofile.signaling.profiles.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema410.xsd"/>
+
+  <xs:import namespace="sonusgen2sipadaptor.types.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema99.xsd"/>
+
+  <xs:import namespace="uriinfo.message.action.rule.sipadaptorprofile.signaling.profiles.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema11.xsd"/>
+
+  <xs:complexType name="reject">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcEntity">
+        <xs:sequence>
+          <xs:element name="responseCode" type="xs:unsignedInt" default="503" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="rejectKey">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcUnCreatableKey">
+        <xs:sequence>
+          <xs:element name="parentKey" type="ns3:messageKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="uriInfo">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcEntity">
+        <xs:sequence>
+          <xs:element name="uriDisplayName" type="ns5:uriDisplayName" minOccurs="0"/>
+          <xs:element name="uriHostName" type="ns5:uriHostName" minOccurs="0"/>
+          <xs:element name="uriHostPort" type="ns5:uriHostPort" minOccurs="0"/>
+          <xs:element name="uriScheme" type="ns5:uriScheme" minOccurs="0"/>
+          <xs:element name="uriUserName" type="ns5:uriUserName" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="uriInfoKey">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcUnCreatableKey">
+        <xs:sequence>
+          <xs:element name="parentKey" type="ns3:messageKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+</xs:schema>
+

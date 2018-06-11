@@ -1,0 +1,2957 @@
+<?xml version="1.0" encoding="UTF-8"?><!--"V09.03.00A018"-->
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://www.sonusnet.com/sms/smsapi/r07_03_07/SubscriberService" xmlns:intf="http://www.sonusnet.com/sms/smsapi/r07_03_07/SubscriberService" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tns1="http://www.sonusnet.com/sms/smsapi/r07_03_07/model" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.sonusnet.com/sms/smsapi/r07_03_07/SubscriberService">
+<!--WSDL created by Apache Axis version: 1.2.1
+Built on Jun 14, 2005 (09:15:57 EDT)-->
+ <wsdl:types>
+  <schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.sonusnet.com/sms/smsapi/r07_03_07/model">
+   <import namespace="http://www.sonusnet.com/sms/smsapi/r07_03_07/SubscriberService"/>
+   <import namespace="http://schemas.xmlsoap.org/soap/encoding/"/>
+   <complexType name="NamedValue">
+    <sequence>
+     <element name="name" nillable="true" type="xsd:string"/>
+     <element name="value" nillable="true" type="xsd:string"/>
+    </sequence>
+   </complexType>
+   <complexType name="ManagedEntityKey">
+    <sequence>
+     <element name="internalId" nillable="true" type="xsd:string"/>
+     <element name="displayAttributes" nillable="true" type="impl:ArrayOf_tns1_NamedValue"/>
+    </sequence>
+   </complexType>
+   <complexType name="SubscriberKey">
+    <complexContent>
+     <extension base="tns1:ManagedEntityKey">
+      <sequence>
+       <element name="externalId" nillable="true" type="xsd:string"/>
+      </sequence>
+     </extension>
+    </complexContent>
+   </complexType>
+   <complexType name="EnterpriseKey">
+    <complexContent>
+     <extension base="tns1:ManagedEntityKey">
+      <sequence>
+       <element name="name" nillable="true" type="xsd:string"/>
+      </sequence>
+     </extension>
+    </complexContent>
+   </complexType>
+   <complexType name="ManagedEntityValue">
+    <sequence/>
+   </complexType>
+   <complexType name="TimeZoneKey">
+    <complexContent>
+     <extension base="tns1:ManagedEntityKey">
+      <sequence/>
+     </extension>
+    </complexContent>
+   </complexType>
+   <complexType name="BillingProfile">
+    <complexContent>
+     <extension base="tns1:ManagedEntityValue">
+      <sequence>
+       <element name="ratingInfo" nillable="true" type="xsd:string"/>
+       <element name="billingId" nillable="true" type="xsd:string"/>
+       <element name="secondaryBillingId" nillable="true" type="xsd:string"/>
+       <element name="billingCountry" nillable="true" type="xsd:string"/>
+       <element name="billingTimeZone" nillable="true" type="xsd:string"/>
+       <element name="billingTimeZoneId" nillable="true" type="tns1:TimeZoneKey"/>
+      </sequence>
+     </extension>
+    </complexContent>
+   </complexType>
+   <simpleType name="AdminStateType">
+    <restriction base="xsd:string">
+     <enumeration value="Authorized"/>
+     <enumeration value="Suspended"/>
+    </restriction>
+   </simpleType>
+   <simpleType name="AdminStateCodeType">
+    <restriction base="xsd:string">
+     <enumeration value="UNDER_PROVISIONING"/>
+     <enumeration value="FAILURE_TO_PAY_BILL"/>
+     <enumeration value="ACCOUNT_INACTIVE"/>
+     <enumeration value="BY_PRIMARY_DN"/>
+     <enumeration value="BY_SUBSCRIBER"/>
+     <enumeration value="OTHER"/>
+    </restriction>
+   </simpleType>
+   <complexType name="BusinessGroupKey">
+    <complexContent>
+     <extension base="tns1:ManagedEntityKey">
+      <sequence/>
+     </extension>
+    </complexContent>
+   </complexType>
+   <simpleType name="DNType">
+    <restriction base="xsd:string">
+     <enumeration value="Endpoint"/>
+     <enumeration value="HuntGroup"/>
+     <enumeration value="Virtual"/>
+     <enumeration value="GroupExtension"/>
+    </restriction>
+   </simpleType>
+   <complexType name="DirectoryNumberKey">
+    <complexContent>
+     <extension base="tns1:ManagedEntityKey">
+      <sequence>
+       <element name="countryCode" nillable="true" type="xsd:string"/>
+       <element name="number" nillable="true" type="xsd:string"/>
+       <element name="businessGroup" nillable="true" type="tns1:BusinessGroupKey"/>
+       <element name="dnType" nillable="true" type="tns1:DNType"/>
+      </sequence>
+     </extension>
+    </complexContent>
+   </complexType>
+   <simpleType name="DNGradeType">
+    <restriction base="xsd:string">
+     <enumeration value="Public-PublicBG"/>
+     <enumeration value="Public-PrivateBG"/>
+     <enumeration value="Private-PrivateBG"/>
+    </restriction>
+   </simpleType>
+   <complexType name="DeviceKey">
+    <complexContent>
+     <extension base="tns1:ManagedEntityKey">
+      <sequence>
+       <element name="externalId" nillable="true" type="xsd:string"/>
+      </sequence>
+     </extension>
+    </complexContent>
+   </complexType>
+   <complexType name="DevicePortKey">
+    <complexContent>
+     <extension base="tns1:ManagedEntityKey">
+      <sequence>
+       <element name="deviceKey" nillable="true" type="tns1:DeviceKey"/>
+       <element name="portNumber" nillable="true" type="xsd:int"/>
+      </sequence>
+     </extension>
+    </complexContent>
+   </complexType>
+   <complexType name="HuntGroupKey">
+    <complexContent>
+     <extension base="tns1:ManagedEntityKey">
+      <sequence/>
+     </extension>
+    </complexContent>
+   </complexType>
+   <complexType name="CarrierKey">
+    <complexContent>
+     <extension base="tns1:ManagedEntityKey">
+      <sequence>
+       <element name="carrierCode" nillable="true" type="xsd:string"/>
+      </sequence>
+     </extension>
+    </complexContent>
+   </complexType>
+   <complexType name="ServiceGroupKey">
+    <complexContent>
+     <extension base="tns1:ManagedEntityKey">
+      <sequence/>
+     </extension>
+    </complexContent>
+   </complexType>
+   <complexType name="ClassOfServiceKey">
+    <complexContent>
+     <extension base="tns1:ManagedEntityKey">
+      <sequence/>
+     </extension>
+    </complexContent>
+   </complexType>
+   <simpleType name="FeatureAdminStateType">
+    <restriction base="xsd:string">
+     <enumeration value="Grant"/>
+     <enumeration value="Inherit"/>
+     <enumeration value="Deny"/>
+    </restriction>
+   </simpleType>
+   <complexType name="FeatureProfile">
+    <complexContent>
+     <extension base="tns1:ManagedEntityValue">
+      <sequence>
+       <element name="adminState" nillable="true" type="tns1:FeatureAdminStateType"/>
+      </sequence>
+     </extension>
+    </complexContent>
+   </complexType>
+   <simpleType name="DestinationType">
+    <restriction base="xsd:string">
+     <enumeration value="SIPURI"/>
+     <enumeration value="TelURI"/>
+     <enumeration value="DialedDigits"/>
+    </restriction>
+   </simpleType>
+   <complexType name="CallForwardingVariable">
+    <complexContent>
+     <extension base="tns1:FeatureProfile">
+      <sequence>
+       <element name="operationalState" nillable="true" type="xsd:boolean"/>
+       <element name="remoteDestinationType" nillable="true" type="tns1:DestinationType"/>
+       <element name="remoteDestination" nillable="true" type="xsd:string"/>
+       <element name="ringReminder" nillable="true" type="xsd:boolean"/>
+      </sequence>
+     </extension>
+    </complexContent>
+   </complexType>
+   <complexType name="CallForwardingBusyLine">
+    <complexContent>
+     <extension base="tns1:FeatureProfile">
+      <sequence>
+       <element name="operationalState" nillable="true" type="xsd:boolean"/>
+       <element name="remoteDestinationType" nillable="true" type="tns1:DestinationType"/>
+       <element name="remoteDestination" nillable="true" type="xsd:string"/>
+      </sequence>
+     </extension>
+    </complexContent>
+   </complexType>
+   <complexType name="CallForwardingDontAnswer">
+    <complexContent>
+     <extension base="tns1:FeatureProfile">
+      <sequence>
+       <element name="operationalState" nillable="true" type="xsd:boolean"/>
+       <element name="remoteDestinationType" nillable="true" type="tns1:DestinationType"/>
+       <element name="remoteDestination" nillable="true" type="xsd:string"/>
+       <element name="timeout" nillable="true" type="xsd:int"/>
+      </sequence>
+     </extension>
+    </complexContent>
+   </complexType>
+   <simpleType name="CallWaitingToneType">
+    <restriction base="xsd:string">
+     <enumeration value="0"/>
+     <enumeration value="1"/>
+     <enumeration value="2"/>
+     <enumeration value="3"/>
+     <enumeration value="4"/>
+    </restriction>
+   </simpleType>
+   <complexType name="CallWaiting">
+    <complexContent>
+     <extension base="tns1:FeatureProfile">
+      <sequence>
+       <element name="operationalState" nillable="true" type="xsd:boolean"/>
+       <element name="tone" nillable="true" type="tns1:CallWaitingToneType"/>
+       <element name="intertoneInterval" nillable="true" type="xsd:int"/>
+       <element name="callerAnnouncement" nillable="true" type="xsd:boolean"/>
+       <element name="dontAnswerTimeout" nillable="true" type="xsd:int"/>
+       <element name="useApplicationServerControl" nillable="true" type="xsd:boolean"/>
+      </sequence>
+     </extension>
+    </complexContent>
+   </complexType>
+   <complexType name="CallHold">
+    <complexContent>
+     <extension base="tns1:FeatureProfile">
+      <sequence>
+       <element name="timeout" nillable="true" type="xsd:int"/>
+      </sequence>
+     </extension>
+    </complexContent>
+   </complexType>
+   <complexType name="TransferRestriction">
+    <complexContent>
+     <extension base="tns1:ManagedEntityValue">
+      <sequence>
+       <element name="incomingInterBGToInterBG" nillable="true" type="xsd:boolean"/>
+       <element name="incomingInterBGToIntraBG" nillable="true" type="xsd:boolean"/>
+       <element name="outgoingInterBGToInterBG" nillable="true" type="xsd:boolean"/>
+       <element name="outgoingInterBGToIntraBG" nillable="true" type="xsd:boolean"/>
+       <element name="incomingIntraBGToInterBG" nillable="true" type="xsd:boolean"/>
+       <element name="incomingIntraBGToIntraBG" nillable="true" type="xsd:boolean"/>
+       <element name="outgoingIntraBGToInterBG" nillable="true" type="xsd:boolean"/>
+       <element name="outgoingIntraBGToIntraBG" nillable="true" type="xsd:boolean"/>
+      </sequence>
+     </extension>
+    </complexContent>
+   </complexType>
+   <complexType name="CallTransfer">
+    <complexContent>
+     <extension base="tns1:FeatureProfile">
+      <sequence>
+       <element name="transferRestriction" nillable="true" type="tns1:TransferRestriction"/>
+       <element name="earlyScreening" nillable="true" type="xsd:boolean"/>
+      </sequence>
+     </extension>
+    </complexContent>
+   </complexType>
+   <complexType name="CallerId">
+    <complexContent>
+     <extension base="tns1:FeatureProfile">
+      <sequence>
+       <element name="operationalState" nillable="true" type="xsd:boolean"/>
+       <element name="locationPrefixRemoval" nillable="true" type="xsd:boolean"/>
+      </sequence>
+     </extension>
+    </complexContent>
+   </complexType>
+   <complexType name="CallerIdOnCallWaiting">
+    <complexContent>
+     <extension base="tns1:FeatureProfile">
+      <sequence>
+       <element name="operationalState" nillable="true" type="xsd:boolean"/>
+      </sequence>
+     </extension>
+    </complexContent>
+   </complexType>
+   <complexType name="CallerIdCallPrivacy">
+    <complexContent>
+     <extension base="tns1:FeatureProfile">
+      <sequence>
+       <element name="dnPrivacy" nillable="true" type="xsd:boolean"/>
+       <element name="namePrivacy" nillable="true" type="xsd:boolean"/>
+      </sequence>
+     </extension>
+    </complexContent>
+   </complexType>
+   <complexType name="ThreeWayCalling">
+    <complexContent>
+     <extension base="tns1:FeatureProfile">
+      <sequence/>
+     </extension>
+    </complexContent>
+   </complexType>
+   <complexType name="AnonymousCallRejection">
+    <complexContent>
+     <extension base="tns1:FeatureProfile">
+      <sequence>
+       <element name="operationalState" nillable="true" type="xsd:boolean"/>
+      </sequence>
+     </extension>
+    </complexContent>
+   </complexType>
+   <complexType name="VoiceMailServerKey">
+    <complexContent>
+     <extension base="tns1:ManagedEntityKey">
+      <sequence/>
+     </extension>
+    </complexContent>
+   </complexType>
+   <simpleType name="MessageWaitingControlType">
+    <restriction base="xsd:string">
+     <enumeration value="Track-VMSS"/>
+     <enumeration value="MWI-On"/>
+     <enumeration value="MWI-Off"/>
+    </restriction>
+   </simpleType>
+   <complexType name="MessageWaitingIndicator">
+    <complexContent>
+     <extension base="tns1:FeatureProfile">
+      <sequence>
+       <element name="audibleTone" nillable="true" type="xsd:boolean"/>
+       <element name="ringReminder" nillable="true" type="xsd:boolean"/>
+       <element name="visualIndicator" nillable="true" type="xsd:boolean"/>
+       <element name="voiceMailServer" nillable="true" type="tns1:VoiceMailServerKey"/>
+       <element name="indicatorControl" nillable="true" type="tns1:MessageWaitingControlType"/>
+      </sequence>
+     </extension>
+    </complexContent>
+   </complexType>
+   <complexType name="CallerIdWithName">
+    <complexContent>
+     <extension base="tns1:FeatureProfile">
+      <sequence>
+       <element name="operationalState" nillable="true" type="xsd:boolean"/>
+      </sequence>
+     </extension>
+    </complexContent>
+   </complexType>
+   <complexType name="CallerIdWithNameOnCallWaiting">
+    <complexContent>
+     <extension base="tns1:FeatureProfile">
+      <sequence>
+       <element name="operationalState" nillable="true" type="xsd:boolean"/>
+      </sequence>
+     </extension>
+    </complexContent>
+   </complexType>
+   <complexType name="RemoteCallForwarding">
+    <complexContent>
+     <extension base="tns1:FeatureProfile">
+      <sequence>
+       <element name="destinationNumber" nillable="true" type="xsd:string"/>
+      </sequence>
+     </extension>
+    </complexContent>
+   </complexType>
+   <complexType name="SelectiveCallForwardingRecord">
+    <sequence>
+     <element name="callingPartyNumber" nillable="true" type="xsd:string"/>
+     <element name="destinationNumber" nillable="true" type="xsd:string"/>
+    </sequence>
+   </complexType>
+   <complexType name="SelectiveCallForwarding">
+    <complexContent>
+     <extension base="tns1:FeatureProfile">
+      <sequence>
+       <element name="operationalState" nillable="true" type="xsd:boolean"/>
+       <element name="maxListSize" nillable="true" type="xsd:int"/>
+       <element name="callForwardingRecords" nillable="true" type="impl:ArrayOf_tns1_SelectiveCallForwardingRecord"/>
+       <element name="ringReminder" nillable="true" type="xsd:boolean"/>
+      </sequence>
+     </extension>
+    </complexContent>
+   </complexType>
+   <complexType name="HuntGroupMakeBusy">
+    <complexContent>
+     <extension base="tns1:FeatureProfile">
+      <sequence>
+       <element name="operationalState" nillable="true" type="xsd:boolean"/>
+      </sequence>
+     </extension>
+    </complexContent>
+   </complexType>
+   <complexType name="HuntGroupMemberMakeBusy">
+    <complexContent>
+     <extension base="tns1:FeatureProfile">
+      <sequence>
+       <element name="operationalState" nillable="true" type="xsd:boolean"/>
+      </sequence>
+     </extension>
+    </complexContent>
+   </complexType>
+   <complexType name="FaxModemControl">
+    <complexContent>
+     <extension base="tns1:FeatureProfile">
+      <sequence/>
+     </extension>
+    </complexContent>
+   </complexType>
+   <complexType name="ScriptKey">
+    <complexContent>
+     <extension base="tns1:ManagedEntityKey">
+      <sequence/>
+     </extension>
+    </complexContent>
+   </complexType>
+   <complexType name="CallDestinationScreeningListKey">
+    <complexContent>
+     <extension base="tns1:ManagedEntityKey">
+      <sequence/>
+     </extension>
+    </complexContent>
+   </complexType>
+   <complexType name="GeneralCallForwarding">
+    <complexContent>
+     <extension base="tns1:FeatureProfile">
+      <sequence>
+       <element name="maxHopCount" nillable="true" type="xsd:int"/>
+       <element name="overallCallForwardingScript" nillable="true" type="tns1:ScriptKey"/>
+       <element name="callDestinationScreeningList" nillable="true" type="tns1:CallDestinationScreeningListKey"/>
+       <element name="callForwardingBusyLineScript" nillable="true" type="tns1:ScriptKey"/>
+       <element name="callForwardingDontAnswerScript" nillable="true" type="tns1:ScriptKey"/>
+       <element name="deliverCallerIdWithRingReminder" nillable="true" type="xsd:boolean"/>
+       <element name="volumeLimit" nillable="true" type="xsd:int"/>
+       <element name="audibleCFReminder" nillable="true" type="xsd:boolean"/>
+      </sequence>
+     </extension>
+    </complexContent>
+   </complexType>
+   <complexType name="SwitchOrderCodeToActionMappingKey">
+    <complexContent>
+     <extension base="tns1:ManagedEntityKey">
+      <sequence/>
+     </extension>
+    </complexContent>
+   </complexType>
+   <complexType name="GeneralMultiwayCalling">
+    <complexContent>
+     <extension base="tns1:FeatureProfile">
+      <sequence>
+       <element name="useMGCPEndpointSupport" nillable="true" type="xsd:boolean"/>
+       <element name="useSIPEndpointSupport" nillable="true" type="xsd:boolean"/>
+       <element name="callDestinationScreeningList" nillable="true" type="tns1:CallDestinationScreeningListKey"/>
+       <element name="deluxeFlashProcessing" nillable="true" type="xsd:boolean"/>
+       <element name="useApplicationServerControl" nillable="true" type="xsd:boolean"/>
+       <element name="switchOrderCodeToActionMapping" nillable="true" type="tns1:SwitchOrderCodeToActionMappingKey"/>
+      </sequence>
+     </extension>
+    </complexContent>
+   </complexType>
+   <complexType name="SimpleCodecEnforcement">
+    <complexContent>
+     <extension base="tns1:FeatureProfile">
+      <sequence>
+       <element name="packetizationEnforcement" nillable="true" type="xsd:boolean"/>
+      </sequence>
+     </extension>
+    </complexContent>
+   </complexType>
+   <complexType name="ToneKey">
+    <complexContent>
+     <extension base="tns1:ManagedEntityKey">
+      <sequence/>
+     </extension>
+    </complexContent>
+   </complexType>
+   <complexType name="CallConfirmationTone">
+    <complexContent>
+     <extension base="tns1:FeatureProfile">
+      <sequence>
+       <element name="intraASXTone" nillable="true" type="tns1:ToneKey"/>
+       <element name="interASXTone" nillable="true" type="tns1:ToneKey"/>
+       <element name="asxToGSXTone" nillable="true" type="tns1:ToneKey"/>
+       <element name="asxToAppServerTone" nillable="true" type="tns1:ToneKey"/>
+      </sequence>
+     </extension>
+    </complexContent>
+   </complexType>
+   <simpleType name="PersistenceOptionType">
+    <restriction base="xsd:string">
+     <enumeration value="Never"/>
+     <enumeration value="Always"/>
+     <enumeration value="IntraBGOnly"/>
+     <enumeration value="WhileIntraBGRemain"/>
+    </restriction>
+   </simpleType>
+   <complexType name="NWayCalling">
+    <complexContent>
+     <extension base="tns1:FeatureProfile">
+      <sequence>
+       <element name="maxConferenceSize" nillable="true" type="xsd:int"/>
+       <element name="persistenceOption" nillable="true" type="tns1:PersistenceOptionType"/>
+      </sequence>
+     </extension>
+    </complexContent>
+   </complexType>
+   <complexType name="SpeedDialingListRecord">
+    <complexContent>
+     <extension base="tns1:ManagedEntityValue">
+      <sequence>
+       <element name="dialingCode" nillable="true" type="xsd:string"/>
+       <element name="dialingEntry" nillable="true" type="xsd:string"/>
+       <element name="label" nillable="true" type="xsd:string"/>
+      </sequence>
+     </extension>
+    </complexContent>
+   </complexType>
+   <complexType name="SpeedDialingSingleDigit">
+    <complexContent>
+     <extension base="tns1:FeatureProfile">
+      <sequence>
+       <element name="maxListSize" nillable="true" type="xsd:int"/>
+       <element name="speedDialingList" nillable="true" type="impl:ArrayOf_tns1_SpeedDialingListRecord"/>
+      </sequence>
+     </extension>
+    </complexContent>
+   </complexType>
+   <complexType name="SpeedDialingTwoDigit">
+    <complexContent>
+     <extension base="tns1:FeatureProfile">
+      <sequence>
+       <element name="maxListSize" nillable="true" type="xsd:int"/>
+       <element name="speedDialingList" nillable="true" type="impl:ArrayOf_tns1_SpeedDialingListRecord"/>
+      </sequence>
+     </extension>
+    </complexContent>
+   </complexType>
+   <simpleType name="NumberType">
+    <restriction base="xsd:string">
+     <enumeration value="any"/>
+     <enumeration value="national"/>
+     <enumeration value="international"/>
+     <enumeration value="private"/>
+     <enumeration value="unknown"/>
+     <enumeration value="unavailable"/>
+    </restriction>
+   </simpleType>
+   <simpleType name="RingingCadenceType">
+    <restriction base="xsd:string">
+     <enumeration value="0"/>
+     <enumeration value="1"/>
+     <enumeration value="2"/>
+     <enumeration value="3"/>
+     <enumeration value="4"/>
+     <enumeration value="5"/>
+     <enumeration value="6"/>
+     <enumeration value="7"/>
+     <enumeration value="8"/>
+    </restriction>
+   </simpleType>
+   <complexType name="DistinctiveRingingScreeningListRecord">
+    <complexContent>
+     <extension base="tns1:ManagedEntityValue">
+      <sequence>
+       <element name="prefixDigits" nillable="true" type="xsd:string"/>
+       <element name="numberType" nillable="true" type="tns1:NumberType"/>
+       <element name="label" nillable="true" type="xsd:string"/>
+       <element name="ringingCadence" nillable="true" type="tns1:RingingCadenceType"/>
+       <element name="callWaitingTone" nillable="true" type="tns1:CallWaitingToneType"/>
+      </sequence>
+     </extension>
+    </complexContent>
+   </complexType>
+   <complexType name="DistinctiveRinging">
+    <complexContent>
+     <extension base="tns1:FeatureProfile">
+      <sequence>
+       <element name="operationalState" nillable="true" type="xsd:boolean"/>
+       <element name="distinctiveRingingScreeningList" nillable="true" type="impl:ArrayOf_tns1_DistinctiveRingingScreeningListRecord"/>
+      </sequence>
+     </extension>
+    </complexContent>
+   </complexType>
+   <complexType name="DoNotDisturb">
+    <complexContent>
+     <extension base="tns1:FeatureProfile">
+      <sequence>
+       <element name="operationalState" nillable="true" type="xsd:boolean"/>
+       <element name="expirationTime" nillable="true" type="xsd:int"/>
+       <element name="overridePINCode" nillable="true" type="xsd:string"/>
+       <element name="doNotDisturbOverride" nillable="true" type="xsd:boolean"/>
+       <element name="destinationNumber" nillable="true" type="xsd:string"/>
+       <element name="ringReminder" nillable="true" type="xsd:boolean"/>
+       <element name="announcementPattern" nillable="true" type="xsd:int"/>
+      </sequence>
+     </extension>
+    </complexContent>
+   </complexType>
+   <simpleType name="FindMeTreatmentType">
+    <restriction base="xsd:string">
+     <enumeration value="LocalRingbackTone"/>
+     <enumeration value="NetworkAnnouncement"/>
+    </restriction>
+   </simpleType>
+   <simpleType name="FindMeSearchMethodType">
+    <restriction base="xsd:string">
+     <enumeration value="Sequential"/>
+     <enumeration value="Parallel"/>
+    </restriction>
+   </simpleType>
+   <complexType name="FindMeLocationListRecord">
+    <complexContent>
+     <extension base="tns1:ManagedEntityValue">
+      <sequence>
+       <element name="location" nillable="true" type="xsd:string"/>
+       <element name="label" nillable="true" type="xsd:string"/>
+       <element name="offerCallIndicator" nillable="true" type="xsd:boolean"/>
+       <element name="entryNum" nillable="true" type="xsd:int"/>
+      </sequence>
+     </extension>
+    </complexContent>
+   </complexType>
+   <complexType name="FindMeFollowMe">
+    <complexContent>
+     <extension base="tns1:FeatureProfile">
+      <sequence>
+       <element name="operationalState" nillable="true" type="xsd:boolean"/>
+       <element name="treatmentToCaller" nillable="true" type="tns1:FindMeTreatmentType"/>
+       <element name="findMeSearchMethod" nillable="true" type="tns1:FindMeSearchMethodType"/>
+       <element name="followMeIndicator" nillable="true" type="xsd:boolean"/>
+       <element name="followMeLocation" nillable="true" type="xsd:string"/>
+       <element name="followMeLocationLabel" nillable="true" type="xsd:string"/>
+       <element name="destinationNumber" nillable="true" type="xsd:string"/>
+       <element name="dontAnswerTimeout" nillable="true" type="xsd:int"/>
+       <element name="answerSupervision" nillable="true" type="xsd:boolean"/>
+       <element name="findMeLocationList" nillable="true" type="impl:ArrayOf_tns1_FindMeLocationListRecord"/>
+      </sequence>
+     </extension>
+    </complexContent>
+   </complexType>
+   <complexType name="ClickToDialBusinessGroupPermissions">
+    <complexContent>
+     <extension base="tns1:ManagedEntityValue">
+      <sequence>
+       <element name="intraBGToIntraBG" nillable="true" type="xsd:boolean"/>
+       <element name="intraBGToInterBG" nillable="true" type="xsd:boolean"/>
+      </sequence>
+     </extension>
+    </complexContent>
+   </complexType>
+   <complexType name="ClickToDialPrefixListRecord">
+    <complexContent>
+     <extension base="tns1:ManagedEntityValue">
+      <sequence>
+       <element name="prefixDigits" nillable="true" type="xsd:string"/>
+       <element name="label" nillable="true" type="xsd:string"/>
+       <element name="defaultEntry" nillable="true" type="xsd:boolean"/>
+      </sequence>
+     </extension>
+    </complexContent>
+   </complexType>
+   <complexType name="ClickToDial">
+    <complexContent>
+     <extension base="tns1:FeatureProfile">
+      <sequence>
+       <element name="businessGroupPermissions" nillable="true" type="tns1:ClickToDialBusinessGroupPermissions"/>
+       <element name="clickToDialPrefixList" nillable="true" type="impl:ArrayOf_tns1_ClickToDialPrefixListRecord"/>
+      </sequence>
+     </extension>
+    </complexContent>
+   </complexType>
+   <complexType name="AutomaticCallback">
+    <complexContent>
+     <extension base="tns1:FeatureProfile">
+      <sequence>
+       <element name="callDestinationScreeningList" nillable="true" type="tns1:CallDestinationScreeningListKey"/>
+      </sequence>
+     </extension>
+    </complexContent>
+   </complexType>
+   <simpleType name="NumberPlaybackType">
+    <restriction base="xsd:string">
+     <enumeration value="Never"/>
+     <enumeration value="Always"/>
+     <enumeration value="WithConfirmation"/>
+    </restriction>
+   </simpleType>
+   <simpleType name="NumberRecallGuidanceType">
+    <restriction base="xsd:string">
+     <enumeration value="Short"/>
+     <enumeration value="Long"/>
+    </restriction>
+   </simpleType>
+   <simpleType name="DateTimeFormatType">
+    <restriction base="xsd:string">
+     <enumeration value="LocalDateAndTime"/>
+     <enumeration value="RelativeDate"/>
+    </restriction>
+   </simpleType>
+   <complexType name="AutomaticRecall">
+    <complexContent>
+     <extension base="tns1:FeatureProfile">
+      <sequence>
+       <element name="numberPlayback" nillable="true" type="tns1:NumberPlaybackType"/>
+       <element name="callDestinationScreeningList" nillable="true" type="tns1:CallDestinationScreeningListKey"/>
+       <element name="numberOfIncomingCalls" nillable="true" type="xsd:int"/>
+       <element name="promptingGuidance" nillable="true" type="tns1:NumberRecallGuidanceType"/>
+       <element name="dateTimeFormat" nillable="true" type="tns1:DateTimeFormatType"/>
+       <element name="groupSameNumberCalls" nillable="true" type="xsd:boolean"/>
+      </sequence>
+     </extension>
+    </complexContent>
+   </complexType>
+   <complexType name="BusyBuster">
+    <complexContent>
+     <extension base="tns1:FeatureProfile">
+      <sequence>
+       <element name="ringingCadence" nillable="true" type="tns1:RingingCadenceType"/>
+       <element name="callDestinationScreeningList" nillable="true" type="tns1:CallDestinationScreeningListKey"/>
+      </sequence>
+     </extension>
+    </complexContent>
+   </complexType>
+   <complexType name="SelectiveCallScreeningListRecord">
+    <complexContent>
+     <extension base="tns1:ManagedEntityValue">
+      <sequence>
+       <element name="prefixDigits" nillable="true" type="xsd:string"/>
+       <element name="numberType" nillable="true" type="tns1:NumberType"/>
+       <element name="label" nillable="true" type="xsd:string"/>
+       <element name="callerIDRestrictedIndicator" nillable="true" type="xsd:boolean"/>
+      </sequence>
+     </extension>
+    </complexContent>
+   </complexType>
+   <complexType name="SelectiveCallAcceptance">
+    <complexContent>
+     <extension base="tns1:FeatureProfile">
+      <sequence>
+       <element name="operationalState" nillable="true" type="xsd:boolean"/>
+       <element name="maximumSelectiveCallScreeningListSize" nillable="true" type="xsd:int"/>
+       <element name="selectiveCallScreeningEntries" nillable="true" type="impl:ArrayOf_tns1_SelectiveCallScreeningListRecord"/>
+       <element name="pinCode" nillable="true" type="xsd:string"/>
+       <element name="remoteDestination" nillable="true" type="xsd:string"/>
+       <element name="screenOnRedirectingNumber" nillable="true" type="xsd:boolean"/>
+      </sequence>
+     </extension>
+    </complexContent>
+   </complexType>
+   <complexType name="SelectiveCallRejection">
+    <complexContent>
+     <extension base="tns1:FeatureProfile">
+      <sequence>
+       <element name="operationalState" nillable="true" type="xsd:boolean"/>
+       <element name="maximumSelectiveCallScreeningListSize" nillable="true" type="xsd:int"/>
+       <element name="selectiveCallScreeningEntries" nillable="true" type="impl:ArrayOf_tns1_SelectiveCallScreeningListRecord"/>
+       <element name="screenOnRedirectingNumber" nillable="true" type="xsd:boolean"/>
+      </sequence>
+     </extension>
+    </complexContent>
+   </complexType>
+   <complexType name="MusicOnHold">
+    <complexContent>
+     <extension base="tns1:FeatureProfile">
+      <sequence>
+       <element name="operationalState" nillable="true" type="xsd:boolean"/>
+       <element name="musicPattern" nillable="true" type="xsd:int"/>
+      </sequence>
+     </extension>
+    </complexContent>
+   </complexType>
+   <complexType name="OutgoingMemorySlot">
+    <complexContent>
+     <extension base="tns1:FeatureProfile">
+      <sequence/>
+     </extension>
+    </complexContent>
+   </complexType>
+   <complexType name="IncomingMemorySlot">
+    <complexContent>
+     <extension base="tns1:FeatureProfile">
+      <sequence/>
+     </extension>
+    </complexContent>
+   </complexType>
+   <complexType name="VoiceMailServerInformation">
+    <complexContent>
+     <extension base="tns1:FeatureProfile">
+      <sequence>
+       <element name="voiceMailDestinationType" nillable="true" type="tns1:DestinationType"/>
+       <element name="voiceMailDestination" nillable="true" type="xsd:string"/>
+      </sequence>
+     </extension>
+    </complexContent>
+   </complexType>
+   <complexType name="CustomCallForwardingListRecord">
+    <complexContent>
+     <extension base="tns1:ManagedEntityValue">
+      <sequence>
+       <element name="index" nillable="true" type="xsd:int"/>
+       <element name="registeredDestinationNumber" nillable="true" type="xsd:string"/>
+       <element name="label" nillable="true" type="xsd:string"/>
+      </sequence>
+     </extension>
+    </complexContent>
+   </complexType>
+   <simpleType name="CustomCallForwardingType">
+    <restriction base="xsd:string">
+     <enumeration value="Off"/>
+     <enumeration value="Forward"/>
+     <enumeration value="Answer"/>
+    </restriction>
+   </simpleType>
+   <complexType name="CustomCallForwarding">
+    <complexContent>
+     <extension base="tns1:FeatureProfile">
+      <sequence>
+       <element name="operationalState" nillable="true" type="xsd:boolean"/>
+       <element name="registeredNumbersList" nillable="true" type="impl:ArrayOf_tns1_CustomCallForwardingListRecord"/>
+       <element name="activeIndex" nillable="true" type="xsd:int"/>
+       <element name="dontAnswerTimeout" nillable="true" type="xsd:int"/>
+       <element name="ringReminder" nillable="true" type="xsd:boolean"/>
+       <element name="announcementToCaller" nillable="true" type="xsd:boolean"/>
+       <element name="announcementToForwardedToParty" nillable="true" type="xsd:boolean"/>
+       <element name="forwardUnsuccessfulCalls" nillable="true" type="xsd:boolean"/>
+       <element name="selectiveCallHandlingOption" nillable="true" type="tns1:CustomCallForwardingType"/>
+       <element name="maximumSelectiveCallScreeningListSize" nillable="true" type="xsd:int"/>
+       <element name="selectiveCallScreeningList" nillable="true" type="impl:ArrayOf_tns1_SelectiveCallScreeningListRecord"/>
+      </sequence>
+     </extension>
+    </complexContent>
+   </complexType>
+   <complexType name="RemoteFeatureControl">
+    <complexContent>
+     <extension base="tns1:FeatureProfile">
+      <sequence>
+       <element name="operationalState" nillable="true" type="xsd:boolean"/>
+       <element name="allowRemoteCallSetup" nillable="true" type="xsd:boolean"/>
+      </sequence>
+     </extension>
+    </complexContent>
+   </complexType>
+   <complexType name="VXMLMediaKey">
+    <complexContent>
+     <extension base="tns1:ManagedEntityKey">
+      <sequence/>
+     </extension>
+    </complexContent>
+   </complexType>
+   <complexType name="RemoteFeatureAccess">
+    <complexContent>
+     <extension base="tns1:FeatureProfile">
+      <sequence>
+       <element name="userAuthenticationPrompt" nillable="true" type="tns1:VXMLMediaKey"/>
+       <element name="maxNumUserAuthenticationPrompts" nillable="true" type="xsd:int"/>
+       <element name="remoteFeatureControlPrompt" nillable="true" type="tns1:VXMLMediaKey"/>
+       <element name="maxNumRemoteFeatureControlPrompts" nillable="true" type="xsd:int"/>
+       <element name="remoteFeatureControlResourceTimeout" nillable="true" type="xsd:int"/>
+       <element name="callDestinationScreeningList" nillable="true" type="tns1:CallDestinationScreeningListKey"/>
+      </sequence>
+     </extension>
+    </complexContent>
+   </complexType>
+   <complexType name="MaliciousCallIdentification">
+    <complexContent>
+     <extension base="tns1:FeatureProfile">
+      <sequence>
+       <element name="activationWithConfirmation" nillable="true" type="xsd:boolean"/>
+       <element name="traceAllCalls" nillable="true" type="xsd:boolean"/>
+      </sequence>
+     </extension>
+    </complexContent>
+   </complexType>
+   <complexType name="RingBackWhenFree">
+    <complexContent>
+     <extension base="tns1:FeatureProfile">
+      <sequence>
+       <element name="userPrompt" nillable="true" type="xsd:boolean"/>
+       <element name="callDestinationScreeningList" nillable="true" type="tns1:CallDestinationScreeningListKey"/>
+       <element name="desiredRingingCadence" nillable="true" type="tns1:RingingCadenceType"/>
+       <element name="maxConcurrentRequests" nillable="true" type="xsd:int"/>
+      </sequence>
+     </extension>
+    </complexContent>
+   </complexType>
+   <complexType name="RingBackWhenFreeQueuing">
+    <complexContent>
+     <extension base="tns1:FeatureProfile">
+      <sequence>
+       <element name="operationalState" nillable="true" type="xsd:boolean"/>
+       <element name="maxConcurrentRequests" nillable="true" type="xsd:int"/>
+      </sequence>
+     </extension>
+    </complexContent>
+   </complexType>
+   <simpleType name="ScreeningListType">
+    <restriction base="xsd:string">
+     <enumeration value="Allowed"/>
+     <enumeration value="Denied"/>
+    </restriction>
+   </simpleType>
+   <complexType name="NumberGroupIndexListRecord">
+    <complexContent>
+     <extension base="tns1:ManagedEntityValue">
+      <sequence>
+       <element name="index" nillable="true" type="xsd:int"/>
+       <element name="operationalState" nillable="true" type="xsd:boolean"/>
+      </sequence>
+     </extension>
+    </complexContent>
+   </complexType>
+   <complexType name="OutgoingCallRestriction">
+    <complexContent>
+     <extension base="tns1:FeatureProfile">
+      <sequence>
+       <element name="operationalState" nillable="true" type="xsd:boolean"/>
+       <element name="type" nillable="true" type="tns1:ScreeningListType"/>
+       <element name="pinCode" nillable="true" type="xsd:string"/>
+       <element name="numberGroupIndexList" nillable="true" type="impl:ArrayOf_tns1_NumberGroupIndexListRecord"/>
+      </sequence>
+     </extension>
+    </complexContent>
+   </complexType>
+   <complexType name="MultiServiceControlParametersKey">
+    <complexContent>
+     <extension base="tns1:ManagedEntityKey">
+      <sequence/>
+     </extension>
+    </complexContent>
+   </complexType>
+   <complexType name="MultiServiceControl">
+    <complexContent>
+     <extension base="tns1:FeatureProfile">
+      <sequence>
+       <element name="multiServiceControlParameters" nillable="true" type="tns1:MultiServiceControlParametersKey"/>
+      </sequence>
+     </extension>
+    </complexContent>
+   </complexType>
+   <complexType name="CallForwardingUnreachable">
+    <complexContent>
+     <extension base="tns1:FeatureProfile">
+      <sequence>
+       <element name="operationalState" nillable="true" type="xsd:boolean"/>
+       <element name="remoteDestinationType" nillable="true" type="tns1:DestinationType"/>
+       <element name="remoteDestination" nillable="true" type="xsd:string"/>
+       <element name="dontAnswerTimeout" nillable="true" type="xsd:int"/>
+       <element name="forwardAllIncompleteCalls" nillable="true" type="xsd:boolean"/>
+       <element name="announcementToCaller" nillable="true" type="xsd:boolean"/>
+       <element name="announcementToForwardedToParty" nillable="true" type="xsd:boolean"/>
+      </sequence>
+     </extension>
+    </complexContent>
+   </complexType>
+   <complexType name="DirectedCallPickup">
+    <complexContent>
+     <extension base="tns1:FeatureProfile">
+      <sequence/>
+     </extension>
+    </complexContent>
+   </complexType>
+   <complexType name="BusinessGroupFeatureControls">
+    <complexContent>
+     <extension base="tns1:FeatureProfile">
+      <sequence>
+       <element name="directedCallPickup" nillable="true" type="xsd:boolean"/>
+       <element name="pickupWaitingCalls" nillable="true" type="xsd:boolean"/>
+       <element name="callOffer" nillable="true" type="xsd:boolean"/>
+       <element name="callOfferOnCancelCallWaiting" nillable="true" type="xsd:boolean"/>
+       <element name="callPickup" nillable="true" type="xsd:boolean"/>
+       <element name="callOfferCallWaitingTone" nillable="true" type="tns1:CallWaitingToneType"/>
+       <element name="callOfferIntertoneInterval" nillable="true" type="xsd:int"/>
+       <element name="callOfferDontAnswerTimeout" nillable="true" type="xsd:int"/>
+       <element name="maxParkedCalls" nillable="true" type="xsd:int"/>
+       <element name="callOfferApplicationServerControl" nillable="true" type="xsd:boolean"/>
+      </sequence>
+     </extension>
+    </complexContent>
+   </complexType>
+   <simpleType name="CallingNumberSourceType">
+    <restriction base="xsd:string">
+     <enumeration value="None"/>
+     <enumeration value="SubscriberDN"/>
+     <enumeration value="InterBGCallerIDDN"/>
+     <enumeration value="IntraBGCallerIDDN"/>
+     <enumeration value="PublicPresenceDN"/>
+     <enumeration value="PrimaryDN"/>
+     <enumeration value="PilotDN"/>
+     <enumeration value="SIPFromHeader"/>
+     <enumeration value="SIPPAIHeader"/>
+     <enumeration value="InterBGCallerIDName"/>
+     <enumeration value="SIPPPIHeader"/>
+    </restriction>
+   </simpleType>
+   <complexType name="PresentationNumber">
+    <complexContent>
+     <extension base="tns1:FeatureProfile">
+      <sequence>
+       <element name="numberSource" nillable="true" type="tns1:CallingNumberSourceType"/>
+       <element name="numberPrivacy" nillable="true" type="xsd:boolean"/>
+      </sequence>
+     </extension>
+    </complexContent>
+   </complexType>
+   <simpleType name="AlarmCallRecurrenceType">
+    <restriction base="xsd:string">
+     <enumeration value="0"/>
+     <enumeration value="1"/>
+     <enumeration value="2"/>
+     <enumeration value="3"/>
+     <enumeration value="4"/>
+     <enumeration value="5"/>
+     <enumeration value="6"/>
+     <enumeration value="7"/>
+     <enumeration value="8"/>
+     <enumeration value="9"/>
+    </restriction>
+   </simpleType>
+   <complexType name="AlarmCallListRecord">
+    <complexContent>
+     <extension base="tns1:ManagedEntityValue">
+      <sequence>
+       <element name="recurrence" nillable="true" type="tns1:AlarmCallRecurrenceType"/>
+       <element name="alarmTime" nillable="true" type="xsd:string"/>
+       <element name="expirationTime" nillable="true" type="xsd:int"/>
+       <element name="ringingCadence" nillable="true" type="tns1:RingingCadenceType"/>
+       <element name="callWaitingTone" nillable="true" type="tns1:CallWaitingToneType"/>
+      </sequence>
+     </extension>
+    </complexContent>
+   </complexType>
+   <simpleType name="TargetedRingType">
+    <restriction base="xsd:string">
+     <enumeration value="RingAll"/>
+     <enumeration value="OnlyRingTarget"/>
+     <enumeration value="RingTargetIfAvailElseRingAll"/>
+    </restriction>
+   </simpleType>
+   <complexType name="AlarmCall">
+    <complexContent>
+     <extension base="tns1:FeatureProfile">
+      <sequence>
+       <element name="callWaiting" nillable="true" type="xsd:boolean"/>
+       <element name="maximumNumberOfAlarms" nillable="true" type="xsd:int"/>
+       <element name="alarmCallList" nillable="true" type="impl:ArrayOf_tns1_AlarmCallListRecord"/>
+       <element name="targetedRingType" nillable="true" type="tns1:TargetedRingType"/>
+      </sequence>
+     </extension>
+    </complexContent>
+   </complexType>
+   <complexType name="CallOffer">
+    <complexContent>
+     <extension base="tns1:FeatureProfile">
+      <sequence>
+       <element name="automaticallyEnableCallOffer" nillable="true" type="xsd:boolean"/>
+      </sequence>
+     </extension>
+    </complexContent>
+   </complexType>
+   <complexType name="CallPark">
+    <complexContent>
+     <extension base="tns1:FeatureProfile">
+      <sequence/>
+     </extension>
+    </complexContent>
+   </complexType>
+   <simpleType name="ChangeNumberForwardingType">
+    <restriction base="xsd:string">
+     <enumeration value="No"/>
+     <enumeration value="Immediate"/>
+     <enumeration value="AfterAnnouncement"/>
+    </restriction>
+   </simpleType>
+   <complexType name="ChangeNumber">
+    <complexContent>
+     <extension base="tns1:FeatureProfile">
+      <sequence>
+       <element name="newNumber" nillable="true" type="xsd:string"/>
+       <element name="expirationTime" nillable="true" type="xsd:int"/>
+       <element name="forwardCallsToNewNumber" nillable="true" type="tns1:ChangeNumberForwardingType"/>
+      </sequence>
+     </extension>
+    </complexContent>
+   </complexType>
+   <complexType name="HotLine">
+    <complexContent>
+     <extension base="tns1:FeatureProfile">
+      <sequence>
+       <element name="destinationType" nillable="true" type="tns1:DestinationType"/>
+       <element name="destination" nillable="true" type="xsd:string"/>
+      </sequence>
+     </extension>
+    </complexContent>
+   </complexType>
+   <complexType name="WarmLine">
+    <complexContent>
+     <extension base="tns1:FeatureProfile">
+      <sequence>
+       <element name="operationalState" nillable="true" type="xsd:boolean"/>
+       <element name="destinationType" nillable="true" type="tns1:DestinationType"/>
+       <element name="destination" nillable="true" type="xsd:string"/>
+       <element name="firstDigitTimeout" nillable="true" type="xsd:int"/>
+       <element name="minimumDigitsToRoute" nillable="true" type="xsd:int"/>
+      </sequence>
+     </extension>
+    </complexContent>
+   </complexType>
+   <simpleType name="HuntingSequenceType">
+    <restriction base="xsd:string">
+     <enumeration value="Ascending"/>
+     <enumeration value="Descending"/>
+     <enumeration value="CircularAscending"/>
+    </restriction>
+   </simpleType>
+   <complexType name="PilotNumberHuntListKey">
+    <complexContent>
+     <extension base="tns1:ManagedEntityKey">
+      <sequence/>
+     </extension>
+    </complexContent>
+   </complexType>
+   <complexType name="PilotNumberHunting">
+    <complexContent>
+     <extension base="tns1:FeatureProfile">
+      <sequence>
+       <element name="operationalState" nillable="true" type="xsd:boolean"/>
+       <element name="pilotNumberPresentation" nillable="true" type="xsd:boolean"/>
+       <element name="huntingSequence" nillable="true" type="tns1:HuntingSequenceType"/>
+       <element name="pilotNumberHuntList" nillable="true" type="tns1:PilotNumberHuntListKey"/>
+      </sequence>
+     </extension>
+    </complexContent>
+   </complexType>
+   <complexType name="HuntGroupControls">
+    <complexContent>
+     <extension base="tns1:FeatureProfile">
+      <sequence>
+       <element name="huntGroupVSCControls" nillable="true" type="xsd:boolean"/>
+       <element name="huntGroup" nillable="true" type="tns1:HuntGroupKey"/>
+      </sequence>
+     </extension>
+    </complexContent>
+   </complexType>
+   <simpleType name="NotificationType">
+    <restriction base="xsd:string">
+     <enumeration value="Email"/>
+     <enumeration value="SMS"/>
+    </restriction>
+   </simpleType>
+   <simpleType name="NotificationCallScreeningType">
+    <restriction base="xsd:string">
+     <enumeration value="Off"/>
+     <enumeration value="Allowed"/>
+     <enumeration value="Denied"/>
+    </restriction>
+   </simpleType>
+   <complexType name="NotificationAddressListRecord">
+    <complexContent>
+     <extension base="tns1:ManagedEntityValue">
+      <sequence>
+       <element name="notificationAddress" nillable="true" type="xsd:string"/>
+       <element name="notificationType" nillable="true" type="tns1:NotificationType"/>
+       <element name="notificationEnabled" nillable="true" type="xsd:boolean"/>
+       <element name="notifyUnansweredCalls" nillable="true" type="xsd:boolean"/>
+       <element name="notifyAnsweredCalls" nillable="true" type="xsd:boolean"/>
+       <element name="notifyForwardedCalls" nillable="true" type="xsd:boolean"/>
+       <element name="notifyCalledPartyBusyCalls" nillable="true" type="xsd:boolean"/>
+       <element name="notificationCallScreeningType" nillable="true" type="tns1:NotificationCallScreeningType"/>
+      </sequence>
+     </extension>
+    </complexContent>
+   </complexType>
+   <complexType name="CallNotification">
+    <complexContent>
+     <extension base="tns1:FeatureProfile">
+      <sequence>
+       <element name="operationalState" nillable="true" type="xsd:boolean"/>
+       <element name="notificationAddressEntries" nillable="true" type="impl:ArrayOf_tns1_NotificationAddressListRecord"/>
+       <element name="maximumSelectiveCallScreeningListSize" nillable="true" type="xsd:int"/>
+       <element name="selectiveCallScreeningEntries" nillable="true" type="impl:ArrayOf_tns1_SelectiveCallScreeningListRecord"/>
+      </sequence>
+     </extension>
+    </complexContent>
+   </complexType>
+   <complexType name="MultipleRegistrations">
+    <complexContent>
+     <extension base="tns1:FeatureProfile">
+      <sequence>
+       <element name="operationalState" nillable="true" type="xsd:boolean"/>
+       <element name="homeDeviceRingTimeout" nillable="true" type="xsd:int"/>
+       <element name="ringHomeDeviceFirst" nillable="true" type="xsd:boolean"/>
+       <element name="rejectByAnyDevice" nillable="true" type="xsd:boolean"/>
+      </sequence>
+     </extension>
+    </complexContent>
+   </complexType>
+   <complexType name="ArrayOfFeatureProfiles">
+    <complexContent>
+     <extension base="tns1:ManagedEntityValue">
+      <sequence>
+       <element name="callForwardingVariable" nillable="true" type="tns1:CallForwardingVariable"/>
+       <element name="callForwardingBusyLine" nillable="true" type="tns1:CallForwardingBusyLine"/>
+       <element name="callForwardingDontAnswer" nillable="true" type="tns1:CallForwardingDontAnswer"/>
+       <element name="callWaiting" nillable="true" type="tns1:CallWaiting"/>
+       <element name="callHold" nillable="true" type="tns1:CallHold"/>
+       <element name="callTransfer" nillable="true" type="tns1:CallTransfer"/>
+       <element name="callerId" nillable="true" type="tns1:CallerId"/>
+       <element name="callerIdOnCallWaiting" nillable="true" type="tns1:CallerIdOnCallWaiting"/>
+       <element name="callerIdCallPrivacy" nillable="true" type="tns1:CallerIdCallPrivacy"/>
+       <element name="threeWayCalling" nillable="true" type="tns1:ThreeWayCalling"/>
+       <element name="anonymousCallRejection" nillable="true" type="tns1:AnonymousCallRejection"/>
+       <element name="messageWaitingIndicator" nillable="true" type="tns1:MessageWaitingIndicator"/>
+       <element name="callerIdWithName" nillable="true" type="tns1:CallerIdWithName"/>
+       <element name="callerIdWithNameOnCallWaiting" nillable="true" type="tns1:CallerIdWithNameOnCallWaiting"/>
+       <element name="remoteCallForwarding" nillable="true" type="tns1:RemoteCallForwarding"/>
+       <element name="selectiveCallForwarding" nillable="true" type="tns1:SelectiveCallForwarding"/>
+       <element name="huntGroupMakeBusy" nillable="true" type="tns1:HuntGroupMakeBusy"/>
+       <element name="huntGroupMemberMakeBusy" nillable="true" type="tns1:HuntGroupMemberMakeBusy"/>
+       <element name="faxModemControl" nillable="true" type="tns1:FaxModemControl"/>
+       <element name="generalCallForwarding" nillable="true" type="tns1:GeneralCallForwarding"/>
+       <element name="generalMultiwayCalling" nillable="true" type="tns1:GeneralMultiwayCalling"/>
+       <element name="simpleCodecEnforcement" nillable="true" type="tns1:SimpleCodecEnforcement"/>
+       <element name="callConfirmationTone" nillable="true" type="tns1:CallConfirmationTone"/>
+       <element name="nWayCalling" nillable="true" type="tns1:NWayCalling"/>
+       <element name="speedDialingSingleDigit" nillable="true" type="tns1:SpeedDialingSingleDigit"/>
+       <element name="speedDialingTwoDigit" nillable="true" type="tns1:SpeedDialingTwoDigit"/>
+       <element name="distinctiveRinging" nillable="true" type="tns1:DistinctiveRinging"/>
+       <element name="doNotDisturb" nillable="true" type="tns1:DoNotDisturb"/>
+       <element name="findMeFollowMe" nillable="true" type="tns1:FindMeFollowMe"/>
+       <element name="clickToDial" nillable="true" type="tns1:ClickToDial"/>
+       <element name="automaticCallback" nillable="true" type="tns1:AutomaticCallback"/>
+       <element name="automaticRecall" nillable="true" type="tns1:AutomaticRecall"/>
+       <element name="busyBuster" nillable="true" type="tns1:BusyBuster"/>
+       <element name="selectiveCallAcceptance" nillable="true" type="tns1:SelectiveCallAcceptance"/>
+       <element name="selectiveCallRejection" nillable="true" type="tns1:SelectiveCallRejection"/>
+       <element name="musicOnHold" nillable="true" type="tns1:MusicOnHold"/>
+       <element name="outgoingMemorySlot" nillable="true" type="tns1:OutgoingMemorySlot"/>
+       <element name="incomingMemorySlot" nillable="true" type="tns1:IncomingMemorySlot"/>
+       <element name="voiceMailServerInformation" nillable="true" type="tns1:VoiceMailServerInformation"/>
+       <element name="customCallForwarding" nillable="true" type="tns1:CustomCallForwarding"/>
+       <element name="remoteFeatureControl" nillable="true" type="tns1:RemoteFeatureControl"/>
+       <element name="remoteFeatureAccess" nillable="true" type="tns1:RemoteFeatureAccess"/>
+       <element name="maliciousCallIdentification" nillable="true" type="tns1:MaliciousCallIdentification"/>
+       <element name="ringBackWhenFree" nillable="true" type="tns1:RingBackWhenFree"/>
+       <element name="ringBackWhenFreeQueuing" nillable="true" type="tns1:RingBackWhenFreeQueuing"/>
+       <element name="outgoingCallRestriction" nillable="true" type="tns1:OutgoingCallRestriction"/>
+       <element name="multiServiceControl" nillable="true" type="tns1:MultiServiceControl"/>
+       <element name="callForwardingUnreachable" nillable="true" type="tns1:CallForwardingUnreachable"/>
+       <element name="directedCallPickup" nillable="true" type="tns1:DirectedCallPickup"/>
+       <element name="businessGroupFeatureControls" nillable="true" type="tns1:BusinessGroupFeatureControls"/>
+       <element name="presentationNumber" nillable="true" type="tns1:PresentationNumber"/>
+       <element name="alarmCall" nillable="true" type="tns1:AlarmCall"/>
+       <element name="callOffer" nillable="true" type="tns1:CallOffer"/>
+       <element name="callPark" nillable="true" type="tns1:CallPark"/>
+       <element name="changeNumber" nillable="true" type="tns1:ChangeNumber"/>
+       <element name="hotLine" nillable="true" type="tns1:HotLine"/>
+       <element name="warmLine" nillable="true" type="tns1:WarmLine"/>
+       <element name="pilotNumberHunting" nillable="true" type="tns1:PilotNumberHunting"/>
+       <element name="huntGroupControls" nillable="true" type="tns1:HuntGroupControls"/>
+       <element name="callNotification" nillable="true" type="tns1:CallNotification"/>
+       <element name="multipleRegistrations" nillable="true" type="tns1:MultipleRegistrations"/>
+      </sequence>
+     </extension>
+    </complexContent>
+   </complexType>
+   <complexType name="ContactInfo">
+    <complexContent>
+     <extension base="tns1:ManagedEntityValue">
+      <sequence>
+       <element name="salutation" nillable="true" type="xsd:string"/>
+       <element name="firstName" nillable="true" type="xsd:string"/>
+       <element name="middleName" nillable="true" type="xsd:string"/>
+       <element name="lastName" nillable="true" type="xsd:string"/>
+       <element name="suffix" nillable="true" type="xsd:string"/>
+       <element name="company" nillable="true" type="xsd:string"/>
+       <element name="address1" nillable="true" type="xsd:string"/>
+       <element name="address2" nillable="true" type="xsd:string"/>
+       <element name="address3" nillable="true" type="xsd:string"/>
+       <element name="city" nillable="true" type="xsd:string"/>
+       <element name="state" nillable="true" type="xsd:string"/>
+       <element name="postalCode" nillable="true" type="xsd:string"/>
+       <element name="country" nillable="true" type="xsd:string"/>
+       <element name="phoneNumber" nillable="true" type="xsd:string"/>
+       <element name="emailAddress" nillable="true" type="xsd:string"/>
+      </sequence>
+     </extension>
+    </complexContent>
+   </complexType>
+   <simpleType name="EndpointType">
+    <restriction base="xsd:string">
+     <enumeration value="MGCP"/>
+     <enumeration value="SIP"/>
+     <enumeration value="H248"/>
+     <enumeration value="NotApplicable"/>
+     <enumeration value="MGCP_AGCF"/>
+     <enumeration value="SIP_AGCF"/>
+     <enumeration value="H248_AGCF"/>
+     <enumeration value="MGCP_SIP"/>
+     <enumeration value="SIP_PLUS"/>
+    </restriction>
+   </simpleType>
+   <complexType name="SIPRealmKey">
+    <complexContent>
+     <extension base="tns1:ManagedEntityKey">
+      <sequence/>
+     </extension>
+    </complexContent>
+   </complexType>
+   <complexType name="SIPContact">
+    <sequence>
+     <element name="uri" nillable="true" type="xsd:string"/>
+     <element name="expirationTime" nillable="true" type="xsd:int"/>
+     <element name="priority" nillable="true" type="xsd:string"/>
+     <element name="path" nillable="true" type="xsd:string"/>
+    </sequence>
+   </complexType>
+   <complexType name="CallControlParametersKey">
+    <complexContent>
+     <extension base="tns1:ManagedEntityKey">
+      <sequence/>
+     </extension>
+    </complexContent>
+   </complexType>
+   <complexType name="FeatureNameToScriptKey">
+    <complexContent>
+     <extension base="tns1:ManagedEntityKey">
+      <sequence/>
+     </extension>
+    </complexContent>
+   </complexType>
+   <complexType name="SIPServiceParametersKey">
+    <complexContent>
+     <extension base="tns1:ManagedEntityKey">
+      <sequence/>
+     </extension>
+    </complexContent>
+   </complexType>
+   <complexType name="VoiceCodecParametersKey">
+    <complexContent>
+     <extension base="tns1:ManagedEntityKey">
+      <sequence/>
+     </extension>
+    </complexContent>
+   </complexType>
+   <complexType name="CallCrankbackParametersKey">
+    <complexContent>
+     <extension base="tns1:ManagedEntityKey">
+      <sequence/>
+     </extension>
+    </complexContent>
+   </complexType>
+   <complexType name="PacketServiceProfileKey">
+    <complexContent>
+     <extension base="tns1:ManagedEntityKey">
+      <sequence/>
+     </extension>
+    </complexContent>
+   </complexType>
+   <complexType name="RoutingLabelKey">
+    <complexContent>
+     <extension base="tns1:ManagedEntityKey">
+      <sequence/>
+     </extension>
+    </complexContent>
+   </complexType>
+   <complexType name="ASXKey">
+    <complexContent>
+     <extension base="tns1:ManagedEntityKey">
+      <sequence/>
+     </extension>
+    </complexContent>
+   </complexType>
+   <complexType name="BusinessLocationKey">
+    <complexContent>
+     <extension base="tns1:ManagedEntityKey">
+      <sequence/>
+     </extension>
+    </complexContent>
+   </complexType>
+   <complexType name="RTPRTCPEncryptionParametersKey">
+    <complexContent>
+     <extension base="tns1:ManagedEntityKey">
+      <sequence/>
+     </extension>
+    </complexContent>
+   </complexType>
+   <complexType name="OriginationEntityRoutingProfileKey">
+    <complexContent>
+     <extension base="tns1:ManagedEntityKey">
+      <sequence/>
+     </extension>
+    </complexContent>
+   </complexType>
+   <complexType name="PartitionKey">
+    <complexContent>
+     <extension base="tns1:ManagedEntityKey">
+      <sequence/>
+     </extension>
+    </complexContent>
+   </complexType>
+   <complexType name="DirectoryNumberStandardRoute">
+    <complexContent>
+     <extension base="tns1:ManagedEntityValue">
+      <sequence>
+       <element name="partition" nillable="true" type="tns1:PartitionKey"/>
+       <element name="routingLabel" nillable="true" type="tns1:RoutingLabelKey"/>
+      </sequence>
+     </extension>
+    </complexContent>
+   </complexType>
+   <complexType name="DeviceProfileKey">
+    <complexContent>
+     <extension base="tns1:ManagedEntityKey">
+      <sequence/>
+     </extension>
+    </complexContent>
+   </complexType>
+   <simpleType name="VirtualDNType">
+    <restriction base="xsd:string">
+     <enumeration value="RemoteCallForwarding"/>
+     <enumeration value="RemoteFeatureAccess"/>
+     <enumeration value="ChangeNumber"/>
+    </restriction>
+   </simpleType>
+   <complexType name="CongestionControlParametersKey">
+    <complexContent>
+     <extension base="tns1:ManagedEntityKey">
+      <sequence/>
+     </extension>
+    </complexContent>
+   </complexType>
+   <complexType name="FeatureToCauseCodeMappingKey">
+    <complexContent>
+     <extension base="tns1:ManagedEntityKey">
+      <sequence/>
+     </extension>
+    </complexContent>
+   </complexType>
+   <complexType name="CallPickupGroupKey">
+    <complexContent>
+     <extension base="tns1:ManagedEntityKey">
+      <sequence/>
+     </extension>
+    </complexContent>
+   </complexType>
+   <simpleType name="PublicUserIdentityType">
+    <restriction base="xsd:string">
+     <enumeration value="SIPURI"/>
+     <enumeration value="TelURI"/>
+     <enumeration value="GroupURI"/>
+    </restriction>
+   </simpleType>
+   <simpleType name="PriorityType">
+    <restriction base="xsd:string">
+     <enumeration value="Normal"/>
+     <enumeration value="Priority2"/>
+     <enumeration value="Priority3"/>
+    </restriction>
+   </simpleType>
+   <complexType name="PublicUserIdentity">
+    <complexContent>
+     <extension base="tns1:ManagedEntityValue">
+      <sequence>
+       <element name="type" nillable="true" type="tns1:PublicUserIdentityType"/>
+       <element name="publicUserIdentity" nillable="true" type="xsd:string"/>
+       <element name="callOrigination" nillable="true" type="xsd:boolean"/>
+       <element name="callTermination" nillable="true" type="xsd:boolean"/>
+       <element name="ingressFeatures" nillable="true" type="xsd:boolean"/>
+       <element name="egressFeatures" nillable="true" type="xsd:boolean"/>
+       <element name="hotLine" nillable="true" type="xsd:boolean"/>
+       <element name="warmLine" nillable="true" type="xsd:boolean"/>
+       <element name="fskSupportEnabled" nillable="true" type="xsd:boolean"/>
+       <element name="callerId" nillable="true" type="xsd:boolean"/>
+       <element name="telephonePriorityService" nillable="true" type="tns1:PriorityType"/>
+       <element name="callWaitingToneTimeout" nillable="true" type="xsd:int"/>
+       <element name="pesDialToneSupport" nillable="true" type="xsd:boolean"/>
+      </sequence>
+     </extension>
+    </complexContent>
+   </complexType>
+   <simpleType name="CallingPartyCategoryType">
+    <restriction base="xsd:string">
+     <enumeration value="None"/>
+     <enumeration value="Ordinary"/>
+     <enumeration value="Priority"/>
+     <enumeration value="Data"/>
+     <enumeration value="Test"/>
+     <enumeration value="Operator"/>
+     <enumeration value="Payphone"/>
+     <enumeration value="Prison"/>
+     <enumeration value="Hotel"/>
+     <enumeration value="Unknown"/>
+     <enumeration value="OSS"/>
+     <enumeration value="AdminDivOrd"/>
+     <enumeration value="AdminDivPay"/>
+     <enumeration value="AdminDivOrdP"/>
+     <enumeration value="AdminDivPayP"/>
+    </restriction>
+   </simpleType>
+   <simpleType name="GroupRegistrationType">
+    <restriction base="xsd:string">
+     <enumeration value="NoGroup"/>
+     <enumeration value="GroupMain"/>
+     <enumeration value="GroupExtension"/>
+    </restriction>
+   </simpleType>
+   <complexType name="DirectoryNumber">
+    <complexContent>
+     <extension base="tns1:ManagedEntityValue">
+      <sequence>
+       <element name="key" nillable="true" type="tns1:DirectoryNumberKey"/>
+       <element name="enterprise" nillable="true" type="tns1:EnterpriseKey"/>
+       <element name="subscriber" nillable="true" type="tns1:SubscriberKey"/>
+       <element name="dnGrade" nillable="true" type="tns1:DNGradeType"/>
+       <element name="dnType" nillable="true" type="tns1:DNType"/>
+       <element name="devicePort" nillable="true" type="tns1:DevicePortKey"/>
+       <element name="huntGroup" nillable="true" type="tns1:HuntGroupKey"/>
+       <element name="intraLataCarrier" nillable="true" type="tns1:CarrierKey"/>
+       <element name="localCarrier" nillable="true" type="tns1:CarrierKey"/>
+       <element name="internationalCarrier" nillable="true" type="tns1:CarrierKey"/>
+       <element name="interLataCarrier" nillable="true" type="tns1:CarrierKey"/>
+       <element name="primaryDN" nillable="true" type="xsd:boolean"/>
+       <element name="olipDigits" nillable="true" type="xsd:int"/>
+       <element name="serviceGroup" nillable="true" type="tns1:ServiceGroupKey"/>
+       <element name="privateCallerIdDn" nillable="true" type="xsd:string"/>
+       <element name="publicCallerIdDn" nillable="true" type="xsd:string"/>
+       <element name="callerIdName" nillable="true" type="xsd:string"/>
+       <element name="classOfService" nillable="true" type="tns1:ClassOfServiceKey"/>
+       <element name="featureProfiles" nillable="true" type="tns1:ArrayOfFeatureProfiles"/>
+       <element name="ringingCadence" nillable="true" type="tns1:RingingCadenceType"/>
+       <element name="adminState" nillable="true" type="tns1:AdminStateType"/>
+       <element name="adminCode" nillable="true" type="tns1:AdminStateCodeType"/>
+       <element name="adminReason" nillable="true" type="xsd:string"/>
+       <element name="notes" nillable="true" type="xsd:string"/>
+       <element name="timeZone" nillable="true" type="xsd:string"/>
+       <element name="billingProfile" nillable="true" type="tns1:BillingProfile"/>
+       <element name="contactInfo" nillable="true" type="tns1:ContactInfo"/>
+       <element name="pinCode" nillable="true" type="xsd:string"/>
+       <element name="publicPresenceDN" nillable="true" type="xsd:string"/>
+       <element name="publicPresenceCC" nillable="true" type="xsd:string"/>
+       <element name="forcedOnNetNumber" nillable="true" type="xsd:string"/>
+       <element name="forcedOnNetCC" nillable="true" type="xsd:string"/>
+       <element name="endpointType" nillable="true" type="tns1:EndpointType"/>
+       <element name="sipUsername" nillable="true" type="xsd:string"/>
+       <element name="sipPassword" nillable="true" type="xsd:string"/>
+       <element name="sipRealm" nillable="true" type="tns1:SIPRealmKey"/>
+       <element name="sipContacts" nillable="true" type="impl:ArrayOf_tns1_SIPContact"/>
+       <element name="callControlParameters" nillable="true" type="tns1:CallControlParametersKey"/>
+       <element name="featureNameToScript" nillable="true" type="tns1:FeatureNameToScriptKey"/>
+       <element name="sipServiceParameters" nillable="true" type="tns1:SIPServiceParametersKey"/>
+       <element name="voiceCodecParameters" nillable="true" type="tns1:VoiceCodecParametersKey"/>
+       <element name="callCrankbackParameters" nillable="true" type="tns1:CallCrankbackParametersKey"/>
+       <element name="preferredPacketServiceProfile" nillable="true" type="tns1:PacketServiceProfileKey"/>
+       <element name="calledForcedRoutingLabel" nillable="true" type="tns1:RoutingLabelKey"/>
+       <element name="timeZoneId" nillable="true" type="tns1:TimeZoneKey"/>
+       <element name="asx" nillable="true" type="tns1:ASXKey"/>
+       <element name="businessLocation" nillable="true" type="tns1:BusinessLocationKey"/>
+       <element name="rtpRtcpParametersKey" nillable="true" type="tns1:RTPRTCPEncryptionParametersKey"/>
+       <element name="originationEntityRoutingProfile" nillable="true" type="tns1:OriginationEntityRoutingProfileKey"/>
+       <element name="standardRoute" nillable="true" type="tns1:DirectoryNumberStandardRoute"/>
+       <element name="deviceProfile" nillable="true" type="tns1:DeviceProfileKey"/>
+       <element name="virtualDnType" nillable="true" type="tns1:VirtualDNType"/>
+       <element name="callingNumberSource" nillable="true" type="tns1:CallingNumberSourceType"/>
+       <element name="congestionControlParameters" nillable="true" type="tns1:CongestionControlParametersKey"/>
+       <element name="featureToCauseCodeMapping" nillable="true" type="tns1:FeatureToCauseCodeMappingKey"/>
+       <element name="callPickupGroup" nillable="true" type="tns1:CallPickupGroupKey"/>
+       <element name="publicUserIdentitySupport" nillable="true" type="xsd:boolean"/>
+       <element name="publicUserIdentityList" nillable="true" type="impl:ArrayOf_tns1_PublicUserIdentity"/>
+       <element name="callingPartyCategory" nillable="true" type="tns1:CallingPartyCategoryType"/>
+       <element name="groupRegistrationType" nillable="true" type="tns1:GroupRegistrationType"/>
+       <element name="groupMainDn" nillable="true" type="tns1:DirectoryNumberKey"/>
+       <element name="numberOfSIPContacts" nillable="true" type="xsd:int"/>
+       <element name="maxTotalSimultaneousCalls" nillable="true" type="xsd:int"/>
+      </sequence>
+     </extension>
+    </complexContent>
+   </complexType>
+   <complexType name="Subscriber">
+    <complexContent>
+     <extension base="tns1:ManagedEntityValue">
+      <sequence>
+       <element name="key" nillable="true" type="tns1:SubscriberKey"/>
+       <element name="enterprise" nillable="true" type="tns1:EnterpriseKey"/>
+       <element name="salutation" nillable="true" type="xsd:string"/>
+       <element name="firstName" nillable="true" type="xsd:string"/>
+       <element name="middleName" nillable="true" type="xsd:string"/>
+       <element name="lastName" nillable="true" type="xsd:string"/>
+       <element name="suffix" nillable="true" type="xsd:string"/>
+       <element name="billingProfile" nillable="true" type="tns1:BillingProfile"/>
+       <element name="pinCode" nillable="true" type="xsd:string"/>
+       <element name="adminState" nillable="true" type="tns1:AdminStateType"/>
+       <element name="adminCode" nillable="true" type="tns1:AdminStateCodeType"/>
+       <element name="adminReason" nillable="true" type="xsd:string"/>
+       <element name="notes" nillable="true" type="xsd:string"/>
+       <element name="directoryNumbers" nillable="true" type="impl:ArrayOf_tns1_DirectoryNumber"/>
+       <element name="directoryNumberKeys" nillable="true" type="impl:ArrayOf_tns1_DirectoryNumberKey"/>
+       <element name="contactInfo" nillable="true" type="tns1:ContactInfo"/>
+      </sequence>
+     </extension>
+    </complexContent>
+   </complexType>
+   <complexType name="SMSAPIException">
+    <sequence>
+     <element name="errorMessage" nillable="true" type="xsd:string"/>
+     <element name="exceptionDetails" nillable="true" type="impl:ArrayOf_tns1_NamedValue"/>
+     <element name="errorCode" type="xsd:int"/>
+     <element name="messageKey" nillable="true" type="xsd:string"/>
+     <element name="messageArgs" nillable="true" type="impl:ArrayOf_xsd_string"/>
+    </sequence>
+   </complexType>
+   <complexType name="SMSAPIValidationException">
+    <complexContent>
+     <extension base="tns1:SMSAPIException">
+      <sequence/>
+     </extension>
+    </complexContent>
+   </complexType>
+   <complexType name="SMSAPIInternalException">
+    <complexContent>
+     <extension base="tns1:SMSAPIException">
+      <sequence/>
+     </extension>
+    </complexContent>
+   </complexType>
+   <complexType name="SMSAPINetworkException">
+    <complexContent>
+     <extension base="tns1:SMSAPIException">
+      <sequence/>
+     </extension>
+    </complexContent>
+   </complexType>
+  </schema>
+  <schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.sonusnet.com/sms/smsapi/r07_03_07/SubscriberService">
+   <import namespace="http://www.sonusnet.com/sms/smsapi/r07_03_07/model"/>
+   <import namespace="http://schemas.xmlsoap.org/soap/encoding/"/>
+   <complexType name="ArrayOf_tns1_NamedValue">
+    <complexContent>
+     <restriction base="soapenc:Array">
+      <attribute ref="soapenc:arrayType" wsdl:arrayType="tns1:NamedValue[]"/>
+     </restriction>
+    </complexContent>
+   </complexType>
+   <complexType name="ArrayOf_tns1_SelectiveCallForwardingRecord">
+    <complexContent>
+     <restriction base="soapenc:Array">
+      <attribute ref="soapenc:arrayType" wsdl:arrayType="tns1:SelectiveCallForwardingRecord[]"/>
+     </restriction>
+    </complexContent>
+   </complexType>
+   <complexType name="ArrayOf_tns1_SpeedDialingListRecord">
+    <complexContent>
+     <restriction base="soapenc:Array">
+      <attribute ref="soapenc:arrayType" wsdl:arrayType="tns1:SpeedDialingListRecord[]"/>
+     </restriction>
+    </complexContent>
+   </complexType>
+   <complexType name="ArrayOf_tns1_DistinctiveRingingScreeningListRecord">
+    <complexContent>
+     <restriction base="soapenc:Array">
+      <attribute ref="soapenc:arrayType" wsdl:arrayType="tns1:DistinctiveRingingScreeningListRecord[]"/>
+     </restriction>
+    </complexContent>
+   </complexType>
+   <complexType name="ArrayOf_tns1_FindMeLocationListRecord">
+    <complexContent>
+     <restriction base="soapenc:Array">
+      <attribute ref="soapenc:arrayType" wsdl:arrayType="tns1:FindMeLocationListRecord[]"/>
+     </restriction>
+    </complexContent>
+   </complexType>
+   <complexType name="ArrayOf_tns1_ClickToDialPrefixListRecord">
+    <complexContent>
+     <restriction base="soapenc:Array">
+      <attribute ref="soapenc:arrayType" wsdl:arrayType="tns1:ClickToDialPrefixListRecord[]"/>
+     </restriction>
+    </complexContent>
+   </complexType>
+   <complexType name="ArrayOf_tns1_SelectiveCallScreeningListRecord">
+    <complexContent>
+     <restriction base="soapenc:Array">
+      <attribute ref="soapenc:arrayType" wsdl:arrayType="tns1:SelectiveCallScreeningListRecord[]"/>
+     </restriction>
+    </complexContent>
+   </complexType>
+   <complexType name="ArrayOf_tns1_CustomCallForwardingListRecord">
+    <complexContent>
+     <restriction base="soapenc:Array">
+      <attribute ref="soapenc:arrayType" wsdl:arrayType="tns1:CustomCallForwardingListRecord[]"/>
+     </restriction>
+    </complexContent>
+   </complexType>
+   <complexType name="ArrayOf_tns1_NumberGroupIndexListRecord">
+    <complexContent>
+     <restriction base="soapenc:Array">
+      <attribute ref="soapenc:arrayType" wsdl:arrayType="tns1:NumberGroupIndexListRecord[]"/>
+     </restriction>
+    </complexContent>
+   </complexType>
+   <complexType name="ArrayOf_tns1_AlarmCallListRecord">
+    <complexContent>
+     <restriction base="soapenc:Array">
+      <attribute ref="soapenc:arrayType" wsdl:arrayType="tns1:AlarmCallListRecord[]"/>
+     </restriction>
+    </complexContent>
+   </complexType>
+   <complexType name="ArrayOf_tns1_NotificationAddressListRecord">
+    <complexContent>
+     <restriction base="soapenc:Array">
+      <attribute ref="soapenc:arrayType" wsdl:arrayType="tns1:NotificationAddressListRecord[]"/>
+     </restriction>
+    </complexContent>
+   </complexType>
+   <complexType name="ArrayOf_tns1_SIPContact">
+    <complexContent>
+     <restriction base="soapenc:Array">
+      <attribute ref="soapenc:arrayType" wsdl:arrayType="tns1:SIPContact[]"/>
+     </restriction>
+    </complexContent>
+   </complexType>
+   <complexType name="ArrayOf_tns1_PublicUserIdentity">
+    <complexContent>
+     <restriction base="soapenc:Array">
+      <attribute ref="soapenc:arrayType" wsdl:arrayType="tns1:PublicUserIdentity[]"/>
+     </restriction>
+    </complexContent>
+   </complexType>
+   <complexType name="ArrayOf_tns1_DirectoryNumber">
+    <complexContent>
+     <restriction base="soapenc:Array">
+      <attribute ref="soapenc:arrayType" wsdl:arrayType="tns1:DirectoryNumber[]"/>
+     </restriction>
+    </complexContent>
+   </complexType>
+   <complexType name="ArrayOf_tns1_DirectoryNumberKey">
+    <complexContent>
+     <restriction base="soapenc:Array">
+      <attribute ref="soapenc:arrayType" wsdl:arrayType="tns1:DirectoryNumberKey[]"/>
+     </restriction>
+    </complexContent>
+   </complexType>
+   <complexType name="ArrayOf_xsd_string">
+    <complexContent>
+     <restriction base="soapenc:Array">
+      <attribute ref="soapenc:arrayType" wsdl:arrayType="xsd:string[]"/>
+     </restriction>
+    </complexContent>
+   </complexType>
+   <complexType name="ArrayOf_tns1_Subscriber">
+    <complexContent>
+     <restriction base="soapenc:Array">
+      <attribute ref="soapenc:arrayType" wsdl:arrayType="tns1:Subscriber[]"/>
+     </restriction>
+    </complexContent>
+   </complexType>
+   <complexType name="ArrayOf_tns1_SubscriberKey">
+    <complexContent>
+     <restriction base="soapenc:Array">
+      <attribute ref="soapenc:arrayType" wsdl:arrayType="tns1:SubscriberKey[]"/>
+     </restriction>
+    </complexContent>
+   </complexType>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="getSubscriberDetailsByDeviceRequest">
+
+      <wsdl:part name="in0" type="tns1:DeviceKey"/>
+
+      <wsdl:part name="in1" type="tns1:EnterpriseKey"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="getSubscriberByDevicePortResponse">
+
+      <wsdl:part name="getSubscriberByDevicePortReturn" type="impl:ArrayOf_tns1_Subscriber"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="getSubscriberDetailsByDeviceResponse">
+
+      <wsdl:part name="getSubscriberDetailsByDeviceReturn" type="impl:ArrayOf_tns1_Subscriber"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="getSubscriberByDeviceResponse">
+
+      <wsdl:part name="getSubscriberByDeviceReturn" type="impl:ArrayOf_tns1_Subscriber"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="getSubscriberByDNRequest">
+
+      <wsdl:part name="in0" type="tns1:DirectoryNumberKey"/>
+
+      <wsdl:part name="in1" type="tns1:EnterpriseKey"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="getSubscriberDetailsResponse">
+
+      <wsdl:part name="getSubscriberDetailsReturn" type="tns1:Subscriber"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="deleteSubscribersRequest">
+
+      <wsdl:part name="in0" type="impl:ArrayOf_tns1_SubscriberKey"/>
+
+      <wsdl:part name="in1" type="tns1:EnterpriseKey"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="deleteSubscribersResponse">
+
+   </wsdl:message>
+
+   <wsdl:message name="getSubscriberDetailsByDevicePortResponse">
+
+      <wsdl:part name="getSubscriberDetailsByDevicePortReturn" type="impl:ArrayOf_tns1_Subscriber"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="getSubscriberByDeviceRequest">
+
+      <wsdl:part name="in0" type="tns1:DeviceKey"/>
+
+      <wsdl:part name="in1" type="tns1:EnterpriseKey"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="getSubscriberDetailsResponse3">
+
+      <wsdl:part name="getSubscriberDetailsReturn" type="tns1:Subscriber"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="getSubscriberDetailsByDevicePortRequest">
+
+      <wsdl:part name="in0" type="tns1:DevicePortKey"/>
+
+      <wsdl:part name="in1" type="tns1:EnterpriseKey"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="getSubscriberDetailsResponse1">
+
+      <wsdl:part name="getSubscriberDetailsReturn" type="impl:ArrayOf_tns1_Subscriber"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="getSubscriberDetailsResponse2">
+
+      <wsdl:part name="getSubscriberDetailsReturn" type="impl:ArrayOf_tns1_Subscriber"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="getSubscriberRequest3">
+
+      <wsdl:part name="in0" type="tns1:DirectoryNumberKey"/>
+
+      <wsdl:part name="in1" type="tns1:EnterpriseKey"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="getSubscriberResponse2">
+
+      <wsdl:part name="getSubscriberReturn" type="impl:ArrayOf_tns1_Subscriber"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="getSubscriberRequest1">
+
+      <wsdl:part name="in0" type="tns1:DeviceKey"/>
+
+      <wsdl:part name="in1" type="tns1:EnterpriseKey"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="getSubscriberRequest">
+
+      <wsdl:part name="in0" type="tns1:SubscriberKey"/>
+
+      <wsdl:part name="in1" type="tns1:EnterpriseKey"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="getSubscriberRequest2">
+
+      <wsdl:part name="in0" type="tns1:DevicePortKey"/>
+
+      <wsdl:part name="in1" type="tns1:EnterpriseKey"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="getSubscriberResponse1">
+
+      <wsdl:part name="getSubscriberReturn" type="impl:ArrayOf_tns1_Subscriber"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="getSubscriberByDNResponse">
+
+      <wsdl:part name="getSubscriberByDNReturn" type="tns1:Subscriber"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="getSubscriberResponse3">
+
+      <wsdl:part name="getSubscriberReturn" type="tns1:Subscriber"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="updateSubscriberResponse">
+
+   </wsdl:message>
+
+   <wsdl:message name="getSubscriberByDevicePortRequest">
+
+      <wsdl:part name="in0" type="tns1:DevicePortKey"/>
+
+      <wsdl:part name="in1" type="tns1:EnterpriseKey"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="createSubscriberRequest">
+
+      <wsdl:part name="in0" type="tns1:Subscriber"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="getSubscriberResponse">
+
+      <wsdl:part name="getSubscriberReturn" type="tns1:Subscriber"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="deleteSubscriberResponse">
+
+   </wsdl:message>
+
+   <wsdl:message name="createSubscriberResponse">
+
+      <wsdl:part name="createSubscriberReturn" type="tns1:SubscriberKey"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="getSubscriberDetailsRequest2">
+
+      <wsdl:part name="in0" type="tns1:DevicePortKey"/>
+
+      <wsdl:part name="in1" type="tns1:EnterpriseKey"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="getSubscriberDetailsRequest1">
+
+      <wsdl:part name="in0" type="tns1:DeviceKey"/>
+
+      <wsdl:part name="in1" type="tns1:EnterpriseKey"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="getSubscriberDetailsRequest3">
+
+      <wsdl:part name="in0" type="tns1:DirectoryNumberKey"/>
+
+      <wsdl:part name="in1" type="tns1:EnterpriseKey"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="getSubscriberDetailsByDNResponse">
+
+      <wsdl:part name="getSubscriberDetailsByDNReturn" type="tns1:Subscriber"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="SMSAPIInternalException">
+
+      <wsdl:part name="fault" type="tns1:SMSAPIInternalException"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="SMSAPINetworkException">
+
+      <wsdl:part name="fault" type="tns1:SMSAPINetworkException"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="SMSAPIValidationException">
+
+      <wsdl:part name="fault" type="tns1:SMSAPIValidationException"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="deleteSubscriberRequest">
+
+      <wsdl:part name="in0" type="tns1:SubscriberKey"/>
+
+      <wsdl:part name="in1" type="tns1:EnterpriseKey"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="updateSubscriberRequest">
+
+      <wsdl:part name="in0" type="tns1:Subscriber"/>
+
+      <wsdl:part name="in1" type="tns1:EnterpriseKey"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="getSubscriberDetailsByDNRequest">
+
+      <wsdl:part name="in0" type="tns1:DirectoryNumberKey"/>
+
+      <wsdl:part name="in1" type="tns1:EnterpriseKey"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="getSubscriberDetailsRequest">
+
+      <wsdl:part name="in0" type="tns1:SubscriberKey"/>
+
+      <wsdl:part name="in1" type="tns1:EnterpriseKey"/>
+
+   </wsdl:message>
+
+   <wsdl:portType name="SMSAPI-r07_03_07-SubscriberService">
+
+      <wsdl:operation name="getSubscriberDetails" parameterOrder="in0 in1">
+
+         <wsdl:input message="impl:getSubscriberDetailsRequest" name="getSubscriberDetailsRequest"/>
+
+         <wsdl:output message="impl:getSubscriberDetailsResponse" name="getSubscriberDetailsResponse"/>
+
+         <wsdl:fault message="impl:SMSAPINetworkException" name="SMSAPINetworkException"/>
+
+         <wsdl:fault message="impl:SMSAPIValidationException" name="SMSAPIValidationException"/>
+
+         <wsdl:fault message="impl:SMSAPIInternalException" name="SMSAPIInternalException"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getSubscriberDetails" parameterOrder="in0 in1">
+
+         <wsdl:input message="impl:getSubscriberDetailsRequest1" name="getSubscriberDetailsRequest1"/>
+
+         <wsdl:output message="impl:getSubscriberDetailsResponse1" name="getSubscriberDetailsResponse1"/>
+
+         <wsdl:fault message="impl:SMSAPINetworkException" name="SMSAPINetworkException"/>
+
+         <wsdl:fault message="impl:SMSAPIValidationException" name="SMSAPIValidationException"/>
+
+         <wsdl:fault message="impl:SMSAPIInternalException" name="SMSAPIInternalException"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getSubscriberDetails" parameterOrder="in0 in1">
+
+         <wsdl:input message="impl:getSubscriberDetailsRequest2" name="getSubscriberDetailsRequest2"/>
+
+         <wsdl:output message="impl:getSubscriberDetailsResponse2" name="getSubscriberDetailsResponse2"/>
+
+         <wsdl:fault message="impl:SMSAPINetworkException" name="SMSAPINetworkException"/>
+
+         <wsdl:fault message="impl:SMSAPIValidationException" name="SMSAPIValidationException"/>
+
+         <wsdl:fault message="impl:SMSAPIInternalException" name="SMSAPIInternalException"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getSubscriberDetails" parameterOrder="in0 in1">
+
+         <wsdl:input message="impl:getSubscriberDetailsRequest3" name="getSubscriberDetailsRequest3"/>
+
+         <wsdl:output message="impl:getSubscriberDetailsResponse3" name="getSubscriberDetailsResponse3"/>
+
+         <wsdl:fault message="impl:SMSAPINetworkException" name="SMSAPINetworkException"/>
+
+         <wsdl:fault message="impl:SMSAPIValidationException" name="SMSAPIValidationException"/>
+
+         <wsdl:fault message="impl:SMSAPIInternalException" name="SMSAPIInternalException"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getSubscriberByDevice" parameterOrder="in0 in1">
+
+         <wsdl:input message="impl:getSubscriberByDeviceRequest" name="getSubscriberByDeviceRequest"/>
+
+         <wsdl:output message="impl:getSubscriberByDeviceResponse" name="getSubscriberByDeviceResponse"/>
+
+         <wsdl:fault message="impl:SMSAPINetworkException" name="SMSAPINetworkException"/>
+
+         <wsdl:fault message="impl:SMSAPIValidationException" name="SMSAPIValidationException"/>
+
+         <wsdl:fault message="impl:SMSAPIInternalException" name="SMSAPIInternalException"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getSubscriberDetailsByDevice" parameterOrder="in0 in1">
+
+         <wsdl:input message="impl:getSubscriberDetailsByDeviceRequest" name="getSubscriberDetailsByDeviceRequest"/>
+
+         <wsdl:output message="impl:getSubscriberDetailsByDeviceResponse" name="getSubscriberDetailsByDeviceResponse"/>
+
+         <wsdl:fault message="impl:SMSAPINetworkException" name="SMSAPINetworkException"/>
+
+         <wsdl:fault message="impl:SMSAPIValidationException" name="SMSAPIValidationException"/>
+
+         <wsdl:fault message="impl:SMSAPIInternalException" name="SMSAPIInternalException"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getSubscriberByDevicePort" parameterOrder="in0 in1">
+
+         <wsdl:input message="impl:getSubscriberByDevicePortRequest" name="getSubscriberByDevicePortRequest"/>
+
+         <wsdl:output message="impl:getSubscriberByDevicePortResponse" name="getSubscriberByDevicePortResponse"/>
+
+         <wsdl:fault message="impl:SMSAPINetworkException" name="SMSAPINetworkException"/>
+
+         <wsdl:fault message="impl:SMSAPIValidationException" name="SMSAPIValidationException"/>
+
+         <wsdl:fault message="impl:SMSAPIInternalException" name="SMSAPIInternalException"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="createSubscriber" parameterOrder="in0">
+
+         <wsdl:input message="impl:createSubscriberRequest" name="createSubscriberRequest"/>
+
+         <wsdl:output message="impl:createSubscriberResponse" name="createSubscriberResponse"/>
+
+         <wsdl:fault message="impl:SMSAPINetworkException" name="SMSAPINetworkException"/>
+
+         <wsdl:fault message="impl:SMSAPIValidationException" name="SMSAPIValidationException"/>
+
+         <wsdl:fault message="impl:SMSAPIInternalException" name="SMSAPIInternalException"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="deleteSubscribers" parameterOrder="in0 in1">
+
+         <wsdl:input message="impl:deleteSubscribersRequest" name="deleteSubscribersRequest"/>
+
+         <wsdl:output message="impl:deleteSubscribersResponse" name="deleteSubscribersResponse"/>
+
+         <wsdl:fault message="impl:SMSAPINetworkException" name="SMSAPINetworkException"/>
+
+         <wsdl:fault message="impl:SMSAPIValidationException" name="SMSAPIValidationException"/>
+
+         <wsdl:fault message="impl:SMSAPIInternalException" name="SMSAPIInternalException"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="deleteSubscriber" parameterOrder="in0 in1">
+
+         <wsdl:input message="impl:deleteSubscriberRequest" name="deleteSubscriberRequest"/>
+
+         <wsdl:output message="impl:deleteSubscriberResponse" name="deleteSubscriberResponse"/>
+
+         <wsdl:fault message="impl:SMSAPINetworkException" name="SMSAPINetworkException"/>
+
+         <wsdl:fault message="impl:SMSAPIValidationException" name="SMSAPIValidationException"/>
+
+         <wsdl:fault message="impl:SMSAPIInternalException" name="SMSAPIInternalException"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getSubscriber" parameterOrder="in0 in1">
+
+         <wsdl:input message="impl:getSubscriberRequest" name="getSubscriberRequest"/>
+
+         <wsdl:output message="impl:getSubscriberResponse" name="getSubscriberResponse"/>
+
+         <wsdl:fault message="impl:SMSAPINetworkException" name="SMSAPINetworkException"/>
+
+         <wsdl:fault message="impl:SMSAPIValidationException" name="SMSAPIValidationException"/>
+
+         <wsdl:fault message="impl:SMSAPIInternalException" name="SMSAPIInternalException"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getSubscriber" parameterOrder="in0 in1">
+
+         <wsdl:input message="impl:getSubscriberRequest1" name="getSubscriberRequest1"/>
+
+         <wsdl:output message="impl:getSubscriberResponse1" name="getSubscriberResponse1"/>
+
+         <wsdl:fault message="impl:SMSAPINetworkException" name="SMSAPINetworkException"/>
+
+         <wsdl:fault message="impl:SMSAPIValidationException" name="SMSAPIValidationException"/>
+
+         <wsdl:fault message="impl:SMSAPIInternalException" name="SMSAPIInternalException"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getSubscriber" parameterOrder="in0 in1">
+
+         <wsdl:input message="impl:getSubscriberRequest2" name="getSubscriberRequest2"/>
+
+         <wsdl:output message="impl:getSubscriberResponse2" name="getSubscriberResponse2"/>
+
+         <wsdl:fault message="impl:SMSAPINetworkException" name="SMSAPINetworkException"/>
+
+         <wsdl:fault message="impl:SMSAPIValidationException" name="SMSAPIValidationException"/>
+
+         <wsdl:fault message="impl:SMSAPIInternalException" name="SMSAPIInternalException"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getSubscriber" parameterOrder="in0 in1">
+
+         <wsdl:input message="impl:getSubscriberRequest3" name="getSubscriberRequest3"/>
+
+         <wsdl:output message="impl:getSubscriberResponse3" name="getSubscriberResponse3"/>
+
+         <wsdl:fault message="impl:SMSAPINetworkException" name="SMSAPINetworkException"/>
+
+         <wsdl:fault message="impl:SMSAPIValidationException" name="SMSAPIValidationException"/>
+
+         <wsdl:fault message="impl:SMSAPIInternalException" name="SMSAPIInternalException"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getSubscriberDetailsByDevicePort" parameterOrder="in0 in1">
+
+         <wsdl:input message="impl:getSubscriberDetailsByDevicePortRequest" name="getSubscriberDetailsByDevicePortRequest"/>
+
+         <wsdl:output message="impl:getSubscriberDetailsByDevicePortResponse" name="getSubscriberDetailsByDevicePortResponse"/>
+
+         <wsdl:fault message="impl:SMSAPINetworkException" name="SMSAPINetworkException"/>
+
+         <wsdl:fault message="impl:SMSAPIValidationException" name="SMSAPIValidationException"/>
+
+         <wsdl:fault message="impl:SMSAPIInternalException" name="SMSAPIInternalException"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getSubscriberByDN" parameterOrder="in0 in1">
+
+         <wsdl:input message="impl:getSubscriberByDNRequest" name="getSubscriberByDNRequest"/>
+
+         <wsdl:output message="impl:getSubscriberByDNResponse" name="getSubscriberByDNResponse"/>
+
+         <wsdl:fault message="impl:SMSAPINetworkException" name="SMSAPINetworkException"/>
+
+         <wsdl:fault message="impl:SMSAPIValidationException" name="SMSAPIValidationException"/>
+
+         <wsdl:fault message="impl:SMSAPIInternalException" name="SMSAPIInternalException"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getSubscriberDetailsByDN" parameterOrder="in0 in1">
+
+         <wsdl:input message="impl:getSubscriberDetailsByDNRequest" name="getSubscriberDetailsByDNRequest"/>
+
+         <wsdl:output message="impl:getSubscriberDetailsByDNResponse" name="getSubscriberDetailsByDNResponse"/>
+
+         <wsdl:fault message="impl:SMSAPINetworkException" name="SMSAPINetworkException"/>
+
+         <wsdl:fault message="impl:SMSAPIValidationException" name="SMSAPIValidationException"/>
+
+         <wsdl:fault message="impl:SMSAPIInternalException" name="SMSAPIInternalException"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="updateSubscriber" parameterOrder="in0 in1">
+
+         <wsdl:input message="impl:updateSubscriberRequest" name="updateSubscriberRequest"/>
+
+         <wsdl:output message="impl:updateSubscriberResponse" name="updateSubscriberResponse"/>
+
+         <wsdl:fault message="impl:SMSAPINetworkException" name="SMSAPINetworkException"/>
+
+         <wsdl:fault message="impl:SMSAPIValidationException" name="SMSAPIValidationException"/>
+
+         <wsdl:fault message="impl:SMSAPIInternalException" name="SMSAPIInternalException"/>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="SMSAPI/r07_03_07/SubscriberServiceSoapBinding" type="impl:SMSAPI-r07_03_07-SubscriberService">
+
+      <wsdlsoap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="getSubscriberDetails">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getSubscriberDetailsRequest">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://www.sonusnet.com/sms/smsapi/r07_03_07/SubscriberService" use="encoded"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getSubscriberDetailsResponse">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://www.sonusnet.com/sms/smsapi/r07_03_07/SubscriberService" use="encoded"/>
+
+         </wsdl:output>
+
+         <wsdl:fault name="SMSAPINetworkException">
+
+            <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="SMSAPINetworkException" namespace="http://www.sonusnet.com/sms/smsapi/r07_03_07/SubscriberService" use="encoded"/>
+
+         </wsdl:fault>
+
+         <wsdl:fault name="SMSAPIValidationException">
+
+            <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="SMSAPIValidationException" namespace="http://www.sonusnet.com/sms/smsapi/r07_03_07/SubscriberService" use="encoded"/>
+
+         </wsdl:fault>
+
+         <wsdl:fault name="SMSAPIInternalException">
+
+            <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="SMSAPIInternalException" namespace="http://www.sonusnet.com/sms/smsapi/r07_03_07/SubscriberService" use="encoded"/>
+
+         </wsdl:fault>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getSubscriberDetails">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getSubscriberDetailsRequest1">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://www.sonusnet.com/sms/smsapi/r07_03_07/SubscriberService" use="encoded"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getSubscriberDetailsResponse1">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://www.sonusnet.com/sms/smsapi/r07_03_07/SubscriberService" use="encoded"/>
+
+         </wsdl:output>
+
+         <wsdl:fault name="SMSAPINetworkException">
+
+            <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="SMSAPINetworkException" namespace="http://www.sonusnet.com/sms/smsapi/r07_03_07/SubscriberService" use="encoded"/>
+
+         </wsdl:fault>
+
+         <wsdl:fault name="SMSAPIValidationException">
+
+            <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="SMSAPIValidationException" namespace="http://www.sonusnet.com/sms/smsapi/r07_03_07/SubscriberService" use="encoded"/>
+
+         </wsdl:fault>
+
+         <wsdl:fault name="SMSAPIInternalException">
+
+            <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="SMSAPIInternalException" namespace="http://www.sonusnet.com/sms/smsapi/r07_03_07/SubscriberService" use="encoded"/>
+
+         </wsdl:fault>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getSubscriberDetails">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getSubscriberDetailsRequest2">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://www.sonusnet.com/sms/smsapi/r07_03_07/SubscriberService" use="encoded"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getSubscriberDetailsResponse2">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://www.sonusnet.com/sms/smsapi/r07_03_07/SubscriberService" use="encoded"/>
+
+         </wsdl:output>
+
+         <wsdl:fault name="SMSAPINetworkException">
+
+            <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="SMSAPINetworkException" namespace="http://www.sonusnet.com/sms/smsapi/r07_03_07/SubscriberService" use="encoded"/>
+
+         </wsdl:fault>
+
+         <wsdl:fault name="SMSAPIValidationException">
+
+            <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="SMSAPIValidationException" namespace="http://www.sonusnet.com/sms/smsapi/r07_03_07/SubscriberService" use="encoded"/>
+
+         </wsdl:fault>
+
+         <wsdl:fault name="SMSAPIInternalException">
+
+            <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="SMSAPIInternalException" namespace="http://www.sonusnet.com/sms/smsapi/r07_03_07/SubscriberService" use="encoded"/>
+
+         </wsdl:fault>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getSubscriberDetails">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getSubscriberDetailsRequest3">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://www.sonusnet.com/sms/smsapi/r07_03_07/SubscriberService" use="encoded"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getSubscriberDetailsResponse3">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://www.sonusnet.com/sms/smsapi/r07_03_07/SubscriberService" use="encoded"/>
+
+         </wsdl:output>
+
+         <wsdl:fault name="SMSAPINetworkException">
+
+            <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="SMSAPINetworkException" namespace="http://www.sonusnet.com/sms/smsapi/r07_03_07/SubscriberService" use="encoded"/>
+
+         </wsdl:fault>
+
+         <wsdl:fault name="SMSAPIValidationException">
+
+            <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="SMSAPIValidationException" namespace="http://www.sonusnet.com/sms/smsapi/r07_03_07/SubscriberService" use="encoded"/>
+
+         </wsdl:fault>
+
+         <wsdl:fault name="SMSAPIInternalException">
+
+            <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="SMSAPIInternalException" namespace="http://www.sonusnet.com/sms/smsapi/r07_03_07/SubscriberService" use="encoded"/>
+
+         </wsdl:fault>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getSubscriberByDevice">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getSubscriberByDeviceRequest">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://www.sonusnet.com/sms/smsapi/r07_03_07/SubscriberService" use="encoded"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getSubscriberByDeviceResponse">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://www.sonusnet.com/sms/smsapi/r07_03_07/SubscriberService" use="encoded"/>
+
+         </wsdl:output>
+
+         <wsdl:fault name="SMSAPINetworkException">
+
+            <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="SMSAPINetworkException" namespace="http://www.sonusnet.com/sms/smsapi/r07_03_07/SubscriberService" use="encoded"/>
+
+         </wsdl:fault>
+
+         <wsdl:fault name="SMSAPIValidationException">
+
+            <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="SMSAPIValidationException" namespace="http://www.sonusnet.com/sms/smsapi/r07_03_07/SubscriberService" use="encoded"/>
+
+         </wsdl:fault>
+
+         <wsdl:fault name="SMSAPIInternalException">
+
+            <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="SMSAPIInternalException" namespace="http://www.sonusnet.com/sms/smsapi/r07_03_07/SubscriberService" use="encoded"/>
+
+         </wsdl:fault>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getSubscriberDetailsByDevice">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getSubscriberDetailsByDeviceRequest">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://www.sonusnet.com/sms/smsapi/r07_03_07/SubscriberService" use="encoded"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getSubscriberDetailsByDeviceResponse">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://www.sonusnet.com/sms/smsapi/r07_03_07/SubscriberService" use="encoded"/>
+
+         </wsdl:output>
+
+         <wsdl:fault name="SMSAPINetworkException">
+
+            <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="SMSAPINetworkException" namespace="http://www.sonusnet.com/sms/smsapi/r07_03_07/SubscriberService" use="encoded"/>
+
+         </wsdl:fault>
+
+         <wsdl:fault name="SMSAPIValidationException">
+
+            <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="SMSAPIValidationException" namespace="http://www.sonusnet.com/sms/smsapi/r07_03_07/SubscriberService" use="encoded"/>
+
+         </wsdl:fault>
+
+         <wsdl:fault name="SMSAPIInternalException">
+
+            <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="SMSAPIInternalException" namespace="http://www.sonusnet.com/sms/smsapi/r07_03_07/SubscriberService" use="encoded"/>
+
+         </wsdl:fault>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getSubscriberByDevicePort">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getSubscriberByDevicePortRequest">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://www.sonusnet.com/sms/smsapi/r07_03_07/SubscriberService" use="encoded"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getSubscriberByDevicePortResponse">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://www.sonusnet.com/sms/smsapi/r07_03_07/SubscriberService" use="encoded"/>
+
+         </wsdl:output>
+
+         <wsdl:fault name="SMSAPINetworkException">
+
+            <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="SMSAPINetworkException" namespace="http://www.sonusnet.com/sms/smsapi/r07_03_07/SubscriberService" use="encoded"/>
+
+         </wsdl:fault>
+
+         <wsdl:fault name="SMSAPIValidationException">
+
+            <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="SMSAPIValidationException" namespace="http://www.sonusnet.com/sms/smsapi/r07_03_07/SubscriberService" use="encoded"/>
+
+         </wsdl:fault>
+
+         <wsdl:fault name="SMSAPIInternalException">
+
+            <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="SMSAPIInternalException" namespace="http://www.sonusnet.com/sms/smsapi/r07_03_07/SubscriberService" use="encoded"/>
+
+         </wsdl:fault>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="createSubscriber">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="createSubscriberRequest">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://www.sonusnet.com/sms/smsapi/r07_03_07/SubscriberService" use="encoded"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="createSubscriberResponse">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://www.sonusnet.com/sms/smsapi/r07_03_07/SubscriberService" use="encoded"/>
+
+         </wsdl:output>
+
+         <wsdl:fault name="SMSAPINetworkException">
+
+            <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="SMSAPINetworkException" namespace="http://www.sonusnet.com/sms/smsapi/r07_03_07/SubscriberService" use="encoded"/>
+
+         </wsdl:fault>
+
+         <wsdl:fault name="SMSAPIValidationException">
+
+            <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="SMSAPIValidationException" namespace="http://www.sonusnet.com/sms/smsapi/r07_03_07/SubscriberService" use="encoded"/>
+
+         </wsdl:fault>
+
+         <wsdl:fault name="SMSAPIInternalException">
+
+            <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="SMSAPIInternalException" namespace="http://www.sonusnet.com/sms/smsapi/r07_03_07/SubscriberService" use="encoded"/>
+
+         </wsdl:fault>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="deleteSubscribers">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="deleteSubscribersRequest">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://www.sonusnet.com/sms/smsapi/r07_03_07/SubscriberService" use="encoded"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="deleteSubscribersResponse">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://www.sonusnet.com/sms/smsapi/r07_03_07/SubscriberService" use="encoded"/>
+
+         </wsdl:output>
+
+         <wsdl:fault name="SMSAPINetworkException">
+
+            <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="SMSAPINetworkException" namespace="http://www.sonusnet.com/sms/smsapi/r07_03_07/SubscriberService" use="encoded"/>
+
+         </wsdl:fault>
+
+         <wsdl:fault name="SMSAPIValidationException">
+
+            <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="SMSAPIValidationException" namespace="http://www.sonusnet.com/sms/smsapi/r07_03_07/SubscriberService" use="encoded"/>
+
+         </wsdl:fault>
+
+         <wsdl:fault name="SMSAPIInternalException">
+
+            <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="SMSAPIInternalException" namespace="http://www.sonusnet.com/sms/smsapi/r07_03_07/SubscriberService" use="encoded"/>
+
+         </wsdl:fault>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="deleteSubscriber">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="deleteSubscriberRequest">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://www.sonusnet.com/sms/smsapi/r07_03_07/SubscriberService" use="encoded"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="deleteSubscriberResponse">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://www.sonusnet.com/sms/smsapi/r07_03_07/SubscriberService" use="encoded"/>
+
+         </wsdl:output>
+
+         <wsdl:fault name="SMSAPINetworkException">
+
+            <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="SMSAPINetworkException" namespace="http://www.sonusnet.com/sms/smsapi/r07_03_07/SubscriberService" use="encoded"/>
+
+         </wsdl:fault>
+
+         <wsdl:fault name="SMSAPIValidationException">
+
+            <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="SMSAPIValidationException" namespace="http://www.sonusnet.com/sms/smsapi/r07_03_07/SubscriberService" use="encoded"/>
+
+         </wsdl:fault>
+
+         <wsdl:fault name="SMSAPIInternalException">
+
+            <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="SMSAPIInternalException" namespace="http://www.sonusnet.com/sms/smsapi/r07_03_07/SubscriberService" use="encoded"/>
+
+         </wsdl:fault>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getSubscriber">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getSubscriberRequest">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://www.sonusnet.com/sms/smsapi/r07_03_07/SubscriberService" use="encoded"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getSubscriberResponse">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://www.sonusnet.com/sms/smsapi/r07_03_07/SubscriberService" use="encoded"/>
+
+         </wsdl:output>
+
+         <wsdl:fault name="SMSAPINetworkException">
+
+            <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="SMSAPINetworkException" namespace="http://www.sonusnet.com/sms/smsapi/r07_03_07/SubscriberService" use="encoded"/>
+
+         </wsdl:fault>
+
+         <wsdl:fault name="SMSAPIValidationException">
+
+            <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="SMSAPIValidationException" namespace="http://www.sonusnet.com/sms/smsapi/r07_03_07/SubscriberService" use="encoded"/>
+
+         </wsdl:fault>
+
+         <wsdl:fault name="SMSAPIInternalException">
+
+            <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="SMSAPIInternalException" namespace="http://www.sonusnet.com/sms/smsapi/r07_03_07/SubscriberService" use="encoded"/>
+
+         </wsdl:fault>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getSubscriber">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getSubscriberRequest1">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://www.sonusnet.com/sms/smsapi/r07_03_07/SubscriberService" use="encoded"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getSubscriberResponse1">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://www.sonusnet.com/sms/smsapi/r07_03_07/SubscriberService" use="encoded"/>
+
+         </wsdl:output>
+
+         <wsdl:fault name="SMSAPINetworkException">
+
+            <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="SMSAPINetworkException" namespace="http://www.sonusnet.com/sms/smsapi/r07_03_07/SubscriberService" use="encoded"/>
+
+         </wsdl:fault>
+
+         <wsdl:fault name="SMSAPIValidationException">
+
+            <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="SMSAPIValidationException" namespace="http://www.sonusnet.com/sms/smsapi/r07_03_07/SubscriberService" use="encoded"/>
+
+         </wsdl:fault>
+
+         <wsdl:fault name="SMSAPIInternalException">
+
+            <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="SMSAPIInternalException" namespace="http://www.sonusnet.com/sms/smsapi/r07_03_07/SubscriberService" use="encoded"/>
+
+         </wsdl:fault>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getSubscriber">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getSubscriberRequest2">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://www.sonusnet.com/sms/smsapi/r07_03_07/SubscriberService" use="encoded"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getSubscriberResponse2">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://www.sonusnet.com/sms/smsapi/r07_03_07/SubscriberService" use="encoded"/>
+
+         </wsdl:output>
+
+         <wsdl:fault name="SMSAPINetworkException">
+
+            <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="SMSAPINetworkException" namespace="http://www.sonusnet.com/sms/smsapi/r07_03_07/SubscriberService" use="encoded"/>
+
+         </wsdl:fault>
+
+         <wsdl:fault name="SMSAPIValidationException">
+
+            <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="SMSAPIValidationException" namespace="http://www.sonusnet.com/sms/smsapi/r07_03_07/SubscriberService" use="encoded"/>
+
+         </wsdl:fault>
+
+         <wsdl:fault name="SMSAPIInternalException">
+
+            <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="SMSAPIInternalException" namespace="http://www.sonusnet.com/sms/smsapi/r07_03_07/SubscriberService" use="encoded"/>
+
+         </wsdl:fault>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getSubscriber">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getSubscriberRequest3">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://www.sonusnet.com/sms/smsapi/r07_03_07/SubscriberService" use="encoded"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getSubscriberResponse3">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://www.sonusnet.com/sms/smsapi/r07_03_07/SubscriberService" use="encoded"/>
+
+         </wsdl:output>
+
+         <wsdl:fault name="SMSAPINetworkException">
+
+            <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="SMSAPINetworkException" namespace="http://www.sonusnet.com/sms/smsapi/r07_03_07/SubscriberService" use="encoded"/>
+
+         </wsdl:fault>
+
+         <wsdl:fault name="SMSAPIValidationException">
+
+            <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="SMSAPIValidationException" namespace="http://www.sonusnet.com/sms/smsapi/r07_03_07/SubscriberService" use="encoded"/>
+
+         </wsdl:fault>
+
+         <wsdl:fault name="SMSAPIInternalException">
+
+            <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="SMSAPIInternalException" namespace="http://www.sonusnet.com/sms/smsapi/r07_03_07/SubscriberService" use="encoded"/>
+
+         </wsdl:fault>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getSubscriberDetailsByDevicePort">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getSubscriberDetailsByDevicePortRequest">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://www.sonusnet.com/sms/smsapi/r07_03_07/SubscriberService" use="encoded"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getSubscriberDetailsByDevicePortResponse">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://www.sonusnet.com/sms/smsapi/r07_03_07/SubscriberService" use="encoded"/>
+
+         </wsdl:output>
+
+         <wsdl:fault name="SMSAPINetworkException">
+
+            <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="SMSAPINetworkException" namespace="http://www.sonusnet.com/sms/smsapi/r07_03_07/SubscriberService" use="encoded"/>
+
+         </wsdl:fault>
+
+         <wsdl:fault name="SMSAPIValidationException">
+
+            <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="SMSAPIValidationException" namespace="http://www.sonusnet.com/sms/smsapi/r07_03_07/SubscriberService" use="encoded"/>
+
+         </wsdl:fault>
+
+         <wsdl:fault name="SMSAPIInternalException">
+
+            <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="SMSAPIInternalException" namespace="http://www.sonusnet.com/sms/smsapi/r07_03_07/SubscriberService" use="encoded"/>
+
+         </wsdl:fault>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getSubscriberByDN">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getSubscriberByDNRequest">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://www.sonusnet.com/sms/smsapi/r07_03_07/SubscriberService" use="encoded"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getSubscriberByDNResponse">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://www.sonusnet.com/sms/smsapi/r07_03_07/SubscriberService" use="encoded"/>
+
+         </wsdl:output>
+
+         <wsdl:fault name="SMSAPINetworkException">
+
+            <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="SMSAPINetworkException" namespace="http://www.sonusnet.com/sms/smsapi/r07_03_07/SubscriberService" use="encoded"/>
+
+         </wsdl:fault>
+
+         <wsdl:fault name="SMSAPIValidationException">
+
+            <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="SMSAPIValidationException" namespace="http://www.sonusnet.com/sms/smsapi/r07_03_07/SubscriberService" use="encoded"/>
+
+         </wsdl:fault>
+
+         <wsdl:fault name="SMSAPIInternalException">
+
+            <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="SMSAPIInternalException" namespace="http://www.sonusnet.com/sms/smsapi/r07_03_07/SubscriberService" use="encoded"/>
+
+         </wsdl:fault>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getSubscriberDetailsByDN">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getSubscriberDetailsByDNRequest">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://www.sonusnet.com/sms/smsapi/r07_03_07/SubscriberService" use="encoded"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getSubscriberDetailsByDNResponse">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://www.sonusnet.com/sms/smsapi/r07_03_07/SubscriberService" use="encoded"/>
+
+         </wsdl:output>
+
+         <wsdl:fault name="SMSAPINetworkException">
+
+            <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="SMSAPINetworkException" namespace="http://www.sonusnet.com/sms/smsapi/r07_03_07/SubscriberService" use="encoded"/>
+
+         </wsdl:fault>
+
+         <wsdl:fault name="SMSAPIValidationException">
+
+            <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="SMSAPIValidationException" namespace="http://www.sonusnet.com/sms/smsapi/r07_03_07/SubscriberService" use="encoded"/>
+
+         </wsdl:fault>
+
+         <wsdl:fault name="SMSAPIInternalException">
+
+            <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="SMSAPIInternalException" namespace="http://www.sonusnet.com/sms/smsapi/r07_03_07/SubscriberService" use="encoded"/>
+
+         </wsdl:fault>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="updateSubscriber">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="updateSubscriberRequest">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://www.sonusnet.com/sms/smsapi/r07_03_07/SubscriberService" use="encoded"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="updateSubscriberResponse">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://www.sonusnet.com/sms/smsapi/r07_03_07/SubscriberService" use="encoded"/>
+
+         </wsdl:output>
+
+         <wsdl:fault name="SMSAPINetworkException">
+
+            <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="SMSAPINetworkException" namespace="http://www.sonusnet.com/sms/smsapi/r07_03_07/SubscriberService" use="encoded"/>
+
+         </wsdl:fault>
+
+         <wsdl:fault name="SMSAPIValidationException">
+
+            <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="SMSAPIValidationException" namespace="http://www.sonusnet.com/sms/smsapi/r07_03_07/SubscriberService" use="encoded"/>
+
+         </wsdl:fault>
+
+         <wsdl:fault name="SMSAPIInternalException">
+
+            <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="SMSAPIInternalException" namespace="http://www.sonusnet.com/sms/smsapi/r07_03_07/SubscriberService" use="encoded"/>
+
+         </wsdl:fault>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="SMSAPIService-r07_03_07-SubscriberService">
+
+      <wsdl:port binding="impl:SMSAPI/r07_03_07/SubscriberServiceSoapBinding" name="SMSAPI/r07_03_07/SubscriberService">
+
+         <wsdlsoap:address location="http://localhost:8081/smsapi/services/SMSAPI/r07_03_07/SubscriberService"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>

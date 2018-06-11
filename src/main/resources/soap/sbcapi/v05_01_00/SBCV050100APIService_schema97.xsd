@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="sonusgen2sipjip.types.v05_01_00.sbc.api.ems.sonus.com" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:simpleType name="sonusJipProfSendJipInType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="rnPAI"/>
+      <xs:enumeration value="jipPAI"/>
+      <xs:enumeration value="rnFROM"/>
+      <xs:enumeration value="jipPDCS"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusJipProfJipParamAsType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="userInfo"/>
+      <xs:enumeration value="uriParam"/>
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>
+

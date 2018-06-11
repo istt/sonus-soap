@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="sonustc.types.v04_02_00.sbc.api.ems.sonus.com" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:simpleType name="sonusAdminState">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="disabled"/>
+      <xs:enumeration value="enabled"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusEnableDisable">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="disable"/>
+      <xs:enumeration value="enable"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusOperScalarElemContainerKey">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="entry"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusServiceState">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="outOfService"/>
+      <xs:enumeration value="inService"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusEventFilterLevel">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="noevents"/>
+      <xs:enumeration value="critical"/>
+      <xs:enumeration value="major"/>
+      <xs:enumeration value="minor"/>
+      <xs:enumeration value="info"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusTrapFilterLevel">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="default"/>
+      <xs:enumeration value="critical"/>
+      <xs:enumeration value="major"/>
+      <xs:enumeration value="minor"/>
+      <xs:enumeration value="info"/>
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>
+

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="disconnectsignalsequenceprofile.services.profiles.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns2="sonustc.types.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns1="sonusgen2nrmdisctreat.types.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns4="profiles.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns3="common.sbc.api.ems.sonus.com" xmlns:tns="disconnectsignalsequenceprofile.services.profiles.v05_01_00.sbc.api.ems.sonus.com" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ns5="services.profiles.v05_01_00.sbc.api.ems.sonus.com">
+
+  <xs:import namespace="sonusgen2nrmdisctreat.types.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema105.xsd"/>
+
+  <xs:import namespace="sonustc.types.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema44.xsd"/>
+
+  <xs:import namespace="common.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema360.xsd"/>
+
+  <xs:import namespace="profiles.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema217.xsd"/>
+
+  <xs:import namespace="services.profiles.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema175.xsd"/>
+
+  <xs:complexType name="ssp">
+    <xs:complexContent>
+      <xs:extension base="ns3:sbcEntity">
+        <xs:sequence>
+          <xs:element name="name" type="xs:string" minOccurs="0"/>
+          <xs:element name="position" type="xs:int" default="0" minOccurs="0"/>
+          <xs:element name="token" type="ns1:sonusDiscSigSequenceTokenType" default="clear" minOccurs="0"/>
+          <xs:element name="param1" type="xs:string" minOccurs="0"/>
+          <xs:element name="param2" type="xs:string" minOccurs="0"/>
+          <xs:element name="state" type="ns2:sonusAdminState" default="disabled" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="sspKey">
+    <xs:complexContent>
+      <xs:extension base="ns3:sbcKey">
+        <xs:sequence>
+          <xs:element name="name" type="xs:string" minOccurs="0"/>
+          <xs:element name="parentKey" type="ns5:disconnectSignalSequenceProfileKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="sspListWrapper">
+    <xs:complexContent>
+      <xs:extension base="ns3:sbcListWrapper">
+        <xs:sequence>
+          <xs:element name="ssp" type="tns:ssp" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+</xs:schema>
+

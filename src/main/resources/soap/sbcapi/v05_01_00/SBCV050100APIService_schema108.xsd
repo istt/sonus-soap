@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="sonusgen2nrmcongestion.types.v05_01_00.sbc.api.ems.sonus.com" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:simpleType name="sonusSysCongestionModeType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="adaptive"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusSysCongestionMC1ModeType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="outOfService"/>
+      <xs:enumeration value="inService"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusSysCongestionMC2ModeType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="outOfService"/>
+      <xs:enumeration value="inService"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusSysCongestionMC3ModeType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="outOfService"/>
+      <xs:enumeration value="inService"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusSysCongestionAdaptiveMCLevelType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="mc1"/>
+      <xs:enumeration value="mc2"/>
+      <xs:enumeration value="mc3"/>
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>
+

@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="sonusisupsignalingprofile.types.v05_01_00.sbc.api.ems.sonus.com" xmlns:tns="sonusisupsignalingprofile.types.v05_01_00.sbc.api.ems.sonus.com" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:complexType name="SonusIsupsgSignalingGroupSigBaseNameTypeUnion">
+    <xs:sequence>
+      <xs:element name="sonusIsupsgSigGrpDefaultNameType" type="tns:sonusIsupsgSigGrpDefaultNameType" minOccurs="0"/>
+      <xs:element name="SonusName" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="SonusIsupSignalingProfileSpecialDigitsTypeBits">
+    <xs:sequence>
+      <xs:element name="digitA" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="digitB" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="digitC" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="digitD" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="digitE" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="digitF" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="none" type="xs:boolean" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="SonusIsupSignalingProfileUPVExchangeRolesTypeBits">
+    <xs:sequence>
+      <xs:element name="orig" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="term" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="intwk" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="trans" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="int" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="unknown" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="none" type="xs:boolean" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:simpleType name="sonusIsupsgSigGrpDefaultNameType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="defaultRfc3204ItuT88"/>
+      <xs:enumeration value="defaultRfc3204ItuT92"/>
+      <xs:enumeration value="defaultRfc3204Ansi88"/>
+      <xs:enumeration value="defaultRfc3204Ansi00"/>
+      <xs:enumeration value="defaultRfc3204Etsi121"/>
+      <xs:enumeration value="defaultRfc3204Etsi356"/>
+      <xs:enumeration value="defaultRfc3204Gr317"/>
+      <xs:enumeration value="defaultRfc3204Ttc87"/>
+      <xs:enumeration value="defaultRfc3204Ttc93"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusIsupSignalingProfileSupportFlagType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="unSupported"/>
+      <xs:enumeration value="supported"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusIsupSignalingProfileBaseVersionType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="none"/>
+      <xs:enumeration value="itut88"/>
+      <xs:enumeration value="itut92"/>
+      <xs:enumeration value="ansi88"/>
+      <xs:enumeration value="ansi00"/>
+      <xs:enumeration value="etsi121"/>
+      <xs:enumeration value="etsi356"/>
+      <xs:enumeration value="gr317"/>
+      <xs:enumeration value="ttc87"/>
+      <xs:enumeration value="ttc93"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusIsupSignalingProfileRevisionType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="ansi1992"/>
+      <xs:enumeration value="ansi1995"/>
+      <xs:enumeration value="itu1993"/>
+      <xs:enumeration value="etsi2"/>
+      <xs:enumeration value="nttfcc"/>
+      <xs:enumeration value="itu1997"/>
+      <xs:enumeration value="itu1988"/>
+      <xs:enumeration value="ituq767"/>
+      <xs:enumeration value="belgacom"/>
+      <xs:enumeration value="nttcom"/>
+      <xs:enumeration value="spirou"/>
+      <xs:enumeration value="mexicoic"/>
+      <xs:enumeration value="italy"/>
+      <xs:enumeration value="denmarkic"/>
+      <xs:enumeration value="hongkongic"/>
+      <xs:enumeration value="singapore"/>
+      <xs:enumeration value="etsi3"/>
+      <xs:enumeration value="peru"/>
+      <xs:enumeration value="chile"/>
+      <xs:enumeration value="portugaloni"/>
+      <xs:enumeration value="argentina"/>
+      <xs:enumeration value="argentinaidt"/>
+      <xs:enumeration value="spain"/>
+      <xs:enumeration value="brazil"/>
+      <xs:enumeration value="india"/>
+      <xs:enumeration value="chinacnc"/>
+      <xs:enumeration value="korea"/>
+      <xs:enumeration value="ukisup"/>
+      <xs:enumeration value="etsi2plus"/>
+      <xs:enumeration value="ansiatt"/>
+      <xs:enumeration value="israel"/>
+      <xs:enumeration value="slovak2"/>
+      <xs:enumeration value="russia"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusIsupSignalingProfileNetworkIndicatorType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="intl0"/>
+      <xs:enumeration value="intl1"/>
+      <xs:enumeration value="natl0"/>
+      <xs:enumeration value="natl1"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusIsupSignalingProfileLookAheadForBusyType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="allowed"/>
+      <xs:enumeration value="pathReserved"/>
+      <xs:enumeration value="notAllowed"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusIsupSignalingProfileU2uSrvcLevelType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="none"/>
+      <xs:enumeration value="level1"/>
+      <xs:enumeration value="level2"/>
+      <xs:enumeration value="level3"/>
+      <xs:enumeration value="implicit"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusIsupSignalingProfilePCIPassOnDefaultType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="unSupported"/>
+      <xs:enumeration value="discardParameter"/>
+      <xs:enumeration value="discardMessage"/>
+      <xs:enumeration value="releaseCall"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusIsupSignalingProfileChargeIndSettingType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="transit"/>
+      <xs:enumeration value="charge"/>
+      <xs:enumeration value="noCharge"/>
+      <xs:enumeration value="noIndication"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusIsupSignalingProfileISUBTypeFromSIPType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="nsap"/>
+      <xs:enumeration value="userspec"/>
+      <xs:enumeration value="both"/>
+      <xs:enumeration value="none"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusIsupsgSigGrpLocationOfRel">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="notUsed"/>
+      <xs:enumeration value="user"/>
+      <xs:enumeration value="privateLocal"/>
+      <xs:enumeration value="publicLocal"/>
+      <xs:enumeration value="transitNet"/>
+      <xs:enumeration value="publicRemote"/>
+      <xs:enumeration value="privateRemote"/>
+      <xs:enumeration value="natReserved6"/>
+      <xs:enumeration value="internationalNet"/>
+      <xs:enumeration value="natReserved8"/>
+      <xs:enumeration value="natReserved9"/>
+      <xs:enumeration value="netBeyondInterPoint"/>
+      <xs:enumeration value="natReserved11"/>
+      <xs:enumeration value="natReserved12"/>
+      <xs:enumeration value="natReserved13"/>
+      <xs:enumeration value="natReserved14"/>
+      <xs:enumeration value="natReserved15"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusIsupsgSigGrpLocationOfRel34">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="notUsed"/>
+      <xs:enumeration value="user"/>
+      <xs:enumeration value="privateLocal"/>
+      <xs:enumeration value="publicLocal"/>
+      <xs:enumeration value="transitNet"/>
+      <xs:enumeration value="publicRemote"/>
+      <xs:enumeration value="privateRemote"/>
+      <xs:enumeration value="natReserved6"/>
+      <xs:enumeration value="internationalNet"/>
+      <xs:enumeration value="natReserved8"/>
+      <xs:enumeration value="natReserved9"/>
+      <xs:enumeration value="netBeyondInterPoint"/>
+      <xs:enumeration value="natReserved11"/>
+      <xs:enumeration value="natReserved12"/>
+      <xs:enumeration value="natReserved13"/>
+      <xs:enumeration value="natReserved14"/>
+      <xs:enumeration value="natReserved15"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusIsupsgSigGrpLocationOfRel42">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="notUsed"/>
+      <xs:enumeration value="user"/>
+      <xs:enumeration value="privateLocal"/>
+      <xs:enumeration value="publicLocal"/>
+      <xs:enumeration value="transitNet"/>
+      <xs:enumeration value="publicRemote"/>
+      <xs:enumeration value="privateRemote"/>
+      <xs:enumeration value="natReserved6"/>
+      <xs:enumeration value="internationalNet"/>
+      <xs:enumeration value="natReserved8"/>
+      <xs:enumeration value="natReserved9"/>
+      <xs:enumeration value="netBeyondInterPoint"/>
+      <xs:enumeration value="natReserved11"/>
+      <xs:enumeration value="natReserved12"/>
+      <xs:enumeration value="natReserved13"/>
+      <xs:enumeration value="natReserved14"/>
+      <xs:enumeration value="natReserved15"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusIsupsgSignalingProfileINNWithinCdPN">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="transit"/>
+      <xs:enumeration value="allowed"/>
+      <xs:enumeration value="notAllowed"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusIsupsgSignalingProfileNIWithinCgPN">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="transit"/>
+      <xs:enumeration value="complete"/>
+      <xs:enumeration value="incomplete"/>
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>
+

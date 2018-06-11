@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="sonusmtrgserver.types.v05_01_00.sbc.api.ems.sonus.com" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:simpleType name="sonusMtrmParentMtrgStateType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="null"/>
+      <xs:enumeration value="registration"/>
+      <xs:enumeration value="awaitAudit"/>
+      <xs:enumeration value="notMtrmReady"/>
+      <xs:enumeration value="mtrmReady"/>
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>
+

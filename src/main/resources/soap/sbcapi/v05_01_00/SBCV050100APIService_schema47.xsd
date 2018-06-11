@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="sonussnmp.types.v05_01_00.sbc.api.ems.sonus.com" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:simpleType name="sonusSnmpVersionType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="v1v2c"/>
+      <xs:enumeration value="v3only"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusSnmpTrapTypeType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="v1"/>
+      <xs:enumeration value="v2"/>
+      <xs:enumeration value="v3"/>
+      <xs:enumeration value="inform"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusSnmpGroupType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="admin"/>
+      <xs:enumeration value="operator"/>
+      <xs:enumeration value="guest"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusSnmpAuthProtocolType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="hmacmd5"/>
+      <xs:enumeration value="hmacsha"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusSnmpPrivProtocolType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="des"/>
+      <xs:enumeration value="aes128"/>
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>
+

@@ -1,0 +1,411 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="media.profiles.v04_02_00.sbc.api.ems.sonus.com" xmlns:ns16="t38.packetserviceprofile.media.profiles.v04_02_00.sbc.api.ems.sonus.com" xmlns:ns17="securertprtcp.packetserviceprofile.media.profiles.v04_02_00.sbc.api.ems.sonus.com" xmlns:ns14="packetserviceprofile.media.profiles.v04_02_00.sbc.api.ems.sonus.com" xmlns:ns15="packettopacketcontrol.packetserviceprofile.media.profiles.v04_02_00.sbc.api.ems.sonus.com" xmlns:ns18="sonustoneandanncprofile.types.v04_02_00.sbc.api.ems.sonus.com" xmlns:ns19="localringbacktone.toneandannouncementprofile.media.profiles.v04_02_00.sbc.api.ems.sonus.com" xmlns:ns9="announcementpackage.media.profiles.v04_02_00.sbc.api.ems.sonus.com" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ns5="v04_02_00.sbc.api.ems.sonus.com" xmlns:ns12="toneprofile.media.profiles.v04_02_00.sbc.api.ems.sonus.com" xmlns:ns6="profiles.v04_02_00.sbc.api.ems.sonus.com" xmlns:ns13="sonuspacketserviceprofile.types.v04_02_00.sbc.api.ems.sonus.com" xmlns:ns7="sonuscodecroutingpriority.types.v04_02_00.sbc.api.ems.sonus.com" xmlns:ns10="tonepackage.media.profiles.v04_02_00.sbc.api.ems.sonus.com" xmlns:ns8="codecroutingpriority.media.profiles.v04_02_00.sbc.api.ems.sonus.com" xmlns:ns20="toneandannouncementprofile.media.profiles.v04_02_00.sbc.api.ems.sonus.com" xmlns:ns11="sonusgen2nrmtone.types.v04_02_00.sbc.api.ems.sonus.com" xmlns:ns2="sonustc.types.v04_02_00.sbc.api.ems.sonus.com" xmlns:ns1="sonuscodecentry.types.v04_02_00.sbc.api.ems.sonus.com" xmlns:ns4="common.sbc.api.ems.sonus.com" xmlns:ns3="codecentry.media.profiles.v04_02_00.sbc.api.ems.sonus.com" xmlns:tns="media.profiles.v04_02_00.sbc.api.ems.sonus.com">
+
+  <xs:import namespace="sonuscodecentry.types.v04_02_00.sbc.api.ems.sonus.com" schemaLocation="SBCV040200APIService_schema124.xsd"/>
+
+  <xs:import namespace="sonustc.types.v04_02_00.sbc.api.ems.sonus.com" schemaLocation="SBCV040200APIService_schema42.xsd"/>
+
+  <xs:import namespace="codecentry.media.profiles.v04_02_00.sbc.api.ems.sonus.com" schemaLocation="SBCV040200APIService_schema328.xsd"/>
+
+  <xs:import namespace="common.sbc.api.ems.sonus.com" schemaLocation="SBCV040200APIService_schema325.xsd"/>
+
+  <xs:import namespace="v04_02_00.sbc.api.ems.sonus.com" schemaLocation="SBCV040200APIService_schema7.xsd"/>
+
+  <xs:import namespace="profiles.v04_02_00.sbc.api.ems.sonus.com" schemaLocation="SBCV040200APIService_schema198.xsd"/>
+
+  <xs:import namespace="sonuscodecroutingpriority.types.v04_02_00.sbc.api.ems.sonus.com" schemaLocation="SBCV040200APIService_schema123.xsd"/>
+
+  <xs:import namespace="codecroutingpriority.media.profiles.v04_02_00.sbc.api.ems.sonus.com" schemaLocation="SBCV040200APIService_schema327.xsd"/>
+
+  <xs:import namespace="announcementpackage.media.profiles.v04_02_00.sbc.api.ems.sonus.com" schemaLocation="SBCV040200APIService_schema360.xsd"/>
+
+  <xs:import namespace="tonepackage.media.profiles.v04_02_00.sbc.api.ems.sonus.com" schemaLocation="SBCV040200APIService_schema18.xsd"/>
+
+  <xs:import namespace="sonusgen2nrmtone.types.v04_02_00.sbc.api.ems.sonus.com" schemaLocation="SBCV040200APIService_schema100.xsd"/>
+
+  <xs:import namespace="toneprofile.media.profiles.v04_02_00.sbc.api.ems.sonus.com" schemaLocation="SBCV040200APIService_schema17.xsd"/>
+
+  <xs:import namespace="sonuspacketserviceprofile.types.v04_02_00.sbc.api.ems.sonus.com" schemaLocation="SBCV040200APIService_schema65.xsd"/>
+
+  <xs:import namespace="packetserviceprofile.media.profiles.v04_02_00.sbc.api.ems.sonus.com" schemaLocation="SBCV040200APIService_schema215.xsd"/>
+
+  <xs:import namespace="packettopacketcontrol.packetserviceprofile.media.profiles.v04_02_00.sbc.api.ems.sonus.com" schemaLocation="SBCV040200APIService_schema214.xsd"/>
+
+  <xs:import namespace="t38.packetserviceprofile.media.profiles.v04_02_00.sbc.api.ems.sonus.com" schemaLocation="SBCV040200APIService_schema25.xsd"/>
+
+  <xs:import namespace="securertprtcp.packetserviceprofile.media.profiles.v04_02_00.sbc.api.ems.sonus.com" schemaLocation="SBCV040200APIService_schema170.xsd"/>
+
+  <xs:import namespace="sonustoneandanncprofile.types.v04_02_00.sbc.api.ems.sonus.com" schemaLocation="SBCV040200APIService_schema39.xsd"/>
+
+  <xs:import namespace="localringbacktone.toneandannouncementprofile.media.profiles.v04_02_00.sbc.api.ems.sonus.com" schemaLocation="SBCV040200APIService_schema234.xsd"/>
+
+  <xs:import namespace="toneandannouncementprofile.media.profiles.v04_02_00.sbc.api.ems.sonus.com" schemaLocation="SBCV040200APIService_schema19.xsd"/>
+
+  <xs:complexType name="codecEntry">
+    <xs:complexContent>
+      <xs:extension base="ns4:sbcEntity">
+        <xs:sequence>
+          <xs:element name="name" type="xs:string" minOccurs="0"/>
+          <xs:element name="codec" type="xs:string" minOccurs="0"/>
+          <xs:element name="g726CodingRate" type="ns1:sonusCodingRateG726" default="32" minOccurs="0"/>
+          <xs:element name="g726ssCodingRate" type="ns1:sonusCodingRateG726" default="32" minOccurs="0"/>
+          <xs:element name="g7231CodingRate" type="ns1:sonusCodingRateG723" default="6.3" minOccurs="0"/>
+          <xs:element name="g7231aCodingRate" type="ns1:sonusCodingRateG723" default="6.3" minOccurs="0"/>
+          <xs:element name="ilbcCodingRate" type="ns1:sonusCodingRateIlbc" default="13.3" minOccurs="0"/>
+          <xs:element name="ilbcssCodingRate" type="ns1:sonusCodingRateIlbc" default="13.3" minOccurs="0"/>
+          <xs:element name="G722CodingRate" type="ns1:sonusCodingRateG722" default="64" minOccurs="0"/>
+          <xs:element name="G722ssCodingRate" type="ns1:sonusCodingRateG722" default="64" minOccurs="0"/>
+          <xs:element name="G7221CodingRate" type="ns1:sonusCodingRateG7221" default="32" minOccurs="0"/>
+          <xs:element name="G7221ssCodingRate" type="ns1:sonusCodingRateG7221" default="32" minOccurs="0"/>
+          <xs:element name="evrcb0CodingRate" type="ns1:sonusCodingRateEvrcb0" default="9.3" minOccurs="0"/>
+          <xs:element name="packetSizeGenericCodecs" type="xs:string" minOccurs="0"/>
+          <xs:element name="packetSizeG711" type="ns1:sonusPacketSizeRangeG711" default="10" minOccurs="0"/>
+          <xs:element name="packetSizeG723" type="ns1:sonusPacketSizeRangeG723" default="30" minOccurs="0"/>
+          <xs:element name="packetSizeIlbc133" type="ns1:sonusPacketSizeRangeIlbc13_3" default="30" minOccurs="0"/>
+          <xs:element name="packetSizeIlbc" type="ns1:sonusPacketSizeRangeIlbc" default="20" minOccurs="0"/>
+          <xs:element name="packetSizeG722" type="ns1:sonusPacketSizeRangeG722" default="20" minOccurs="0"/>
+          <xs:element name="packetSizeG728" type="ns1:sonusPacketSizeRangeG728" default="10" minOccurs="0"/>
+          <xs:element name="packetSizeG7221" type="ns1:sonusPacketSizeRangeG7221" default="20" minOccurs="0"/>
+          <xs:element name="packetSizeAmrwb" type="ns1:sonusPacketSizeRangeAmrwb" default="20" minOccurs="0"/>
+          <xs:element name="packetSizeAmrEvrc" type="ns1:sonusPacketSizeRangeAmrEvrc" default="20" minOccurs="0"/>
+          <xs:element name="packetSizeEvrcb0Evrc0" type="ns1:sonusPacketSizeRangeEvrcb0Evrc0" default="20" minOccurs="0"/>
+          <xs:element name="packetSizeG729G726" type="ns1:sonusPacketSizeRangeG729G726" default="20" minOccurs="0"/>
+          <xs:element name="packetSizeOPUS" type="ns1:sonusPacketSizeRangeOPUS" default="20" minOccurs="0"/>
+          <xs:element name="activeCodecSetBits" type="ns1:SonusAmrModeSetBitMaskBits" minOccurs="0"/>
+          <xs:element name="activeCodecSet" type="xs:string" default="AMR-0-4.75kbps AMR-1-5.15kbps AMR-2-5.90kbps AMR-3-6.70kbps AMR-4-7.40kbps AMR-5-7.950kbps AMR-6-10.20kbps AMR-7-12.20kbps" minOccurs="0"/>
+          <xs:element name="modeSetBits" type="ns1:SonusAmrwbModeSetBitMaskBits" minOccurs="0"/>
+          <xs:element name="modeSet" type="xs:string" default="AMR-0-6.6 AMR-1-8.85 AMR-2-12.65 AMR-3-14.25 AMR-4-15.85 AMR-5-18.25 AMR-6-19.85 AMR-7-23.05 AMR-8-23.85" minOccurs="0"/>
+          <xs:element name="fecRedundancy" type="ns1:sonusFECRedundancy" default="0" minOccurs="0"/>
+          <xs:element name="staticPreferredRtpPayloadType" type="xs:unsignedInt" default="128" minOccurs="0"/>
+          <xs:element name="dynamicPreferredRtpPayloadType" type="xs:unsignedInt" default="96" minOccurs="0"/>
+          <xs:element name="modeChangeNeighbor" type="ns2:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="law" type="ns1:sonusLaw" default="deriveFromOtherLeg" minOccurs="0"/>
+          <xs:element name="sendSid" type="ns2:sonusEnableDisable" default="enable" minOccurs="0"/>
+          <xs:element name="maxAverageBitRate" type="xs:unsignedInt" default="20000" minOccurs="0"/>
+          <xs:element name="useCbr" type="ns1:sonusUseCbr" default="0" minOccurs="0"/>
+          <xs:element name="useFec" type="ns1:sonusUseFec" default="0" minOccurs="0"/>
+          <xs:element name="useDtx" type="ns1:sonusUseDtx" default="0" minOccurs="0"/>
+          <xs:element name="fax" type="ns3:fax" minOccurs="0"/>
+          <xs:element name="modem" type="ns3:modem" minOccurs="0"/>
+          <xs:element name="dtmf" type="ns3:dtmf" minOccurs="0"/>
+          <xs:element name="silenceSuppression" type="ns3:silenceSuppression" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="codecEntryKey">
+    <xs:complexContent>
+      <xs:extension base="ns4:sbcKey">
+        <xs:sequence>
+          <xs:element name="name" type="xs:string" minOccurs="0"/>
+          <xs:element name="parentKey" type="ns6:mediaKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="codecEntryListWrapper">
+    <xs:complexContent>
+      <xs:extension base="ns4:sbcListWrapper">
+        <xs:sequence>
+          <xs:element name="codecEntry" type="tns:codecEntry" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="codecListProfile">
+    <xs:complexContent>
+      <xs:extension base="ns4:sbcEntity">
+        <xs:sequence>
+          <xs:element name="name" type="xs:string" minOccurs="0"/>
+          <xs:element name="precedenceListItems" type="xs:string" default="*" minOccurs="0"/>
+          <xs:element name="purgeListItems" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="codecListProfileKey">
+    <xs:complexContent>
+      <xs:extension base="ns4:sbcKey">
+        <xs:sequence>
+          <xs:element name="name" type="xs:string" minOccurs="0"/>
+          <xs:element name="parentKey" type="ns6:mediaKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="codecListProfileListWrapper">
+    <xs:complexContent>
+      <xs:extension base="ns4:sbcListWrapper">
+        <xs:sequence>
+          <xs:element name="codecListProfile" type="tns:codecListProfile" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="codecRoutingPriority">
+    <xs:complexContent>
+      <xs:extension base="ns4:sbcEntity">
+        <xs:sequence>
+          <xs:element name="ingressCodecGroup" type="ns7:sonusCodecGroup" minOccurs="0"/>
+          <xs:element name="entry" type="ns8:entry" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="codecRoutingPriorityKey">
+    <xs:complexContent>
+      <xs:extension base="ns4:sbcKey">
+        <xs:sequence>
+          <xs:element name="ingressCodecGroup" type="ns7:sonusCodecGroup" minOccurs="0"/>
+          <xs:element name="parentKey" type="ns6:mediaKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="codecRoutingPriorityListWrapper">
+    <xs:complexContent>
+      <xs:extension base="ns4:sbcListWrapper">
+        <xs:sequence>
+          <xs:element name="codecRoutingPriority" type="tns:codecRoutingPriority" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="announcementPackage">
+    <xs:complexContent>
+      <xs:extension base="ns4:sbcEntity">
+        <xs:sequence>
+          <xs:element name="name" type="xs:string" minOccurs="0"/>
+          <xs:element name="packageId" type="xs:unsignedShort" minOccurs="0"/>
+          <xs:element name="element" type="ns9:element" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="announcementPackageKey">
+    <xs:complexContent>
+      <xs:extension base="ns4:sbcKey">
+        <xs:sequence>
+          <xs:element name="name" type="xs:string" minOccurs="0"/>
+          <xs:element name="parentKey" type="ns6:mediaKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="announcementPackageListWrapper">
+    <xs:complexContent>
+      <xs:extension base="ns4:sbcListWrapper">
+        <xs:sequence>
+          <xs:element name="announcementPackage" type="tns:announcementPackage" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="tonePackage">
+    <xs:complexContent>
+      <xs:extension base="ns4:sbcEntity">
+        <xs:sequence>
+          <xs:element name="name" type="xs:string" minOccurs="0"/>
+          <xs:element name="packageId" type="xs:unsignedShort" minOccurs="0"/>
+          <xs:element name="toneType" type="ns10:toneType" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="tonePackageKey">
+    <xs:complexContent>
+      <xs:extension base="ns4:sbcKey">
+        <xs:sequence>
+          <xs:element name="name" type="xs:string" minOccurs="0"/>
+          <xs:element name="parentKey" type="ns6:mediaKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="tonePackageListWrapper">
+    <xs:complexContent>
+      <xs:extension base="ns4:sbcListWrapper">
+        <xs:sequence>
+          <xs:element name="tonePackage" type="tns:tonePackage" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="toneProfile">
+    <xs:complexContent>
+      <xs:extension base="ns4:sbcEntity">
+        <xs:sequence>
+          <xs:element name="name" type="xs:string" minOccurs="0"/>
+          <xs:element name="generationMethod" type="ns11:sonusToneProfileGenerationMethodType" minOccurs="0"/>
+          <xs:element name="make1" type="xs:short" default="0" minOccurs="0"/>
+          <xs:element name="break1" type="xs:short" default="0" minOccurs="0"/>
+          <xs:element name="make2" type="xs:short" default="0" minOccurs="0"/>
+          <xs:element name="break2" type="xs:short" default="0" minOccurs="0"/>
+          <xs:element name="make3" type="xs:short" default="0" minOccurs="0"/>
+          <xs:element name="break3" type="xs:short" default="0" minOccurs="0"/>
+          <xs:element name="repeat" type="xs:unsignedShort" default="1" minOccurs="0"/>
+          <xs:element name="repeat1" type="xs:unsignedShort" default="1" minOccurs="0"/>
+          <xs:element name="repeat2" type="xs:unsignedShort" default="1" minOccurs="0"/>
+          <xs:element name="repeat3" type="xs:unsignedShort" default="1" minOccurs="0"/>
+          <xs:element name="singleTone" type="ns12:singleTone" minOccurs="0"/>
+          <xs:element name="dualTone" type="ns12:dualTone" minOccurs="0"/>
+          <xs:element name="compositeTone" type="ns12:compositeTone" minOccurs="0"/>
+          <xs:element name="modulatedTone" type="ns12:modulatedTone" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="toneProfileKey">
+    <xs:complexContent>
+      <xs:extension base="ns4:sbcKey">
+        <xs:sequence>
+          <xs:element name="name" type="xs:string" minOccurs="0"/>
+          <xs:element name="parentKey" type="ns6:mediaKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="toneProfileListWrapper">
+    <xs:complexContent>
+      <xs:extension base="ns4:sbcListWrapper">
+        <xs:sequence>
+          <xs:element name="toneProfile" type="tns:toneProfile" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="mediaQosKpiProfile">
+    <xs:complexContent>
+      <xs:extension base="ns4:sbcEntity">
+        <xs:sequence>
+          <xs:element name="name" type="xs:string" minOccurs="0"/>
+          <xs:element name="profileActive" type="ns2:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="rFactor" type="ns2:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="rFactorThreshold" type="xs:unsignedShort" default="70" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="mediaQosKpiProfileKey">
+    <xs:complexContent>
+      <xs:extension base="ns4:sbcKey">
+        <xs:sequence>
+          <xs:element name="name" type="xs:string" minOccurs="0"/>
+          <xs:element name="parentKey" type="ns6:mediaKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="mediaQosKpiProfileListWrapper">
+    <xs:complexContent>
+      <xs:extension base="ns4:sbcListWrapper">
+        <xs:sequence>
+          <xs:element name="mediaQosKpiProfile" type="tns:mediaQosKpiProfile" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="packetServiceProfile">
+    <xs:complexContent>
+      <xs:extension base="ns4:sbcEntity">
+        <xs:sequence>
+          <xs:element name="name" type="xs:string" minOccurs="0"/>
+          <xs:element name="silenceFactor" type="xs:unsignedInt" default="40" minOccurs="0"/>
+          <xs:element name="typeOfService" type="xs:unsignedInt" default="0" minOccurs="0"/>
+          <xs:element name="voiceInitialPlayoutBufferDelay" type="xs:unsignedInt" default="10" minOccurs="0"/>
+          <xs:element name="peerAbsenceAction" type="ns13:sonusPeerAbsenceActionRange" default="none" minOccurs="0"/>
+          <xs:element name="aal1PayloadSize" type="xs:unsignedInt" default="47" minOccurs="0"/>
+          <xs:element name="preferredRtpPayloadTypeForDtmfRelay" type="xs:unsignedInt" default="128" minOccurs="0"/>
+          <xs:element name="mediaPacketCos" type="xs:unsignedInt" default="0" minOccurs="0"/>
+          <xs:element name="honorRemotePrecedence" type="ns2:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="sendRoutePSPPrecedence" type="ns2:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="dataCalls" type="ns14:dataCalls" minOccurs="0"/>
+          <xs:element name="rtcpOptions" type="ns14:rtcpOptions" minOccurs="0"/>
+          <xs:element name="silenceInsertionDescriptor" type="ns14:silenceInsertionDescriptor" minOccurs="0"/>
+          <xs:element name="codec" type="ns14:codec" minOccurs="0"/>
+          <xs:element name="packetToPacketControl" type="ns14:packetToPacketControl" minOccurs="0"/>
+          <xs:element name="flags" type="ns14:flags" minOccurs="0"/>
+          <xs:element name="t38" type="ns14:t38" minOccurs="0"/>
+          <xs:element name="secureRtpRtcp" type="ns14:secureRtpRtcp" minOccurs="0"/>
+          <xs:element name="videoCalls" type="ns14:videoCalls" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="packetServiceProfileKey">
+    <xs:complexContent>
+      <xs:extension base="ns4:sbcKey">
+        <xs:sequence>
+          <xs:element name="name" type="xs:string" minOccurs="0"/>
+          <xs:element name="parentKey" type="ns6:mediaKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="packetServiceProfileListWrapper">
+    <xs:complexContent>
+      <xs:extension base="ns4:sbcListWrapper">
+        <xs:sequence>
+          <xs:element name="packetServiceProfile" type="tns:packetServiceProfile" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="toneAndAnnouncementProfile">
+    <xs:complexContent>
+      <xs:extension base="ns4:sbcEntity">
+        <xs:sequence>
+          <xs:element name="name" type="xs:string" minOccurs="0"/>
+          <xs:element name="localRingBackTone" type="ns20:localRingBackTone" minOccurs="0"/>
+          <xs:element name="toneAndAnnouncement" type="ns20:toneAndAnnouncement" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="toneAndAnnouncementProfileKey">
+    <xs:complexContent>
+      <xs:extension base="ns4:sbcKey">
+        <xs:sequence>
+          <xs:element name="name" type="xs:string" minOccurs="0"/>
+          <xs:element name="parentKey" type="ns6:mediaKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="toneAndAnnouncementProfileListWrapper">
+    <xs:complexContent>
+      <xs:extension base="ns4:sbcListWrapper">
+        <xs:sequence>
+          <xs:element name="toneAndAnnouncementProfile" type="tns:toneAndAnnouncementProfile" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+</xs:schema>
+

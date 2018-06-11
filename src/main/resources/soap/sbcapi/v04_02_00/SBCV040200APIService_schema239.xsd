@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="linkdetectiongroup.addresscontext.v04_02_00.sbc.api.ems.sonus.com" xmlns:ns2="sonustc.types.v04_02_00.sbc.api.ems.sonus.com" xmlns:ns1="sonuslvm.types.v04_02_00.sbc.api.ems.sonus.com" xmlns:ns4="v04_02_00.sbc.api.ems.sonus.com" xmlns:ns3="common.sbc.api.ems.sonus.com" xmlns:tns="linkdetectiongroup.addresscontext.v04_02_00.sbc.api.ems.sonus.com" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ns5="addresscontext.v04_02_00.sbc.api.ems.sonus.com">
+
+  <xs:import namespace="sonuslvm.types.v04_02_00.sbc.api.ems.sonus.com" schemaLocation="SBCV040200APIService_schema74.xsd"/>
+
+  <xs:import namespace="sonustc.types.v04_02_00.sbc.api.ems.sonus.com" schemaLocation="SBCV040200APIService_schema42.xsd"/>
+
+  <xs:import namespace="common.sbc.api.ems.sonus.com" schemaLocation="SBCV040200APIService_schema325.xsd"/>
+
+  <xs:import namespace="v04_02_00.sbc.api.ems.sonus.com" schemaLocation="SBCV040200APIService_schema7.xsd"/>
+
+  <xs:import namespace="addresscontext.v04_02_00.sbc.api.ems.sonus.com" schemaLocation="SBCV040200APIService_schema364.xsd"/>
+
+  <xs:complexType name="linkMonitor">
+    <xs:complexContent>
+      <xs:extension base="ns3:sbcEntity">
+        <xs:sequence>
+          <xs:element name="name" type="xs:string" minOccurs="0"/>
+          <xs:element name="physicalPort" type="ns1:sonusLvmPhysicalPortType" minOccurs="0"/>
+          <xs:element name="ipInterfaceGroup" type="xs:string" minOccurs="0"/>
+          <xs:element name="ipInterface" type="xs:string" minOccurs="0"/>
+          <xs:element name="mgmtIpInterfaceGroup" type="xs:string" minOccurs="0"/>
+          <xs:element name="mgmtInterface" type="xs:string" minOccurs="0"/>
+          <xs:element name="destination" type="xs:string" minOccurs="0"/>
+          <xs:element name="verifyTimer" type="xs:int" default="1000" minOccurs="0"/>
+          <xs:element name="responseTimer" type="xs:int" default="500" minOccurs="0"/>
+          <xs:element name="reattemptTimer" type="xs:int" default="1000" minOccurs="0"/>
+          <xs:element name="retries" type="xs:int" minOccurs="0"/>
+          <xs:element name="state" type="ns2:sonusAdminState" default="disabled" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="linkMonitorKey">
+    <xs:complexContent>
+      <xs:extension base="ns3:sbcKey">
+        <xs:sequence>
+          <xs:element name="name" type="xs:string" minOccurs="0"/>
+          <xs:element name="parentKey" type="ns5:linkDetectionGroupKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="linkMonitorListWrapper">
+    <xs:complexContent>
+      <xs:extension base="ns3:sbcListWrapper">
+        <xs:sequence>
+          <xs:element name="linkMonitor" type="tns:linkMonitor" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="linkMonitorStatus">
+    <xs:complexContent>
+      <xs:extension base="ns3:sbcEntity">
+        <xs:sequence>
+          <xs:element name="name" type="xs:string" minOccurs="0"/>
+          <xs:element name="monitorStatus" type="xs:string" minOccurs="0"/>
+          <xs:element name="linkStatus" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="linkMonitorStatusKey">
+    <xs:complexContent>
+      <xs:extension base="ns3:sbcReadOnlyKey">
+        <xs:sequence>
+          <xs:element name="name" type="xs:string" minOccurs="0"/>
+          <xs:element name="parentKey" type="ns5:linkDetectionGroupKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="linkMonitorStatusListWrapper">
+    <xs:complexContent>
+      <xs:extension base="ns3:sbcListWrapper">
+        <xs:sequence>
+          <xs:element name="linkMonitorStatus" type="tns:linkMonitorStatus" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="linkMonitorStatistics">
+    <xs:complexContent>
+      <xs:extension base="ns3:sbcEntity">
+        <xs:sequence>
+          <xs:element name="name" type="xs:string" minOccurs="0"/>
+          <xs:element name="minTime" type="xs:int" minOccurs="0"/>
+          <xs:element name="maxTime" type="xs:int" minOccurs="0"/>
+          <xs:element name="averageTime" type="xs:int" minOccurs="0"/>
+          <xs:element name="singleFailures" type="xs:int" minOccurs="0"/>
+          <xs:element name="doubleFailures" type="xs:int" minOccurs="0"/>
+          <xs:element name="failures" type="xs:int" minOccurs="0"/>
+          <xs:element name="replies" type="xs:int" minOccurs="0"/>
+          <xs:element name="duplicateReplies" type="xs:int" minOccurs="0"/>
+          <xs:element name="lateReplies" type="xs:int" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="linkMonitorStatisticsKey">
+    <xs:complexContent>
+      <xs:extension base="ns3:sbcReadOnlyKey">
+        <xs:sequence>
+          <xs:element name="name" type="xs:string" minOccurs="0"/>
+          <xs:element name="parentKey" type="ns5:linkDetectionGroupKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="linkMonitorStatisticsListWrapper">
+    <xs:complexContent>
+      <xs:extension base="ns3:sbcListWrapper">
+        <xs:sequence>
+          <xs:element name="linkMonitorStatistics" type="tns:linkMonitorStatistics" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+</xs:schema>
+

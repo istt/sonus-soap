@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="additionalcategory.parametercriteria.dmpmcriteria.digitparameterhandling.profiles.v05_00_00.sbc.api.ems.sonus.com" xmlns:ns2="sonusdmpmcriteria.types.v05_00_00.sbc.api.ems.sonus.com" xmlns:ns1="sonusorcatc.types.v05_00_00.sbc.api.ems.sonus.com" xmlns:ns4="dmpmcriteria.digitparameterhandling.profiles.v05_00_00.sbc.api.ems.sonus.com" xmlns:ns3="common.sbc.api.ems.sonus.com" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ns5="parametercriteria.dmpmcriteria.digitparameterhandling.profiles.v05_00_00.sbc.api.ems.sonus.com">
+
+  <xs:import namespace="sonusorcatc.types.v05_00_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050000APIService_schema66.xsd"/>
+
+  <xs:import namespace="sonusdmpmcriteria.types.v05_00_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050000APIService_schema117.xsd"/>
+
+  <xs:import namespace="common.sbc.api.ems.sonus.com" schemaLocation="SBCV050000APIService_schema326.xsd"/>
+
+  <xs:import namespace="dmpmcriteria.digitparameterhandling.profiles.v05_00_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050000APIService_schema302.xsd"/>
+
+  <xs:import namespace="parametercriteria.dmpmcriteria.digitparameterhandling.profiles.v05_00_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050000APIService_schema211.xsd"/>
+
+  <xs:complexType name="name">
+    <xs:complexContent>
+      <xs:extension base="ns3:sbcEntity">
+        <xs:sequence>
+          <xs:element name="value" type="ns1:sonusNameRange" default="mobile1" minOccurs="0"/>
+          <xs:element name="operation" type="ns2:sonusNameOperationRange" default="ignore" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="nameKey">
+    <xs:complexContent>
+      <xs:extension base="ns3:sbcUnCreatableKey">
+        <xs:sequence>
+          <xs:element name="parentKey" type="ns5:additionalCategoryKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="information">
+    <xs:complexContent>
+      <xs:extension base="ns3:sbcEntity">
+        <xs:sequence>
+          <xs:element name="value" type="ns1:sonusInformationRange" default="auto" minOccurs="0"/>
+          <xs:element name="operation" type="ns2:sonusInformationOperationRange" default="ignore" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="informationKey">
+    <xs:complexContent>
+      <xs:extension base="ns3:sbcUnCreatableKey">
+        <xs:sequence>
+          <xs:element name="parentKey" type="ns5:additionalCategoryKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+</xs:schema>
+

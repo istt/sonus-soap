@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="sonussipcacprofile.types.v05_00_00.sbc.api.ems.sonus.com" xmlns:tns="sonussipcacprofile.types.v05_00_00.sbc.api.ems.sonus.com" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:complexType name="SonusSipCacCallIngressRateTypeUnion">
+    <xs:sequence>
+      <xs:element name="sonusSipCacCallRateTypeUnlimited" type="tns:sonusSipCacCallRateTypeUnlimited" minOccurs="0"/>
+      <xs:element name="sonusSipCacCallRateTypeVal" type="xs:unsignedInt" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="SonusSipCacCallEgressRateTypeUnion">
+    <xs:sequence>
+      <xs:element name="sonusSipCacCallRateTypeUnlimited" type="tns:sonusSipCacCallRateTypeUnlimited" minOccurs="0"/>
+      <xs:element name="sonusSipCacCallRateTypeVal" type="xs:unsignedInt" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="SonusSipCacCallLimitTypeUnion">
+    <xs:sequence>
+      <xs:element name="sonusSipCacCallLimitTypeVal" type="xs:int" minOccurs="0"/>
+      <xs:element name="sonusSipCacCallLimitTypeUnlimited" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="SonusSipCacAggregateMessageIngressRateTypeUnion">
+    <xs:sequence>
+      <xs:element name="sonusSipCacRateTypeUnlimited" type="tns:sonusSipCacRateTypeUnlimited" minOccurs="0"/>
+      <xs:element name="sonusSipCacRateTypeValue" type="xs:unsignedShort" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="SonusSipCacAggregateMessageEgressRateTypeUnion">
+    <xs:sequence>
+      <xs:element name="sonusSipCacRateTypeUnlimited" type="tns:sonusSipCacRateTypeUnlimited" minOccurs="0"/>
+      <xs:element name="sonusSipCacRateTypeValue" type="xs:unsignedShort" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="SonusSipCacDblAggregateRejectIngressRateTypeUnion">
+    <xs:sequence>
+      <xs:element name="sonusSipCacRateTypeUnlimited" type="tns:sonusSipCacRateTypeUnlimited" minOccurs="0"/>
+      <xs:element name="sonusSipCacRateTypeValue" type="xs:unsignedShort" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="SonusSipCacMessageIngressRateTypeUnion">
+    <xs:sequence>
+      <xs:element name="sonusSipCacRateTypeUnlimited" type="tns:sonusSipCacRateTypeUnlimited" minOccurs="0"/>
+      <xs:element name="sonusSipCacRateTypeValue" type="xs:unsignedShort" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="SonusSipCacMessageEgressRateTypeUnion">
+    <xs:sequence>
+      <xs:element name="sonusSipCacRateTypeUnlimited" type="tns:sonusSipCacRateTypeUnlimited" minOccurs="0"/>
+      <xs:element name="sonusSipCacRateTypeValue" type="xs:unsignedShort" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="SonusSipCacNotifyIngressRateTypeUnion">
+    <xs:sequence>
+      <xs:element name="sonusSipCacRateTypeUnlimited" type="tns:sonusSipCacRateTypeUnlimited" minOccurs="0"/>
+      <xs:element name="sonusSipCacRateTypeValue" type="xs:unsignedShort" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="SonusSipCacNotifyEgressRateTypeUnion">
+    <xs:sequence>
+      <xs:element name="sonusSipCacRateTypeUnlimited" type="tns:sonusSipCacRateTypeUnlimited" minOccurs="0"/>
+      <xs:element name="sonusSipCacRateTypeValue" type="xs:unsignedShort" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="SonusSipCacOptionsIngressRateTypeUnion">
+    <xs:sequence>
+      <xs:element name="sonusSipCacRateTypeUnlimited" type="tns:sonusSipCacRateTypeUnlimited" minOccurs="0"/>
+      <xs:element name="sonusSipCacRateTypeValue" type="xs:unsignedShort" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="SonusSipCacOptionsEgressRateTypeUnion">
+    <xs:sequence>
+      <xs:element name="sonusSipCacRateTypeUnlimited" type="tns:sonusSipCacRateTypeUnlimited" minOccurs="0"/>
+      <xs:element name="sonusSipCacRateTypeValue" type="xs:unsignedShort" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="SonusSipCacOtherRequestsIngressRateTypeUnion">
+    <xs:sequence>
+      <xs:element name="sonusSipCacRateTypeUnlimited" type="tns:sonusSipCacRateTypeUnlimited" minOccurs="0"/>
+      <xs:element name="sonusSipCacRateTypeValue" type="xs:unsignedShort" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="SonusSipCacOtherRequestsEgressRateTypeUnion">
+    <xs:sequence>
+      <xs:element name="sonusSipCacRateTypeUnlimited" type="tns:sonusSipCacRateTypeUnlimited" minOccurs="0"/>
+      <xs:element name="sonusSipCacRateTypeValue" type="xs:unsignedShort" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="SonusSipCacReferIngressRateTypeUnion">
+    <xs:sequence>
+      <xs:element name="sonusSipCacRateTypeUnlimited" type="tns:sonusSipCacRateTypeUnlimited" minOccurs="0"/>
+      <xs:element name="sonusSipCacRateTypeValue" type="xs:unsignedShort" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="SonusSipCacReferEgressRateTypeUnion">
+    <xs:sequence>
+      <xs:element name="sonusSipCacRateTypeUnlimited" type="tns:sonusSipCacRateTypeUnlimited" minOccurs="0"/>
+      <xs:element name="sonusSipCacRateTypeValue" type="xs:unsignedShort" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="SonusSipCacResponseIngressRateTypeUnion">
+    <xs:sequence>
+      <xs:element name="sonusSipCacRateTypeUnlimited" type="tns:sonusSipCacRateTypeUnlimited" minOccurs="0"/>
+      <xs:element name="sonusSipCacRateTypeValue" type="xs:unsignedShort" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="SonusSipCacResponseEgressRateTypeUnion">
+    <xs:sequence>
+      <xs:element name="sonusSipCacRateTypeUnlimited" type="tns:sonusSipCacRateTypeUnlimited" minOccurs="0"/>
+      <xs:element name="sonusSipCacRateTypeValue" type="xs:unsignedShort" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="SonusSipCacSubscribeIngressRateTypeUnion">
+    <xs:sequence>
+      <xs:element name="sonusSipCacRateTypeUnlimited" type="tns:sonusSipCacRateTypeUnlimited" minOccurs="0"/>
+      <xs:element name="sonusSipCacRateTypeValue" type="xs:unsignedShort" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="SonusSipCacSubscribeEgressRateTypeUnion">
+    <xs:sequence>
+      <xs:element name="sonusSipCacRateTypeUnlimited" type="tns:sonusSipCacRateTypeUnlimited" minOccurs="0"/>
+      <xs:element name="sonusSipCacRateTypeValue" type="xs:unsignedShort" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:simpleType name="sonusSipCacCallRateTypeUnlimited">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="unlimited"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusSipCacRateTypeUnlimited">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="unlimited"/>
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>
+

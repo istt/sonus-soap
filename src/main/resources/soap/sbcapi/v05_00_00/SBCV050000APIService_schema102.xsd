@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="sonusgen2nrmdigits.types.v05_00_00.sbc.api.ems.sonus.com" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:simpleType name="sonusDigitProfileTypeType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="dtmf"/>
+      <xs:enumeration value="mfr1"/>
+      <xs:enumeration value="mfr2"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusDigitProfileDtmfDetFreqAcceptRangeType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="narrow"/>
+      <xs:enumeration value="medium"/>
+      <xs:enumeration value="wide"/>
+      <xs:enumeration value="wider"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusDigitProfileDetFreqAcceptRangeType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="narrow"/>
+      <xs:enumeration value="medium"/>
+      <xs:enumeration value="wide"/>
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>
+

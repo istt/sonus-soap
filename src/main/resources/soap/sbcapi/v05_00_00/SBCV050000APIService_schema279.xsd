@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="featurecontrolprofile.profiles.v05_00_00.sbc.api.ems.sonus.com" xmlns:ns2="common.sbc.api.ems.sonus.com" xmlns:ns1="sonustc.types.v05_00_00.sbc.api.ems.sonus.com" xmlns:ns4="profiles.v05_00_00.sbc.api.ems.sonus.com" xmlns:ns3="v05_00_00.sbc.api.ems.sonus.com" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:import namespace="sonustc.types.v05_00_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050000APIService_schema42.xsd"/>
+
+  <xs:import namespace="common.sbc.api.ems.sonus.com" schemaLocation="SBCV050000APIService_schema326.xsd"/>
+
+  <xs:import namespace="v05_00_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050000APIService_schema7.xsd"/>
+
+  <xs:import namespace="profiles.v05_00_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050000APIService_schema197.xsd"/>
+
+  <xs:complexType name="ipProtocolFlags">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcEntity">
+        <xs:sequence>
+          <xs:element name="useIpProtocol" type="ns1:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="defaultCalledUser" type="ns1:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="honorPhoneContextParameter" type="ns1:sonusEnableDisable" default="disable" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="ipProtocolFlagsKey">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcUnCreatableKey">
+        <xs:sequence>
+          <xs:element name="parentKey" type="ns4:featureControlProfileKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+</xs:schema>
+

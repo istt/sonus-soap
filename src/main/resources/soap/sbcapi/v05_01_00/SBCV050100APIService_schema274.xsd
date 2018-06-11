@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="ipinterface.ipinterfacegroup.addresscontext.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns2="addresscontext.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns1="common.sbc.api.ems.sonus.com" xmlns:ns3="ipinterfacegroup.addresscontext.v05_01_00.sbc.api.ems.sonus.com" xmlns:tns="ipinterface.ipinterfacegroup.addresscontext.v05_01_00.sbc.api.ems.sonus.com" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:import namespace="common.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema360.xsd"/>
+
+  <xs:import namespace="addresscontext.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema408.xsd"/>
+
+  <xs:import namespace="ipinterfacegroup.addresscontext.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema273.xsd"/>
+
+  <xs:complexType name="altMediaIpAddresses">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcEntity">
+        <xs:sequence>
+          <xs:element name="ipAddress" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="altMediaIpAddressesKey">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcKey">
+        <xs:sequence>
+          <xs:element name="ipAddress" type="xs:string" minOccurs="0"/>
+          <xs:element name="parentKey" type="ns3:ipInterfaceKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="altMediaIpAddressesListWrapper">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcListWrapper">
+        <xs:sequence>
+          <xs:element name="altMediaIpAddresses" type="tns:altMediaIpAddresses" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+</xs:schema>
+

@@ -1,0 +1,319 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="ethernetport.system.v04_02_00.sbc.api.ems.sonus.com" xmlns:ns2="v04_02_00.sbc.api.ems.sonus.com" xmlns:ns1="common.sbc.api.ems.sonus.com" xmlns:ns4="sonusport.types.v04_02_00.sbc.api.ems.sonus.com" xmlns:ns3="system.v04_02_00.sbc.api.ems.sonus.com" xmlns:tns="ethernetport.system.v04_02_00.sbc.api.ems.sonus.com" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:import namespace="common.sbc.api.ems.sonus.com" schemaLocation="SBCV040200APIService_schema325.xsd"/>
+
+  <xs:import namespace="v04_02_00.sbc.api.ems.sonus.com" schemaLocation="SBCV040200APIService_schema7.xsd"/>
+
+  <xs:import namespace="system.v04_02_00.sbc.api.ems.sonus.com" schemaLocation="SBCV040200APIService_schema26.xsd"/>
+
+  <xs:import namespace="sonusport.types.v04_02_00.sbc.api.ems.sonus.com" schemaLocation="SBCV040200APIService_schema62.xsd"/>
+
+  <xs:complexType name="packetAdmin">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcEntity">
+        <xs:sequence>
+          <xs:element name="ceName" type="xs:string" minOccurs="0"/>
+          <xs:element name="portName" type="xs:string" minOccurs="0"/>
+          <xs:element name="portIndex" type="xs:int" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="packetAdminKey">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcKey">
+        <xs:sequence>
+          <xs:element name="ceName" type="xs:string" minOccurs="0"/>
+          <xs:element name="portName" type="xs:string" minOccurs="0"/>
+          <xs:element name="parentKey" type="ns3:ethernetPortKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="packetAdminListWrapper">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcListWrapper">
+        <xs:sequence>
+          <xs:element name="packetAdmin" type="tns:packetAdmin" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="packetPortStatus">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcEntity">
+        <xs:sequence>
+          <xs:element name="ceName" type="xs:string" minOccurs="0"/>
+          <xs:element name="portName" type="xs:string" minOccurs="0"/>
+          <xs:element name="ifIndex" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="macAddress" type="xs:string" minOccurs="0"/>
+          <xs:element name="negotiatedSpeed" type="ns4:sonusNifActualSpeedType" minOccurs="0"/>
+          <xs:element name="linkState" type="ns4:sonusPktNifLinkStateType" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="packetPortStatusKey">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcReadOnlyKey">
+        <xs:sequence>
+          <xs:element name="ceName" type="xs:string" minOccurs="0"/>
+          <xs:element name="portName" type="xs:string" minOccurs="0"/>
+          <xs:element name="parentKey" type="ns3:ethernetPortKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="packetPortStatusListWrapper">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcListWrapper">
+        <xs:sequence>
+          <xs:element name="packetPortStatus" type="tns:packetPortStatus" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="packetStatistics">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcEntity">
+        <xs:sequence>
+          <xs:element name="portName" type="xs:string" minOccurs="0"/>
+          <xs:element name="rxPackets" type="xs:unsignedLong" minOccurs="0"/>
+          <xs:element name="txPackets" type="xs:unsignedLong" minOccurs="0"/>
+          <xs:element name="rxErrors" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="txErrors" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="rxDropped" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="txDropped" type="xs:unsignedInt" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="packetStatisticsKey">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcReadOnlyKey">
+        <xs:sequence>
+          <xs:element name="portName" type="xs:string" minOccurs="0"/>
+          <xs:element name="parentKey" type="ns3:ethernetPortKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="packetStatisticsListWrapper">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcListWrapper">
+        <xs:sequence>
+          <xs:element name="packetStatistics" type="tns:packetStatistics" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="mgmtAdmin">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcEntity">
+        <xs:sequence>
+          <xs:element name="ceName" type="xs:string" minOccurs="0"/>
+          <xs:element name="portName" type="xs:string" minOccurs="0"/>
+          <xs:element name="portIndex" type="xs:int" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="mgmtAdminKey">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcKey">
+        <xs:sequence>
+          <xs:element name="ceName" type="xs:string" minOccurs="0"/>
+          <xs:element name="portName" type="xs:string" minOccurs="0"/>
+          <xs:element name="parentKey" type="ns3:ethernetPortKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="mgmtAdminListWrapper">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcListWrapper">
+        <xs:sequence>
+          <xs:element name="mgmtAdmin" type="tns:mgmtAdmin" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="mgmtPortStatus">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcEntity">
+        <xs:sequence>
+          <xs:element name="ceName" type="xs:string" minOccurs="0"/>
+          <xs:element name="portName" type="xs:string" minOccurs="0"/>
+          <xs:element name="ifIndex" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="macAddress" type="xs:string" minOccurs="0"/>
+          <xs:element name="linkState" type="ns4:sonusMgmtNifLinkStateType" minOccurs="0"/>
+          <xs:element name="rxPackets" type="xs:unsignedLong" minOccurs="0"/>
+          <xs:element name="txPackets" type="xs:unsignedLong" minOccurs="0"/>
+          <xs:element name="rxErrors" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="txErrors" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="rxDropped" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="txDropped" type="xs:unsignedInt" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="mgmtPortStatusKey">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcReadOnlyKey">
+        <xs:sequence>
+          <xs:element name="ceName" type="xs:string" minOccurs="0"/>
+          <xs:element name="portName" type="xs:string" minOccurs="0"/>
+          <xs:element name="parentKey" type="ns3:ethernetPortKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="mgmtPortStatusListWrapper">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcListWrapper">
+        <xs:sequence>
+          <xs:element name="mgmtPortStatus" type="tns:mgmtPortStatus" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="mgmtStatistics">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcEntity">
+        <xs:sequence>
+          <xs:element name="portName" type="xs:string" minOccurs="0"/>
+          <xs:element name="rxPackets" type="xs:unsignedLong" minOccurs="0"/>
+          <xs:element name="txPackets" type="xs:unsignedLong" minOccurs="0"/>
+          <xs:element name="rxErrors" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="txErrors" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="rxDropped" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="txDropped" type="xs:unsignedInt" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="mgmtStatisticsKey">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcReadOnlyKey">
+        <xs:sequence>
+          <xs:element name="portName" type="xs:string" minOccurs="0"/>
+          <xs:element name="parentKey" type="ns3:ethernetPortKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="mgmtStatisticsListWrapper">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcListWrapper">
+        <xs:sequence>
+          <xs:element name="mgmtStatistics" type="tns:mgmtStatistics" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="portRedundancyGroupStatus">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcEntity">
+        <xs:sequence>
+          <xs:element name="ceName" type="xs:string" minOccurs="0"/>
+          <xs:element name="prgName" type="xs:string" minOccurs="0"/>
+          <xs:element name="portName" type="xs:string" minOccurs="0"/>
+          <xs:element name="interfaceType" type="ns4:sonusInterfaceType" minOccurs="0"/>
+          <xs:element name="portMonitorCount" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="ifIndex" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="ifNum" type="xs:int" minOccurs="0"/>
+          <xs:element name="primaryMacAddress" type="xs:string" minOccurs="0"/>
+          <xs:element name="secondaryMacAddress" type="xs:string" minOccurs="0"/>
+          <xs:element name="state" type="ns4:sonusPortStateType" minOccurs="0"/>
+          <xs:element name="failures" type="xs:int" minOccurs="0"/>
+          <xs:element name="failureCount" type="xs:int" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="portRedundancyGroupStatusKey">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcReadOnlyKey">
+        <xs:sequence>
+          <xs:element name="ceName" type="xs:string" minOccurs="0"/>
+          <xs:element name="prgName" type="xs:string" minOccurs="0"/>
+          <xs:element name="parentKey" type="ns3:ethernetPortKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="portRedundancyGroupStatusListWrapper">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcListWrapper">
+        <xs:sequence>
+          <xs:element name="portRedundancyGroupStatus" type="tns:portRedundancyGroupStatus" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="portMonitorStatus">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcEntity">
+        <xs:sequence>
+          <xs:element name="ceName" type="xs:string" minOccurs="0"/>
+          <xs:element name="prgName" type="xs:string" minOccurs="0"/>
+          <xs:element name="pmName" type="xs:string" minOccurs="0"/>
+          <xs:element name="portName" type="xs:string" minOccurs="0"/>
+          <xs:element name="macAddress" type="xs:string" minOccurs="0"/>
+          <xs:element name="role" type="ns4:sonusPortRoleType" minOccurs="0"/>
+          <xs:element name="state" type="ns4:sonusPortStateType" minOccurs="0"/>
+          <xs:element name="faultState" type="ns4:sonusPortFaultStateType" minOccurs="0"/>
+          <xs:element name="linkState" type="ns4:sonusPortFaultStateType" minOccurs="0"/>
+          <xs:element name="failures" type="xs:int" minOccurs="0"/>
+          <xs:element name="linkFailures" type="xs:int" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="portMonitorStatusKey">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcReadOnlyKey">
+        <xs:sequence>
+          <xs:element name="ceName" type="xs:string" minOccurs="0"/>
+          <xs:element name="prgName" type="xs:string" minOccurs="0"/>
+          <xs:element name="pmName" type="xs:string" minOccurs="0"/>
+          <xs:element name="parentKey" type="ns3:ethernetPortKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="portMonitorStatusListWrapper">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcListWrapper">
+        <xs:sequence>
+          <xs:element name="portMonitorStatus" type="tns:portMonitorStatus" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+</xs:schema>
+

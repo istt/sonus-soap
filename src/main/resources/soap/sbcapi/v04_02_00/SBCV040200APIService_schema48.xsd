@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="sonussiptocpccausemapprofile.types.v04_02_00.sbc.api.ems.sonus.com" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:simpleType name="sonusSipToCpcCauseMappingBaseProfileType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="defaultSipCpc"/>
+      <xs:enumeration value="defaultQ1912SipCpc"/>
+      <xs:enumeration value="defaultRfc3398SipCpc"/>
+      <xs:enumeration value="defaultTs29163SipCpc"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusSipToCpcCauseMappingProfileByeLocType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="user"/>
+      <xs:enumeration value="localPrivateNetwork"/>
+      <xs:enumeration value="localLocalNetwork"/>
+      <xs:enumeration value="transitNetwork"/>
+      <xs:enumeration value="remoteLocalNetwork"/>
+      <xs:enumeration value="remotePrivateNetwork"/>
+      <xs:enumeration value="localInterfaceControlledByThisSigLink"/>
+      <xs:enumeration value="internationalNetwork"/>
+      <xs:enumeration value="networkBeyondPoint"/>
+      <xs:enumeration value="privateBranchExchange"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusSipToCpcCauseMappingProfileCancelLocType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="user"/>
+      <xs:enumeration value="localPrivateNetwork"/>
+      <xs:enumeration value="localLocalNetwork"/>
+      <xs:enumeration value="transitNetwork"/>
+      <xs:enumeration value="remoteLocalNetwork"/>
+      <xs:enumeration value="remotePrivateNetwork"/>
+      <xs:enumeration value="localInterfaceControlledByThisSigLink"/>
+      <xs:enumeration value="internationalNetwork"/>
+      <xs:enumeration value="networkBeyondPoint"/>
+      <xs:enumeration value="privateBranchExchange"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusSipToCpcCauseMappingProfile3xxLocType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="user"/>
+      <xs:enumeration value="localPrivateNetwork"/>
+      <xs:enumeration value="localLocalNetwork"/>
+      <xs:enumeration value="transitNetwork"/>
+      <xs:enumeration value="remoteLocalNetwork"/>
+      <xs:enumeration value="remotePrivateNetwork"/>
+      <xs:enumeration value="localInterfaceControlledByThisSigLink"/>
+      <xs:enumeration value="internationalNetwork"/>
+      <xs:enumeration value="networkBeyondPoint"/>
+      <xs:enumeration value="privateBranchExchange"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusSipToCpcCauseMappingProfile4xxLocType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="user"/>
+      <xs:enumeration value="localPrivateNetwork"/>
+      <xs:enumeration value="localLocalNetwork"/>
+      <xs:enumeration value="transitNetwork"/>
+      <xs:enumeration value="remoteLocalNetwork"/>
+      <xs:enumeration value="remotePrivateNetwork"/>
+      <xs:enumeration value="localInterfaceControlledByThisSigLink"/>
+      <xs:enumeration value="internationalNetwork"/>
+      <xs:enumeration value="networkBeyondPoint"/>
+      <xs:enumeration value="privateBranchExchange"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusSipToCpcCauseMappingProfile5xxLocType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="user"/>
+      <xs:enumeration value="localPrivateNetwork"/>
+      <xs:enumeration value="localLocalNetwork"/>
+      <xs:enumeration value="transitNetwork"/>
+      <xs:enumeration value="remoteLocalNetwork"/>
+      <xs:enumeration value="remotePrivateNetwork"/>
+      <xs:enumeration value="localInterfaceControlledByThisSigLink"/>
+      <xs:enumeration value="internationalNetwork"/>
+      <xs:enumeration value="networkBeyondPoint"/>
+      <xs:enumeration value="privateBranchExchange"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusSipToCpcCauseMappingProfile6xxLocType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="user"/>
+      <xs:enumeration value="localPrivateNetwork"/>
+      <xs:enumeration value="localLocalNetwork"/>
+      <xs:enumeration value="transitNetwork"/>
+      <xs:enumeration value="remoteLocalNetwork"/>
+      <xs:enumeration value="remotePrivateNetwork"/>
+      <xs:enumeration value="localInterfaceControlledByThisSigLink"/>
+      <xs:enumeration value="internationalNetwork"/>
+      <xs:enumeration value="networkBeyondPoint"/>
+      <xs:enumeration value="privateBranchExchange"/>
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>
+

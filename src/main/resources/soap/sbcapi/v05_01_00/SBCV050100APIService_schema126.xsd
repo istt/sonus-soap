@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="sonusdiameter.types.v05_01_00.sbc.api.ems.sonus.com" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:simpleType name="sonusDiamSessionDistribution">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="honor-reply-order"/>
+      <xs:enumeration value="round-robin"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusDiamAppIdType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="rx"/>
+      <xs:enumeration value="rf"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusDiamPeerConnState">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="close"/>
+      <xs:enumeration value="open"/>
+      <xs:enumeration value="trying"/>
+      <xs:enumeration value="dryup"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusDiamPeerDnsStatus">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="dns-zoneId-pending"/>
+      <xs:enumeration value="dns-querying"/>
+      <xs:enumeration value="no-resolution"/>
+      <xs:enumeration value="addr-resolved"/>
+      <xs:enumeration value="not-applicable"/>
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>
+

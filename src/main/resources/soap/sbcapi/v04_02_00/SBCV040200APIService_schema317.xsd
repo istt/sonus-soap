@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="criterion.rule.sipadaptorprofile.signaling.profiles.v04_02_00.sbc.api.ems.sonus.com" xmlns:ns2="common.sbc.api.ems.sonus.com" xmlns:ns1="sonusgen2sipadaptor.types.v04_02_00.sbc.api.ems.sonus.com" xmlns:ns4="rule.sipadaptorprofile.signaling.profiles.v04_02_00.sbc.api.ems.sonus.com" xmlns:ns3="sipadaptorprofile.signaling.profiles.v04_02_00.sbc.api.ems.sonus.com" xmlns:ns9="globalvariable.criterion.rule.sipadaptorprofile.signaling.profiles.v04_02_00.sbc.api.ems.sonus.com" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ns5="header.criterion.rule.sipadaptorprofile.signaling.profiles.v04_02_00.sbc.api.ems.sonus.com" xmlns:ns6="parameter.criterion.rule.sipadaptorprofile.signaling.profiles.v04_02_00.sbc.api.ems.sonus.com" xmlns:ns7="token.criterion.rule.sipadaptorprofile.signaling.profiles.v04_02_00.sbc.api.ems.sonus.com" xmlns:ns10="messagebody.criterion.rule.sipadaptorprofile.signaling.profiles.v04_02_00.sbc.api.ems.sonus.com" xmlns:ns8="variable.criterion.rule.sipadaptorprofile.signaling.profiles.v04_02_00.sbc.api.ems.sonus.com">
+
+  <xs:import namespace="sonusgen2sipadaptor.types.v04_02_00.sbc.api.ems.sonus.com" schemaLocation="SBCV040200APIService_schema95.xsd"/>
+
+  <xs:import namespace="common.sbc.api.ems.sonus.com" schemaLocation="SBCV040200APIService_schema325.xsd"/>
+
+  <xs:import namespace="sipadaptorprofile.signaling.profiles.v04_02_00.sbc.api.ems.sonus.com" schemaLocation="SBCV040200APIService_schema152.xsd"/>
+
+  <xs:import namespace="rule.sipadaptorprofile.signaling.profiles.v04_02_00.sbc.api.ems.sonus.com" schemaLocation="SBCV040200APIService_schema172.xsd"/>
+
+  <xs:import namespace="header.criterion.rule.sipadaptorprofile.signaling.profiles.v04_02_00.sbc.api.ems.sonus.com" schemaLocation="SBCV040200APIService_schema267.xsd"/>
+
+  <xs:import namespace="parameter.criterion.rule.sipadaptorprofile.signaling.profiles.v04_02_00.sbc.api.ems.sonus.com" schemaLocation="SBCV040200APIService_schema212.xsd"/>
+
+  <xs:import namespace="token.criterion.rule.sipadaptorprofile.signaling.profiles.v04_02_00.sbc.api.ems.sonus.com" schemaLocation="SBCV040200APIService_schema20.xsd"/>
+
+  <xs:import namespace="variable.criterion.rule.sipadaptorprofile.signaling.profiles.v04_02_00.sbc.api.ems.sonus.com" schemaLocation="SBCV040200APIService_schema6.xsd"/>
+
+  <xs:import namespace="globalvariable.criterion.rule.sipadaptorprofile.signaling.profiles.v04_02_00.sbc.api.ems.sonus.com" schemaLocation="SBCV040200APIService_schema270.xsd"/>
+
+  <xs:import namespace="messagebody.criterion.rule.sipadaptorprofile.signaling.profiles.v04_02_00.sbc.api.ems.sonus.com" schemaLocation="SBCV040200APIService_schema228.xsd"/>
+
+  <xs:complexType name="message">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcEntity">
+        <xs:sequence>
+          <xs:element name="messageTypes" type="ns1:sonusSipPduManipulationMessageTypesType" default="undefined" minOccurs="0"/>
+          <xs:element name="methodTypes" type="ns1:sonusSipPduManipulationMethodTypesType" default="undefined" minOccurs="0"/>
+          <xs:element name="statusCode" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="condition" type="ns1:sonusSipPduManipulationCriterionConditionType" default="undefined" minOccurs="0"/>
+          <xs:element name="statusRange" type="xs:unsignedInt" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="messageKey">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcUnCreatableKey">
+        <xs:sequence>
+          <xs:element name="parentKey" type="ns4:criterionKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="header">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcEntity">
+        <xs:sequence>
+          <xs:element name="name" type="xs:string" minOccurs="0"/>
+          <xs:element name="value" type="xs:string" minOccurs="0"/>
+          <xs:element name="condition" type="ns1:sonusSipPduManipulationCriterionConditionType" default="undefined" minOccurs="0"/>
+          <xs:element name="hdrInstance" type="ns1:sonusSipSmmCriterionHdrInstance" default="all" minOccurs="0"/>
+          <xs:element name="hdrRange" type="ns1:sonusSipSmmCriterionHdrRange" default="undefined" minOccurs="0"/>
+          <xs:element name="numberOfInstances" type="ns5:numberOfInstances" minOccurs="0"/>
+          <xs:element name="regexp" type="ns5:regexp" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="headerKey">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcUnCreatableKey">
+        <xs:sequence>
+          <xs:element name="parentKey" type="ns4:criterionKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="parameter">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcEntity">
+        <xs:sequence>
+          <xs:element name="condition" type="ns1:sonusSipPduManipulationCriterionConditionType" default="undefined" minOccurs="0"/>
+          <xs:element name="paramType" type="ns1:sonusSipSmmParamType" default="undefined" minOccurs="0"/>
+          <xs:element name="name" type="xs:string" minOccurs="0"/>
+          <xs:element name="value" type="xs:string" minOccurs="0"/>
+          <xs:element name="regexp" type="ns6:regexp" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="parameterKey">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcUnCreatableKey">
+        <xs:sequence>
+          <xs:element name="parentKey" type="ns4:criterionKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="token">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcEntity">
+        <xs:sequence>
+          <xs:element name="condition" type="ns1:sonusSipPduManipulationCriterionConditionType" default="undefined" minOccurs="0"/>
+          <xs:element name="tokenType" type="ns1:sonusSipSmmTokenType" default="undefined" minOccurs="0"/>
+          <xs:element name="value" type="xs:string" minOccurs="0"/>
+          <xs:element name="regexp" type="ns7:regexp" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="tokenKey">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcUnCreatableKey">
+        <xs:sequence>
+          <xs:element name="parentKey" type="ns4:criterionKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="variable">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcEntity">
+        <xs:sequence>
+          <xs:element name="condition" type="ns1:sonusSipPduManipulationCriterionConditionType" default="undefined" minOccurs="0"/>
+          <xs:element name="variableID" type="ns1:sonusSipSmmVariableType" default="undefined" minOccurs="0"/>
+          <xs:element name="value" type="xs:string" minOccurs="0"/>
+          <xs:element name="regexp" type="ns8:regexp" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="variableKey">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcUnCreatableKey">
+        <xs:sequence>
+          <xs:element name="parentKey" type="ns4:criterionKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="globalVariable">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcEntity">
+        <xs:sequence>
+          <xs:element name="condition" type="ns1:sonusSipPduManipulationCriterionConditionType" default="undefined" minOccurs="0"/>
+          <xs:element name="globalVariableID" type="ns1:sonusSipSmmGlobalVariableType" default="undefined" minOccurs="0"/>
+          <xs:element name="value" type="xs:string" minOccurs="0"/>
+          <xs:element name="regexp" type="ns9:regexp" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="globalVariableKey">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcUnCreatableKey">
+        <xs:sequence>
+          <xs:element name="parentKey" type="ns4:criterionKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="messageBody">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcEntity">
+        <xs:sequence>
+          <xs:element name="condition" type="ns1:sonusSipPduManipulationCriterionConditionType" default="undefined" minOccurs="0"/>
+          <xs:element name="messageBodyType" type="ns1:sonusSipSmmMessageBodyType" default="all" minOccurs="0"/>
+          <xs:element name="regexp" type="ns10:regexp" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="messageBodyKey">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcUnCreatableKey">
+        <xs:sequence>
+          <xs:element name="parentKey" type="ns4:criterionKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+</xs:schema>
+

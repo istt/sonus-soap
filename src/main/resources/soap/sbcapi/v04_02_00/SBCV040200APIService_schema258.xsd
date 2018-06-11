@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="importcert.operation.certificate.pki.security.system.v04_02_00.sbc.api.ems.sonus.com" xmlns:ns2="pki.security.system.v04_02_00.sbc.api.ems.sonus.com" xmlns:ns1="security.system.v04_02_00.sbc.api.ems.sonus.com" xmlns:ns3="common.sbc.api.ems.sonus.com" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:import namespace="security.system.v04_02_00.sbc.api.ems.sonus.com" schemaLocation="SBCV040200APIService_schema167.xsd"/>
+
+  <xs:import namespace="pki.security.system.v04_02_00.sbc.api.ems.sonus.com" schemaLocation="SBCV040200APIService_schema208.xsd"/>
+
+  <xs:import namespace="common.sbc.api.ems.sonus.com" schemaLocation="SBCV040200APIService_schema325.xsd"/>
+
+  <xs:complexType name="importCertKey">
+    <xs:complexContent>
+      <xs:extension base="ns3:sbcOperationKey">
+        <xs:sequence>
+          <xs:element name="parentKey" type="ns2:certificateKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="output">
+    <xs:complexContent>
+      <xs:extension base="ns3:sbcOperationOutput">
+        <xs:sequence>
+          <xs:element name="result" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="status" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="importCert">
+    <xs:complexContent>
+      <xs:extension base="ns3:sbcOperationInput">
+        <xs:sequence>
+          <xs:element name="certContent" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+</xs:schema>
+

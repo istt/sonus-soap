@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="intercept.addresscontext.v04_02_00.sbc.api.ems.sonus.com" xmlns:ns2="sonusli.types.v04_02_00.sbc.api.ems.sonus.com" xmlns:ns1="sonustc.types.v04_02_00.sbc.api.ems.sonus.com" xmlns:ns4="v04_02_00.sbc.api.ems.sonus.com" xmlns:ns3="common.sbc.api.ems.sonus.com" xmlns:tns="intercept.addresscontext.v04_02_00.sbc.api.ems.sonus.com" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ns5="addresscontext.v04_02_00.sbc.api.ems.sonus.com">
+
+  <xs:import namespace="sonustc.types.v04_02_00.sbc.api.ems.sonus.com" schemaLocation="SBCV040200APIService_schema42.xsd"/>
+
+  <xs:import namespace="sonusli.types.v04_02_00.sbc.api.ems.sonus.com" schemaLocation="SBCV040200APIService_schema75.xsd"/>
+
+  <xs:import namespace="common.sbc.api.ems.sonus.com" schemaLocation="SBCV040200APIService_schema325.xsd"/>
+
+  <xs:import namespace="v04_02_00.sbc.api.ems.sonus.com" schemaLocation="SBCV040200APIService_schema7.xsd"/>
+
+  <xs:import namespace="addresscontext.v04_02_00.sbc.api.ems.sonus.com" schemaLocation="SBCV040200APIService_schema364.xsd"/>
+
+  <xs:complexType name="callDataChannel">
+    <xs:complexContent>
+      <xs:extension base="ns3:sbcEntity">
+        <xs:sequence>
+          <xs:element name="name" type="xs:string" minOccurs="0"/>
+          <xs:element name="priState" type="ns1:sonusAdminState" default="enabled" minOccurs="0"/>
+          <xs:element name="secState" type="ns1:sonusAdminState" default="enabled" minOccurs="0"/>
+          <xs:element name="priMode" type="ns2:sonusLiModeType" default="active" minOccurs="0"/>
+          <xs:element name="secMode" type="ns2:sonusLiModeType" default="outOfService" minOccurs="0"/>
+          <xs:element name="priIpAddress" type="xs:string" default="0.0.0.0" minOccurs="0"/>
+          <xs:element name="secIpAddress" type="xs:string" default="0.0.0.0" minOccurs="0"/>
+          <xs:element name="priPort" type="xs:string" default="0" minOccurs="0"/>
+          <xs:element name="priPortUnion" type="ns2:SonusLiPortTypeUnion" minOccurs="0"/>
+          <xs:element name="kaTimer" type="xs:unsignedShort" default="5" minOccurs="0"/>
+          <xs:element name="retries" type="xs:int" default="3" minOccurs="0"/>
+          <xs:element name="ipInterfaceGroupName" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="callDataChannelKey">
+    <xs:complexContent>
+      <xs:extension base="ns3:sbcKey">
+        <xs:sequence>
+          <xs:element name="name" type="xs:string" minOccurs="0"/>
+          <xs:element name="parentKey" type="ns5:interceptKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="callDataChannelListWrapper">
+    <xs:complexContent>
+      <xs:extension base="ns3:sbcListWrapper">
+        <xs:sequence>
+          <xs:element name="callDataChannel" type="tns:callDataChannel" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="interceptCallDataChannelStatistics">
+    <xs:complexContent>
+      <xs:extension base="ns3:sbcEntity">
+        <xs:sequence>
+          <xs:element name="name" type="xs:string" minOccurs="0"/>
+          <xs:element name="primaryChannelStatus" type="ns2:sonusLiChnStatusType" minOccurs="0"/>
+          <xs:element name="secondaryChannelStatus" type="ns2:sonusLiChnStatusType" minOccurs="0"/>
+          <xs:element name="StartSuccess" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="StartFailures" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="StopSuccess" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="StopFailures" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="CallAnswerSuccess" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="CallAnswerFailures" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="CallDisconnectSuccess" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="CallDisconnectFailures" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="ServiceInstanceSuccess" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="ServiceInstanceFailures" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="IndicationSuccess" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="IndicationFailures" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="KeepAliveSuccess" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="KeepAliveFailures" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="RestartSuccess" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="RestartFailures" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="RadiusAckReceived" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="StartResponsesReceived" type="xs:unsignedInt" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="interceptCallDataChannelStatisticsKey">
+    <xs:complexContent>
+      <xs:extension base="ns3:sbcReadOnlyKey">
+        <xs:sequence>
+          <xs:element name="name" type="xs:string" minOccurs="0"/>
+          <xs:element name="parentKey" type="ns5:interceptKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="interceptCallDataChannelStatisticsListWrapper">
+    <xs:complexContent>
+      <xs:extension base="ns3:sbcListWrapper">
+        <xs:sequence>
+          <xs:element name="interceptCallDataChannelStatistics" type="tns:interceptCallDataChannelStatistics" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+</xs:schema>
+

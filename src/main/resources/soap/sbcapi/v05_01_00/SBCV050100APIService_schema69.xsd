@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="sonuspacketserviceprofile.types.v05_01_00.sbc.api.ems.sonus.com" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:complexType name="SonusThisLegBitMaskBits">
+    <xs:sequence>
+      <xs:element name="g711a" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="g711u" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="g7231" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="g726" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="g729" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="t38" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="ilbc" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="amr" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="efr" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="evrc" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="g722" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="g7222" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="g7221" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="opus" type="xs:boolean" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="SonusOtherLegBitMaskBits">
+    <xs:sequence>
+      <xs:element name="g711a" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="g711u" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="g7231" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="g726" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="g729" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="t38" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="ilbc" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="amr" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="efr" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="evrc" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="g722" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="g7222" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="g7221" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="opus" type="xs:boolean" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:simpleType name="sonusPeerAbsenceActionRange">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="none"/>
+      <xs:enumeration value="peerAbsenceTrap"/>
+      <xs:enumeration value="peerAbsenceTrapAndDisconnect"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusDataCallPacketSizeRange">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="10"/>
+      <xs:enumeration value="20"/>
+      <xs:enumeration value="30"/>
+      <xs:enumeration value="40"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusPacketLossActionRange">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="none"/>
+      <xs:enumeration value="packetLossTrap"/>
+      <xs:enumeration value="packetLossTrapAndDisconnect"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusTranscodeRange">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="conditional"/>
+      <xs:enumeration value="only"/>
+      <xs:enumeration value="determinedByPspForOtherLeg"/>
+      <xs:enumeration value="transcoderFreeTransparency"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusDataRateManagementTypeRange">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="type1LocalGenerationOfTcf"/>
+      <xs:enumeration value="type2TransferOfTcf"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusLowSpeedNumberOfRedundantPacketsRange">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="0"/>
+      <xs:enumeration value="1"/>
+      <xs:enumeration value="2"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusMaxBitRateRange">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="2.4Kbits_s"/>
+      <xs:enumeration value="4.8Kbits_s"/>
+      <xs:enumeration value="9.6Kbits_s"/>
+      <xs:enumeration value="14.4Kbits_s"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusNumberOfRedundantPacketsRange">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="0"/>
+      <xs:enumeration value="1"/>
+      <xs:enumeration value="2"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusT38ProtocolVersion">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="0"/>
+      <xs:enumeration value="3"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusVideoEnableDisable">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="enable"/>
+      <xs:enumeration value="disable"/>
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>
+

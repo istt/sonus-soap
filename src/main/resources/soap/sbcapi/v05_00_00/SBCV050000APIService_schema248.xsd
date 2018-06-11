@@ -1,0 +1,610 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="ippolicing.system.v05_00_00.sbc.api.ems.sonus.com" xmlns:ns2="common.sbc.api.ems.sonus.com" xmlns:ns1="sonusgen2ipm.types.v05_00_00.sbc.api.ems.sonus.com" xmlns:ns4="system.v05_00_00.sbc.api.ems.sonus.com" xmlns:ns3="v05_00_00.sbc.api.ems.sonus.com" xmlns:tns="ippolicing.system.v05_00_00.sbc.api.ems.sonus.com" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ns5="snmpv2_tc.types.v05_00_00.sbc.api.ems.sonus.com">
+
+  <xs:import namespace="sonusgen2ipm.types.v05_00_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050000APIService_schema106.xsd"/>
+
+  <xs:import namespace="common.sbc.api.ems.sonus.com" schemaLocation="SBCV050000APIService_schema326.xsd"/>
+
+  <xs:import namespace="v05_00_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050000APIService_schema7.xsd"/>
+
+  <xs:import namespace="system.v05_00_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050000APIService_schema26.xsd"/>
+
+  <xs:import namespace="snmpv2_tc.types.v05_00_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050000APIService_schema134.xsd"/>
+
+  <xs:complexType name="badEtherIpHdrOffendersList">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcEntity">
+        <xs:sequence>
+          <xs:element name="role" type="ns1:sonusRollType" minOccurs="0"/>
+          <xs:element name="index" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="addressContext" type="xs:string" minOccurs="0"/>
+          <xs:element name="interfaceGroupName" type="xs:string" minOccurs="0"/>
+          <xs:element name="interfaceName" type="xs:string" minOccurs="0"/>
+          <xs:element name="sourceIpAddress" type="xs:string" minOccurs="0"/>
+          <xs:element name="destinationIpAddress" type="xs:string" minOccurs="0"/>
+          <xs:element name="sourceIpPort" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="destinationIpPort" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="ipProtocol" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="etherType" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="discardCount" type="xs:unsignedInt" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="badEtherIpHdrOffendersListKey">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcReadOnlyKey">
+        <xs:sequence>
+          <xs:element name="role" type="ns1:sonusRollType" minOccurs="0"/>
+          <xs:element name="index" type="xs:long" minOccurs="0"/>
+          <xs:element name="parentKey" type="ns4:ipPolicingKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="badEtherIpHdrOffendersListListWrapper">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcListWrapper">
+        <xs:sequence>
+          <xs:element name="badEtherIpHdrOffendersList" type="tns:badEtherIpHdrOffendersList" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="arpOffendersList">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcEntity">
+        <xs:sequence>
+          <xs:element name="role" type="ns1:sonusRollType" minOccurs="0"/>
+          <xs:element name="index" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="addressContext" type="xs:string" minOccurs="0"/>
+          <xs:element name="interfaceGroupName" type="xs:string" minOccurs="0"/>
+          <xs:element name="interfaceName" type="xs:string" minOccurs="0"/>
+          <xs:element name="sourceIpAddress" type="xs:string" minOccurs="0"/>
+          <xs:element name="destinationIpAddress" type="xs:string" minOccurs="0"/>
+          <xs:element name="ipProtocol" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="discardCount" type="xs:unsignedInt" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="arpOffendersListKey">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcReadOnlyKey">
+        <xs:sequence>
+          <xs:element name="role" type="ns1:sonusRollType" minOccurs="0"/>
+          <xs:element name="index" type="xs:long" minOccurs="0"/>
+          <xs:element name="parentKey" type="ns4:ipPolicingKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="arpOffendersListListWrapper">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcListWrapper">
+        <xs:sequence>
+          <xs:element name="arpOffendersList" type="tns:arpOffendersList" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="uFlowOffendersList">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcEntity">
+        <xs:sequence>
+          <xs:element name="role" type="ns1:sonusRollType" minOccurs="0"/>
+          <xs:element name="index" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="addressContext" type="xs:string" minOccurs="0"/>
+          <xs:element name="interfaceGroupName" type="xs:string" minOccurs="0"/>
+          <xs:element name="interfaceName" type="xs:string" minOccurs="0"/>
+          <xs:element name="sourceIpAddress" type="xs:string" minOccurs="0"/>
+          <xs:element name="destinationIpAddress" type="xs:string" minOccurs="0"/>
+          <xs:element name="sourceIpPort" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="destinationIpPort" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="ipProtocol" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="discardCount" type="xs:unsignedInt" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="uFlowOffendersListKey">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcReadOnlyKey">
+        <xs:sequence>
+          <xs:element name="role" type="ns1:sonusRollType" minOccurs="0"/>
+          <xs:element name="index" type="xs:long" minOccurs="0"/>
+          <xs:element name="parentKey" type="ns4:ipPolicingKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="uFlowOffendersListListWrapper">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcListWrapper">
+        <xs:sequence>
+          <xs:element name="uFlowOffendersList" type="tns:uFlowOffendersList" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="aclOffendersList">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcEntity">
+        <xs:sequence>
+          <xs:element name="role" type="ns1:sonusRollType" minOccurs="0"/>
+          <xs:element name="index" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="addressContext" type="xs:string" minOccurs="0"/>
+          <xs:element name="interfaceGroupName" type="xs:string" minOccurs="0"/>
+          <xs:element name="interfaceName" type="xs:string" minOccurs="0"/>
+          <xs:element name="sourceIpAddress" type="xs:string" minOccurs="0"/>
+          <xs:element name="destinationIpAddress" type="xs:string" minOccurs="0"/>
+          <xs:element name="sourceIpPort" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="destinationIpPort" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="ipProtocol" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="discardCount" type="xs:unsignedInt" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="aclOffendersListKey">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcReadOnlyKey">
+        <xs:sequence>
+          <xs:element name="role" type="ns1:sonusRollType" minOccurs="0"/>
+          <xs:element name="index" type="xs:long" minOccurs="0"/>
+          <xs:element name="parentKey" type="ns4:ipPolicingKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="aclOffendersListListWrapper">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcListWrapper">
+        <xs:sequence>
+          <xs:element name="aclOffendersList" type="tns:aclOffendersList" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="aggregateOffendersList">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcEntity">
+        <xs:sequence>
+          <xs:element name="role" type="ns1:sonusRollType" minOccurs="0"/>
+          <xs:element name="index" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="addressContext" type="xs:string" minOccurs="0"/>
+          <xs:element name="interfaceGroupName" type="xs:string" minOccurs="0"/>
+          <xs:element name="interfaceName" type="xs:string" minOccurs="0"/>
+          <xs:element name="sourceIpAddress" type="xs:string" minOccurs="0"/>
+          <xs:element name="destinationIpAddress" type="xs:string" minOccurs="0"/>
+          <xs:element name="sourceIpPort" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="destinationIpPort" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="ipProtocol" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="discardCount" type="xs:unsignedInt" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="aggregateOffendersListKey">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcReadOnlyKey">
+        <xs:sequence>
+          <xs:element name="role" type="ns1:sonusRollType" minOccurs="0"/>
+          <xs:element name="index" type="xs:long" minOccurs="0"/>
+          <xs:element name="parentKey" type="ns4:ipPolicingKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="aggregateOffendersListListWrapper">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcListWrapper">
+        <xs:sequence>
+          <xs:element name="aggregateOffendersList" type="tns:aggregateOffendersList" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="ipSecDecryptOffendersList">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcEntity">
+        <xs:sequence>
+          <xs:element name="role" type="ns1:sonusRollType" minOccurs="0"/>
+          <xs:element name="index" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="addressContext" type="xs:string" minOccurs="0"/>
+          <xs:element name="interfaceGroupName" type="xs:string" minOccurs="0"/>
+          <xs:element name="interfaceName" type="xs:string" minOccurs="0"/>
+          <xs:element name="sourceIpAddress" type="xs:string" minOccurs="0"/>
+          <xs:element name="destinationIpAddress" type="xs:string" minOccurs="0"/>
+          <xs:element name="sourceIpPort" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="destinationIpPort" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="ipProtocol" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="discardCount" type="xs:unsignedInt" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="ipSecDecryptOffendersListKey">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcReadOnlyKey">
+        <xs:sequence>
+          <xs:element name="role" type="ns1:sonusRollType" minOccurs="0"/>
+          <xs:element name="index" type="xs:long" minOccurs="0"/>
+          <xs:element name="parentKey" type="ns4:ipPolicingKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="ipSecDecryptOffendersListListWrapper">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcListWrapper">
+        <xs:sequence>
+          <xs:element name="ipSecDecryptOffendersList" type="tns:ipSecDecryptOffendersList" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="rogueMediaOffendersList">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcEntity">
+        <xs:sequence>
+          <xs:element name="role" type="ns1:sonusRollType" minOccurs="0"/>
+          <xs:element name="index" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="addressContext" type="xs:string" minOccurs="0"/>
+          <xs:element name="interfaceGroupName" type="xs:string" minOccurs="0"/>
+          <xs:element name="interfaceName" type="xs:string" minOccurs="0"/>
+          <xs:element name="sourceIpAddress" type="xs:string" minOccurs="0"/>
+          <xs:element name="destinationIpAddress" type="xs:string" minOccurs="0"/>
+          <xs:element name="sourceIpPort" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="destinationIpPort" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="ipProtocol" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="etherType" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="discardCount" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="ringType" type="ns1:sonusRogueMediaByDestPolicerDiscardRingType" minOccurs="0"/>
+          <xs:element name="sourceUnique" type="ns1:sonusUniqueType" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="rogueMediaOffendersListKey">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcReadOnlyKey">
+        <xs:sequence>
+          <xs:element name="role" type="ns1:sonusRollType" minOccurs="0"/>
+          <xs:element name="index" type="xs:long" minOccurs="0"/>
+          <xs:element name="parentKey" type="ns4:ipPolicingKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="rogueMediaOffendersListListWrapper">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcListWrapper">
+        <xs:sequence>
+          <xs:element name="rogueMediaOffendersList" type="tns:rogueMediaOffendersList" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="mediaOffendersList">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcEntity">
+        <xs:sequence>
+          <xs:element name="role" type="ns1:sonusRollType" minOccurs="0"/>
+          <xs:element name="index" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="addressContext" type="xs:string" minOccurs="0"/>
+          <xs:element name="interfaceGroupName" type="xs:string" minOccurs="0"/>
+          <xs:element name="interfaceName" type="xs:string" minOccurs="0"/>
+          <xs:element name="sourceIpAddress" type="xs:string" minOccurs="0"/>
+          <xs:element name="destinationIpAddress" type="xs:string" minOccurs="0"/>
+          <xs:element name="sourceIpPort" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="destinationIpPort" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="ipProtocol" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="etherType" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="discardCount" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="sourceUnique" type="ns1:sonusUniqueType" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="mediaOffendersListKey">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcReadOnlyKey">
+        <xs:sequence>
+          <xs:element name="role" type="ns1:sonusRollType" minOccurs="0"/>
+          <xs:element name="index" type="xs:long" minOccurs="0"/>
+          <xs:element name="parentKey" type="ns4:ipPolicingKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="mediaOffendersListListWrapper">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcListWrapper">
+        <xs:sequence>
+          <xs:element name="mediaOffendersList" type="tns:mediaOffendersList" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="discardRuleOffendersList">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcEntity">
+        <xs:sequence>
+          <xs:element name="role" type="ns1:sonusRollType" minOccurs="0"/>
+          <xs:element name="index" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="addressContext" type="xs:string" minOccurs="0"/>
+          <xs:element name="interfaceGroupName" type="xs:string" minOccurs="0"/>
+          <xs:element name="interfaceName" type="xs:string" minOccurs="0"/>
+          <xs:element name="sourceIpAddress" type="xs:string" minOccurs="0"/>
+          <xs:element name="destinationIpAddress" type="xs:string" minOccurs="0"/>
+          <xs:element name="sourceIpPort" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="destinationIpPort" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="ipProtocol" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="discardCount" type="xs:unsignedInt" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="discardRuleOffendersListKey">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcReadOnlyKey">
+        <xs:sequence>
+          <xs:element name="role" type="ns1:sonusRollType" minOccurs="0"/>
+          <xs:element name="index" type="xs:long" minOccurs="0"/>
+          <xs:element name="parentKey" type="ns4:ipPolicingKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="discardRuleOffendersListListWrapper">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcListWrapper">
+        <xs:sequence>
+          <xs:element name="discardRuleOffendersList" type="tns:discardRuleOffendersList" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="systemCurStats">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcEntity">
+        <xs:sequence>
+          <xs:element name="systemName" type="xs:string" minOccurs="0"/>
+          <xs:element name="badEtherIpHdrDiscardPacketCount" type="xs:unsignedLong" minOccurs="0"/>
+          <xs:element name="badEtherIpHdrPeakDiscardRate" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="badEtherIpHdrMinorAlarmCount" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="badEtherIpHdrMinorAlarmDuration" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="badEtherIpHdrMajorAlarmCount" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="badEtherIpHdrMajorAlarmDuration" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="arpDiscardPacketCount" type="xs:unsignedLong" minOccurs="0"/>
+          <xs:element name="arpAcceptPacketCount" type="xs:unsignedLong" minOccurs="0"/>
+          <xs:element name="arpPeakDiscardRate" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="arpMinorAlarmCount" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="arpMinorAlarmDuration" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="arpMajorAlarmCount" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="arpMajorAlarmDuration" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="uFlowDiscardPacketCount" type="xs:unsignedLong" minOccurs="0"/>
+          <xs:element name="uFlowAcceptPacketCount" type="xs:unsignedLong" minOccurs="0"/>
+          <xs:element name="uFlowPeakDiscardRate" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="uFlowMinorAlarmCount" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="uFlowMinorAlarmDuration" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="uFlowMajorAlarmCount" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="uFlowMajorAlarmDuration" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="aclDiscardPacketCount" type="xs:unsignedLong" minOccurs="0"/>
+          <xs:element name="aclAcceptPacketCount" type="xs:unsignedLong" minOccurs="0"/>
+          <xs:element name="aclPeakDiscardRate" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="aclMinorAlarmCount" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="aclMinorAlarmDuration" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="aclMajorAlarmCount" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="aclMajorAlarmDuration" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="aggregateDiscardPacketCount" type="xs:unsignedLong" minOccurs="0"/>
+          <xs:element name="aggregateAcceptPacketCount" type="xs:unsignedLong" minOccurs="0"/>
+          <xs:element name="aggregatePeakDiscardRate" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="aggregateMinorAlarmCount" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="aggregateMinorAlarmDuration" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="aggregateMajorAlarmCount" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="aggregateMajorAlarmDuration" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="mediaDiscardPacketCount" type="xs:unsignedLong" minOccurs="0"/>
+          <xs:element name="mediaPeakDiscardRate" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="mediaMinorAlarmCount" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="mediaMinorAlarmDuration" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="mediaMajorAlarmCount" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="mediaMajorAlarmDuration" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="rogueMediaDiscardPacketCount" type="xs:unsignedLong" minOccurs="0"/>
+          <xs:element name="rogueMediaPeakDiscardRate" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="rogueMediaMinorAlarmCount" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="rogueMediaMinorAlarmDuration" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="rogueMediaMajorAlarmCount" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="rogueMediaMajorAlarmDuration" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="discardRuleDiscardPacketCount" type="xs:unsignedLong" minOccurs="0"/>
+          <xs:element name="discardRulePeakDiscardRate" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="discardRuleMinorAlarmCount" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="discardRuleMinorAlarmDuration" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="discardRuleMajorAlarmCount" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="discardRuleMajorAlarmDuration" type="xs:unsignedInt" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="systemCurStatsKey">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcReadOnlyKey">
+        <xs:sequence>
+          <xs:element name="systemName" type="xs:string" minOccurs="0"/>
+          <xs:element name="parentKey" type="ns4:ipPolicingKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="systemCurStatsListWrapper">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcListWrapper">
+        <xs:sequence>
+          <xs:element name="systemCurStats" type="tns:systemCurStats" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="systemIntStats">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcEntity">
+        <xs:sequence>
+          <xs:element name="number" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="systemName" type="xs:string" minOccurs="0"/>
+          <xs:element name="intervalValid" type="ns5:truthValue" minOccurs="0"/>
+          <xs:element name="time" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="badEtherIpHdrDiscardPacketCount" type="xs:unsignedLong" minOccurs="0"/>
+          <xs:element name="badEtherIpHdrPeakDiscardRate" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="badEtherIpHdrMinorAlarmCount" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="badEtherIpHdrMinorAlarmDuration" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="badEtherIpHdrMajorAlarmCount" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="badEtherIpHdrMajorAlarmDuration" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="arpDiscardPacketCount" type="xs:unsignedLong" minOccurs="0"/>
+          <xs:element name="arpAcceptPacketCount" type="xs:unsignedLong" minOccurs="0"/>
+          <xs:element name="arpPeakDiscardRate" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="arpMinorAlarmCount" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="arpMinorAlarmDuration" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="arpMajorAlarmCount" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="arpMajorAlarmDuration" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="uFlowDiscardPacketCount" type="xs:unsignedLong" minOccurs="0"/>
+          <xs:element name="uFlowAcceptPacketCount" type="xs:unsignedLong" minOccurs="0"/>
+          <xs:element name="uFlowPeakDiscardRate" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="uFlowMinorAlarmCount" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="uFlowMinorAlarmDuration" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="uFlowMajorAlarmCount" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="uFlowMajorAlarmDuration" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="aclDiscardPacketCount" type="xs:unsignedLong" minOccurs="0"/>
+          <xs:element name="aclAcceptPacketCount" type="xs:unsignedLong" minOccurs="0"/>
+          <xs:element name="aclPeakDiscardRate" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="aclMinorAlarmCount" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="aclMinorAlarmDuration" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="aclMajorAlarmCount" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="aclMajorAlarmDuration" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="aggregateDiscardPacketCount" type="xs:unsignedLong" minOccurs="0"/>
+          <xs:element name="aggregateAcceptPacketCount" type="xs:unsignedLong" minOccurs="0"/>
+          <xs:element name="aggregatePeakDiscardRate" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="aggregateMinorAlarmCount" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="aggregateMinorAlarmDuration" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="aggregateMajorAlarmCount" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="aggregateMajorAlarmDuration" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="mediaDiscardPacketCount" type="xs:unsignedLong" minOccurs="0"/>
+          <xs:element name="mediaPeakDiscardRate" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="mediaMinorAlarmCount" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="mediaMinorAlarmDuration" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="mediaMajorAlarmCount" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="mediaMajorAlarmDuration" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="rogueMediaDiscardPacketCount" type="xs:unsignedLong" minOccurs="0"/>
+          <xs:element name="rogueMediaPeakDiscardRate" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="rogueMediaMinorAlarmCount" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="rogueMediaMinorAlarmDuration" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="rogueMediaMajorAlarmCount" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="rogueMediaMajorAlarmDuration" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="discardRuleDiscardPacketCount" type="xs:unsignedLong" minOccurs="0"/>
+          <xs:element name="discardRulePeakDiscardRate" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="discardRuleMinorAlarmCount" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="discardRuleMinorAlarmDuration" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="discardRuleMajorAlarmCount" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="discardRuleMajorAlarmDuration" type="xs:unsignedInt" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="systemIntStatsKey">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcReadOnlyKey">
+        <xs:sequence>
+          <xs:element name="number" type="xs:long" minOccurs="0"/>
+          <xs:element name="systemName" type="xs:string" minOccurs="0"/>
+          <xs:element name="parentKey" type="ns4:ipPolicingKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="systemIntStatsListWrapper">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcListWrapper">
+        <xs:sequence>
+          <xs:element name="systemIntStats" type="tns:systemIntStats" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="uFlowStats">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcEntity">
+        <xs:sequence>
+          <xs:element name="uFlowIndex" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="sourceIpAddress" type="xs:string" minOccurs="0"/>
+          <xs:element name="destinationIpAddress" type="xs:string" minOccurs="0"/>
+          <xs:element name="sourceIpPort" type="xs:unsignedShort" minOccurs="0"/>
+          <xs:element name="ipProtocol" type="xs:string" minOccurs="0"/>
+          <xs:element name="lifGrpId" type="xs:unsignedShort" minOccurs="0"/>
+          <xs:element name="policerMode" type="xs:string" minOccurs="0"/>
+          <xs:element name="policerBucketSize" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="policerCreditRate" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="aggPolicer" type="xs:string" minOccurs="0"/>
+          <xs:element name="aggPolicerPriority" type="xs:unsignedShort" minOccurs="0"/>
+          <xs:element name="packetAccept" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="packetDiscard" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="byteAccept" type="xs:unsignedLong" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="uFlowStatsKey">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcReadOnlyKey">
+        <xs:sequence>
+          <xs:element name="uFlowIndex" type="xs:long" minOccurs="0"/>
+          <xs:element name="parentKey" type="ns4:ipPolicingKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="uFlowStatsListWrapper">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcListWrapper">
+        <xs:sequence>
+          <xs:element name="uFlowStats" type="tns:uFlowStats" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+</xs:schema>
+

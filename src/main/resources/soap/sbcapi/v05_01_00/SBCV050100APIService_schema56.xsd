@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="sonussipparamfilterprofile.types.v05_01_00.sbc.api.ems.sonus.com" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:simpleType name="sonusSipParamTranspHdrEnum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="allow"/>
+      <xs:enumeration value="require"/>
+      <xs:enumeration value="supported"/>
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>
+

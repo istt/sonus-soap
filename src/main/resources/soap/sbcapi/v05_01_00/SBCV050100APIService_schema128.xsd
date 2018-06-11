@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="sonusdbl.types.v05_01_00.sbc.api.ems.sonus.com" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:simpleType name="sonusDBLRuleActionType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="watch"/>
+      <xs:enumeration value="blacklist"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusApplicationTypeType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="sip"/>
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>
+

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="disable.operation.userstatus.localauth.oam.v04_02_00.sbc.api.ems.sonus.com" xmlns:ns2="localauth.oam.v04_02_00.sbc.api.ems.sonus.com" xmlns:ns1="oam.v04_02_00.sbc.api.ems.sonus.com" xmlns:ns3="common.sbc.api.ems.sonus.com" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:import namespace="oam.v04_02_00.sbc.api.ems.sonus.com" schemaLocation="SBCV040200APIService_schema220.xsd"/>
+
+  <xs:import namespace="localauth.oam.v04_02_00.sbc.api.ems.sonus.com" schemaLocation="SBCV040200APIService_schema236.xsd"/>
+
+  <xs:import namespace="common.sbc.api.ems.sonus.com" schemaLocation="SBCV040200APIService_schema325.xsd"/>
+
+  <xs:complexType name="disableKey">
+    <xs:complexContent>
+      <xs:extension base="ns3:sbcOperationKey">
+        <xs:sequence>
+          <xs:element name="parentKey" type="ns2:userStatusKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="disable">
+    <xs:complexContent>
+      <xs:extension base="ns3:sbcOperationInput">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+</xs:schema>
+

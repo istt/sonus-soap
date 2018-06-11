@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="sonush323trunkgroup.types.v04_02_00.sbc.api.ems.sonus.com" xmlns:tns="sonush323trunkgroup.types.v04_02_00.sbc.api.ems.sonus.com" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:complexType name="SonusH323TgCallLimitTypeUnion">
+    <xs:sequence>
+      <xs:element name="sonusH323TgLimitTypeVal" type="xs:int" minOccurs="0"/>
+      <xs:element name="sonusH323TgLimitTypeUnlimited" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="SonusH323TgBandwidthLimitTypeUnion">
+    <xs:sequence>
+      <xs:element name="sonusH323TgLimitTypeVal" type="xs:int" minOccurs="0"/>
+      <xs:element name="sonusH323TgLimitTypeUnlimited" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="SonusH323TgMaxSustainedCallRateTypeUnion">
+    <xs:sequence>
+      <xs:element name="sonusH323TgTypeUnlimited" type="tns:sonusH323TgTypeUnlimited" minOccurs="0"/>
+      <xs:element name="sonusH323TgMaxSustainedCallRateTypeValue" type="xs:unsignedShort" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="SonusH323TgMaxCallBurstSizeTypeUnion">
+    <xs:sequence>
+      <xs:element name="sonusH323TgTypeUnlimited" type="tns:sonusH323TgTypeUnlimited" minOccurs="0"/>
+      <xs:element name="sonusH323TgMaxCallBurstSizeTypeValue" type="xs:unsignedShort" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:simpleType name="sonusH323SigTrunkGroupActionType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="dryUp"/>
+      <xs:enumeration value="force"/>
+      <xs:enumeration value="undefined"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusH323TgTypeUnlimited">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="unlimited"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusH323SigTrunkGroupOverlapDialingStateType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="disabled"/>
+      <xs:enumeration value="enabled"/>
+      <xs:enumeration value="ingressOnly"/>
+      <xs:enumeration value="egressOnly"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusH323SigTrunkGroupLdcTimeoutActionType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="noAction"/>
+      <xs:enumeration value="trap"/>
+      <xs:enumeration value="release"/>
+      <xs:enumeration value="trapAndRelease"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusH323SigTrunkGroupLdcEmergencyCallsType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="include"/>
+      <xs:enumeration value="exclude"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusH323SigTrunkGroupSlowStartSupportType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="convert"/>
+      <xs:enumeration value="passthru"/>
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>
+

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="sonusdns.types.v04_02_00.sbc.api.ems.sonus.com" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:simpleType name="sonusInterfaceType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="ip"/>
+      <xs:enumeration value="mgmt"/>
+      <xs:enumeration value="none"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusDnsRecordOrderType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="priority"/>
+      <xs:enumeration value="roundrobin"/>
+      <xs:enumeration value="centralized-roundrobin"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusDnsEntryStatusTypeType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="a"/>
+      <xs:enumeration value="aaaa"/>
+      <xs:enumeration value="ns"/>
+      <xs:enumeration value="srv"/>
+      <xs:enumeration value="naptr"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusDnsRecordDataTypeType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="a"/>
+      <xs:enumeration value="aaaa"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusDnsEntryDataStatusTypeType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="a"/>
+      <xs:enumeration value="aaaa"/>
+      <xs:enumeration value="ns"/>
+      <xs:enumeration value="srv"/>
+      <xs:enumeration value="naptr"/>
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>
+

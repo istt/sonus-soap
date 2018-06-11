@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="sonussignalingprofile.types.v05_01_00.sbc.api.ems.sonus.com" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:simpleType name="sonusNatureOfAddressType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="unknown"/>
+      <xs:enumeration value="passThrough"/>
+      <xs:enumeration value="subscriber"/>
+      <xs:enumeration value="national"/>
+      <xs:enumeration value="international"/>
+      <xs:enumeration value="networkSpecific"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusTransitCarrierIndicatorType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="passThrough"/>
+      <xs:enumeration value="noTransmission"/>
+      <xs:enumeration value="forward"/>
+      <xs:enumeration value="backward"/>
+      <xs:enumeration value="bidirection"/>
+      <xs:enumeration value="oredBackward"/>
+      <xs:enumeration value="nonProvisioned"/>
+      <xs:enumeration value="oredForward"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusGenericDigitType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="unknown"/>
+      <xs:enumeration value="accountCode"/>
+      <xs:enumeration value="authorizationCode"/>
+      <xs:enumeration value="pnTravellingClassmark"/>
+      <xs:enumeration value="billToNumber"/>
+      <xs:enumeration value="reserveOffset"/>
+      <xs:enumeration value="spare00"/>
+      <xs:enumeration value="spare01"/>
+      <xs:enumeration value="spare02"/>
+      <xs:enumeration value="spare03"/>
+      <xs:enumeration value="spare04"/>
+      <xs:enumeration value="spare05"/>
+      <xs:enumeration value="spare06"/>
+      <xs:enumeration value="spare07"/>
+      <xs:enumeration value="spare08"/>
+      <xs:enumeration value="spare09"/>
+      <xs:enumeration value="spare0A"/>
+      <xs:enumeration value="spare0B"/>
+      <xs:enumeration value="spare0C"/>
+      <xs:enumeration value="spare0D"/>
+      <xs:enumeration value="spare0E"/>
+      <xs:enumeration value="spare0F"/>
+      <xs:enumeration value="spare10"/>
+      <xs:enumeration value="bcgIdentity"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusOffnetOnnet">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="offnet"/>
+      <xs:enumeration value="onnet"/>
+      <xs:enumeration value="unknown"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusCallingNameNoInputSendDontSend">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="noInput"/>
+      <xs:enumeration value="send"/>
+      <xs:enumeration value="dontSend"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusNoInputSendDontSend">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="noInput"/>
+      <xs:enumeration value="send"/>
+      <xs:enumeration value="dontSend"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusIsupTrusted">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="none"/>
+      <xs:enumeration value="trusted"/>
+      <xs:enumeration value="unTrusted"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusForcedClipType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="none"/>
+      <xs:enumeration value="allowed"/>
+      <xs:enumeration value="restricted"/>
+      <xs:enumeration value="numberUnavailable"/>
+      <xs:enumeration value="spare"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusTnsZeroNoInputSendDontSend">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="noInput"/>
+      <xs:enumeration value="send"/>
+      <xs:enumeration value="dontSend"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusTnsZeroPlusInterLataLocalNoInputSendDontSend">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="noInput"/>
+      <xs:enumeration value="send"/>
+      <xs:enumeration value="dontSend"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusTnsZeroPlusIntraLataLocalNoInputSendDontSend">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="noInput"/>
+      <xs:enumeration value="send"/>
+      <xs:enumeration value="dontSend"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusTnsZeroZeroNoInputSendDontSend">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="noInput"/>
+      <xs:enumeration value="send"/>
+      <xs:enumeration value="dontSend"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusTnsIdddNoInputSendDontSend">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="noInput"/>
+      <xs:enumeration value="send"/>
+      <xs:enumeration value="dontSend"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusTnsZeroPlusIdddNoInputSendDontSend">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="noInput"/>
+      <xs:enumeration value="send"/>
+      <xs:enumeration value="dontSend"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusNfciLinkToLinkRoutingControlIndicatorType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="none"/>
+      <xs:enumeration value="altRtAllowedContRetryAllowed"/>
+      <xs:enumeration value="altRtBarredContRetryAllowed"/>
+      <xs:enumeration value="altRtAllowedContRetryBarred"/>
+      <xs:enumeration value="altRtBarredContRetryBarred"/>
+      <xs:enumeration value="altRtOnceContRetryAllowed"/>
+      <xs:enumeration value="altRtOnceContRetryBarred"/>
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>
+

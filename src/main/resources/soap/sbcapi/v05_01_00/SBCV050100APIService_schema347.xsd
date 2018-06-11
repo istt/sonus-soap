@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="dblprofile.services.profiles.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns2="sonusdblprofile.types.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns1="sonustc.types.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns4="profiles.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns3="common.sbc.api.ems.sonus.com" xmlns:tns="dblprofile.services.profiles.v05_01_00.sbc.api.ems.sonus.com" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ns5="services.profiles.v05_01_00.sbc.api.ems.sonus.com">
+
+  <xs:import namespace="sonustc.types.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema44.xsd"/>
+
+  <xs:import namespace="sonusdblprofile.types.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema127.xsd"/>
+
+  <xs:import namespace="common.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema360.xsd"/>
+
+  <xs:import namespace="profiles.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema217.xsd"/>
+
+  <xs:import namespace="services.profiles.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema175.xsd"/>
+
+  <xs:complexType name="rule">
+    <xs:complexContent>
+      <xs:extension base="ns3:sbcEntity">
+        <xs:sequence>
+          <xs:element name="ruleName" type="xs:string" minOccurs="0"/>
+          <xs:element name="state" type="ns1:sonusAdminState" default="disabled" minOccurs="0"/>
+          <xs:element name="event" type="ns2:sonusDBLRuleEventType" minOccurs="0"/>
+          <xs:element name="action" type="ns2:sonusDBLRuleActionType" minOccurs="0"/>
+          <xs:element name="eventPerDayThreshold" type="xs:unsignedInt" default="0" minOccurs="0"/>
+          <xs:element name="actionEffectivePeriod" type="xs:unsignedInt" default="60" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="ruleKey">
+    <xs:complexContent>
+      <xs:extension base="ns3:sbcKey">
+        <xs:sequence>
+          <xs:element name="ruleName" type="xs:string" minOccurs="0"/>
+          <xs:element name="parentKey" type="ns5:dblProfileKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="ruleListWrapper">
+    <xs:complexContent>
+      <xs:extension base="ns3:sbcListWrapper">
+        <xs:sequence>
+          <xs:element name="rule" type="tns:rule" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+</xs:schema>
+

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="admin.accounting.oam.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns2="common.sbc.api.ems.sonus.com" xmlns:ns1="sonustc.types.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns4="accounting.oam.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns3="oam.v05_01_00.sbc.api.ems.sonus.com" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:import namespace="sonustc.types.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema44.xsd"/>
+
+  <xs:import namespace="common.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema360.xsd"/>
+
+  <xs:import namespace="oam.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema240.xsd"/>
+
+  <xs:import namespace="accounting.oam.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema413.xsd"/>
+
+  <xs:complexType name="eventAcctMethods">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcEntity">
+        <xs:sequence>
+          <xs:element name="eventRegister" type="ns1:sonusAdminState" default="disabled" minOccurs="0"/>
+          <xs:element name="eventSubscribe" type="ns1:sonusAdminState" default="disabled" minOccurs="0"/>
+          <xs:element name="eventMessage" type="ns1:sonusAdminState" default="disabled" minOccurs="0"/>
+          <xs:element name="eventPublish" type="ns1:sonusAdminState" default="disabled" minOccurs="0"/>
+          <xs:element name="eventRefer" type="ns1:sonusAdminState" default="disabled" minOccurs="0"/>
+          <xs:element name="eventNotify" type="ns1:sonusAdminState" default="disabled" minOccurs="0"/>
+          <xs:element name="eventOptions" type="ns1:sonusAdminState" default="disabled" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="eventAcctMethodsKey">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcUnCreatableKey">
+        <xs:sequence>
+          <xs:element name="parentKey" type="ns4:adminKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+</xs:schema>
+

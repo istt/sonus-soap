@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="zeroizepersistenkeys.operation.admin.system.v05_00_00.sbc.api.ems.sonus.com" xmlns:ns2="system.v05_00_00.sbc.api.ems.sonus.com" xmlns:ns1="v05_00_00.sbc.api.ems.sonus.com" xmlns:ns3="common.sbc.api.ems.sonus.com" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:import namespace="v05_00_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050000APIService_schema7.xsd"/>
+
+  <xs:import namespace="system.v05_00_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050000APIService_schema26.xsd"/>
+
+  <xs:import namespace="common.sbc.api.ems.sonus.com" schemaLocation="SBCV050000APIService_schema326.xsd"/>
+
+  <xs:complexType name="zeroizePersistenKeysKey">
+    <xs:complexContent>
+      <xs:extension base="ns3:sbcOperationKey">
+        <xs:sequence>
+          <xs:element name="parentKey" type="ns2:adminKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="zeroizePersistenKeys">
+    <xs:complexContent>
+      <xs:extension base="ns3:sbcOperationInput">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+</xs:schema>
+

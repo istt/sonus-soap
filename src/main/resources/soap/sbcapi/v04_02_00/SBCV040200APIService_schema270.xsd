@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="globalvariable.criterion.rule.sipadaptorprofile.signaling.profiles.v04_02_00.sbc.api.ems.sonus.com" xmlns:ns2="common.sbc.api.ems.sonus.com" xmlns:ns1="sonusgen2sipadaptor.types.v04_02_00.sbc.api.ems.sonus.com" xmlns:ns4="criterion.rule.sipadaptorprofile.signaling.profiles.v04_02_00.sbc.api.ems.sonus.com" xmlns:ns3="rule.sipadaptorprofile.signaling.profiles.v04_02_00.sbc.api.ems.sonus.com" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:import namespace="sonusgen2sipadaptor.types.v04_02_00.sbc.api.ems.sonus.com" schemaLocation="SBCV040200APIService_schema95.xsd"/>
+
+  <xs:import namespace="common.sbc.api.ems.sonus.com" schemaLocation="SBCV040200APIService_schema325.xsd"/>
+
+  <xs:import namespace="rule.sipadaptorprofile.signaling.profiles.v04_02_00.sbc.api.ems.sonus.com" schemaLocation="SBCV040200APIService_schema172.xsd"/>
+
+  <xs:import namespace="criterion.rule.sipadaptorprofile.signaling.profiles.v04_02_00.sbc.api.ems.sonus.com" schemaLocation="SBCV040200APIService_schema317.xsd"/>
+
+  <xs:complexType name="regexp">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcEntity">
+        <xs:sequence>
+          <xs:element name="string" type="xs:string" minOccurs="0"/>
+          <xs:element name="numMatch" type="ns1:sonusSipPduManipulationCriterionRegexNumMatchType" default="match" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="regexpKey">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcUnCreatableKey">
+        <xs:sequence>
+          <xs:element name="parentKey" type="ns4:globalVariableKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+</xs:schema>
+

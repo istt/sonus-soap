@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="announcements.system.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns2="common.sbc.api.ems.sonus.com" xmlns:ns1="sonusannouncements.types.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns4="system.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns3="v05_01_00.sbc.api.ems.sonus.com" xmlns:tns="announcements.system.v05_01_00.sbc.api.ems.sonus.com" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:import namespace="sonusannouncements.types.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema137.xsd"/>
+
+  <xs:import namespace="common.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema360.xsd"/>
+
+  <xs:import namespace="v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema7.xsd"/>
+
+  <xs:import namespace="system.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema28.xsd"/>
+
+  <xs:complexType name="segmentStatus">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcEntity">
+        <xs:sequence>
+          <xs:element name="segmentId" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="version" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="pathname" type="xs:string" minOccurs="0"/>
+          <xs:element name="audioFormat" type="ns1:annAudioFmt" minOccurs="0"/>
+          <xs:element name="audioLength" type="xs:string" minOccurs="0"/>
+          <xs:element name="playoutDuration" type="xs:string" minOccurs="0"/>
+          <xs:element name="state" type="ns1:annSegState" minOccurs="0"/>
+          <xs:element name="useCount" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="totalPlays" type="xs:unsignedInt" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="segmentStatusKey">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcReadOnlyKey">
+        <xs:sequence>
+          <xs:element name="segmentId" type="xs:long" minOccurs="0"/>
+          <xs:element name="parentKey" type="ns4:announcementsKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="segmentStatusListWrapper">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcListWrapper">
+        <xs:sequence>
+          <xs:element name="segmentStatus" type="tns:segmentStatus" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="memoryUsage">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcEntity">
+        <xs:sequence>
+          <xs:element name="systemName" type="xs:string" minOccurs="0"/>
+          <xs:element name="totalSegments" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="cachedSegments" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="totalCacheMemory" type="xs:string" minOccurs="0"/>
+          <xs:element name="usedCacheMemory" type="xs:string" minOccurs="0"/>
+          <xs:element name="utilizedCacheMemory" type="xs:string" minOccurs="0"/>
+          <xs:element name="totalPlayoutTime" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="memoryUsageKey">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcReadOnlyKey">
+        <xs:sequence>
+          <xs:element name="systemName" type="xs:string" minOccurs="0"/>
+          <xs:element name="parentKey" type="ns4:announcementsKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="memoryUsageListWrapper">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcListWrapper">
+        <xs:sequence>
+          <xs:element name="memoryUsage" type="tns:memoryUsage" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+</xs:schema>
+

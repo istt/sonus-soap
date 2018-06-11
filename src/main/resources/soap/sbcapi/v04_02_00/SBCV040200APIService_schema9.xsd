@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="userinfo.uricriteria.dmpmcriteria.digitparameterhandling.profiles.v04_02_00.sbc.api.ems.sonus.com" xmlns:ns2="dmpmcriteria.digitparameterhandling.profiles.v04_02_00.sbc.api.ems.sonus.com" xmlns:ns1="common.sbc.api.ems.sonus.com" xmlns:ns3="uricriteria.dmpmcriteria.digitparameterhandling.profiles.v04_02_00.sbc.api.ems.sonus.com" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:import namespace="common.sbc.api.ems.sonus.com" schemaLocation="SBCV040200APIService_schema325.xsd"/>
+
+  <xs:import namespace="dmpmcriteria.digitparameterhandling.profiles.v04_02_00.sbc.api.ems.sonus.com" schemaLocation="SBCV040200APIService_schema300.xsd"/>
+
+  <xs:import namespace="uricriteria.dmpmcriteria.digitparameterhandling.profiles.v04_02_00.sbc.api.ems.sonus.com" schemaLocation="SBCV040200APIService_schema12.xsd"/>
+
+  <xs:complexType name="value">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcEntity">
+        <xs:sequence>
+          <xs:element name="startCharacterPosition" type="xs:unsignedInt" default="0" minOccurs="0"/>
+          <xs:element name="matchValue" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="valueKey">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcUnCreatableKey">
+        <xs:sequence>
+          <xs:element name="parentKey" type="ns3:userInfoKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+</xs:schema>
+

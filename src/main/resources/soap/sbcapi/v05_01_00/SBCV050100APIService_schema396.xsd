@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="atprofile.signaling.profiles.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns2="common.sbc.api.ems.sonus.com" xmlns:ns1="sonusatprofile.types.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns4="signaling.profiles.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns3="profiles.v05_01_00.sbc.api.ems.sonus.com" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ns5="sonustc.types.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns6="criteria_.includeatcf_.atprofile.signaling.profiles.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns7="includeatcf_.atprofile.signaling.profiles.v05_01_00.sbc.api.ems.sonus.com">
+
+  <xs:import namespace="sonusatprofile.types.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema136.xsd"/>
+
+  <xs:import namespace="common.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema360.xsd"/>
+
+  <xs:import namespace="profiles.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema217.xsd"/>
+
+  <xs:import namespace="signaling.profiles.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema169.xsd"/>
+
+  <xs:import namespace="sonustc.types.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema44.xsd"/>
+
+  <xs:import namespace="criteria_.includeatcf_.atprofile.signaling.profiles.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema353.xsd"/>
+
+  <xs:import namespace="includeatcf_.atprofile.signaling.profiles.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema282.xsd"/>
+
+  <xs:complexType name="accessTransferPolicyProfileType_">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcEntity">
+        <xs:sequence>
+          <xs:element name="accessTransferPolicyProfileType" type="ns1:sonusAccessTransferPolicyProfileType" default="ATCF" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="accessTransferPolicyProfileType_Key">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcUnCreatableKey">
+        <xs:sequence>
+          <xs:element name="parentKey" type="ns4:atprofileKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="featureCapabilityIndicator">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcEntity">
+        <xs:sequence>
+          <xs:element name="mscAssistedMidCall" type="ns5:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="psCsAlertingSRVCC" type="ns5:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="csPsAlertingSRVCC" type="ns5:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="csPsSRVCC" type="ns5:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="psCsPreAlertingSRVCC" type="ns5:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="csPsPreAlertingSRVCC" type="ns5:sonusEnableDisable" default="disable" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="featureCapabilityIndicatorKey">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcUnCreatableKey">
+        <xs:sequence>
+          <xs:element name="parentKey" type="ns4:atprofileKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="includeATCF_">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcEntity">
+        <xs:sequence>
+          <xs:element name="includeATCF" type="ns1:sonusIncludeATCF" default="always" minOccurs="0"/>
+          <xs:element name="criteria_" type="ns7:criteria_" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="includeATCF_Key">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcUnCreatableKey">
+        <xs:sequence>
+          <xs:element name="parentKey" type="ns4:atprofileKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+</xs:schema>
+

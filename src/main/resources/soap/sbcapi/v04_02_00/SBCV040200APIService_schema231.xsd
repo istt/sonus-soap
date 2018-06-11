@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="media.system.v04_02_00.sbc.api.ems.sonus.com" xmlns:ns2="v04_02_00.sbc.api.ems.sonus.com" xmlns:ns1="common.sbc.api.ems.sonus.com" xmlns:ns3="system.v04_02_00.sbc.api.ems.sonus.com" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:import namespace="common.sbc.api.ems.sonus.com" schemaLocation="SBCV040200APIService_schema325.xsd"/>
+
+  <xs:import namespace="v04_02_00.sbc.api.ems.sonus.com" schemaLocation="SBCV040200APIService_schema7.xsd"/>
+
+  <xs:import namespace="system.v04_02_00.sbc.api.ems.sonus.com" schemaLocation="SBCV040200APIService_schema26.xsd"/>
+
+  <xs:complexType name="mediaPortRange">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcEntity">
+        <xs:sequence>
+          <xs:element name="baseUdpPort" type="xs:unsignedInt" default="1024" minOccurs="0"/>
+          <xs:element name="maxUdpPort" type="xs:unsignedInt" default="65148" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="mediaPortRangeKey">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcUnCreatableKey">
+        <xs:sequence>
+          <xs:element name="parentKey" type="ns3:mediaKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="tcpPortRange">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcEntity">
+        <xs:sequence>
+          <xs:element name="baseServerPort" type="xs:unsignedShort" default="1024" minOccurs="0"/>
+          <xs:element name="maxServerPort" type="xs:unsignedShort" default="65534" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="tcpPortRangeKey">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcUnCreatableKey">
+        <xs:sequence>
+          <xs:element name="parentKey" type="ns3:mediaKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="mediaPeerInactivity">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcEntity">
+        <xs:sequence>
+          <xs:element name="inactivityTimeout" type="xs:unsignedShort" default="60" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="mediaPeerInactivityKey">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcUnCreatableKey">
+        <xs:sequence>
+          <xs:element name="parentKey" type="ns3:mediaKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="mediaRtcpControl">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcEntity">
+        <xs:sequence>
+          <xs:element name="senderReportInterval" type="xs:unsignedShort" default="5" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="mediaRtcpControlKey">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcUnCreatableKey">
+        <xs:sequence>
+          <xs:element name="parentKey" type="ns3:mediaKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+</xs:schema>
+

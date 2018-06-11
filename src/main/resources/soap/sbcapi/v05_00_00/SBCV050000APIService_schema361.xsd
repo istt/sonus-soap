@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="announcementpackage.media.profiles.v05_00_00.sbc.api.ems.sonus.com" xmlns:ns2="profiles.v05_00_00.sbc.api.ems.sonus.com" xmlns:ns1="common.sbc.api.ems.sonus.com" xmlns:ns3="media.profiles.v05_00_00.sbc.api.ems.sonus.com" xmlns:tns="announcementpackage.media.profiles.v05_00_00.sbc.api.ems.sonus.com" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:import namespace="common.sbc.api.ems.sonus.com" schemaLocation="SBCV050000APIService_schema326.xsd"/>
+
+  <xs:import namespace="profiles.v05_00_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050000APIService_schema197.xsd"/>
+
+  <xs:import namespace="media.profiles.v05_00_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050000APIService_schema232.xsd"/>
+
+  <xs:complexType name="element">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcEntity">
+        <xs:sequence>
+          <xs:element name="name" type="xs:string" minOccurs="0"/>
+          <xs:element name="segmentId" type="xs:unsignedShort" default="0" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="elementKey">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcKey">
+        <xs:sequence>
+          <xs:element name="name" type="xs:string" minOccurs="0"/>
+          <xs:element name="parentKey" type="ns3:announcementPackageKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="elementListWrapper">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcListWrapper">
+        <xs:sequence>
+          <xs:element name="element" type="tns:element" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+</xs:schema>
+

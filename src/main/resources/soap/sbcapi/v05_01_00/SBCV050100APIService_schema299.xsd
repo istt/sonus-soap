@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="from.action.rule.sipadaptorprofile.signaling.profiles.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns2="sdpcontent.from.action.rule.sipadaptorprofile.signaling.profiles.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns1="sonusgen2sipadaptor.types.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns4="rule.sipadaptorprofile.signaling.profiles.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns3="common.sbc.api.ems.sonus.com" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ns5="action.rule.sipadaptorprofile.signaling.profiles.v05_01_00.sbc.api.ems.sonus.com">
+
+  <xs:import namespace="sonusgen2sipadaptor.types.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema99.xsd"/>
+
+  <xs:import namespace="sdpcontent.from.action.rule.sipadaptorprofile.signaling.profiles.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema183.xsd"/>
+
+  <xs:import namespace="common.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema360.xsd"/>
+
+  <xs:import namespace="rule.sipadaptorprofile.signaling.profiles.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema186.xsd"/>
+
+  <xs:import namespace="action.rule.sipadaptorprofile.signaling.profiles.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema410.xsd"/>
+
+  <xs:complexType name="sdpContent">
+    <xs:complexContent>
+      <xs:extension base="ns3:sbcEntity">
+        <xs:sequence>
+          <xs:element name="streamType" type="ns1:sonusSipSmmSdpStreamType" default="session" minOccurs="0"/>
+          <xs:element name="streamInstanceId" type="xs:string" default="1" minOccurs="0"/>
+          <xs:element name="streamInstanceIdUnion" type="ns1:SonusSipSmmSdpStreamInstanceIdUnion" minOccurs="0"/>
+          <xs:element name="codecNames" type="xs:string" minOccurs="0"/>
+          <xs:element name="codecPosition" type="xs:string" default="last" minOccurs="0"/>
+          <xs:element name="codecPositionUnion" type="ns1:SonusSipSmmSdpCodecPositionUnion" minOccurs="0"/>
+          <xs:element name="paramName" type="xs:string" minOccurs="0"/>
+          <xs:element name="paramDelimiter" type="xs:string" minOccurs="0"/>
+          <xs:element name="sdpLine" type="ns2:sdpLine" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="sdpContentKey">
+    <xs:complexContent>
+      <xs:extension base="ns3:sbcUnCreatableKey">
+        <xs:sequence>
+          <xs:element name="parentKey" type="ns5:fromKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+</xs:schema>
+

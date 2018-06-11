@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="sonusdnszonelabel.types.v05_01_00.sbc.api.ems.sonus.com" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:simpleType name="sonusDnsZoneLabelName">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="DEFAULT_ZONE_LABEL"/>
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>
+

@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="sonusipsignalingprofile.types.v05_01_00.sbc.api.ems.sonus.com" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:simpleType name="sonusProtocolTypeRange">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="sipOnly"/>
+      <xs:enumeration value="sipI"/>
+      <xs:enumeration value="h323"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusHandleIpAddressesNotPresentInNetworkSelectorTableNstRange">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="routeViaTransferringIptg"/>
+      <xs:enumeration value="rejectCall"/>
+      <xs:enumeration value="routeViaDefaultZoneIptg"/>
+      <xs:enumeration value="routeViaDefaultiptg"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="referToHeaderRelayType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="rejectReferIfnoMatchForcallId"/>
+      <xs:enumeration value="relayReferIfNoMatchForCallId"/>
+      <xs:enumeration value="relayReferWithoutMatching"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusIpSignalingMimeContentTypeRange">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="isup"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusIpSignalingTreatmentRange">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="interwork"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusNpdiOptionsRange">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="includeNpdi"/>
+      <xs:enumeration value="includeNpdiYes"/>
+      <xs:enumeration value="doNotIncludeNpdi"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusPChargeInfoType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="uriParameter"/>
+      <xs:enumeration value="userParameter"/>
+      <xs:enumeration value="headerParameter"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusPrivacyInformation">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="pPreferredId"/>
+      <xs:enumeration value="pAssertedId"/>
+      <xs:enumeration value="remotePartyId"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusModeRange">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="acceptRedirection"/>
+      <xs:enumeration value="allowSingleRedirectAttempt"/>
+      <xs:enumeration value="rejectRedirection"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusContactHandlingRange">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="mergeReceivedContacts"/>
+      <xs:enumeration value="purgeExistingContacts"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusIncludeChargeInformationRange">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="includeNone"/>
+      <xs:enumeration value="includePChargeInfo"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusSessionExpiresRefresherRange">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="notSend"/>
+      <xs:enumeration value="uac"/>
+      <xs:enumeration value="uas"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusSipToHeaderMappingRange">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="originalCalledNumberOcn"/>
+      <xs:enumeration value="calledNumber"/>
+      <xs:enumeration value="gapDialedNumber"/>
+      <xs:enumeration value="none"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusDestinationTrunkGroupOptionsRange">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="includeNone"/>
+      <xs:enumeration value="includeDtg"/>
+      <xs:enumeration value="includeTgrpWithIpAddress"/>
+      <xs:enumeration value="includeTgrpWithDomainName"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusOriginatingTrunkGroupOptionsRange">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="includeNone"/>
+      <xs:enumeration value="includeOtg"/>
+      <xs:enumeration value="includeTgrpWithIpAddress"/>
+      <xs:enumeration value="includeTgrpWithDomainName"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusCallIdGenerationTypes">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="doNotUseIngressCallId"/>
+      <xs:enumeration value="useIngressCallIdByAddingStaticString"/>
+      <xs:enumeration value="useIngressCallIdByPrepending"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusSipCallForwardingMappingRange">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="diversion"/>
+      <xs:enumeration value="pkHeader"/>
+      <xs:enumeration value="none"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusTransportTypeRange">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="none"/>
+      <xs:enumeration value="tcp"/>
+      <xs:enumeration value="udp"/>
+      <xs:enumeration value="sctp"/>
+      <xs:enumeration value="tlsOverTcp"/>
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>
+

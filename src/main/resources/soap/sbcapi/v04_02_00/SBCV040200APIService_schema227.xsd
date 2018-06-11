@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="mgmtipinterfacegroup.system.v04_02_00.sbc.api.ems.sonus.com" xmlns:ns2="common.sbc.api.ems.sonus.com" xmlns:ns1="sonustc.types.v04_02_00.sbc.api.ems.sonus.com" xmlns:ns4="system.v04_02_00.sbc.api.ems.sonus.com" xmlns:ns3="v04_02_00.sbc.api.ems.sonus.com" xmlns:tns="mgmtipinterfacegroup.system.v04_02_00.sbc.api.ems.sonus.com" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ns5="sonusmgmtipinterface.types.v04_02_00.sbc.api.ems.sonus.com">
+
+  <xs:import namespace="sonustc.types.v04_02_00.sbc.api.ems.sonus.com" schemaLocation="SBCV040200APIService_schema42.xsd"/>
+
+  <xs:import namespace="common.sbc.api.ems.sonus.com" schemaLocation="SBCV040200APIService_schema325.xsd"/>
+
+  <xs:import namespace="v04_02_00.sbc.api.ems.sonus.com" schemaLocation="SBCV040200APIService_schema7.xsd"/>
+
+  <xs:import namespace="system.v04_02_00.sbc.api.ems.sonus.com" schemaLocation="SBCV040200APIService_schema26.xsd"/>
+
+  <xs:import namespace="sonusmgmtipinterface.types.v04_02_00.sbc.api.ems.sonus.com" schemaLocation="SBCV040200APIService_schema72.xsd"/>
+
+  <xs:complexType name="mgmtIpInterface">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcEntity">
+        <xs:sequence>
+          <xs:element name="name" type="xs:string" minOccurs="0"/>
+          <xs:element name="ceName" type="xs:string" minOccurs="0"/>
+          <xs:element name="portName" type="xs:string" minOccurs="0"/>
+          <xs:element name="ipAddressV4" type="xs:string" minOccurs="0"/>
+          <xs:element name="prefixV4" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="ipAddressV6" type="xs:string" minOccurs="0"/>
+          <xs:element name="prefixV6" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="state" type="ns1:sonusAdminState" default="disabled" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="mgmtIpInterfaceKey">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcKey">
+        <xs:sequence>
+          <xs:element name="name" type="xs:string" minOccurs="0"/>
+          <xs:element name="parentKey" type="ns4:mgmtIpInterfaceGroupKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="mgmtIpInterfaceListWrapper">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcListWrapper">
+        <xs:sequence>
+          <xs:element name="mgmtIpInterface" type="tns:mgmtIpInterface" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="mgmtIpInterfaceStatus">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcEntity">
+        <xs:sequence>
+          <xs:element name="name" type="xs:string" minOccurs="0"/>
+          <xs:element name="operStatus" type="ns5:sonusNrsMgmtIfOperStatusType" minOccurs="0"/>
+          <xs:element name="ifindex" type="xs:int" minOccurs="0"/>
+          <xs:element name="rxPackets" type="xs:int" minOccurs="0"/>
+          <xs:element name="txPackets" type="xs:int" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="mgmtIpInterfaceStatusKey">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcReadOnlyKey">
+        <xs:sequence>
+          <xs:element name="name" type="xs:string" minOccurs="0"/>
+          <xs:element name="parentKey" type="ns4:mgmtIpInterfaceGroupKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="mgmtIpInterfaceStatusListWrapper">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcListWrapper">
+        <xs:sequence>
+          <xs:element name="mgmtIpInterfaceStatus" type="tns:mgmtIpInterfaceStatus" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+</xs:schema>
+

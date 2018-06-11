@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="forwardcallindicator.parametercriteria.dmpmcriteria.digitparameterhandling.profiles.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns2="common.sbc.api.ems.sonus.com" xmlns:ns1="sonusdmpmcriteria.types.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns4="parametercriteria.dmpmcriteria.digitparameterhandling.profiles.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns3="dmpmcriteria.digitparameterhandling.profiles.v05_01_00.sbc.api.ems.sonus.com" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ns5="sonusorcatc.types.v05_01_00.sbc.api.ems.sonus.com">
+
+  <xs:import namespace="sonusdmpmcriteria.types.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema124.xsd"/>
+
+  <xs:import namespace="common.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema360.xsd"/>
+
+  <xs:import namespace="dmpmcriteria.digitparameterhandling.profiles.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema333.xsd"/>
+
+  <xs:import namespace="parametercriteria.dmpmcriteria.digitparameterhandling.profiles.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema231.xsd"/>
+
+  <xs:import namespace="sonusorcatc.types.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema70.xsd"/>
+
+  <xs:complexType name="international">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcEntity">
+        <xs:sequence>
+          <xs:element name="value" type="ns1:sonusInternationalYesNoRange" default="no" minOccurs="0"/>
+          <xs:element name="operation" type="ns1:sonusInternationalOperationRange" default="ignore" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="internationalKey">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcUnCreatableKey">
+        <xs:sequence>
+          <xs:element name="parentKey" type="ns4:forwardCallIndicatorKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="interworking">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcEntity">
+        <xs:sequence>
+          <xs:element name="value" type="ns1:sonusInterworkingYesNoRange" default="no" minOccurs="0"/>
+          <xs:element name="operation" type="ns1:sonusInterworkingOperationRange" default="ignore" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="interworkingKey">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcUnCreatableKey">
+        <xs:sequence>
+          <xs:element name="parentKey" type="ns4:forwardCallIndicatorKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="isdnIndicator">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcEntity">
+        <xs:sequence>
+          <xs:element name="value" type="ns1:sonusIsdnIndicatorYesNoRange" default="no" minOccurs="0"/>
+          <xs:element name="operation" type="ns1:sonusIsdnIndicatorOperationRange" default="ignore" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="isdnIndicatorKey">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcUnCreatableKey">
+        <xs:sequence>
+          <xs:element name="parentKey" type="ns4:forwardCallIndicatorKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="isupBiccIndicator">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcEntity">
+        <xs:sequence>
+          <xs:element name="value" type="ns1:sonusIsupBiccIndicatorYesNoRange" default="no" minOccurs="0"/>
+          <xs:element name="operation" type="ns1:sonusIsupBiccIndicatorOperationRange" default="ignore" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="isupBiccIndicatorKey">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcUnCreatableKey">
+        <xs:sequence>
+          <xs:element name="parentKey" type="ns4:forwardCallIndicatorKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="isupBiccPreference">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcEntity">
+        <xs:sequence>
+          <xs:element name="value" type="ns5:sonusIsupBiccPreferenceRange" default="none" minOccurs="0"/>
+          <xs:element name="operation" type="ns1:sonusIsupBiccPreferenceOperationRange" default="ignore" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="isupBiccPreferenceKey">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcUnCreatableKey">
+        <xs:sequence>
+          <xs:element name="parentKey" type="ns4:forwardCallIndicatorKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+</xs:schema>
+

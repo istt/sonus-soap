@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="policy.siptrunkgroup.zone.addresscontext.v05_00_00.sbc.api.ems.sonus.com" xmlns:ns2="zone.addresscontext.v05_00_00.sbc.api.ems.sonus.com" xmlns:ns1="common.sbc.api.ems.sonus.com" xmlns:ns4="sonustc.types.v05_00_00.sbc.api.ems.sonus.com" xmlns:ns3="siptrunkgroup.zone.addresscontext.v05_00_00.sbc.api.ems.sonus.com" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ns5="ingress.policy.siptrunkgroup.zone.addresscontext.v05_00_00.sbc.api.ems.sonus.com">
+
+  <xs:import namespace="common.sbc.api.ems.sonus.com" schemaLocation="SBCV050000APIService_schema326.xsd"/>
+
+  <xs:import namespace="zone.addresscontext.v05_00_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050000APIService_schema1.xsd"/>
+
+  <xs:import namespace="siptrunkgroup.zone.addresscontext.v05_00_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050000APIService_schema137.xsd"/>
+
+  <xs:import namespace="sonustc.types.v05_00_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050000APIService_schema42.xsd"/>
+
+  <xs:import namespace="ingress.policy.siptrunkgroup.zone.addresscontext.v05_00_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050000APIService_schema257.xsd"/>
+
+  <xs:complexType name="digitParameterHandling">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcEntity">
+        <xs:sequence>
+          <xs:element name="numberingPlan" type="xs:string" default="NANP_ACCESS" minOccurs="0"/>
+          <xs:element name="ingressDmPmRule" type="xs:string" minOccurs="0"/>
+          <xs:element name="egressDmPmRule" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="digitParameterHandlingKey">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcUnCreatableKey">
+        <xs:sequence>
+          <xs:element name="parentKey" type="ns3:policyKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="callRouting">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcEntity">
+        <xs:sequence>
+          <xs:element name="elementRoutingPriority" type="xs:string" default="DEFAULT_IP" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="callRoutingKey">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcUnCreatableKey">
+        <xs:sequence>
+          <xs:element name="parentKey" type="ns3:policyKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="media">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcEntity">
+        <xs:sequence>
+          <xs:element name="packetServiceProfile" type="xs:string" default="DEFAULT" minOccurs="0"/>
+          <xs:element name="toneAndAnnouncementProfile" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="mediaKey">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcUnCreatableKey">
+        <xs:sequence>
+          <xs:element name="parentKey" type="ns3:policyKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="services">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcEntity">
+        <xs:sequence>
+          <xs:element name="classOfService" type="xs:string" default="DEFAULT_IP" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="servicesKey">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcUnCreatableKey">
+        <xs:sequence>
+          <xs:element name="parentKey" type="ns3:policyKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="signaling">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcEntity">
+        <xs:sequence>
+          <xs:element name="ipSignalingProfile" type="xs:string" minOccurs="0"/>
+          <xs:element name="signalingProfile" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="signalingKey">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcUnCreatableKey">
+        <xs:sequence>
+          <xs:element name="parentKey" type="ns3:policyKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="ingress">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcEntity">
+        <xs:sequence>
+          <xs:element name="flags" type="ns5:flags" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="ingressKey">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcUnCreatableKey">
+        <xs:sequence>
+          <xs:element name="parentKey" type="ns3:policyKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+</xs:schema>
+

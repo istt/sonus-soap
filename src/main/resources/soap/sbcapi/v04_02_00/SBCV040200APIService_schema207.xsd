@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="policer.congestion.system.v04_02_00.sbc.api.ems.sonus.com" xmlns:ns2="system.v04_02_00.sbc.api.ems.sonus.com" xmlns:ns1="common.sbc.api.ems.sonus.com" xmlns:ns3="congestion.system.v04_02_00.sbc.api.ems.sonus.com" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:import namespace="common.sbc.api.ems.sonus.com" schemaLocation="SBCV040200APIService_schema325.xsd"/>
+
+  <xs:import namespace="system.v04_02_00.sbc.api.ems.sonus.com" schemaLocation="SBCV040200APIService_schema26.xsd"/>
+
+  <xs:import namespace="congestion.system.v04_02_00.sbc.api.ems.sonus.com" schemaLocation="SBCV040200APIService_schema323.xsd"/>
+
+  <xs:complexType name="preference">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcEntity">
+        <xs:sequence>
+          <xs:element name="call" type="xs:unsignedShort" default="1" minOccurs="0"/>
+          <xs:element name="emergencyCall" type="xs:unsignedShort" default="0" minOccurs="0"/>
+          <xs:element name="initialSipRegister" type="xs:unsignedShort" default="2" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="preferenceKey">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcUnCreatableKey">
+        <xs:sequence>
+          <xs:element name="parentKey" type="ns3:policerKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+</xs:schema>
+

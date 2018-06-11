@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="callrouting.profiles.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns9="sonusholiday.types.v05_01_00.sbc.api.ems.sonus.com" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ns12="timerangeprofile.callrouting.profiles.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns5="profiles.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns6="sonusgen2nrmcrankback.types.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns10="sonustimerangeprofile.types.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns7="reason.crankbackprofile.callrouting.profiles.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns11="entry.timerangeprofile.callrouting.profiles.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns8="crankbackprofile.callrouting.profiles.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns2="elementroutingpriority.callrouting.profiles.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns1="sonusorcatc.types.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns4="v05_01_00.sbc.api.ems.sonus.com" xmlns:ns3="common.sbc.api.ems.sonus.com" xmlns:tns="callrouting.profiles.v05_01_00.sbc.api.ems.sonus.com">
+
+  <xs:import namespace="sonusorcatc.types.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema70.xsd"/>
+
+  <xs:import namespace="elementroutingpriority.callrouting.profiles.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema318.xsd"/>
+
+  <xs:import namespace="common.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema360.xsd"/>
+
+  <xs:import namespace="v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema7.xsd"/>
+
+  <xs:import namespace="profiles.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema217.xsd"/>
+
+  <xs:import namespace="sonusgen2nrmcrankback.types.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema107.xsd"/>
+
+  <xs:import namespace="reason.crankbackprofile.callrouting.profiles.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema208.xsd"/>
+
+  <xs:import namespace="crankbackprofile.callrouting.profiles.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema354.xsd"/>
+
+  <xs:import namespace="sonusholiday.types.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema91.xsd"/>
+
+  <xs:import namespace="sonustimerangeprofile.types.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema43.xsd"/>
+
+  <xs:import namespace="entry.timerangeprofile.callrouting.profiles.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema313.xsd"/>
+
+  <xs:import namespace="timerangeprofile.callrouting.profiles.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema24.xsd"/>
+
+  <xs:complexType name="elementRoutingPriority">
+    <xs:complexContent>
+      <xs:extension base="ns3:sbcEntity">
+        <xs:sequence>
+          <xs:element name="name" type="xs:string" minOccurs="0"/>
+          <xs:element name="entry" type="ns2:entry" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="elementRoutingPriorityKey">
+    <xs:complexContent>
+      <xs:extension base="ns3:sbcKey">
+        <xs:sequence>
+          <xs:element name="name" type="xs:string" minOccurs="0"/>
+          <xs:element name="parentKey" type="ns5:callRoutingKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="elementRoutingPriorityListWrapper">
+    <xs:complexContent>
+      <xs:extension base="ns3:sbcListWrapper">
+        <xs:sequence>
+          <xs:element name="elementRoutingPriority" type="tns:elementRoutingPriority" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="crankbackProfile">
+    <xs:complexContent>
+      <xs:extension base="ns3:sbcEntity">
+        <xs:sequence>
+          <xs:element name="name" type="xs:string" minOccurs="0"/>
+          <xs:element name="lateCrankback" type="ns6:sonusCrankBackProfileLateCrankBackType" default="disabled" minOccurs="0"/>
+          <xs:element name="attemptRecordGeneration" type="ns6:sonusCrankBackProfileAttemptRecordGenerationType" default="disabled" minOccurs="0"/>
+          <xs:element name="reason" type="ns8:reason" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="crankbackProfileKey">
+    <xs:complexContent>
+      <xs:extension base="ns3:sbcKey">
+        <xs:sequence>
+          <xs:element name="name" type="xs:string" minOccurs="0"/>
+          <xs:element name="parentKey" type="ns5:callRoutingKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="crankbackProfileListWrapper">
+    <xs:complexContent>
+      <xs:extension base="ns3:sbcListWrapper">
+        <xs:sequence>
+          <xs:element name="crankbackProfile" type="tns:crankbackProfile" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="holiday">
+    <xs:complexContent>
+      <xs:extension base="ns3:sbcEntity">
+        <xs:sequence>
+          <xs:element name="country" type="xs:string" minOccurs="0"/>
+          <xs:element name="monthOfYear" type="ns9:sonusMonthOfYear" minOccurs="0"/>
+          <xs:element name="dayOfMonth" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="description" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="holidayKey">
+    <xs:complexContent>
+      <xs:extension base="ns3:sbcKey">
+        <xs:sequence>
+          <xs:element name="country" type="xs:string" minOccurs="0"/>
+          <xs:element name="monthOfYear" type="ns9:sonusMonthOfYear" minOccurs="0"/>
+          <xs:element name="dayOfMonth" type="xs:long" minOccurs="0"/>
+          <xs:element name="parentKey" type="ns5:callRoutingKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="holidayListWrapper">
+    <xs:complexContent>
+      <xs:extension base="ns3:sbcListWrapper">
+        <xs:sequence>
+          <xs:element name="holiday" type="tns:holiday" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="timeRangeProfile">
+    <xs:complexContent>
+      <xs:extension base="ns3:sbcEntity">
+        <xs:sequence>
+          <xs:element name="name" type="xs:string" minOccurs="0"/>
+          <xs:element name="entry" type="ns12:entry" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="timeRangeProfileKey">
+    <xs:complexContent>
+      <xs:extension base="ns3:sbcKey">
+        <xs:sequence>
+          <xs:element name="name" type="xs:string" minOccurs="0"/>
+          <xs:element name="parentKey" type="ns5:callRoutingKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="timeRangeProfileListWrapper">
+    <xs:complexContent>
+      <xs:extension base="ns3:sbcListWrapper">
+        <xs:sequence>
+          <xs:element name="timeRangeProfile" type="tns:timeRangeProfile" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+</xs:schema>
+

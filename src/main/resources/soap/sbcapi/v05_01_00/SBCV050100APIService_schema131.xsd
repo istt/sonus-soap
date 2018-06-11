@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="sonuscodecroutingpriority.types.v05_01_00.sbc.api.ems.sonus.com" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:simpleType name="sonusCodecGroup">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="G722"/>
+      <xs:enumeration value="AMRWB"/>
+      <xs:enumeration value="G7221"/>
+      <xs:enumeration value="SILK"/>
+      <xs:enumeration value="MSRT"/>
+      <xs:enumeration value="G7291"/>
+      <xs:enumeration value="OPUS"/>
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>
+

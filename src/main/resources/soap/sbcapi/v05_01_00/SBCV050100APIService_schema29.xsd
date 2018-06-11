@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="system.profiles.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns2="common.sbc.api.ems.sonus.com" xmlns:ns1="sonusgen2profiles.types.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns4="profiles.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns3="v05_01_00.sbc.api.ems.sonus.com" xmlns:tns="system.profiles.v05_01_00.sbc.api.ems.sonus.com" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ns5="sonustc.types.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns6="overloadprofile.system.profiles.v05_01_00.sbc.api.ems.sonus.com">
+
+  <xs:import namespace="sonusgen2profiles.types.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema102.xsd"/>
+
+  <xs:import namespace="common.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema360.xsd"/>
+
+  <xs:import namespace="v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema7.xsd"/>
+
+  <xs:import namespace="profiles.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema217.xsd"/>
+
+  <xs:import namespace="sonustc.types.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema44.xsd"/>
+
+  <xs:import namespace="overloadprofile.system.profiles.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema237.xsd"/>
+
+  <xs:complexType name="coredumpProfile">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcEntity">
+        <xs:sequence>
+          <xs:element name="name" type="xs:string" minOccurs="0"/>
+          <xs:element name="coredumpLevel" type="ns1:sonusNodeCoreDumpLevelType" default="normal" minOccurs="0"/>
+          <xs:element name="coredumpSpaceLimit" type="xs:int" default="6" minOccurs="0"/>
+          <xs:element name="coredumpCountLimit" type="xs:int" default="3" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="coredumpProfileKey">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcKey">
+        <xs:sequence>
+          <xs:element name="name" type="xs:string" minOccurs="0"/>
+          <xs:element name="parentKey" type="ns4:systemKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="coredumpProfileListWrapper">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcListWrapper">
+        <xs:sequence>
+          <xs:element name="coredumpProfile" type="tns:coredumpProfile" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="ipPolicingAlarmProfile">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcEntity">
+        <xs:sequence>
+          <xs:element name="name" type="xs:string" minOccurs="0"/>
+          <xs:element name="index" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="state" type="ns5:sonusAdminState" default="disabled" minOccurs="0"/>
+          <xs:element name="badEthernetIpHeaderSetThreshold" type="xs:unsignedInt" default="20" minOccurs="0"/>
+          <xs:element name="badEthernetIpHeaderClearThreshold" type="xs:unsignedInt" default="10" minOccurs="0"/>
+          <xs:element name="badEthernetIpHeaderSetDuration" type="xs:unsignedInt" default="3" minOccurs="0"/>
+          <xs:element name="badEthernetIpHeaderClearDuration" type="xs:unsignedInt" default="3" minOccurs="0"/>
+          <xs:element name="arpSetThreshold" type="xs:unsignedInt" default="20" minOccurs="0"/>
+          <xs:element name="arpClearThreshold" type="xs:unsignedInt" default="10" minOccurs="0"/>
+          <xs:element name="arpSetDuration" type="xs:unsignedInt" default="3" minOccurs="0"/>
+          <xs:element name="arpClearDuration" type="xs:unsignedInt" default="3" minOccurs="0"/>
+          <xs:element name="uFlowSetThreshold" type="xs:unsignedInt" default="20" minOccurs="0"/>
+          <xs:element name="uFlowClearThreshold" type="xs:unsignedInt" default="10" minOccurs="0"/>
+          <xs:element name="uFlowSetDuration" type="xs:unsignedInt" default="3" minOccurs="0"/>
+          <xs:element name="uFlowClearDuration" type="xs:unsignedInt" default="3" minOccurs="0"/>
+          <xs:element name="aclSetThreshold" type="xs:unsignedInt" default="20" minOccurs="0"/>
+          <xs:element name="aclClearThreshold" type="xs:unsignedInt" default="10" minOccurs="0"/>
+          <xs:element name="aclSetDuration" type="xs:unsignedInt" default="3" minOccurs="0"/>
+          <xs:element name="aclClearDuration" type="xs:unsignedInt" default="3" minOccurs="0"/>
+          <xs:element name="aggregateSetThreshold" type="xs:unsignedInt" default="20" minOccurs="0"/>
+          <xs:element name="aggregateClearThreshold" type="xs:unsignedInt" default="10" minOccurs="0"/>
+          <xs:element name="aggregateSetDuration" type="xs:unsignedInt" default="3" minOccurs="0"/>
+          <xs:element name="aggregateClearDuration" type="xs:unsignedInt" default="3" minOccurs="0"/>
+          <xs:element name="ipSecDecryptSetThreshold" type="xs:unsignedInt" default="20" minOccurs="0"/>
+          <xs:element name="ipSecDecryptClearThreshold" type="xs:unsignedInt" default="10" minOccurs="0"/>
+          <xs:element name="ipSecDecryptSetDuration" type="xs:unsignedInt" default="3" minOccurs="0"/>
+          <xs:element name="ipSecDecryptClearDuration" type="xs:unsignedInt" default="3" minOccurs="0"/>
+          <xs:element name="mediaSetThreshold" type="xs:unsignedInt" default="20" minOccurs="0"/>
+          <xs:element name="mediaClearThreshold" type="xs:unsignedInt" default="10" minOccurs="0"/>
+          <xs:element name="mediaSetDuration" type="xs:unsignedInt" default="3" minOccurs="0"/>
+          <xs:element name="mediaClearDuration" type="xs:unsignedInt" default="3" minOccurs="0"/>
+          <xs:element name="rogueMediaSetThreshold" type="xs:unsignedInt" default="20" minOccurs="0"/>
+          <xs:element name="rogueMediaClearThreshold" type="xs:unsignedInt" default="10" minOccurs="0"/>
+          <xs:element name="rogueMediaSetDuration" type="xs:unsignedInt" default="3" minOccurs="0"/>
+          <xs:element name="rogueMediaClearDuration" type="xs:unsignedInt" default="3" minOccurs="0"/>
+          <xs:element name="discardRuleSetThreshold" type="xs:unsignedInt" default="20" minOccurs="0"/>
+          <xs:element name="discardRuleClearThreshold" type="xs:unsignedInt" default="10" minOccurs="0"/>
+          <xs:element name="discardRuleSetDuration" type="xs:unsignedInt" default="3" minOccurs="0"/>
+          <xs:element name="discardRuleClearDuration" type="xs:unsignedInt" default="3" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="ipPolicingAlarmProfileKey">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcKey">
+        <xs:sequence>
+          <xs:element name="name" type="xs:string" minOccurs="0"/>
+          <xs:element name="parentKey" type="ns4:systemKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="ipPolicingAlarmProfileListWrapper">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcListWrapper">
+        <xs:sequence>
+          <xs:element name="ipPolicingAlarmProfile" type="tns:ipPolicingAlarmProfile" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="overloadProfile">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcEntity">
+        <xs:sequence>
+          <xs:element name="name" type="xs:string" minOccurs="0"/>
+          <xs:element name="state" type="ns5:sonusAdminState" default="disabled" minOccurs="0"/>
+          <xs:element name="setThreshold" type="ns6:setThreshold" minOccurs="0"/>
+          <xs:element name="clearThreshold" type="ns6:clearThreshold" minOccurs="0"/>
+          <xs:element name="setDuration" type="ns6:setDuration" minOccurs="0"/>
+          <xs:element name="clearDuration" type="ns6:clearDuration" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="overloadProfileKey">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcKey">
+        <xs:sequence>
+          <xs:element name="name" type="xs:string" minOccurs="0"/>
+          <xs:element name="parentKey" type="ns4:systemKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="overloadProfileListWrapper">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcListWrapper">
+        <xs:sequence>
+          <xs:element name="overloadProfile" type="tns:overloadProfile" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+</xs:schema>
+

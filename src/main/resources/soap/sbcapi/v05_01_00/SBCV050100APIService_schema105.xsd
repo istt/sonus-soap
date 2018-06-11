@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="sonusgen2nrmdisctreat.types.v05_01_00.sbc.api.ems.sonus.com" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:simpleType name="sonusDiscSigSequenceTokenType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="playTone"/>
+      <xs:enumeration value="playAnn"/>
+      <xs:enumeration value="delay"/>
+      <xs:enumeration value="clear"/>
+      <xs:enumeration value="exec"/>
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>
+

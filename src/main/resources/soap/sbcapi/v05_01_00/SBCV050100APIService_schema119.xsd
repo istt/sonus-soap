@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="sonusdtlsprofile.types.v05_01_00.sbc.api.ems.sonus.com" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:simpleType name="sonusDtlsProfileDtlsRole">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="client"/>
+      <xs:enumeration value="server"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusDtlsProfileHashFunction">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="sha1"/>
+      <xs:enumeration value="sha224"/>
+      <xs:enumeration value="sha256"/>
+      <xs:enumeration value="sha384"/>
+      <xs:enumeration value="sha512"/>
+      <xs:enumeration value="md5"/>
+      <xs:enumeration value="md2"/>
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>
+

@@ -1,0 +1,310 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="commonipattributes.ipsignalingprofile.signaling.profiles.v05_00_00.sbc.api.ems.sonus.com" xmlns:ns2="common.sbc.api.ems.sonus.com" xmlns:ns1="sonustc.types.v05_00_00.sbc.api.ems.sonus.com" xmlns:ns4="ipsignalingprofile.signaling.profiles.v05_00_00.sbc.api.ems.sonus.com" xmlns:ns3="signaling.profiles.v05_00_00.sbc.api.ems.sonus.com" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ns5="sonusipsignalingprofile.types.v05_00_00.sbc.api.ems.sonus.com">
+
+  <xs:import namespace="sonustc.types.v05_00_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050000APIService_schema42.xsd"/>
+
+  <xs:import namespace="common.sbc.api.ems.sonus.com" schemaLocation="SBCV050000APIService_schema326.xsd"/>
+
+  <xs:import namespace="signaling.profiles.v05_00_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050000APIService_schema158.xsd"/>
+
+  <xs:import namespace="ipsignalingprofile.signaling.profiles.v05_00_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050000APIService_schema243.xsd"/>
+
+  <xs:import namespace="sonusipsignalingprofile.types.v05_00_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050000APIService_schema78.xsd"/>
+
+  <xs:complexType name="flags">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcEntity">
+        <xs:sequence>
+          <xs:element name="addPathServiceRoute" type="ns1:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="addPChargingFuncAddr" type="ns1:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="audioCodecChangeThroughEmptyTcs" type="ns1:sonusEnableDisable" default="enable" minOccurs="0"/>
+          <xs:element name="callHoldInterworking" type="ns1:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="clearmodeForDataCalls" type="ns1:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="createPChargingVector" type="ns1:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="createPathHeader" type="ns1:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="createServiceRouteHeader" type="ns1:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="customizedSessionTimerBehavior" type="ns1:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="disableAlsoHeader" type="ns1:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="disableConstrainedCapacities" type="ns1:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="disableHostTranslation" type="ns1:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="disableMediaLockDown" type="ns1:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="disableReferToUriParameters" type="ns1:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="discardReceivedReasonHeader" type="ns1:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="doNotIncludeSsAttributeInReInvite" type="ns1:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="enableDefaultPUIProcedures" type="ns1:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="enableDialStringHandling" type="ns1:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="endToEndBye" type="ns1:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="includeG729WithG729aWhenOfferPspHasG729a" type="ns1:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="includeIpPortsInFromAndToHeaders" type="ns1:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="includeReasonHeader" type="ns1:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="includeSsAttributeInInitialInvite" type="ns1:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="includeTransportTypeInContactHeader" type="ns1:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="insertPeerAddressAsTopRouteHeader" type="ns1:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="mapCauseLocation" type="ns1:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="mapSuspendResumeEventInPSvcInfoHeader" type="ns1:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="mapUuiInPSigInfoHeader" type="ns1:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="mimeCausePrecedeReasonHeaderCause" type="ns1:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="minimizeRelayingOfMediaChangesFromOtherCallLegAll" type="ns1:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="relayDataPathModeChangeFromOtherCallLeg" type="ns1:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="noContentDisposition" type="ns1:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="noPortNumber5060" type="ns1:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="noUserinfoInContactHeader" type="ns1:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="onlySelectedCodecInSessionRefresh" type="ns1:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="pCalledPartyIDSupport" type="ns1:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="pChgMsgInfo" type="ns1:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="publishIPInHoldSDP" type="ns1:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="rejectRefer" type="ns1:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="replaceHostOnViaHeader" type="ns1:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="reQueryPsxOnRegisterRefresh" type="ns1:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="validateAccessNwInfoHeader" type="ns1:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="restrictHistoryInfoHeader" type="ns1:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="routeUsingRecvdFqdn" type="ns1:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="sdpOlineOnlyCompares" type="ns1:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="sendAllAllowedCodecsForLateMediaInviteOrReInvite" type="ns1:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="sendDirectMediaInfoInSdpAttribute" type="ns1:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="sendEmptyTcs" type="ns1:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="sendPtimeInSdp" type="ns1:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="sessionTimerRefreshUpdate" type="ns1:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="setAcceptHeaderToApplicationSdpOnly" type="ns1:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="setOlineDash" type="ns1:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="setSessionVersionZero" type="ns1:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="setSlineDash" type="ns1:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="skipPsxQueryForRefer" type="ns1:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="storePathHeader" type="ns1:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="storeServiceRouteHeader" type="ns1:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="terminalPortabilityInterworking" type="ns1:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="sendRtcpPortInSdp" type="ns1:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="storePChargingFuncAddr" type="ns1:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="storePChargingVector" type="ns1:sonusEnableDisable" default="enable" minOccurs="0"/>
+          <xs:element name="createPVisitedNetworkId" type="ns1:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="lockDownPreferredCodec" type="ns1:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="sendOnlyPreferredCodec" type="ns1:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="suppressMinSeIfNotReceived" type="ns1:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="usePsxRouteforRegisteredInvite" type="ns1:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="fromHeaderAnonymisation" type="ns1:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="noServiceRotueHdrForEmergencyRegistration" type="ns1:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="insertPAccessNetworkInfo" type="ns1:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="contactTransparencyForIsFocusMediaTag" type="ns1:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="supportSCSCFRestorationProcedures" type="ns1:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="insertUEFlowInfo" type="ns1:sonusEnableDisable" default="disable" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="flagsKey">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcUnCreatableKey">
+        <xs:sequence>
+          <xs:element name="parentKey" type="ns4:commonIpAttributesKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="callTransferFlags">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcEntity">
+        <xs:sequence>
+          <xs:element name="handleIpAddressesNotPresentInNetworkSelectorTableNst" type="ns5:sonusHandleIpAddressesNotPresentInNetworkSelectorTableNstRange" default="routeViaTransferringIptg" minOccurs="0"/>
+          <xs:element name="forceReRouteViaPsxQuery" type="ns1:sonusEnableDisable" default="disable" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="callTransferFlagsKey">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcUnCreatableKey">
+        <xs:sequence>
+          <xs:element name="parentKey" type="ns4:commonIpAttributesKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="optionTagInRequireHeader">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcEntity">
+        <xs:sequence>
+          <xs:element name="suppressReplaceTag" type="ns1:sonusEnableDisable" default="disable" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="optionTagInRequireHeaderKey">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcUnCreatableKey">
+        <xs:sequence>
+          <xs:element name="parentKey" type="ns4:commonIpAttributesKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="optionTagInSupportedHeader">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcEntity">
+        <xs:sequence>
+          <xs:element name="suppressReplaceTag" type="ns1:sonusEnableDisable" default="disable" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="optionTagInSupportedHeaderKey">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcUnCreatableKey">
+        <xs:sequence>
+          <xs:element name="parentKey" type="ns4:commonIpAttributesKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="relayFlags">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcEntity">
+        <xs:sequence>
+          <xs:element name="dialogEventPackage" type="ns1:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="dtmfBody" type="ns1:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="info" type="ns1:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="message" type="ns1:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="notify" type="ns1:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="options" type="ns1:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="regEventPackage" type="ns1:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="refer" type="ns1:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="sonusMediaBody" type="ns1:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="statusCode3xx" type="ns1:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="statusCode4xx6xx" type="ns1:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="thirdPartyBodies" type="ns1:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="force503to500Relay" type="ns1:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="publish" type="ns1:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="updateWithoutSdp" type="ns1:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="conferenceEventPackage" type="ns1:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="referToHeaderRelay" type="ns5:referToHeaderRelayType" default="rejectReferIfnoMatchForcallId" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="relayFlagsKey">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcUnCreatableKey">
+        <xs:sequence>
+          <xs:element name="parentKey" type="ns4:commonIpAttributesKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="transparencyFlags">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcEntity">
+        <xs:sequence>
+          <xs:element name="acceptContactHeader" type="ns1:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="alertInformationHeader" type="ns1:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="authcodeHeaders" type="ns1:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="passCompleteContactHeader" type="ns1:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="contactHeader" type="ns1:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="errorInfo" type="ns1:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="fromHeader" type="ns1:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="historyInfo" type="ns1:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="maxForwardsHeader" type="ns1:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="mwiBody" type="ns1:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="pAccessNetworkInfoHeader" type="ns1:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="pCalledPartyID" type="ns1:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="pChargingVectorHeader" type="ns1:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="pEarlyMedia" type="ns1:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="pVisitedNetworkIDHeader" type="ns1:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="pathHeader" type="ns1:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="pidfDiffBody" type="ns1:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="qsigBody" type="ns1:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="reasonHeader" type="ns1:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="referredByHeader" type="ns1:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="requestURI" type="ns1:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="routeHeader" type="ns1:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="serviceRouteHeader" type="ns1:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="sipBody" type="ns1:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="sipfragBody" type="ns1:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="toHeader" type="ns1:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="toneBody" type="ns1:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="unknownBody" type="ns1:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="unknownHeader" type="ns1:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="userToUserHeader" type="ns1:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="viaHeader" type="ns1:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="geolocation" type="ns1:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="geolocationRouting" type="ns1:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="geolocationError" type="ns1:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="acceptHeader" type="ns1:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="callInfoHeader" type="ns1:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="resourcePriorityOptionTag" type="ns1:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="simpleFilterBody" type="ns1:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="pidfBody" type="ns1:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="watcherInfoBody" type="ns1:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="rlmiBody" type="ns1:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="externalBody" type="ns1:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="warningHeader" type="ns1:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="userAgentHeader" type="ns1:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="serverHeader" type="ns1:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="acceptLanguageHeader" type="ns1:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="resourceListBody" type="ns1:sonusEnableDisable" default="disable" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="transparencyFlagsKey">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcUnCreatableKey">
+        <xs:sequence>
+          <xs:element name="parentKey" type="ns4:commonIpAttributesKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="headerEncryptionFlags">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcEntity">
+        <xs:sequence>
+          <xs:element name="encryptPathHeader" type="ns1:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="encryptServiceRouteHeader" type="ns1:sonusEnableDisable" default="disable" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="headerEncryptionFlagsKey">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcUnCreatableKey">
+        <xs:sequence>
+          <xs:element name="parentKey" type="ns4:commonIpAttributesKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="subscriptionPackageSupport">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcEntity">
+        <xs:sequence>
+          <xs:element name="supportRegEvent" type="ns1:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="usePSXRouteForSBCInitiatedSubscribe" type="ns1:sonusEnableDisable" default="disable" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="subscriptionPackageSupportKey">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcUnCreatableKey">
+        <xs:sequence>
+          <xs:element name="parentKey" type="ns4:commonIpAttributesKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+</xs:schema>
+

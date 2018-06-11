@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="sonusmastertrunkgroupconnport.types.v04_02_00.sbc.api.ems.sonus.com" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:simpleType name="sonusMtrmPortRoleType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="client"/>
+      <xs:enumeration value="server"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusMtrmPeerConnectionStatusType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="available"/>
+      <xs:enumeration value="unavailable"/>
+      <xs:enumeration value="pending"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusMtrmPeerRoleType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="client"/>
+      <xs:enumeration value="server"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusMtrmPeerConnectionType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="none"/>
+      <xs:enumeration value="primary"/>
+      <xs:enumeration value="secondary"/>
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>
+

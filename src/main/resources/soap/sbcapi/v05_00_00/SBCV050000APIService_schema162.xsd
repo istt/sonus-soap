@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="services.siptrunkgroup.zone.addresscontext.v05_00_00.sbc.api.ems.sonus.com" xmlns:ns2="sonussiptrunkgroup.types.v05_00_00.sbc.api.ems.sonus.com" xmlns:ns1="sonustc.types.v05_00_00.sbc.api.ems.sonus.com" xmlns:ns4="zone.addresscontext.v05_00_00.sbc.api.ems.sonus.com" xmlns:ns3="common.sbc.api.ems.sonus.com" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ns5="siptrunkgroup.zone.addresscontext.v05_00_00.sbc.api.ems.sonus.com" xmlns:ns6="nattraversal.services.siptrunkgroup.zone.addresscontext.v05_00_00.sbc.api.ems.sonus.com">
+
+  <xs:import namespace="sonustc.types.v05_00_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050000APIService_schema42.xsd"/>
+
+  <xs:import namespace="sonussiptrunkgroup.types.v05_00_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050000APIService_schema46.xsd"/>
+
+  <xs:import namespace="common.sbc.api.ems.sonus.com" schemaLocation="SBCV050000APIService_schema326.xsd"/>
+
+  <xs:import namespace="zone.addresscontext.v05_00_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050000APIService_schema1.xsd"/>
+
+  <xs:import namespace="siptrunkgroup.zone.addresscontext.v05_00_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050000APIService_schema137.xsd"/>
+
+  <xs:import namespace="nattraversal.services.siptrunkgroup.zone.addresscontext.v05_00_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050000APIService_schema224.xsd"/>
+
+  <xs:complexType name="overlapAddressing">
+    <xs:complexContent>
+      <xs:extension base="ns3:sbcEntity">
+        <xs:sequence>
+          <xs:element name="overlapState" type="ns1:sonusAdminState" default="disabled" minOccurs="0"/>
+          <xs:element name="minDigitsForQuery" type="xs:unsignedByte" default="0" minOccurs="0"/>
+          <xs:element name="timer2" type="xs:unsignedByte" default="0" minOccurs="0"/>
+          <xs:element name="timer3" type="xs:unsignedByte" default="4" minOccurs="0"/>
+          <xs:element name="receive" type="ns2:sonusSipSigTrunkGroupOverlapReceive" default="disabled" minOccurs="0"/>
+          <xs:element name="send" type="ns2:sonusSipSigTrunkGroupOverlapSend" default="disabled" minOccurs="0"/>
+          <xs:element name="timer1" type="xs:unsignedByte" default="10" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="overlapAddressingKey">
+    <xs:complexContent>
+      <xs:extension base="ns3:sbcUnCreatableKey">
+        <xs:sequence>
+          <xs:element name="parentKey" type="ns5:servicesKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="longDurationCall">
+    <xs:complexContent>
+      <xs:extension base="ns3:sbcEntity">
+        <xs:sequence>
+          <xs:element name="timeoutValue" type="xs:unsignedShort" default="0" minOccurs="0"/>
+          <xs:element name="action" type="ns2:sonusSipSigTrunkGroupLdcActionType" default="noAction" minOccurs="0"/>
+          <xs:element name="relCause" type="xs:unsignedByte" default="41" minOccurs="0"/>
+          <xs:element name="emergencyOrPriorityCalls" type="ns2:sonusSipSigTrunkGroupLdcEmergencyCallsType" default="exclude" minOccurs="0"/>
+          <xs:element name="emergencyCalls" type="ns2:sonusSipSigTrunkGroupLdcEmergencyCallsType" default="exclude" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="longDurationCallKey">
+    <xs:complexContent>
+      <xs:extension base="ns3:sbcUnCreatableKey">
+        <xs:sequence>
+          <xs:element name="parentKey" type="ns5:servicesKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="natTraversal">
+    <xs:complexContent>
+      <xs:extension base="ns3:sbcEntity">
+        <xs:sequence>
+          <xs:element name="signalingNat" type="ns1:sonusAdminState" default="disabled" minOccurs="0"/>
+          <xs:element name="mediaNat" type="ns1:sonusAdminState" default="disabled" minOccurs="0"/>
+          <xs:element name="learnNatForRtpOnly" type="ns1:sonusAdminState" default="disabled" minOccurs="0"/>
+          <xs:element name="iceSupport" type="ns2:sonusIceSupportType" default="none" minOccurs="0"/>
+          <xs:element name="tcpKeepaliveTimer" type="xs:unsignedShort" default="240" minOccurs="0"/>
+          <xs:element name="udpKeepaliveTimer" type="xs:unsignedShort" default="60" minOccurs="0"/>
+          <xs:element name="outboundTcpKeepaliveTimer" type="xs:unsignedShort" default="240" minOccurs="0"/>
+          <xs:element name="outboundUdpKeepaliveTimer" type="xs:unsignedShort" default="60" minOccurs="0"/>
+          <xs:element name="secureMediaNatPrefix" type="xs:unsignedShort" default="0" minOccurs="0"/>
+          <xs:element name="adaptiveLearning" type="ns6:adaptiveLearning" minOccurs="0"/>
+          <xs:element name="iceSourceAddressFilterPriority" type="ns6:iceSourceAddressFilterPriority" minOccurs="0"/>
+          <xs:element name="qualifiedPrefix" type="ns6:qualifiedPrefix" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="natTraversalKey">
+    <xs:complexContent>
+      <xs:extension base="ns3:sbcUnCreatableKey">
+        <xs:sequence>
+          <xs:element name="parentKey" type="ns5:servicesKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+</xs:schema>
+

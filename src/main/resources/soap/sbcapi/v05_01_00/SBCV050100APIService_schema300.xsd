@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="fqdnentry.filtersipsrc.zone.addresscontext.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns2="sonusfiltersipsrc.types.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns1="common.sbc.api.ems.sonus.com" xmlns:ns4="filtersipsrc.zone.addresscontext.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns3="zone.addresscontext.v05_01_00.sbc.api.ems.sonus.com" xmlns:tns="fqdnentry.filtersipsrc.zone.addresscontext.v05_01_00.sbc.api.ems.sonus.com" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:import namespace="common.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema360.xsd"/>
+
+  <xs:import namespace="sonusfiltersipsrc.types.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema112.xsd"/>
+
+  <xs:import namespace="zone.addresscontext.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema1.xsd"/>
+
+  <xs:import namespace="filtersipsrc.zone.addresscontext.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema306.xsd"/>
+
+  <xs:complexType name="domainMapping">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcEntity">
+        <xs:sequence>
+          <xs:element name="index" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="lastDnsQueryTime" type="xs:dateTime" minOccurs="0"/>
+          <xs:element name="ipAddress" type="xs:string" minOccurs="0"/>
+          <xs:element name="TTL" type="xs:unsignedInt" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="domainMappingKey">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcReadOnlyKey">
+        <xs:sequence>
+          <xs:element name="index" type="xs:long" minOccurs="0"/>
+          <xs:element name="parentKey" type="ns4:fqdnEntryKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="domainMappingListWrapper">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcListWrapper">
+        <xs:sequence>
+          <xs:element name="domainMapping" type="tns:domainMapping" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+</xs:schema>
+

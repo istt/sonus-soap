@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="sonusipsecprofiles.types.v05_01_00.sbc.api.ems.sonus.com" xmlns:tns="sonusipsecprofiles.types.v05_01_00.sbc.api.ems.sonus.com" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:complexType name="SonusIpsecProtectionSaLifetimeByteTypeUnion">
+    <xs:sequence>
+      <xs:element name="sonusIpsecProtectionSaLifetimeByteUnlimited" type="tns:sonusIpsecProtectionSaLifetimeByteUnlimited" minOccurs="0"/>
+      <xs:element name="sonusIpsecProtectionSaLifetimeByteValueType" type="xs:unsignedInt" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="SonusIpsecProtectionESPEncTypeBits">
+    <xs:sequence>
+      <xs:element name="null" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="_3DesCbc" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="aesCbc128" type="xs:boolean" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="SonusIpsecProtectionESPAuthTypeBits">
+    <xs:sequence>
+      <xs:element name="hmacSha1" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="hmacMd5" type="xs:boolean" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="SonusIpsecProtectionDPDIntervalTypeUnion">
+    <xs:sequence>
+      <xs:element name="sonusIpsecProtectionDPDIntervalNoneType" type="tns:sonusIpsecProtectionDPDIntervalNoneType" minOccurs="0"/>
+      <xs:element name="sonusIpsecProtectionDPDIntervalNumberType" type="xs:unsignedInt" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="SonusIkeProtectionEncTypeBits">
+    <xs:sequence>
+      <xs:element name="_3DesCbc" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="aesCbc128" type="xs:boolean" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="SonusIkeProtectionAuthTypeBits">
+    <xs:sequence>
+      <xs:element name="hmacSha1" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="hmacMd5" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="hmacSha256" type="xs:boolean" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="SonusIkeProtectionDHTypeBits">
+    <xs:sequence>
+      <xs:element name="modp768" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="modp1024" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="modp1536" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="modp2048" type="xs:boolean" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:simpleType name="sonusIpsecProtectionSaLifetimeByteUnlimited">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="unlimited"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusIpsecProtectionDPDIntervalNoneType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="noDpd"/>
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>
+

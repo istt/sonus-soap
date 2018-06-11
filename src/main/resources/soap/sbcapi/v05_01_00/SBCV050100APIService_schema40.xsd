@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="sonuszone.types.v05_01_00.sbc.api.ems.sonus.com" xmlns:tns="sonuszone.types.v05_01_00.sbc.api.ems.sonus.com" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:complexType name="SonusPacketRateTypeUnion">
+    <xs:sequence>
+      <xs:element name="sonusPacketPolicerTypeUnlimited" type="tns:sonusPacketPolicerTypeUnlimited" minOccurs="0"/>
+      <xs:element name="sonusMaxPacketRateTypeValue" type="xs:unsignedShort" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:simpleType name="sonusRemoteDeviceType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="none"/>
+      <xs:enumeration value="accessDevice"/>
+      <xs:enumeration value="appServer"/>
+      <xs:enumeration value="nni"/>
+      <xs:enumeration value="core"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusPacketPolicerTypeUnlimited">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="unlimited"/>
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>
+

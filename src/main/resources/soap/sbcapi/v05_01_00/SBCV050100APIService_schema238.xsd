@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="optionsping.operation.cmds.addresscontext.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns2="addresscontext.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns1="v05_01_00.sbc.api.ems.sonus.com" xmlns:ns3="common.sbc.api.ems.sonus.com" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:import namespace="v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema7.xsd"/>
+
+  <xs:import namespace="addresscontext.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema408.xsd"/>
+
+  <xs:import namespace="common.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema360.xsd"/>
+
+  <xs:complexType name="optionsPingKey">
+    <xs:complexContent>
+      <xs:extension base="ns3:sbcOperationKey">
+        <xs:sequence>
+          <xs:element name="parentKey" type="ns2:cmdsKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="output">
+    <xs:complexContent>
+      <xs:extension base="ns3:sbcOperationOutput">
+        <xs:sequence>
+          <xs:element name="result" type="xs:string" minOccurs="0"/>
+          <xs:element name="status" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="optionsPing">
+    <xs:complexContent>
+      <xs:extension base="ns3:sbcOperationInput">
+        <xs:sequence>
+          <xs:element name="sigPort" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="peerIpAddress" type="xs:string" default="0.0.0.0" minOccurs="0"/>
+          <xs:element name="peerPort" type="xs:unsignedInt" default="5060" minOccurs="0"/>
+          <xs:element name="transport" type="xs:string" default="udp" minOccurs="0"/>
+          <xs:element name="peerFQDN" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+</xs:schema>
+

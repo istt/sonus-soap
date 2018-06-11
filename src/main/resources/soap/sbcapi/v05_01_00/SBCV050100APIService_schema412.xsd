@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="accountmanagement.admin.system.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns2="common.sbc.api.ems.sonus.com" xmlns:ns1="sonustc.types.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns4="admin.system.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns3="system.v05_01_00.sbc.api.ems.sonus.com" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:import namespace="sonustc.types.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema44.xsd"/>
+
+  <xs:import namespace="common.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema360.xsd"/>
+
+  <xs:import namespace="system.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema28.xsd"/>
+
+  <xs:import namespace="admin.system.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema406.xsd"/>
+
+  <xs:complexType name="bruteForceAttack">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcEntity">
+        <xs:sequence>
+          <xs:element name="state" type="ns1:sonusAdminState" default="disabled" minOccurs="0"/>
+          <xs:element name="consecutiveFailedAttemptAllowed" type="xs:int" default="3" minOccurs="0"/>
+          <xs:element name="allowAutoUnlock" type="ns1:sonusAdminState" default="enabled" minOccurs="0"/>
+          <xs:element name="unlockTime" type="xs:int" default="30" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="bruteForceAttackKey">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcUnCreatableKey">
+        <xs:sequence>
+          <xs:element name="parentKey" type="ns4:accountManagementKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="accountAging">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcEntity">
+        <xs:sequence>
+          <xs:element name="state" type="ns1:sonusAdminState" default="enabled" minOccurs="0"/>
+          <xs:element name="accountAgingPeriod" type="xs:unsignedInt" default="30" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="accountAgingKey">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcUnCreatableKey">
+        <xs:sequence>
+          <xs:element name="parentKey" type="ns4:accountManagementKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="passwordAging">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcEntity">
+        <xs:sequence>
+          <xs:element name="state" type="ns1:sonusAdminState" default="enabled" minOccurs="0"/>
+          <xs:element name="passwordAgingPeriod" type="xs:unsignedInt" default="90" minOccurs="0"/>
+          <xs:element name="passwordExpiryWarningPeriod" type="xs:unsignedInt" default="12" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="passwordAgingKey">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcUnCreatableKey">
+        <xs:sequence>
+          <xs:element name="parentKey" type="ns4:accountManagementKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="sessionIdleTimeout">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcEntity">
+        <xs:sequence>
+          <xs:element name="state" type="ns1:sonusAdminState" default="enabled" minOccurs="0"/>
+          <xs:element name="idleTimeout" type="xs:int" default="10" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="sessionIdleTimeoutKey">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcUnCreatableKey">
+        <xs:sequence>
+          <xs:element name="parentKey" type="ns4:accountManagementKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+</xs:schema>
+

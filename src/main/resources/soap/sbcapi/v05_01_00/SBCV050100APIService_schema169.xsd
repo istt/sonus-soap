@@ -1,0 +1,811 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="signaling.profiles.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns29="signalingprofile.signaling.profiles.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns25="sonusnumberglobalizeprofile.types.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns26="numberglobalizationprofile.signaling.profiles.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns27="sonussignalingprofile.types.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns28="ingress.signalingprofile.signaling.profiles.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns21="egressipattributes.ipsignalingprofile.signaling.profiles.v05_01_00.sbc.api.ems.sonus.com" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ns22="ingressipattributes.ipsignalingprofile.signaling.profiles.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns23="sonusisupsignalingprofile.types.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns24="sonusorcatc.types.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns20="ipsignalingprofile.signaling.profiles.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns16="sipadaptorprofile.signaling.profiles.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns17="rule.sipadaptorprofile.signaling.profiles.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns14="sonuse164profile.types.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns15="sonusgen2sipadaptor.types.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns18="sonusipsignalingprofile.types.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns19="commonipattributes.ipsignalingprofile.signaling.profiles.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns9="v05_01_00.sbc.api.ems.sonus.com" xmlns:ns34="x_header_default_value.xheaderprofile.signaling.profiles.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns32="xheaderprofile.signaling.profiles.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns33="x_headerextensions.xheaderprofile.signaling.profiles.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns5="internalsipcausemapprofile.sipcausecodemapping.signaling.profiles.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns30="egress.signalingprofile.signaling.profiles.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns12="atprofile.signaling.profiles.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns6="sonussiptocpccausemapprofile.types.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns31="p_headerextensions.xheaderprofile.signaling.profiles.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns13="includeatcf_.atprofile.signaling.profiles.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns7="siptocpccausemapprofile.sipcausecodemapping.signaling.profiles.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns10="profiles.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns8="common.sbc.api.ems.sonus.com" xmlns:ns11="sonusatprofile.types.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns2="sonustc.types.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns1="sonuscpctosipcausemapprofile.types.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns4="sipcausecodemapping.signaling.profiles.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns3="cpctosipcausemapprofile.sipcausecodemapping.signaling.profiles.v05_01_00.sbc.api.ems.sonus.com" xmlns:tns="signaling.profiles.v05_01_00.sbc.api.ems.sonus.com">
+
+  <xs:import namespace="sonuscpctosipcausemapprofile.types.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema130.xsd"/>
+
+  <xs:import namespace="sonustc.types.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema44.xsd"/>
+
+  <xs:import namespace="cpctosipcausemapprofile.sipcausecodemapping.signaling.profiles.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema355.xsd"/>
+
+  <xs:import namespace="sipcausecodemapping.signaling.profiles.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema161.xsd"/>
+
+  <xs:import namespace="internalsipcausemapprofile.sipcausecodemapping.signaling.profiles.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema276.xsd"/>
+
+  <xs:import namespace="sonussiptocpccausemapprofile.types.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema50.xsd"/>
+
+  <xs:import namespace="siptocpccausemapprofile.sipcausecodemapping.signaling.profiles.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema147.xsd"/>
+
+  <xs:import namespace="common.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema360.xsd"/>
+
+  <xs:import namespace="v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema7.xsd"/>
+
+  <xs:import namespace="profiles.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema217.xsd"/>
+
+  <xs:import namespace="sonusatprofile.types.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema136.xsd"/>
+
+  <xs:import namespace="atprofile.signaling.profiles.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema396.xsd"/>
+
+  <xs:import namespace="includeatcf_.atprofile.signaling.profiles.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema282.xsd"/>
+
+  <xs:import namespace="sonuse164profile.types.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema118.xsd"/>
+
+  <xs:import namespace="sonusgen2sipadaptor.types.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema99.xsd"/>
+
+  <xs:import namespace="sipadaptorprofile.signaling.profiles.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema165.xsd"/>
+
+  <xs:import namespace="rule.sipadaptorprofile.signaling.profiles.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema186.xsd"/>
+
+  <xs:import namespace="sonusipsignalingprofile.types.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema82.xsd"/>
+
+  <xs:import namespace="commonipattributes.ipsignalingprofile.signaling.profiles.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema359.xsd"/>
+
+  <xs:import namespace="ipsignalingprofile.signaling.profiles.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema266.xsd"/>
+
+  <xs:import namespace="egressipattributes.ipsignalingprofile.signaling.profiles.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema319.xsd"/>
+
+  <xs:import namespace="ingressipattributes.ipsignalingprofile.signaling.profiles.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema278.xsd"/>
+
+  <xs:import namespace="sonusisupsignalingprofile.types.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema81.xsd"/>
+
+  <xs:import namespace="sonusorcatc.types.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema70.xsd"/>
+
+  <xs:import namespace="sonusnumberglobalizeprofile.types.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema73.xsd"/>
+
+  <xs:import namespace="numberglobalizationprofile.signaling.profiles.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema242.xsd"/>
+
+  <xs:import namespace="sonussignalingprofile.types.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema60.xsd"/>
+
+  <xs:import namespace="ingress.signalingprofile.signaling.profiles.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema279.xsd"/>
+
+  <xs:import namespace="signalingprofile.signaling.profiles.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema166.xsd"/>
+
+  <xs:import namespace="egress.signalingprofile.signaling.profiles.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema320.xsd"/>
+
+  <xs:import namespace="p_headerextensions.xheaderprofile.signaling.profiles.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema236.xsd"/>
+
+  <xs:import namespace="xheaderprofile.signaling.profiles.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema3.xsd"/>
+
+  <xs:import namespace="x_headerextensions.xheaderprofile.signaling.profiles.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema4.xsd"/>
+
+  <xs:import namespace="x_header_default_value.xheaderprofile.signaling.profiles.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema5.xsd"/>
+
+  <xs:complexType name="sipCauseCodeMapping">
+    <xs:complexContent>
+      <xs:extension base="ns8:sbcEntity">
+        <xs:sequence>
+          <xs:element name="cpcToSipCauseMapProfile" type="ns4:cpcToSipCauseMapProfile" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="internalSipCauseMapProfile" type="ns4:internalSipCauseMapProfile" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="sipToCpcCauseMapProfile" type="ns4:sipToCpcCauseMapProfile" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="sipCauseCodeMappingKey">
+    <xs:complexContent>
+      <xs:extension base="ns8:sbcUnCreatableKey">
+        <xs:sequence>
+          <xs:element name="parentKey" type="ns10:signalingKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="atprofile">
+    <xs:complexContent>
+      <xs:extension base="ns8:sbcEntity">
+        <xs:sequence>
+          <xs:element name="id" type="xs:string" minOccurs="0"/>
+          <xs:element name="accessTransferPolicyProfileType_" type="ns12:accessTransferPolicyProfileType_" minOccurs="0"/>
+          <xs:element name="featureCapabilityIndicator" type="ns12:featureCapabilityIndicator" minOccurs="0"/>
+          <xs:element name="includeATCF_" type="ns12:includeATCF_" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="atprofileKey">
+    <xs:complexContent>
+      <xs:extension base="ns8:sbcKey">
+        <xs:sequence>
+          <xs:element name="id" type="xs:string" minOccurs="0"/>
+          <xs:element name="parentKey" type="ns10:signalingKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="atprofileListWrapper">
+    <xs:complexContent>
+      <xs:extension base="ns8:sbcListWrapper">
+        <xs:sequence>
+          <xs:element name="atprofile" type="tns:atprofile" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="E164Profile">
+    <xs:complexContent>
+      <xs:extension base="ns8:sbcEntity">
+        <xs:sequence>
+          <xs:element name="name" type="xs:string" minOccurs="0"/>
+          <xs:element name="sonusE164ProfDigitA" type="ns14:sonusE164ProfileState" default="truncate" minOccurs="0"/>
+          <xs:element name="sonusE164ProfDigitB" type="ns14:sonusE164ProfileState" default="truncate" minOccurs="0"/>
+          <xs:element name="sonusE164ProfDigitC" type="ns14:sonusE164ProfileState" default="truncate" minOccurs="0"/>
+          <xs:element name="sonusE164ProfDigitD" type="ns14:sonusE164ProfileState" default="truncate" minOccurs="0"/>
+          <xs:element name="sonusE164ProfDigitE" type="ns14:sonusE164ProfileState" default="truncate" minOccurs="0"/>
+          <xs:element name="sonusE164ProfDigitF" type="ns14:sonusE164ProfileState" default="truncate" minOccurs="0"/>
+          <xs:element name="sonusE164ProfCharNonFirstPlus" type="ns14:sonusE164ProfileState" default="truncate" minOccurs="0"/>
+          <xs:element name="sonusE164ProfCharStar" type="ns14:sonusE164ProfileState" default="truncate" minOccurs="0"/>
+          <xs:element name="sonusE164ProfCharHash" type="ns14:sonusE164ProfileState" default="truncate" minOccurs="0"/>
+          <xs:element name="sonusE164ProfCharHyphen" type="ns14:sonusE164ProfileState" default="remove" minOccurs="0"/>
+          <xs:element name="sonusE164ProfCharDot" type="ns14:sonusE164ProfileState" default="remove" minOccurs="0"/>
+          <xs:element name="sonusE164ProfCharLeftCircularBracket" type="ns14:sonusE164ProfileState" default="remove" minOccurs="0"/>
+          <xs:element name="sonusE164ProfCharRightCircularBracket" type="ns14:sonusE164ProfileState" default="remove" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="E164ProfileKey">
+    <xs:complexContent>
+      <xs:extension base="ns8:sbcKey">
+        <xs:sequence>
+          <xs:element name="name" type="xs:string" minOccurs="0"/>
+          <xs:element name="parentKey" type="ns10:signalingKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="e164ProfileListWrapper">
+    <xs:complexContent>
+      <xs:extension base="ns8:sbcListWrapper">
+        <xs:sequence>
+          <xs:element name="E164Profile" type="tns:E164Profile" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="sipAdaptorProfile">
+    <xs:complexContent>
+      <xs:extension base="ns8:sbcEntity">
+        <xs:sequence>
+          <xs:element name="name" type="xs:string" minOccurs="0"/>
+          <xs:element name="state" type="ns2:sonusAdminState" default="disabled" minOccurs="0"/>
+          <xs:element name="advancedSMM" type="ns2:sonusAdminState" default="disabled" minOccurs="0"/>
+          <xs:element name="profileType" type="ns15:sonusProfileType" default="messageManipulation" minOccurs="0"/>
+          <xs:element name="cmds" type="ns16:cmds" minOccurs="0"/>
+          <xs:element name="rule" type="ns16:rule" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="sipAdaptorProfileKey">
+    <xs:complexContent>
+      <xs:extension base="ns8:sbcKey">
+        <xs:sequence>
+          <xs:element name="name" type="xs:string" minOccurs="0"/>
+          <xs:element name="parentKey" type="ns10:signalingKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="sipAdaptorProfileListWrapper">
+    <xs:complexContent>
+      <xs:extension base="ns8:sbcListWrapper">
+        <xs:sequence>
+          <xs:element name="sipAdaptorProfile" type="tns:sipAdaptorProfile" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="ipSignalingProfile">
+    <xs:complexContent>
+      <xs:extension base="ns8:sbcEntity">
+        <xs:sequence>
+          <xs:element name="name" type="xs:string" minOccurs="0"/>
+          <xs:element name="ipProtocolType" type="ns18:sonusProtocolTypeRange" default="sipOnly" minOccurs="0"/>
+          <xs:element name="commonIpAttributes" type="ns20:commonIpAttributes" minOccurs="0"/>
+          <xs:element name="egressIpAttributes" type="ns20:egressIpAttributes" minOccurs="0"/>
+          <xs:element name="ingressIpAttributes" type="ns20:ingressIpAttributes" minOccurs="0"/>
+          <xs:element name="trfParameters" type="ns20:trfParameters" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="ipSignalingProfileKey">
+    <xs:complexContent>
+      <xs:extension base="ns8:sbcKey">
+        <xs:sequence>
+          <xs:element name="name" type="xs:string" minOccurs="0"/>
+          <xs:element name="parentKey" type="ns10:signalingKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="ipSignalingProfileListWrapper">
+    <xs:complexContent>
+      <xs:extension base="ns8:sbcListWrapper">
+        <xs:sequence>
+          <xs:element name="ipSignalingProfile" type="tns:ipSignalingProfile" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="isupSignalingProfile">
+    <xs:complexContent>
+      <xs:extension base="ns8:sbcEntity">
+        <xs:sequence>
+          <xs:element name="name" type="xs:string" minOccurs="0"/>
+          <xs:element name="versionId" type="xs:unsignedShort" minOccurs="0"/>
+          <xs:element name="baseProfile" type="xs:string" minOccurs="0"/>
+          <xs:element name="baseProfileUnion" type="ns23:SonusIsupsgSignalingGroupSigBaseNameTypeUnion" minOccurs="0"/>
+          <xs:element name="olipCheck" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="hopCountValue" type="xs:unsignedByte" default="10" minOccurs="0"/>
+          <xs:element name="hopCountState" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="baseVersion" type="ns23:sonusIsupSignalingProfileBaseVersionType" default="etsi121" minOccurs="0"/>
+          <xs:element name="revision" type="ns23:sonusIsupSignalingProfileRevisionType" default="ituq767" minOccurs="0"/>
+          <xs:element name="olipCheckOnSend" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="networkIndicator" type="ns23:sonusIsupSignalingProfileNetworkIndicatorType" default="natl0" minOccurs="0"/>
+          <xs:element name="propagationDelaySupport" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="propagationDelay" type="xs:unsignedShort" default="0" minOccurs="0"/>
+          <xs:element name="lookAheadForBusy" type="ns23:sonusIsupSignalingProfileLookAheadForBusyType" default="notAllowed" minOccurs="0"/>
+          <xs:element name="networkIdentity" type="xs:string" default="0000" minOccurs="0"/>
+          <xs:element name="generateJapanIcsParams" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="compatibility" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="accessDelivery" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="genericNumber" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="genericNotification" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="genericDigits" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="locationNumber" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="originatingIscPointCode" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="userTeleService" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="segmentation" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="fallback" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="eMcid" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="subscriberPriorityClass" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="apm" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="connectedNumberInAcm" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="causeInCpg" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="multiCarrierEnvironment" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="carrierSelection" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="inrInf" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="cqmCqr" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="callReference" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="cfn" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="facility" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="pam" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="obciAnm" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="drs" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="redirectionNumber" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="lpa" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="ucic" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="olm" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="blueBookInRel" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="usr" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="bbIam" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="callModMsgs" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="callDiversion" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="callHistory" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="genericReference" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="mlpp" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="nsf" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="redirectionNumberRestriction" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="remoteOperations" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="serviceActivation" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="signalingPointCode" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="tmrPrime" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="transmissionMediumUsed" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="usiPrime" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="redirectionNumberInAcm" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="redirectionNumberInAnm" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="connectionReqInFaa" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="connectionReqInFar" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="fac" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="echoControl" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="backwardGvns" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="circuitAssignmentMap" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="ccss" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="callDiversionTreatment" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="calledInNum" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="collectCallReq" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="conferenceTreatment" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="correlationId" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="callOfferingTreatment" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="callTransferNumber" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="callTransferReference" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="displayInformation" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="forwardGvns" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="loopPrevention" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="networkManagement" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="scfId" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="uidActionInd" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="uidCapabilityInd" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="connectedNumberInCpg" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="genericNumberInCpg" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="echoControlInIam" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="remoteOperationInRel" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="accessTransportInFac" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="genericNotificationInFac" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="uuindAnm" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="uuindCpg" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="nrmSupport" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="causeInRlc" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="upaUpt" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="recommendationInCai" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="transitUnrecognized" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="u2uServiceLevel" type="ns23:sonusIsupSignalingProfileU2uSrvcLevelType" default="implicit" minOccurs="0"/>
+          <xs:element name="subsequentAddressMessage" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="supported" minOccurs="0"/>
+          <xs:element name="forwardTransferMessage" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="supported" minOccurs="0"/>
+          <xs:element name="specialDigitsBits" type="ns23:SonusIsupSignalingProfileSpecialDigitsTypeBits" minOccurs="0"/>
+          <xs:element name="specialDigits" type="xs:string" default="digitB digitC digitF" minOccurs="0"/>
+          <xs:element name="transitNetworkSelection" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="accessTransport" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="supported" minOccurs="0"/>
+          <xs:element name="jurisdiction" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="originalCalledNumber" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="businessGroup" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="connectionReq" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="informationInd" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="networkTransport" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="notificationInd" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="redirectionInfoAcm" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="egressService" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="serviceCodeInd" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="specialProcessReq" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="transactionReq" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="chargeNumber" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="genericAddressRel" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="uuIndAcm" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="supported" minOccurs="0"/>
+          <xs:element name="uuInfo" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="supported" minOccurs="0"/>
+          <xs:element name="operatorServiceInfo" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="cvtCvr" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="genericName" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="redirectionCap" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="groupRedirectionCount" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="sendTwoGroupMsgs" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="awaitTwoGroupMsgs" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="cqmOnCardSwap" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="ansi95Grs" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="cpgBeforeAcm" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="mapDmsFeParameter" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="trunkOfferingSupport" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="operatorSelection" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="maxCallingPartyDigits" type="xs:unsignedByte" default="30" minOccurs="0"/>
+          <xs:element name="maxCalledPartyDigits" type="xs:unsignedByte" default="30" minOccurs="0"/>
+          <xs:element name="freePhoneInd" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="itxTxa" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="sccpProcedure" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="connectionReqInIam" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="supported" minOccurs="0"/>
+          <xs:element name="ccnr" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="transitCfn" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="holdingInd" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="supported" minOccurs="0"/>
+          <xs:element name="displayInfoInAcm" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="displayInfoInCon" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="displayInfoInCpg" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="displayInfoInIam" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="genericNumInAcm" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="genericNumInFac" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="genericNumInInf" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="conferenceTreatmentInAnm" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="continuity" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="supported" minOccurs="0"/>
+          <xs:element name="userServiceInformation" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="supported" minOccurs="0"/>
+          <xs:element name="connectedNumber" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="supported" minOccurs="0"/>
+          <xs:element name="diagnostics" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="supported" minOccurs="0"/>
+          <xs:element name="optionalFci" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="supported" minOccurs="0"/>
+          <xs:element name="cugInterlockCode" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="supported" minOccurs="0"/>
+          <xs:element name="com" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="supported" minOccurs="0"/>
+          <xs:element name="con" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="supported" minOccurs="0"/>
+          <xs:element name="iriOriRcv" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="iriOriSent" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="t11Active" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="iriOri" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="transMedUsedInNrm" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="rlcAcknowledgeGrs" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="incomingTrunkIdCode" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="spcInIrs" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="redirectionInfoIam" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="redirectingNumber" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="bloAfterSetup" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="calledDirectoryNumber" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="forwardCallProgress" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="forwardSuspend" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="supported" minOccurs="0"/>
+          <xs:element name="uuInfoAcm" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="supported" minOccurs="0"/>
+          <xs:element name="atRel" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="uuIndRel" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="supported" minOccurs="0"/>
+          <xs:element name="eit" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="gi" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="tit" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="ait" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="tci" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="nft" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="cpnRel" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="bciRel" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="ci" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="iui" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="nrop" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="msi" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="rr" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="mi" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="spc6" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="maRel" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="connectionReqInInf" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="sgmPci" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="gr317ScreeningInd" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="opr" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="ccl" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="otherDigitStringSpecialDigitF" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="callReferenceFrj" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="pciPassOnDefault" type="ns23:sonusIsupSignalingProfilePCIPassOnDefaultType" default="unSupported" minOccurs="0"/>
+          <xs:element name="otgnAnsi92" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="dropCauseInAcmWhenIwk" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="chargeIndSetting" type="ns23:sonusIsupSignalingProfileChargeIndSettingType" default="transit" minOccurs="0"/>
+          <xs:element name="t11EarlyAcm" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="dmsFe" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="cqmForResync" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="ncr" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="sliInIam" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="releaseLinkTrunking" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="accessTransInFar" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="uuIndInFar" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="upvExchangeRolesBits" type="ns23:SonusIsupSignalingProfileUPVExchangeRolesTypeBits" minOccurs="0"/>
+          <xs:element name="upvExchangeRoles" type="xs:string" default="orig term intwk trans int unknown" minOccurs="0"/>
+          <xs:element name="calledBsm" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="callingBsm" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="callingOfm" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="calledTfm" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="nii" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="niri" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="nfci" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="presentationNumber" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="ldli" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="pcli" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="nfciLnk" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="inrInAllStates" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="nfciLblRciProc" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="ansi95Cfn" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="allianceScreenInd" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="announcementInd" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="dialedNumber" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="forwardNetworkSpecificInfo" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="genericOperation" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="hardToReachInd" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="networkManagementInfo" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="networkSwitchNumber" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="routingInfoInd" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="sdnIncrement" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="ansi95Cqm" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="bcm" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="eci" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="genericNumberRepeatable" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="genericNumberRepeatableIam" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="genericNotificationRepeatable" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="serviceActivationInRel" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="uuIndCon" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="supported" minOccurs="0"/>
+          <xs:element name="uuiInInf" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="chargeMsgInSpeech" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="emergencyCallInf" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="t7Transit" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="nsa" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="invTnsRelease" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="jti" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="fciUserPartIwk" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="fciUserPartTrans" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="connectionPointTrunkType" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="fciUserPartChosenCarrier" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="truncateCdpn" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="noIpEchoInd" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="visitorMa" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="sendBloOnHwBlock" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="allowCallsOnHwBlock" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="sendRscForCallsOnHwBlock" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="allowUnscreenedCin" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="iamGeneratedCarrierCodeInCdr" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="dropUsiFromNonIsup" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="assumeOutgoingDeviceIncluded" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="preventAcmToCpgMapping" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="signalOnlySipAlert" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="dontMapToHeaderToOcn" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="noInNumberUpdates" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="usePsxChgIndForCpgInPresubCall" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="alwaysAddOptionalPtr" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="suppressCitForPreSubAcm" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="onlySendAcmFor181" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="dontSendExm" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="citTermExchangeLogic" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="bciInCpgWithCit" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="reaffirmBlockAfterReset" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="dontGenerateDiags" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="onlyCpgInBandBeforeAcm" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="simpleEcBciInAllBkMsg" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="allowCaForAnnouncements" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="uniqueTransitCit" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="validateIsubFromSip" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="isubTypeFromSip" type="ns23:sonusIsupSignalingProfileISUBTypeFromSIPType" default="nsap" minOccurs="0"/>
+          <xs:element name="qor" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="npfi" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="chgMsgBeforeAcm" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="forceEchoCntrl" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="noObciSipAcm" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="buildRdiForSipIwk" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="noAcmObciForSipApn" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="networkData" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="alwaysAddCnId" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="chgBetweenAcmAndAnm" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="ituCai24" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="cellularCpcs" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="iepsCpc" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="tandemCallCounter" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="routeInformation" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="noChgCountIfFlexChgRate" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="removeHlcIfNoLlc" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="updateAnmBci" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="discardContractorNum" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="addInfoTransfer" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="adpNumber" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="transferInfo" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="dpc" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="uuiRestrictions" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="calledNoa8ForNp" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="dontClearCdrFields" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="saveIamCit" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="storeChargeForIscTcTypeAndPayPhone" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="dpcInformation" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="relForDuplicateIam" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="relForEarlyAnm" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="forceEchoCntrlNoUpdate" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="earlyAcmChgNoInd" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="transitReceivedCit" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="onlyScreenCitGen" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="slovakChargeMessage" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="eciTrap" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="checkIxcAgainstTlec" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="redirectionNumRestrictionInRel" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="screenCitBeforeCdr" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="russiaRng" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="overrideInBand" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="sendingEnbloc" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="hopCounter" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="tandemLimitCounter" type="xs:unsignedByte" default="0" minOccurs="0"/>
+          <xs:element name="chargeArea" type="xs:string" minOccurs="0"/>
+          <xs:element name="deleteIxcTcCode" type="xs:string" minOccurs="0"/>
+          <xs:element name="locationOfRel" type="ns23:sonusIsupsgSigGrpLocationOfRel" default="notUsed" minOccurs="0"/>
+          <xs:element name="locationOfRel34" type="ns23:sonusIsupsgSigGrpLocationOfRel34" default="notUsed" minOccurs="0"/>
+          <xs:element name="locationOfRel42" type="ns23:sonusIsupsgSigGrpLocationOfRel42" default="notUsed" minOccurs="0"/>
+          <xs:element name="colpColrIgw" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="updateInternalNetworkIndicatorInCalledPartyNumber" type="ns23:sonusIsupsgSignalingProfileINNWithinCdPN" default="transit" minOccurs="0"/>
+          <xs:element name="updateNumberIncompleteIndicatorInCallingPartyIndicator" type="ns23:sonusIsupsgSignalingProfileNIWithinCgPN" default="transit" minOccurs="0"/>
+          <xs:element name="remoteMnpDip" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="dropAPPinIAM" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="allowSGDinGenericDigits" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="setBciCdpsBasedOnSipCallStatus" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="sendPRIonRELforCBWF" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="sendAPPinAPMforCBWF" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+          <xs:element name="gr317ChargeNumberCompliance" type="ns23:sonusIsupSignalingProfileSupportFlagType" default="unSupported" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="isupSignalingProfileKey">
+    <xs:complexContent>
+      <xs:extension base="ns8:sbcKey">
+        <xs:sequence>
+          <xs:element name="name" type="xs:string" minOccurs="0"/>
+          <xs:element name="parentKey" type="ns10:signalingKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="isupSignalingProfileListWrapper">
+    <xs:complexContent>
+      <xs:extension base="ns8:sbcListWrapper">
+        <xs:sequence>
+          <xs:element name="isupSignalingProfile" type="tns:isupSignalingProfile" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="numberGlobalizationProfile">
+    <xs:complexContent>
+      <xs:extension base="ns8:sbcEntity">
+        <xs:sequence>
+          <xs:element name="name" type="xs:string" minOccurs="0"/>
+          <xs:element name="entry" type="ns26:entry" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="numberGlobalizationProfileKey">
+    <xs:complexContent>
+      <xs:extension base="ns8:sbcKey">
+        <xs:sequence>
+          <xs:element name="name" type="xs:string" minOccurs="0"/>
+          <xs:element name="parentKey" type="ns10:signalingKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="numberGlobalizationProfileListWrapper">
+    <xs:complexContent>
+      <xs:extension base="ns8:sbcListWrapper">
+        <xs:sequence>
+          <xs:element name="numberGlobalizationProfile" type="tns:numberGlobalizationProfile" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="sctpProfile">
+    <xs:complexContent>
+      <xs:extension base="ns8:sbcEntity">
+        <xs:sequence>
+          <xs:element name="name" type="xs:string" minOccurs="0"/>
+          <xs:element name="outboundStreams" type="xs:unsignedShort" default="1" minOccurs="0"/>
+          <xs:element name="inboundStreams" type="xs:unsignedShort" default="1" minOccurs="0"/>
+          <xs:element name="peerTransportAddresses" type="xs:unsignedShort" default="1" minOccurs="0"/>
+          <xs:element name="retransmissionsPerPath" type="xs:unsignedShort" default="8" minOccurs="0"/>
+          <xs:element name="heartbeatInterval" type="xs:unsignedShort" default="4" minOccurs="0"/>
+          <xs:element name="orderedDelivery" type="ns2:sonusAdminState" default="disabled" minOccurs="0"/>
+          <xs:element name="sackDelay" type="ns2:sonusAdminState" default="disabled" minOccurs="0"/>
+          <xs:element name="retransmissionsPerAssociation" type="xs:unsignedShort" default="0" minOccurs="0"/>
+          <xs:element name="rtoInitial" type="xs:unsignedShort" default="50" minOccurs="0"/>
+          <xs:element name="rtoMin" type="xs:unsignedShort" default="40" minOccurs="0"/>
+          <xs:element name="rtoMax" type="xs:unsignedShort" default="200" minOccurs="0"/>
+          <xs:element name="initRetry" type="xs:unsignedShort" default="8" minOccurs="0"/>
+          <xs:element name="pathMtu" type="xs:unsignedShort" default="1500" minOccurs="0"/>
+          <xs:element name="idleTimeout" type="xs:unsignedInt" default="3600" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="sctpProfileKey">
+    <xs:complexContent>
+      <xs:extension base="ns8:sbcKey">
+        <xs:sequence>
+          <xs:element name="name" type="xs:string" minOccurs="0"/>
+          <xs:element name="parentKey" type="ns10:signalingKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="sctpProfileListWrapper">
+    <xs:complexContent>
+      <xs:extension base="ns8:sbcListWrapper">
+        <xs:sequence>
+          <xs:element name="sctpProfile" type="tns:sctpProfile" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="signalingProfile">
+    <xs:complexContent>
+      <xs:extension base="ns8:sbcEntity">
+        <xs:sequence>
+          <xs:element name="name" type="xs:string" minOccurs="0"/>
+          <xs:element name="natureOfAddress" type="ns27:sonusNatureOfAddressType" default="unknown" minOccurs="0"/>
+          <xs:element name="transitCarrierIndicator" type="ns27:sonusTransitCarrierIndicatorType" default="noTransmission" minOccurs="0"/>
+          <xs:element name="genericDigitType" type="ns27:sonusGenericDigitType" default="accountCode" minOccurs="0"/>
+          <xs:element name="accessTransport" type="ns2:sonusEnableDisable" default="enable" minOccurs="0"/>
+          <xs:element name="userToUserInformation" type="ns2:sonusEnableDisable" default="enable" minOccurs="0"/>
+          <xs:element name="ingress" type="ns29:ingress" minOccurs="0"/>
+          <xs:element name="egress" type="ns29:egress" minOccurs="0"/>
+          <xs:element name="internationalGatewaySupport" type="ns29:internationalGatewaySupport" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="signalingProfileKey">
+    <xs:complexContent>
+      <xs:extension base="ns8:sbcKey">
+        <xs:sequence>
+          <xs:element name="name" type="xs:string" minOccurs="0"/>
+          <xs:element name="parentKey" type="ns10:signalingKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="signalingProfileListWrapper">
+    <xs:complexContent>
+      <xs:extension base="ns8:sbcListWrapper">
+        <xs:sequence>
+          <xs:element name="signalingProfile" type="tns:signalingProfile" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="signalingQosKpiProfile">
+    <xs:complexContent>
+      <xs:extension base="ns8:sbcEntity">
+        <xs:sequence>
+          <xs:element name="name" type="xs:string" minOccurs="0"/>
+          <xs:element name="profileActive" type="ns2:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="asr" type="ns2:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="asrThreshold" type="xs:unsignedShort" default="70" minOccurs="0"/>
+          <xs:element name="clu" type="ns2:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="cluThreshold" type="xs:unsignedShort" default="70" minOccurs="0"/>
+          <xs:element name="scru" type="ns2:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="scruThreshold" type="xs:unsignedShort" default="70" minOccurs="0"/>
+          <xs:element name="pgrd" type="ns2:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="pgrdThreshold" type="xs:unsignedShort" default="1000" minOccurs="0"/>
+          <xs:element name="kpiExpression" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="signalingQosKpiProfileKey">
+    <xs:complexContent>
+      <xs:extension base="ns8:sbcKey">
+        <xs:sequence>
+          <xs:element name="name" type="xs:string" minOccurs="0"/>
+          <xs:element name="parentKey" type="ns10:signalingKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="signalingQosKpiProfileListWrapper">
+    <xs:complexContent>
+      <xs:extension base="ns8:sbcListWrapper">
+        <xs:sequence>
+          <xs:element name="signalingQosKpiProfile" type="tns:signalingQosKpiProfile" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="XHeaderProfile">
+    <xs:complexContent>
+      <xs:extension base="ns8:sbcEntity">
+        <xs:sequence>
+          <xs:element name="name" type="xs:string" minOccurs="0"/>
+          <xs:element name="P-HeaderExtensions" type="ns32:P-HeaderExtensions" minOccurs="0"/>
+          <xs:element name="X-HeaderExtensions" type="ns32:X-HeaderExtensions" minOccurs="0"/>
+          <xs:element name="X-Header-default-value" type="ns32:X-Header-default-value" minOccurs="0"/>
+          <xs:element name="X-HeaderFlags" type="ns32:X-HeaderFlags" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="XHeaderProfileKey">
+    <xs:complexContent>
+      <xs:extension base="ns8:sbcKey">
+        <xs:sequence>
+          <xs:element name="name" type="xs:string" minOccurs="0"/>
+          <xs:element name="parentKey" type="ns10:signalingKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="xHeaderProfileListWrapper">
+    <xs:complexContent>
+      <xs:extension base="ns8:sbcListWrapper">
+        <xs:sequence>
+          <xs:element name="XHeaderProfile" type="tns:XHeaderProfile" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+</xs:schema>
+

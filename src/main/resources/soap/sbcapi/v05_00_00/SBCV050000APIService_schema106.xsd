@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="sonusgen2ipm.types.v05_00_00.sbc.api.ems.sonus.com" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:simpleType name="sonusRollType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="active"/>
+      <xs:enumeration value="standby"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusRogueMediaByDestPolicerDiscardRingType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="notApplicable"/>
+      <xs:enumeration value="unallocatedPort"/>
+      <xs:enumeration value="badDestAddr"/>
+      <xs:enumeration value="badSourcePort"/>
+      <xs:enumeration value="badSourceAddr"/>
+      <xs:enumeration value="incorrectVLan"/>
+      <xs:enumeration value="unexpectedVLan"/>
+      <xs:enumeration value="unexpectedPktType"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusUniqueType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="unique"/>
+      <xs:enumeration value="notUnique"/>
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>
+

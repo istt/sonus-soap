@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="timers.signaling.siptrunkgroup.zone.addresscontext.v04_02_00.sbc.api.ems.sonus.com" xmlns:ns2="sonussiptrunkgroup.types.v04_02_00.sbc.api.ems.sonus.com" xmlns:ns1="sonustc.types.v04_02_00.sbc.api.ems.sonus.com" xmlns:ns4="siptrunkgroup.zone.addresscontext.v04_02_00.sbc.api.ems.sonus.com" xmlns:ns3="common.sbc.api.ems.sonus.com" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ns5="signaling.siptrunkgroup.zone.addresscontext.v04_02_00.sbc.api.ems.sonus.com">
+
+  <xs:import namespace="sonustc.types.v04_02_00.sbc.api.ems.sonus.com" schemaLocation="SBCV040200APIService_schema42.xsd"/>
+
+  <xs:import namespace="sonussiptrunkgroup.types.v04_02_00.sbc.api.ems.sonus.com" schemaLocation="SBCV040200APIService_schema46.xsd"/>
+
+  <xs:import namespace="common.sbc.api.ems.sonus.com" schemaLocation="SBCV040200APIService_schema325.xsd"/>
+
+  <xs:import namespace="siptrunkgroup.zone.addresscontext.v04_02_00.sbc.api.ems.sonus.com" schemaLocation="SBCV040200APIService_schema135.xsd"/>
+
+  <xs:import namespace="signaling.siptrunkgroup.zone.addresscontext.v04_02_00.sbc.api.ems.sonus.com" schemaLocation="SBCV040200APIService_schema155.xsd"/>
+
+  <xs:complexType name="suspendResumeTimer">
+    <xs:complexContent>
+      <xs:extension base="ns3:sbcEntity">
+        <xs:sequence>
+          <xs:element name="state" type="ns1:sonusAdminState" default="disabled" minOccurs="0"/>
+          <xs:element name="value" type="xs:unsignedShort" default="30" minOccurs="0"/>
+          <xs:element name="type" type="ns2:sonusSipSigServiceGroupEnableSuspendResumeTimerForType" default="both" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="suspendResumeTimerKey">
+    <xs:complexContent>
+      <xs:extension base="ns3:sbcUnCreatableKey">
+        <xs:sequence>
+          <xs:element name="parentKey" type="ns5:timersKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="bfcpTimer">
+    <xs:complexContent>
+      <xs:extension base="ns3:sbcEntity">
+        <xs:sequence>
+          <xs:element name="reqTimerT1" type="xs:unsignedShort" default="500" minOccurs="0"/>
+          <xs:element name="respTimerT2" type="xs:unsignedShort" default="10000" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="bfcpTimerKey">
+    <xs:complexContent>
+      <xs:extension base="ns3:sbcUnCreatableKey">
+        <xs:sequence>
+          <xs:element name="parentKey" type="ns5:timersKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+</xs:schema>
+

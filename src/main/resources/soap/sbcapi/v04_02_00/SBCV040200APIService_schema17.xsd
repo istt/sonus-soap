@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="toneprofile.media.profiles.v04_02_00.sbc.api.ems.sonus.com" xmlns:ns2="profiles.v04_02_00.sbc.api.ems.sonus.com" xmlns:ns1="common.sbc.api.ems.sonus.com" xmlns:ns4="sonusgen2nrmtone.types.v04_02_00.sbc.api.ems.sonus.com" xmlns:ns3="media.profiles.v04_02_00.sbc.api.ems.sonus.com" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:import namespace="common.sbc.api.ems.sonus.com" schemaLocation="SBCV040200APIService_schema325.xsd"/>
+
+  <xs:import namespace="profiles.v04_02_00.sbc.api.ems.sonus.com" schemaLocation="SBCV040200APIService_schema198.xsd"/>
+
+  <xs:import namespace="media.profiles.v04_02_00.sbc.api.ems.sonus.com" schemaLocation="SBCV040200APIService_schema233.xsd"/>
+
+  <xs:import namespace="sonusgen2nrmtone.types.v04_02_00.sbc.api.ems.sonus.com" schemaLocation="SBCV040200APIService_schema100.xsd"/>
+
+  <xs:complexType name="singleTone">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcEntity">
+        <xs:sequence>
+          <xs:element name="tone1Frequency" type="xs:unsignedShort" default="0" minOccurs="0"/>
+          <xs:element name="tone1Power" type="xs:short" default="0" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="singleToneKey">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcUnCreatableKey">
+        <xs:sequence>
+          <xs:element name="parentKey" type="ns3:toneProfileKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="dualTone">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcEntity">
+        <xs:sequence>
+          <xs:element name="tone1Frequency" type="xs:unsignedShort" default="0" minOccurs="0"/>
+          <xs:element name="tone1Power" type="xs:short" default="0" minOccurs="0"/>
+          <xs:element name="tone2Frequency" type="xs:unsignedShort" default="0" minOccurs="0"/>
+          <xs:element name="tone2Power" type="xs:short" default="0" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="dualToneKey">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcUnCreatableKey">
+        <xs:sequence>
+          <xs:element name="parentKey" type="ns3:toneProfileKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="compositeTone">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcEntity">
+        <xs:sequence>
+          <xs:element name="tone1Frequency" type="xs:unsignedShort" default="0" minOccurs="0"/>
+          <xs:element name="tone1Power" type="xs:short" default="0" minOccurs="0"/>
+          <xs:element name="tone1ApplyCadence" type="ns4:sonusToneProfileTone1ApplyToCadenceNumberType" default="allCadence" minOccurs="0"/>
+          <xs:element name="tone2Frequency" type="xs:unsignedShort" default="0" minOccurs="0"/>
+          <xs:element name="tone2Power" type="xs:short" default="0" minOccurs="0"/>
+          <xs:element name="tone2ApplyCadence" type="ns4:sonusToneProfileTone2ApplyToCadenceNumberType" default="allCadence" minOccurs="0"/>
+          <xs:element name="tone3Frequency" type="xs:unsignedShort" default="0" minOccurs="0"/>
+          <xs:element name="tone3Power" type="xs:short" default="0" minOccurs="0"/>
+          <xs:element name="tone3ApplyCadence" type="ns4:sonusToneProfileTone3ApplyToCadenceNumberType" default="allCadence" minOccurs="0"/>
+          <xs:element name="tone4Frequency" type="xs:unsignedShort" default="0" minOccurs="0"/>
+          <xs:element name="tone4Power" type="xs:short" default="0" minOccurs="0"/>
+          <xs:element name="tone4ApplyCadence" type="ns4:sonusToneProfileTone4ApplyToCadenceNumberType" default="allCadence" minOccurs="0"/>
+          <xs:element name="decayTimeConstant" type="xs:unsignedShort" default="0" minOccurs="0"/>
+          <xs:element name="decayFrequencyDelta" type="xs:unsignedShort" default="0" minOccurs="0"/>
+          <xs:element name="decayApplyToneBitMap" type="xs:unsignedShort" default="0" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="compositeToneKey">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcUnCreatableKey">
+        <xs:sequence>
+          <xs:element name="parentKey" type="ns3:toneProfileKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="modulatedTone">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcEntity">
+        <xs:sequence>
+          <xs:element name="carrierFrequency" type="xs:unsignedShort" default="0" minOccurs="0"/>
+          <xs:element name="carrierPower" type="xs:short" default="0" minOccurs="0"/>
+          <xs:element name="signalFrequency" type="xs:unsignedShort" default="0" minOccurs="0"/>
+          <xs:element name="signalModulationIndex" type="xs:unsignedShort" default="0" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="modulatedToneKey">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcUnCreatableKey">
+        <xs:sequence>
+          <xs:element name="parentKey" type="ns3:toneProfileKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+</xs:schema>
+

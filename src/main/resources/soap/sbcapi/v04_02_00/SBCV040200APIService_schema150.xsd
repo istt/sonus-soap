@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="siparsendpointrecoverybyip.operation.zone.addresscontext.v04_02_00.sbc.api.ems.sonus.com" xmlns:ns2="addresscontext.v04_02_00.sbc.api.ems.sonus.com" xmlns:ns1="v04_02_00.sbc.api.ems.sonus.com" xmlns:ns3="common.sbc.api.ems.sonus.com" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:import namespace="v04_02_00.sbc.api.ems.sonus.com" schemaLocation="SBCV040200APIService_schema7.xsd"/>
+
+  <xs:import namespace="addresscontext.v04_02_00.sbc.api.ems.sonus.com" schemaLocation="SBCV040200APIService_schema364.xsd"/>
+
+  <xs:import namespace="common.sbc.api.ems.sonus.com" schemaLocation="SBCV040200APIService_schema325.xsd"/>
+
+  <xs:complexType name="sipArsEndpointRecoveryByIpKey">
+    <xs:complexContent>
+      <xs:extension base="ns3:sbcOperationKey">
+        <xs:sequence>
+          <xs:element name="parentKey" type="ns2:zoneKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="output">
+    <xs:complexContent>
+      <xs:extension base="ns3:sbcOperationOutput">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="sipArsEndpointRecoveryByIp">
+    <xs:complexContent>
+      <xs:extension base="ns3:sbcOperationInput">
+        <xs:sequence>
+          <xs:element name="ipAddress" type="xs:string" minOccurs="0"/>
+          <xs:element name="port" type="xs:unsignedInt" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+</xs:schema>
+

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="ipsecprotectionprofile.security.profiles.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns2="common.sbc.api.ems.sonus.com" xmlns:ns1="sonusipsecprofiles.types.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns4="security.profiles.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns3="profiles.v05_01_00.sbc.api.ems.sonus.com" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:import namespace="sonusipsecprofiles.types.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema84.xsd"/>
+
+  <xs:import namespace="common.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema360.xsd"/>
+
+  <xs:import namespace="profiles.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema217.xsd"/>
+
+  <xs:import namespace="security.profiles.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema179.xsd"/>
+
+  <xs:complexType name="espAlgorithms">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcEntity">
+        <xs:sequence>
+          <xs:element name="encryptionBits" type="ns1:SonusIpsecProtectionESPEncTypeBits" minOccurs="0"/>
+          <xs:element name="encryption" type="xs:string" default="aesCbc128" minOccurs="0"/>
+          <xs:element name="integrityBits" type="ns1:SonusIpsecProtectionESPAuthTypeBits" minOccurs="0"/>
+          <xs:element name="integrity" type="xs:string" default="hmacSha1" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="espAlgorithmsKey">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcUnCreatableKey">
+        <xs:sequence>
+          <xs:element name="parentKey" type="ns4:ipsecProtectionProfileKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+</xs:schema>
+

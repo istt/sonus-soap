@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="sonusactivecall.types.v05_00_00.sbc.api.ems.sonus.com" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:complexType name="SonusSecurityTypeBitMaskBits">
+    <xs:sequence>
+      <xs:element name="rtp-disabled" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="rtp-Encrypted" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="rtp-UnEncrypted" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="rtp-auth" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="rtp-unAuth" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="unUsedBit-5" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="unUsedBit-6" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="unUsedBit-7" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="rtcp-disabled" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="rtcp-encrypted" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="rtcp-unEncrypted" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="rtcp-auth" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="unUsedBit-12" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="unUsedBit-13" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="unUsedBit-14" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="unUsedBit-15" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="crypto-aescm" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="hmacsha132" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="hmacsha180" type="xs:boolean" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="SonusActiveCallIceTypeBitMaskBits">
+    <xs:sequence>
+      <xs:element name="ing-lcl-NONE" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="ing-lcl-ICE-LITE" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="ing-lcl-FULL-ICE" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="ing-rmt-NONE" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="ing-rmt-ICE-LITE" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="ing-rmt-FULL-ICE" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="eg-lcl-NONE" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="eg-lcl-ICE-LITE" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="eg-lcl-FULL-ICE" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="eg-rmt-NONE" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="eg-rmt-ICE-LITE" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="eg-rmt-FULL-ICE" type="xs:boolean" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="SonusTcpConnectionBitMaskBits">
+    <xs:sequence>
+      <xs:element name="unknown" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="client" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="server" type="xs:boolean" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:simpleType name="sonusActiveCallAddressTransPerformedType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="none"/>
+      <xs:enumeration value="lnp"/>
+      <xs:enumeration value="tollfree"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusActiveCallMediaTypeType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="notapplicable"/>
+      <xs:enumeration value="passthru"/>
+      <xs:enumeration value="directmedia"/>
+      <xs:enumeration value="transcode"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusActiveCallIngressBearerTypeType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="unknown"/>
+      <xs:enumeration value="voice"/>
+      <xs:enumeration value="ctt"/>
+      <xs:enumeration value="dchannel"/>
+      <xs:enumeration value="data56k"/>
+      <xs:enumeration value="data64k"/>
+      <xs:enumeration value="nocompression"/>
+      <xs:enumeration value="ss7mtpchannel"/>
+      <xs:enumeration value="na"/>
+      <xs:enumeration value="fax"/>
+      <xs:enumeration value="multimedia"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusActiveCallEgressBearerTypeType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="unknown"/>
+      <xs:enumeration value="voice"/>
+      <xs:enumeration value="ctt"/>
+      <xs:enumeration value="dchannel"/>
+      <xs:enumeration value="data56k"/>
+      <xs:enumeration value="data64k"/>
+      <xs:enumeration value="nocompression"/>
+      <xs:enumeration value="ss7mtpchannel"/>
+      <xs:enumeration value="na"/>
+      <xs:enumeration value="fax"/>
+      <xs:enumeration value="multimedia"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusActiveCallActAudioTypeType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="g711alaw"/>
+      <xs:enumeration value="g711ulaw"/>
+      <xs:enumeration value="g729a"/>
+      <xs:enumeration value="g729ab"/>
+      <xs:enumeration value="g72alomips"/>
+      <xs:enumeration value="g729ablomips"/>
+      <xs:enumeration value="faxrelay"/>
+      <xs:enumeration value="dtmfrelay"/>
+      <xs:enumeration value="g723rate64"/>
+      <xs:enumeration value="g723rate53"/>
+      <xs:enumeration value="g723a64"/>
+      <xs:enumeration value="g723a53"/>
+      <xs:enumeration value="g726rate32"/>
+      <xs:enumeration value="g726rate48"/>
+      <xs:enumeration value="g726rate24"/>
+      <xs:enumeration value="g726rate16"/>
+      <xs:enumeration value="g711amodem"/>
+      <xs:enumeration value="g711umodem"/>
+      <xs:enumeration value="clearmode"/>
+      <xs:enumeration value="ilbc15p2"/>
+      <xs:enumeration value="ilbc13p3"/>
+      <xs:enumeration value="na"/>
+      <xs:enumeration value="amrOctetAlign"/>
+      <xs:enumeration value="efr"/>
+      <xs:enumeration value="evrc"/>
+      <xs:enumeration value="evrcb0"/>
+      <xs:enumeration value="g722rate48"/>
+      <xs:enumeration value="g722rate56"/>
+      <xs:enumeration value="g722rate64"/>
+      <xs:enumeration value="amrwbOctetAlign"/>
+      <xs:enumeration value="l16-16"/>
+      <xs:enumeration value="bv16"/>
+      <xs:enumeration value="bv32"/>
+      <xs:enumeration value="bv32Fec"/>
+      <xs:enumeration value="speex8"/>
+      <xs:enumeration value="speex16"/>
+      <xs:enumeration value="speex32"/>
+      <xs:enumeration value="speex8Fec"/>
+      <xs:enumeration value="speex16Fec"/>
+      <xs:enumeration value="g7221rate24"/>
+      <xs:enumeration value="g7221rate32"/>
+      <xs:enumeration value="amrBwEfficient"/>
+      <xs:enumeration value="amrwbBwEfficient"/>
+      <xs:enumeration value="opus"/>
+      <xs:enumeration value="evrc0"/>
+      <xs:enumeration value="evrcb"/>
+      <xs:enumeration value="unknown"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusCallResTypeType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="bresIcm"/>
+      <xs:enumeration value="bresSw2Nif"/>
+      <xs:enumeration value="bresSw2DspCtrl"/>
+      <xs:enumeration value="bresSw2DspLocal"/>
+      <xs:enumeration value="bresSw2DspSonic"/>
+      <xs:enumeration value="bresDsp2Dsp"/>
+      <xs:enumeration value="bresDsp2Sonic"/>
+      <xs:enumeration value="bresLe2Sonic"/>
+      <xs:enumeration value="bresAtm2Sw"/>
+      <xs:enumeration value="bresSw2Atm"/>
+      <xs:enumeration value="dresPstn"/>
+      <xs:enumeration value="dresService"/>
+      <xs:enumeration value="pres"/>
+      <xs:enumeration value="xresCntrl"/>
+      <xs:enumeration value="xresUser"/>
+      <xs:enumeration value="aresAmq2Dsp"/>
+      <xs:enumeration value="atmres"/>
+      <xs:enumeration value="bresSw2DspApps"/>
+      <xs:enumeration value="atmresVtoa"/>
+      <xs:enumeration value="bresAtm2Sonic"/>
+      <xs:enumeration value="fresIcm"/>
+      <xs:enumeration value="fresSal2Sal2"/>
+      <xs:enumeration value="fresSal2Dsp"/>
+      <xs:enumeration value="fresSal2Ssb"/>
+      <xs:enumeration value="fresDspDsp"/>
+      <xs:enumeration value="fresDspSsb"/>
+      <xs:enumeration value="fresLeSsb"/>
+      <xs:enumeration value="fresSwDspctl"/>
+      <xs:enumeration value="fresSwDspapp"/>
+      <xs:enumeration value="fresSwNif"/>
+      <xs:enumeration value="fresSwDsphdlcLocal"/>
+      <xs:enumeration value="fresSwDsphdlcSsb"/>
+      <xs:enumeration value="fresSal2dspSsb"/>
+      <xs:enumeration value="xresFe"/>
+      <xs:enumeration value="bresLe2Le"/>
+      <xs:enumeration value="dresBrpad"/>
+      <xs:enumeration value="bresMcast"/>
+      <xs:enumeration value="bresDsp2Le"/>
+      <xs:enumeration value="xresUserVid"/>
+      <xs:enumeration value="bresLe2LeVid"/>
+      <xs:enumeration value="bresDsp2Mcast"/>
+      <xs:enumeration value="bresLe2Mcast"/>
+      <xs:enumeration value="bresLe2SonicRtcprelay"/>
+      <xs:enumeration value="bresLe2LeRtcprelay"/>
+      <xs:enumeration value="bresLe2LeVidRtcprelay"/>
+      <xs:enumeration value="bresLe2TxSplitter"/>
+      <xs:enumeration value="bresLe2RxSplitter"/>
+      <xs:enumeration value="bresTxSplitter2Sonic"/>
+      <xs:enumeration value="bresRxSplitter2Sonic"/>
+      <xs:enumeration value="bresLeTxOnly2Sonic"/>
+      <xs:enumeration value="xresVirtual"/>
+      <xs:enumeration value="bresSw2DspBoot"/>
+      <xs:enumeration value="bresNat2SonicRtp"/>
+      <xs:enumeration value="bresNat2SonicRtcp"/>
+      <xs:enumeration value="bresNp2SwDtmf2833"/>
+      <xs:enumeration value="bresNp2SwRtpInactive"/>
+      <xs:enumeration value="bresLe2LeRtcpTerm"/>
+      <xs:enumeration value="bresDsp2LeRtcpTerm"/>
+      <xs:enumeration value="bresLe2LeVidRtcpTerm"/>
+      <xs:enumeration value="bresAres2Le"/>
+      <xs:enumeration value="bresNp2SwAnnSent"/>
+      <xs:enumeration value="bresLe2McastRtcpRelay"/>
+      <xs:enumeration value="bresLe2McastRtcpTerm"/>
+      <xs:enumeration value="bresMcastRtcpRelay"/>
+      <xs:enumeration value="bresTrace2Sonic"/>
+      <xs:enumeration value="bresNp2swCoredump"/>
+      <xs:enumeration value="mrmRes"/>
+      <xs:enumeration value="bresDummyRtpLatch"/>
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>
+

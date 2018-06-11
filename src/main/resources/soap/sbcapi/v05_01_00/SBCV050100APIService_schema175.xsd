@@ -1,0 +1,559 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="services.profiles.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns29="sonussurrogateregistrationprofile.types.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns25="sonussipsecurityprofile.types.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns26="sipsecurityprofile.services.profiles.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns27="sonussiptransparencyprofile.types.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns28="transparencyprofile.services.profiles.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns21="sonussiparsprofile.types.v05_01_00.sbc.api.ems.sonus.com" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ns22="sonussipparamfilterprofile.types.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns23="sipheader.sipparamfilterprofile.services.profiles.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns24="sipparamfilterprofile.services.profiles.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns20="relayprofile.services.profiles.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns16="sipresourcepriorityheaderprofile.services.profiles.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns17="sonuspathchkprofile.types.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns14="emergencycallprofile.services.profiles.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns15="sonusgen2sipjip.types.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns18="sonushornettc.types.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns19="pathcheckprofile.services.profiles.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns9="dblprofile.services.profiles.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns5="common.sbc.api.ems.sonus.com" xmlns:ns30="surrogateregistrationprofile.services.profiles.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns12="disconnectsignalsequenceprofile.services.profiles.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns6="v05_01_00.sbc.api.ems.sonus.com" xmlns:ns13="sonusgen2sipemergency.types.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns10="disconnecttreatmentprofile.services.profiles.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns7="profiles.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns11="sonusgen2nrmdisctreat.types.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns8="sonusdblprofile.types.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns2="classofservice.services.profiles.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns1="sonusorcatc.types.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns4="blocking.classofservice.services.profiles.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns3="sonustc.types.v05_01_00.sbc.api.ems.sonus.com" xmlns:tns="services.profiles.v05_01_00.sbc.api.ems.sonus.com">
+
+  <xs:import namespace="sonusorcatc.types.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema70.xsd"/>
+
+  <xs:import namespace="classofservice.services.profiles.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema368.xsd"/>
+
+  <xs:import namespace="sonustc.types.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema44.xsd"/>
+
+  <xs:import namespace="blocking.classofservice.services.profiles.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema395.xsd"/>
+
+  <xs:import namespace="common.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema360.xsd"/>
+
+  <xs:import namespace="v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema7.xsd"/>
+
+  <xs:import namespace="profiles.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema217.xsd"/>
+
+  <xs:import namespace="sonusdblprofile.types.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema127.xsd"/>
+
+  <xs:import namespace="dblprofile.services.profiles.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema347.xsd"/>
+
+  <xs:import namespace="disconnecttreatmentprofile.services.profiles.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema334.xsd"/>
+
+  <xs:import namespace="sonusgen2nrmdisctreat.types.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema105.xsd"/>
+
+  <xs:import namespace="disconnectsignalsequenceprofile.services.profiles.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema335.xsd"/>
+
+  <xs:import namespace="sonusgen2sipemergency.types.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema98.xsd"/>
+
+  <xs:import namespace="emergencycallprofile.services.profiles.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema316.xsd"/>
+
+  <xs:import namespace="sonusgen2sipjip.types.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema97.xsd"/>
+
+  <xs:import namespace="sipresourcepriorityheaderprofile.services.profiles.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema153.xsd"/>
+
+  <xs:import namespace="sonuspathchkprofile.types.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema68.xsd"/>
+
+  <xs:import namespace="sonushornettc.types.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema90.xsd"/>
+
+  <xs:import namespace="pathcheckprofile.services.profiles.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema229.xsd"/>
+
+  <xs:import namespace="relayprofile.services.profiles.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema203.xsd"/>
+
+  <xs:import namespace="sonussiparsprofile.types.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema59.xsd"/>
+
+  <xs:import namespace="sonussipparamfilterprofile.types.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema56.xsd"/>
+
+  <xs:import namespace="sipheader.sipparamfilterprofile.services.profiles.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema160.xsd"/>
+
+  <xs:import namespace="sipparamfilterprofile.services.profiles.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema158.xsd"/>
+
+  <xs:import namespace="sonussipsecurityprofile.types.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema54.xsd"/>
+
+  <xs:import namespace="sipsecurityprofile.services.profiles.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema152.xsd"/>
+
+  <xs:import namespace="sonussiptransparencyprofile.types.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema49.xsd"/>
+
+  <xs:import namespace="transparencyprofile.services.profiles.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema17.xsd"/>
+
+  <xs:import namespace="sonussurrogateregistrationprofile.types.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema46.xsd"/>
+
+  <xs:import namespace="surrogateregistrationprofile.services.profiles.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema33.xsd"/>
+
+  <xs:complexType name="classOfService">
+    <xs:complexContent>
+      <xs:extension base="ns5:sbcEntity">
+        <xs:sequence>
+          <xs:element name="name" type="xs:string" minOccurs="0"/>
+          <xs:element name="nonSubscriberCallTypeFilteringBits" type="ns1:SonusCallTypeBitMaskBits" minOccurs="0"/>
+          <xs:element name="nonSubscriberCallTypeFiltering" type="xs:string" default="nationalOperator" minOccurs="0"/>
+          <xs:element name="screening" type="ns2:screening" minOccurs="0"/>
+          <xs:element name="blocking" type="ns2:blocking" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="classOfServiceKey">
+    <xs:complexContent>
+      <xs:extension base="ns5:sbcKey">
+        <xs:sequence>
+          <xs:element name="name" type="xs:string" minOccurs="0"/>
+          <xs:element name="parentKey" type="ns7:servicesKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="classOfServiceListWrapper">
+    <xs:complexContent>
+      <xs:extension base="ns5:sbcListWrapper">
+        <xs:sequence>
+          <xs:element name="classOfService" type="tns:classOfService" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="dblProfile">
+    <xs:complexContent>
+      <xs:extension base="ns5:sbcEntity">
+        <xs:sequence>
+          <xs:element name="name" type="xs:string" minOccurs="0"/>
+          <xs:element name="type" type="ns8:sonusApplicationTypeType" default="sip" minOccurs="0"/>
+          <xs:element name="state" type="ns3:sonusAdminState" default="disabled" minOccurs="0"/>
+          <xs:element name="rule" type="ns9:rule" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="dblProfileKey">
+    <xs:complexContent>
+      <xs:extension base="ns5:sbcKey">
+        <xs:sequence>
+          <xs:element name="name" type="xs:string" minOccurs="0"/>
+          <xs:element name="parentKey" type="ns7:servicesKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="dblProfileListWrapper">
+    <xs:complexContent>
+      <xs:extension base="ns5:sbcListWrapper">
+        <xs:sequence>
+          <xs:element name="dblProfile" type="tns:dblProfile" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="disconnectTreatmentProfile">
+    <xs:complexContent>
+      <xs:extension base="ns5:sbcEntity">
+        <xs:sequence>
+          <xs:element name="name" type="xs:string" minOccurs="0"/>
+          <xs:element name="reason" type="ns10:reason" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="disconnectTreatmentProfileKey">
+    <xs:complexContent>
+      <xs:extension base="ns5:sbcKey">
+        <xs:sequence>
+          <xs:element name="name" type="xs:string" minOccurs="0"/>
+          <xs:element name="parentKey" type="ns7:servicesKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="disconnectTreatmentProfileListWrapper">
+    <xs:complexContent>
+      <xs:extension base="ns5:sbcListWrapper">
+        <xs:sequence>
+          <xs:element name="disconnectTreatmentProfile" type="tns:disconnectTreatmentProfile" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="disconnectSignalSequenceProfile">
+    <xs:complexContent>
+      <xs:extension base="ns5:sbcEntity">
+        <xs:sequence>
+          <xs:element name="name" type="xs:string" minOccurs="0"/>
+          <xs:element name="ssp" type="ns12:ssp" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="disconnectSignalSequenceProfileKey">
+    <xs:complexContent>
+      <xs:extension base="ns5:sbcKey">
+        <xs:sequence>
+          <xs:element name="name" type="xs:string" minOccurs="0"/>
+          <xs:element name="parentKey" type="ns7:servicesKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="disconnectSignalSequenceProfileListWrapper">
+    <xs:complexContent>
+      <xs:extension base="ns5:sbcListWrapper">
+        <xs:sequence>
+          <xs:element name="disconnectSignalSequenceProfile" type="tns:disconnectSignalSequenceProfile" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="emergencyCallProfile">
+    <xs:complexContent>
+      <xs:extension base="ns5:sbcEntity">
+        <xs:sequence>
+          <xs:element name="name" type="xs:string" minOccurs="0"/>
+          <xs:element name="cpc" type="ns13:sonusEmergencyCallProfCpcType" default="none" minOccurs="0"/>
+          <xs:element name="xemg" type="ns13:sonusEmergencyCallProfXemgType" default="disabled" minOccurs="0"/>
+          <xs:element name="resPriorityHeaderProfile" type="xs:string" minOccurs="0"/>
+          <xs:element name="sosInContactOfRegister" type="ns3:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="prefix" type="ns14:prefix" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="urnPrefix" type="ns14:urnPrefix" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="emergencyCallProfileKey">
+    <xs:complexContent>
+      <xs:extension base="ns5:sbcKey">
+        <xs:sequence>
+          <xs:element name="name" type="xs:string" minOccurs="0"/>
+          <xs:element name="parentKey" type="ns7:servicesKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="emergencyCallProfileListWrapper">
+    <xs:complexContent>
+      <xs:extension base="ns5:sbcListWrapper">
+        <xs:sequence>
+          <xs:element name="emergencyCallProfile" type="tns:emergencyCallProfile" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="sipJipProfile">
+    <xs:complexContent>
+      <xs:extension base="ns5:sbcEntity">
+        <xs:sequence>
+          <xs:element name="name" type="xs:string" minOccurs="0"/>
+          <xs:element name="useJipFromPAIrn" type="ns3:sonusAdminState" default="disabled" minOccurs="0"/>
+          <xs:element name="useJipFromPAIjip" type="ns3:sonusAdminState" default="disabled" minOccurs="0"/>
+          <xs:element name="useJipFromFROM" type="ns3:sonusAdminState" default="disabled" minOccurs="0"/>
+          <xs:element name="useJipFromPDCS" type="ns3:sonusAdminState" default="disabled" minOccurs="0"/>
+          <xs:element name="sendJipIn" type="ns15:sonusJipProfSendJipInType" default="rnPAI" minOccurs="0"/>
+          <xs:element name="jipParameterAs" type="ns15:sonusJipProfJipParamAsType" default="userInfo" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="sipJipProfileKey">
+    <xs:complexContent>
+      <xs:extension base="ns5:sbcKey">
+        <xs:sequence>
+          <xs:element name="name" type="xs:string" minOccurs="0"/>
+          <xs:element name="parentKey" type="ns7:servicesKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="sipJipProfileListWrapper">
+    <xs:complexContent>
+      <xs:extension base="ns5:sbcListWrapper">
+        <xs:sequence>
+          <xs:element name="sipJipProfile" type="tns:sipJipProfile" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="sipResourcePriorityHeaderProfile">
+    <xs:complexContent>
+      <xs:extension base="ns5:sbcEntity">
+        <xs:sequence>
+          <xs:element name="name" type="xs:string" minOccurs="0"/>
+          <xs:element name="rphEmergencyMatchingConfig" type="ns16:rphEmergencyMatchingConfig" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="sendEgressRphForEmergency" type="ns16:sendEgressRphForEmergency" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="sipResourcePriorityHeaderProfileKey">
+    <xs:complexContent>
+      <xs:extension base="ns5:sbcKey">
+        <xs:sequence>
+          <xs:element name="name" type="xs:string" minOccurs="0"/>
+          <xs:element name="parentKey" type="ns7:servicesKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="sipResourcePriorityHeaderProfileListWrapper">
+    <xs:complexContent>
+      <xs:extension base="ns5:sbcListWrapper">
+        <xs:sequence>
+          <xs:element name="sipResourcePriorityHeaderProfile" type="tns:sipResourcePriorityHeaderProfile" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="pathCheckProfile">
+    <xs:complexContent>
+      <xs:extension base="ns5:sbcEntity">
+        <xs:sequence>
+          <xs:element name="name" type="xs:string" minOccurs="0"/>
+          <xs:element name="failureResponseCodes" type="xs:string" minOccurs="0"/>
+          <xs:element name="failureResponseCodesUnion" type="ns17:SonusResponseProfileTypeUnion" minOccurs="0"/>
+          <xs:element name="protocol" type="ns17:sonusPathchkProfProtocolType" default="sipOptions" minOccurs="0"/>
+          <xs:element name="sendInterval" type="xs:unsignedShort" default="60" minOccurs="0"/>
+          <xs:element name="replyTimeoutCount" type="xs:unsignedShort" default="6" minOccurs="0"/>
+          <xs:element name="recoveryCount" type="xs:unsignedShort" default="6" minOccurs="0"/>
+          <xs:element name="transportPreference" type="ns19:transportPreference" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="pathCheckProfileKey">
+    <xs:complexContent>
+      <xs:extension base="ns5:sbcKey">
+        <xs:sequence>
+          <xs:element name="name" type="xs:string" minOccurs="0"/>
+          <xs:element name="parentKey" type="ns7:servicesKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="pathCheckProfileListWrapper">
+    <xs:complexContent>
+      <xs:extension base="ns5:sbcListWrapper">
+        <xs:sequence>
+          <xs:element name="pathCheckProfile" type="tns:pathCheckProfile" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="relayProfile">
+    <xs:complexContent>
+      <xs:extension base="ns5:sbcEntity">
+        <xs:sequence>
+          <xs:element name="name" type="xs:string" minOccurs="0"/>
+          <xs:element name="maxIngressRate" type="xs:unsignedInt" default="50" minOccurs="0"/>
+          <xs:element name="maxIngressConn" type="xs:unsignedInt" default="1000" minOccurs="0"/>
+          <xs:element name="maxEgressRate" type="xs:unsignedInt" default="50" minOccurs="0"/>
+          <xs:element name="maxEgressConn" type="xs:unsignedInt" default="1000" minOccurs="0"/>
+          <xs:element name="tcp" type="ns20:tcp" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="relayProfileKey">
+    <xs:complexContent>
+      <xs:extension base="ns5:sbcKey">
+        <xs:sequence>
+          <xs:element name="name" type="xs:string" minOccurs="0"/>
+          <xs:element name="parentKey" type="ns7:servicesKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="relayProfileListWrapper">
+    <xs:complexContent>
+      <xs:extension base="ns5:sbcListWrapper">
+        <xs:sequence>
+          <xs:element name="relayProfile" type="tns:relayProfile" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="sipArsProfile">
+    <xs:complexContent>
+      <xs:extension base="ns5:sbcEntity">
+        <xs:sequence>
+          <xs:element name="name" type="xs:string" minOccurs="0"/>
+          <xs:element name="failureResponseCodes" type="xs:string" minOccurs="0"/>
+          <xs:element name="failureResponseCodesUnion" type="ns21:SonusResponseProfileTypeUnion" minOccurs="0"/>
+          <xs:element name="blkListAlgorithmsBits" type="ns21:SonusSipArsProfBlkListAlgorithmsTypeBits" minOccurs="0"/>
+          <xs:element name="blkListAlgorithms" type="xs:string" default="timeouts" minOccurs="0"/>
+          <xs:element name="blkListAlgTimeoutsType" type="ns21:sonusSipArsProfBlkListAlgTimeoutsTypeType" default="sip-invite" minOccurs="0"/>
+          <xs:element name="blkListAlgTimeoutsNumTimeouts" type="xs:unsignedShort" default="1" minOccurs="0"/>
+          <xs:element name="blkListAlgTimeoutsDuration" type="xs:unsignedInt" default="1" minOccurs="0"/>
+          <xs:element name="blkListAlgRetryAfterTypeBits" type="ns21:SonusSipArsProfBlkListAlgRetryAfterTypeBits" minOccurs="0"/>
+          <xs:element name="blkListAlgRetryAfterType" type="xs:string" default="sip-503" minOccurs="0"/>
+          <xs:element name="midDialogArsScreenLevel" type="ns21:sonusSipArsProfMidDialogArsScreenLevelType" default="never" minOccurs="0"/>
+          <xs:element name="recoveryAlgorithm" type="ns21:sonusSipArsProfRecAlgType" default="probe" minOccurs="0"/>
+          <xs:element name="recoveryAlgTimerDuration" type="xs:unsignedInt" default="1" minOccurs="0"/>
+          <xs:element name="recoveryAlgProbeMethod" type="ns21:sonusSipArsProfRecAlgProbeMethodType" default="sip-options" minOccurs="0"/>
+          <xs:element name="recoveryAlgProbeInterval" type="xs:unsignedShort" default="1" minOccurs="0"/>
+          <xs:element name="recoveryAlgProbeNumResponses" type="xs:unsignedShort" default="1" minOccurs="0"/>
+          <xs:element name="recoveryAlgProbeDuration" type="xs:unsignedInt" default="1" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="sipArsProfileKey">
+    <xs:complexContent>
+      <xs:extension base="ns5:sbcKey">
+        <xs:sequence>
+          <xs:element name="name" type="xs:string" minOccurs="0"/>
+          <xs:element name="parentKey" type="ns7:servicesKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="sipArsProfileListWrapper">
+    <xs:complexContent>
+      <xs:extension base="ns5:sbcListWrapper">
+        <xs:sequence>
+          <xs:element name="sipArsProfile" type="tns:sipArsProfile" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="sipParamFilterProfile">
+    <xs:complexContent>
+      <xs:extension base="ns5:sbcEntity">
+        <xs:sequence>
+          <xs:element name="name" type="xs:string" minOccurs="0"/>
+          <xs:element name="state" type="ns3:sonusAdminState" default="disabled" minOccurs="0"/>
+          <xs:element name="sipHeader" type="ns24:sipHeader" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="sipParamFilterProfileKey">
+    <xs:complexContent>
+      <xs:extension base="ns5:sbcKey">
+        <xs:sequence>
+          <xs:element name="name" type="xs:string" minOccurs="0"/>
+          <xs:element name="parentKey" type="ns7:servicesKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="sipParamFilterProfileListWrapper">
+    <xs:complexContent>
+      <xs:extension base="ns5:sbcListWrapper">
+        <xs:sequence>
+          <xs:element name="sipParamFilterProfile" type="tns:sipParamFilterProfile" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="sipSecurityProfile">
+    <xs:complexContent>
+      <xs:extension base="ns5:sbcEntity">
+        <xs:sequence>
+          <xs:element name="name" type="xs:string" minOccurs="0"/>
+          <xs:element name="sbxSecMode" type="ns25:sonusSipSecSbxModeType" default="sbc-pcscf" minOccurs="0"/>
+          <xs:element name="forceClientSecurityPref" type="ns3:sonusAdminState" default="disabled" minOccurs="0"/>
+          <xs:element name="rejectSecUnsupportedRequest" type="ns3:sonusAdminState" default="disabled" minOccurs="0"/>
+          <xs:element name="sipSecurityMechanism" type="ns26:sipSecurityMechanism" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="sipSecurityProfileKey">
+    <xs:complexContent>
+      <xs:extension base="ns5:sbcKey">
+        <xs:sequence>
+          <xs:element name="name" type="xs:string" minOccurs="0"/>
+          <xs:element name="parentKey" type="ns7:servicesKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="sipSecurityProfileListWrapper">
+    <xs:complexContent>
+      <xs:extension base="ns5:sbcListWrapper">
+        <xs:sequence>
+          <xs:element name="sipSecurityProfile" type="tns:sipSecurityProfile" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="transparencyProfile">
+    <xs:complexContent>
+      <xs:extension base="ns5:sbcEntity">
+        <xs:sequence>
+          <xs:element name="name" type="xs:string" minOccurs="0"/>
+          <xs:element name="state" type="ns3:sonusAdminState" default="disabled" minOccurs="0"/>
+          <xs:element name="sipHeader" type="ns28:sipHeader" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="sipMessageBody" type="ns28:sipMessageBody" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="transparencyProfileKey">
+    <xs:complexContent>
+      <xs:extension base="ns5:sbcKey">
+        <xs:sequence>
+          <xs:element name="name" type="xs:string" minOccurs="0"/>
+          <xs:element name="parentKey" type="ns7:servicesKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="transparencyProfileListWrapper">
+    <xs:complexContent>
+      <xs:extension base="ns5:sbcListWrapper">
+        <xs:sequence>
+          <xs:element name="transparencyProfile" type="tns:transparencyProfile" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="surrogateRegistrationProfile">
+    <xs:complexContent>
+      <xs:extension base="ns5:sbcEntity">
+        <xs:sequence>
+          <xs:element name="name" type="xs:string" minOccurs="0"/>
+          <xs:element name="aorUserName" type="ns30:aorUserName" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="surrogateRegistrationProfileKey">
+    <xs:complexContent>
+      <xs:extension base="ns5:sbcKey">
+        <xs:sequence>
+          <xs:element name="name" type="xs:string" minOccurs="0"/>
+          <xs:element name="parentKey" type="ns7:servicesKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="surrogateRegistrationProfileListWrapper">
+    <xs:complexContent>
+      <xs:extension base="ns5:sbcListWrapper">
+        <xs:sequence>
+          <xs:element name="surrogateRegistrationProfile" type="tns:surrogateRegistrationProfile" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+</xs:schema>
+

@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="h323trunkgroup.zone.addresscontext.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns9="sonush323trunkgroup.types.v05_01_00.sbc.api.ems.sonus.com" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ns12="services.h323trunkgroup.zone.addresscontext.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns5="addresscontext.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns13="media.h323trunkgroup.zone.addresscontext.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns6="zone.addresscontext.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns10="cac.h323trunkgroup.zone.addresscontext.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns7="sonustc.types.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns11="qoe.h323trunkgroup.zone.addresscontext.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns8="callreservation.h323trunkgroup.zone.addresscontext.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns2="policy.h323trunkgroup.zone.addresscontext.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns1="sonusext.types.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns4="common.sbc.api.ems.sonus.com" xmlns:ns3="ingress.policy.h323trunkgroup.zone.addresscontext.v05_01_00.sbc.api.ems.sonus.com" xmlns:tns="h323trunkgroup.zone.addresscontext.v05_01_00.sbc.api.ems.sonus.com">
+
+  <xs:import namespace="sonusext.types.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema113.xsd"/>
+
+  <xs:import namespace="policy.h323trunkgroup.zone.addresscontext.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema225.xsd"/>
+
+  <xs:import namespace="ingress.policy.h323trunkgroup.zone.addresscontext.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema281.xsd"/>
+
+  <xs:import namespace="common.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema360.xsd"/>
+
+  <xs:import namespace="addresscontext.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema408.xsd"/>
+
+  <xs:import namespace="zone.addresscontext.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema1.xsd"/>
+
+  <xs:import namespace="sonustc.types.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema44.xsd"/>
+
+  <xs:import namespace="callreservation.h323trunkgroup.zone.addresscontext.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema383.xsd"/>
+
+  <xs:import namespace="sonush323trunkgroup.types.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema92.xsd"/>
+
+  <xs:import namespace="cac.h323trunkgroup.zone.addresscontext.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema393.xsd"/>
+
+  <xs:import namespace="qoe.h323trunkgroup.zone.addresscontext.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema216.xsd"/>
+
+  <xs:import namespace="services.h323trunkgroup.zone.addresscontext.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema176.xsd"/>
+
+  <xs:import namespace="media.h323trunkgroup.zone.addresscontext.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema256.xsd"/>
+
+  <xs:complexType name="policy">
+    <xs:complexContent>
+      <xs:extension base="ns4:sbcEntity">
+        <xs:sequence>
+          <xs:element name="carrier" type="xs:string" default="0000" minOccurs="0"/>
+          <xs:element name="country" type="xs:string" default="1" minOccurs="0"/>
+          <xs:element name="localizationVariant" type="ns1:sonusLocalizationVariantType" default="northAmerica" minOccurs="0"/>
+          <xs:element name="digitParameterHandling" type="ns2:digitParameterHandling" minOccurs="0"/>
+          <xs:element name="callRouting" type="ns2:callRouting" minOccurs="0"/>
+          <xs:element name="media" type="ns2:media" minOccurs="0"/>
+          <xs:element name="services" type="ns2:services" minOccurs="0"/>
+          <xs:element name="signaling" type="ns2:signaling" minOccurs="0"/>
+          <xs:element name="ingress" type="ns2:ingress" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="policyKey">
+    <xs:complexContent>
+      <xs:extension base="ns4:sbcUnCreatableKey">
+        <xs:sequence>
+          <xs:element name="parentKey" type="ns6:h323TrunkGroupKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="packetOutage">
+    <xs:complexContent>
+      <xs:extension base="ns4:sbcEntity">
+        <xs:sequence>
+          <xs:element name="minimumDuration" type="xs:unsignedShort" default="6000" minOccurs="0"/>
+          <xs:element name="minimumCalls" type="xs:unsignedShort" default="1000" minOccurs="0"/>
+          <xs:element name="bandwidthLimitReduction" type="xs:unsignedByte" default="50" minOccurs="0"/>
+          <xs:element name="detectionState" type="ns7:sonusAdminState" default="disabled" minOccurs="0"/>
+          <xs:element name="detectionInterval" type="xs:unsignedShort" default="15" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="packetOutageKey">
+    <xs:complexContent>
+      <xs:extension base="ns4:sbcUnCreatableKey">
+        <xs:sequence>
+          <xs:element name="parentKey" type="ns6:h323TrunkGroupKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="callReservation">
+    <xs:complexContent>
+      <xs:extension base="ns4:sbcEntity">
+        <xs:sequence>
+          <xs:element name="inbound" type="xs:unsignedByte" default="0" minOccurs="0"/>
+          <xs:element name="state" type="ns7:sonusAdminState" default="disabled" minOccurs="0"/>
+          <xs:element name="priorityCallMinimum" type="xs:unsignedInt" default="1" minOccurs="0"/>
+          <xs:element name="incomingCallMinimum" type="xs:unsignedInt" default="1" minOccurs="0"/>
+          <xs:element name="outgoingCallMinimum" type="xs:unsignedInt" default="10" minOccurs="0"/>
+          <xs:element name="silc" type="ns8:silc" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="callReservationKey">
+    <xs:complexContent>
+      <xs:extension base="ns4:sbcUnCreatableKey">
+        <xs:sequence>
+          <xs:element name="parentKey" type="ns6:h323TrunkGroupKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="cac">
+    <xs:complexContent>
+      <xs:extension base="ns4:sbcEntity">
+        <xs:sequence>
+          <xs:element name="callLimit" type="xs:string" default="unlimited" minOccurs="0"/>
+          <xs:element name="callLimitUnion" type="ns9:SonusH323TgCallLimitTypeUnion" minOccurs="0"/>
+          <xs:element name="bandwidthLimit" type="xs:string" default="unlimited" minOccurs="0"/>
+          <xs:element name="bandwidthLimitUnion" type="ns9:SonusH323TgBandwidthLimitTypeUnion" minOccurs="0"/>
+          <xs:element name="callLimitThreshold" type="xs:unsignedByte" default="0" minOccurs="0"/>
+          <xs:element name="bandwidthLimitThreshold" type="xs:unsignedByte" default="0" minOccurs="0"/>
+          <xs:element name="ingress" type="ns10:ingress" minOccurs="0"/>
+          <xs:element name="egress" type="ns10:egress" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="cacKey">
+    <xs:complexContent>
+      <xs:extension base="ns4:sbcUnCreatableKey">
+        <xs:sequence>
+          <xs:element name="parentKey" type="ns6:h323TrunkGroupKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="qoe">
+    <xs:complexContent>
+      <xs:extension base="ns4:sbcEntity">
+        <xs:sequence>
+          <xs:element name="minTimeToProceed" type="xs:unsignedShort" default="60" minOccurs="0"/>
+          <xs:element name="rfactor" type="ns11:rfactor" minOccurs="0"/>
+          <xs:element name="asr" type="ns11:asr" minOccurs="0"/>
+          <xs:element name="scru" type="ns11:scru" minOccurs="0"/>
+          <xs:element name="clu" type="ns11:clu" minOccurs="0"/>
+          <xs:element name="pgrd" type="ns11:pgrd" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="qoeKey">
+    <xs:complexContent>
+      <xs:extension base="ns4:sbcUnCreatableKey">
+        <xs:sequence>
+          <xs:element name="parentKey" type="ns6:h323TrunkGroupKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="services">
+    <xs:complexContent>
+      <xs:extension base="ns4:sbcEntity">
+        <xs:sequence>
+          <xs:element name="overlapDialing" type="ns12:overlapDialing" minOccurs="0"/>
+          <xs:element name="longDurationCall" type="ns12:longDurationCall" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="servicesKey">
+    <xs:complexContent>
+      <xs:extension base="ns4:sbcUnCreatableKey">
+        <xs:sequence>
+          <xs:element name="parentKey" type="ns6:h323TrunkGroupKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="media">
+    <xs:complexContent>
+      <xs:extension base="ns4:sbcEntity">
+        <xs:sequence>
+          <xs:element name="mediaIpInterfaceGroupName" type="xs:string" minOccurs="0"/>
+          <xs:element name="mediaIpAddress" type="xs:string" default="0.0.0.0" minOccurs="0"/>
+          <xs:element name="sourceAddressFiltering" type="ns7:sonusAdminState" default="disabled" minOccurs="0"/>
+          <xs:element name="directMediaAllowed" type="ns7:sonusAdminState" default="disabled" minOccurs="0"/>
+          <xs:element name="directMediaGroupId" type="xs:unsignedShort" default="0" minOccurs="0"/>
+          <xs:element name="preAllocateResPad" type="ns7:sonusAdminState" default="disabled" minOccurs="0"/>
+          <xs:element name="slowStart" type="ns9:sonusH323SigTrunkGroupSlowStartSupportType" default="convert" minOccurs="0"/>
+          <xs:element name="mediaPortRange" type="ns13:mediaPortRange" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="mediaKey">
+    <xs:complexContent>
+      <xs:extension base="ns4:sbcUnCreatableKey">
+        <xs:sequence>
+          <xs:element name="parentKey" type="ns6:h323TrunkGroupKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="callRouting">
+    <xs:complexContent>
+      <xs:extension base="ns4:sbcEntity">
+        <xs:sequence>
+          <xs:element name="ansSupervisionTimeout" type="xs:unsignedShort" default="300" minOccurs="0"/>
+          <xs:element name="crankBackProfile" type="xs:string" minOccurs="0"/>
+          <xs:element name="respectBearerCapability" type="ns7:sonusAdminState" default="disabled" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="callRoutingKey">
+    <xs:complexContent>
+      <xs:extension base="ns4:sbcUnCreatableKey">
+        <xs:sequence>
+          <xs:element name="parentKey" type="ns6:h323TrunkGroupKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="ingressIpPrefix">
+    <xs:complexContent>
+      <xs:extension base="ns4:sbcEntity">
+        <xs:sequence>
+          <xs:element name="ipAddress" type="xs:string" minOccurs="0"/>
+          <xs:element name="prefixLength" type="xs:unsignedInt" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="ingressIpPrefixKey">
+    <xs:complexContent>
+      <xs:extension base="ns4:sbcKey">
+        <xs:sequence>
+          <xs:element name="ipAddress" type="xs:string" minOccurs="0"/>
+          <xs:element name="prefixLength" type="xs:long" minOccurs="0"/>
+          <xs:element name="parentKey" type="ns6:h323TrunkGroupKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="ingressIpPrefixListWrapper">
+    <xs:complexContent>
+      <xs:extension base="ns4:sbcListWrapper">
+        <xs:sequence>
+          <xs:element name="ingressIpPrefix" type="tns:ingressIpPrefix" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+</xs:schema>
+

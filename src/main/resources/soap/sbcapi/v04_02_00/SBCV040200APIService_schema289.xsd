@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="egress.signalingprofile.signaling.profiles.v04_02_00.sbc.api.ems.sonus.com" xmlns:ns2="common.sbc.api.ems.sonus.com" xmlns:ns1="sonussignalingprofile.types.v04_02_00.sbc.api.ems.sonus.com" xmlns:ns4="signalingprofile.signaling.profiles.v04_02_00.sbc.api.ems.sonus.com" xmlns:ns3="signaling.profiles.v04_02_00.sbc.api.ems.sonus.com" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ns5="sonustc.types.v04_02_00.sbc.api.ems.sonus.com" xmlns:ns6="redirectioncapabilityflags.egress.signalingprofile.signaling.profiles.v04_02_00.sbc.api.ems.sonus.com" xmlns:ns7="ukisup.egress.signalingprofile.signaling.profiles.v04_02_00.sbc.api.ems.sonus.com">
+
+  <xs:import namespace="sonussignalingprofile.types.v04_02_00.sbc.api.ems.sonus.com" schemaLocation="SBCV040200APIService_schema57.xsd"/>
+
+  <xs:import namespace="common.sbc.api.ems.sonus.com" schemaLocation="SBCV040200APIService_schema325.xsd"/>
+
+  <xs:import namespace="signaling.profiles.v04_02_00.sbc.api.ems.sonus.com" schemaLocation="SBCV040200APIService_schema156.xsd"/>
+
+  <xs:import namespace="signalingprofile.signaling.profiles.v04_02_00.sbc.api.ems.sonus.com" schemaLocation="SBCV040200APIService_schema153.xsd"/>
+
+  <xs:import namespace="sonustc.types.v04_02_00.sbc.api.ems.sonus.com" schemaLocation="SBCV040200APIService_schema42.xsd"/>
+
+  <xs:import namespace="redirectioncapabilityflags.egress.signalingprofile.signaling.profiles.v04_02_00.sbc.api.ems.sonus.com" schemaLocation="SBCV040200APIService_schema191.xsd"/>
+
+  <xs:import namespace="ukisup.egress.signalingprofile.signaling.profiles.v04_02_00.sbc.api.ems.sonus.com" schemaLocation="SBCV040200APIService_schema14.xsd"/>
+
+  <xs:complexType name="tnsFlags">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcEntity">
+        <xs:sequence>
+          <xs:element name="interLataLocal" type="ns1:sonusNoInputSendDontSend" default="noInput" minOccurs="0"/>
+          <xs:element name="intraLataLocal" type="ns1:sonusNoInputSendDontSend" default="noInput" minOccurs="0"/>
+          <xs:element name="interLataToll" type="ns1:sonusNoInputSendDontSend" default="noInput" minOccurs="0"/>
+          <xs:element name="intraLataToll" type="ns1:sonusNoInputSendDontSend" default="noInput" minOccurs="0"/>
+          <xs:element name="localOperator" type="ns1:sonusTnsZeroNoInputSendDontSend" default="noInput" minOccurs="0"/>
+          <xs:element name="nationalOperatorInterServiceArea" type="ns1:sonusTnsZeroPlusInterLataLocalNoInputSendDontSend" default="noInput" minOccurs="0"/>
+          <xs:element name="nationalOperatorIntraServiceArea" type="ns1:sonusTnsZeroPlusIntraLataLocalNoInputSendDontSend" default="noInput" minOccurs="0"/>
+          <xs:element name="longDistanceOperator" type="ns1:sonusTnsZeroZeroNoInputSendDontSend" default="noInput" minOccurs="0"/>
+          <xs:element name="international" type="ns1:sonusTnsIdddNoInputSendDontSend" default="noInput" minOccurs="0"/>
+          <xs:element name="internationalOperator" type="ns1:sonusTnsZeroPlusIdddNoInputSendDontSend" default="noInput" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="tnsFlagsKey">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcUnCreatableKey">
+        <xs:sequence>
+          <xs:element name="parentKey" type="ns4:egressKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="egressFlags">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcEntity">
+        <xs:sequence>
+          <xs:element name="addPrefix011ForInternationalCalls" type="ns5:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="addPrefix1ForInterLataCalls" type="ns5:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="addPrefix1ForIntraLataCalls" type="ns5:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="annexESupport" type="ns5:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="applySwitchTypeCpcProfile" type="ns5:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="callBackWhenFreeSupport" type="ns5:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="calledNumber7Digits" type="ns5:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="callingNumber7Digits" type="ns5:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="changeBearerCapFrom3_1KHzToSpeech" type="ns5:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="convertNumbersToE164Format" type="ns5:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="cpcMapping" type="ns5:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="dialedNumberAsCalledNumber" type="ns5:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="disableChargingAuthorityForChosenCarrier" type="ns5:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="discardCallingAndContractNumbers" type="ns5:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="discardGAPAddlClgIfSameAsClgNumberAndIngressSIP" type="ns5:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="discardTnsAndTrunkgroupOwningCarrierMatch" type="ns5:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="dontStripClgNumberForRestrictedPresentation" type="ns5:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="forcedOverrideOlipValue" type="ns5:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="generateFeParam" type="ns5:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="oliMapping" type="ns5:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="overwriteChargeInformationIfChosenIXC" type="ns5:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="performCalledPartyMemberCheck" type="ns5:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="propagateChargeMessage" type="ns5:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="propagateGdParam" type="ns5:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="propagateIngressChannelInfo" type="ns5:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="reorderTrunkBasedOnIsupPreference" type="ns5:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="replacePrefix0WithPlus81ForTranslationSourceNumber" type="ns5:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="rerouteOnSignalingCongestion" type="ns5:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="resetOlipForTollFreeCalls" type="ns5:sonusEnableDisable" default="enable" minOccurs="0"/>
+          <xs:element name="restoreCallingNumberIfDerivedFromBillingNumber" type="ns5:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="restoreCallingNumberIfDerivedFromRedirectingNumber" type="ns5:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="restoreCallingNumberIfDerivedFromTrunkGrp" type="ns5:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="restoreFciInternationalBit" type="ns5:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="sendBillingNumberAsClgNumber" type="ns5:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="sendBillingNumberAsClgNumberIfClgNumberNotPresent" type="ns5:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="sendCallingNumberWhenNotDerivedFromInput" type="ns5:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="sendContractNumberIfAllowedByIngressSip" type="ns5:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="sendTollFreeNumberInGapParam" type="ns5:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="sendTollFreeNumberInOcnParam" type="ns5:sonusEnableDisable" default="enable" minOccurs="0"/>
+          <xs:element name="stripRepAreaCodeDigits" type="ns5:sonusEnableDisable" default="enable" minOccurs="0"/>
+          <xs:element name="transitAllRedirectionNumberNOA" type="ns5:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="undoLnp" type="ns5:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="useOutputANIForCDNIS" type="ns5:sonusEnableDisable" default="disable" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="egressFlagsKey">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcUnCreatableKey">
+        <xs:sequence>
+          <xs:element name="parentKey" type="ns4:egressKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="cft">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcEntity">
+        <xs:sequence>
+          <xs:element name="egressCftInfo" type="ns1:sonusOffnetOnnet" default="offnet" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="cftKey">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcUnCreatableKey">
+        <xs:sequence>
+          <xs:element name="parentKey" type="ns4:egressKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="donorSwitchService">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcEntity">
+        <xs:sequence>
+          <xs:element name="createCalledDirectoryNumberInEgressSignal" type="ns5:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="generateRedirectionCount" type="ns5:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="skipRedirectionAfterNumberTranslations" type="ns5:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="undoDonorSwitchService" type="ns5:sonusEnableDisable" default="disable" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="donorSwitchServiceKey">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcUnCreatableKey">
+        <xs:sequence>
+          <xs:element name="parentKey" type="ns4:egressKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="PartitionIdNetIdInNetworkIdIAM">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcEntity">
+        <xs:sequence>
+          <xs:element name="generatePartitionIdNetIdInNetworkIdIAM" type="ns5:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="propagatePartitionIdNetIdInNetworkIdIAM" type="ns5:sonusEnableDisable" default="disable" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="PartitionIdNetIdInNetworkIdIAMKey">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcUnCreatableKey">
+        <xs:sequence>
+          <xs:element name="parentKey" type="ns4:egressKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="ipDoubleDipControlFlags">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcEntity">
+        <xs:sequence>
+          <xs:element name="calledNumberFromAltCalledNumber" type="ns5:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="restoreIngressNumbersExceptTranslatedNumbers" type="ns5:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="restoreTranslatedNumbers" type="ns5:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="skipEgressTrunkGrpProcessing" type="ns5:sonusEnableDisable" default="disable" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="ipDoubleDipControlFlagsKey">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcUnCreatableKey">
+        <xs:sequence>
+          <xs:element name="parentKey" type="ns4:egressKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="mobileCallDelivery">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcEntity">
+        <xs:sequence>
+          <xs:element name="origCldNumber" type="ns1:sonusNoInputSendDontSend" default="noInput" minOccurs="0"/>
+          <xs:element name="redirectionInformation" type="ns1:sonusNoInputSendDontSend" default="noInput" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="mobileCallDeliveryKey">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcUnCreatableKey">
+        <xs:sequence>
+          <xs:element name="parentKey" type="ns4:egressKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="redirectionCapabilityFlags">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcEntity">
+        <xs:sequence>
+          <xs:element name="enableRedirectionCapability" type="ns5:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="calledDirectoryNumber" type="ns1:sonusNoInputSendDontSend" default="noInput" minOccurs="0"/>
+          <xs:element name="flags" type="ns6:flags" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="redirectionCapabilityFlagsKey">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcUnCreatableKey">
+        <xs:sequence>
+          <xs:element name="parentKey" type="ns4:egressKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="ukIsup">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcEntity">
+        <xs:sequence>
+          <xs:element name="nfciLinkToLinkRoutingControlIndicator" type="ns1:sonusNfciLinkToLinkRoutingControlIndicatorType" default="none" minOccurs="0"/>
+          <xs:element name="nfciDefaultValues" type="ns7:nfciDefaultValues" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="ukIsupKey">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcUnCreatableKey">
+        <xs:sequence>
+          <xs:element name="parentKey" type="ns4:egressKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+</xs:schema>
+

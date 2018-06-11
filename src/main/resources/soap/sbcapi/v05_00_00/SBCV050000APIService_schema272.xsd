@@ -1,0 +1,1534 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="global.v05_00_00.sbc.api.ems.sonus.com" xmlns:ns29="sonusactivecall.types.v05_00_00.sbc.api.ems.sonus.com" xmlns:ns25="policyserver.global.v05_00_00.sbc.api.ems.sonus.com" xmlns:ns26="monitorendpoint.global.v05_00_00.sbc.api.ems.sonus.com" xmlns:ns27="sonusmonitor.types.v05_00_00.sbc.api.ems.sonus.com" xmlns:ns28="subscriber.global.v05_00_00.sbc.api.ems.sonus.com" xmlns:ns21="signaling.global.v05_00_00.sbc.api.ems.sonus.com" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ns22="sonussipsigcontrols.types.v05_00_00.sbc.api.ems.sonus.com" xmlns:ns23="sonusdiamsigcontrols.types.v05_00_00.sbc.api.ems.sonus.com" xmlns:ns24="security.global.v05_00_00.sbc.api.ems.sonus.com" xmlns:ns20="dns.servers.global.v05_00_00.sbc.api.ems.sonus.com" xmlns:ns16="sonuse911.types.v05_00_00.sbc.api.ems.sonus.com" xmlns:ns17="e911.servers.global.v05_00_00.sbc.api.ems.sonus.com" xmlns:ns14="servers.global.v05_00_00.sbc.api.ems.sonus.com" xmlns:ns15="e911vpcdevice.servers.global.v05_00_00.sbc.api.ems.sonus.com" xmlns:ns36="sonusglobaltrunkgroup.types.v05_00_00.sbc.api.ems.sonus.com" xmlns:ns18="sonusenum.types.v05_00_00.sbc.api.ems.sonus.com" xmlns:ns19="enumservice.servers.global.v05_00_00.sbc.api.ems.sonus.com" xmlns:ns9="v05_00_00.sbc.api.ems.sonus.com" xmlns:ns34="signalingpacketcapture.calltrace.global.v05_00_00.sbc.api.ems.sonus.com" xmlns:ns35="callfilter.calltrace.global.v05_00_00.sbc.api.ems.sonus.com" xmlns:ns32="sonusgen2nrmcalltrace.types.v05_00_00.sbc.api.ems.sonus.com" xmlns:ns33="calltrace.global.v05_00_00.sbc.api.ems.sonus.com" xmlns:ns5="snmpv2_tc.types.v05_00_00.sbc.api.ems.sonus.com" xmlns:ns12="sonusroutinglabel.types.v05_00_00.sbc.api.ems.sonus.com" xmlns:ns30="carrier.global.v05_00_00.sbc.api.ems.sonus.com" xmlns:ns6="sonussharedcacpool.types.v05_00_00.sbc.api.ems.sonus.com" xmlns:ns31="country.global.v05_00_00.sbc.api.ems.sonus.com" xmlns:ns13="routinglabel.callrouting.global.v05_00_00.sbc.api.ems.sonus.com" xmlns:ns7="sharedcaclimitspool.cac.global.v05_00_00.sbc.api.ems.sonus.com" xmlns:ns10="sonusroute.types.v05_00_00.sbc.api.ems.sonus.com" xmlns:ns8="common.sbc.api.ems.sonus.com" xmlns:ns11="callrouting.global.v05_00_00.sbc.api.ems.sonus.com" xmlns:ns2="cac.global.v05_00_00.sbc.api.ems.sonus.com" xmlns:ns1="sonustc.types.v05_00_00.sbc.api.ems.sonus.com" xmlns:ns4="sonusmtrgserver.types.v05_00_00.sbc.api.ems.sonus.com" xmlns:ns3="sonusorcatc.types.v05_00_00.sbc.api.ems.sonus.com" xmlns:tns="global.v05_00_00.sbc.api.ems.sonus.com">
+
+  <xs:import namespace="sonustc.types.v05_00_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050000APIService_schema42.xsd"/>
+
+  <xs:import namespace="cac.global.v05_00_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050000APIService_schema358.xsd"/>
+
+  <xs:import namespace="sonusorcatc.types.v05_00_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050000APIService_schema66.xsd"/>
+
+  <xs:import namespace="sonusmtrgserver.types.v05_00_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050000APIService_schema70.xsd"/>
+
+  <xs:import namespace="snmpv2_tc.types.v05_00_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050000APIService_schema134.xsd"/>
+
+  <xs:import namespace="sonussharedcacpool.types.v05_00_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050000APIService_schema58.xsd"/>
+
+  <xs:import namespace="sharedcaclimitspool.cac.global.v05_00_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050000APIService_schema160.xsd"/>
+
+  <xs:import namespace="common.sbc.api.ems.sonus.com" schemaLocation="SBCV050000APIService_schema326.xsd"/>
+
+  <xs:import namespace="v05_00_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050000APIService_schema7.xsd"/>
+
+  <xs:import namespace="sonusroute.types.v05_00_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050000APIService_schema60.xsd"/>
+
+  <xs:import namespace="callrouting.global.v05_00_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050000APIService_schema346.xsd"/>
+
+  <xs:import namespace="sonusroutinglabel.types.v05_00_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050000APIService_schema59.xsd"/>
+
+  <xs:import namespace="routinglabel.callrouting.global.v05_00_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050000APIService_schema173.xsd"/>
+
+  <xs:import namespace="servers.global.v05_00_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050000APIService_schema165.xsd"/>
+
+  <xs:import namespace="e911vpcdevice.servers.global.v05_00_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050000APIService_schema291.xsd"/>
+
+  <xs:import namespace="sonuse911.types.v05_00_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050000APIService_schema112.xsd"/>
+
+  <xs:import namespace="e911.servers.global.v05_00_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050000APIService_schema292.xsd"/>
+
+  <xs:import namespace="sonusenum.types.v05_00_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050000APIService_schema109.xsd"/>
+
+  <xs:import namespace="enumservice.servers.global.v05_00_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050000APIService_schema282.xsd"/>
+
+  <xs:import namespace="dns.servers.global.v05_00_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050000APIService_schema300.xsd"/>
+
+  <xs:import namespace="signaling.global.v05_00_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050000APIService_schema159.xsd"/>
+
+  <xs:import namespace="sonussipsigcontrols.types.v05_00_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050000APIService_schema51.xsd"/>
+
+  <xs:import namespace="sonusdiamsigcontrols.types.v05_00_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050000APIService_schema118.xsd"/>
+
+  <xs:import namespace="security.global.v05_00_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050000APIService_schema168.xsd"/>
+
+  <xs:import namespace="policyserver.global.v05_00_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050000APIService_schema202.xsd"/>
+
+  <xs:import namespace="monitorendpoint.global.v05_00_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050000APIService_schema226.xsd"/>
+
+  <xs:import namespace="sonusmonitor.types.v05_00_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050000APIService_schema71.xsd"/>
+
+  <xs:import namespace="subscriber.global.v05_00_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050000APIService_schema32.xsd"/>
+
+  <xs:import namespace="sonusactivecall.types.v05_00_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050000APIService_schema130.xsd"/>
+
+  <xs:import namespace="carrier.global.v05_00_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050000APIService_schema343.xsd"/>
+
+  <xs:import namespace="country.global.v05_00_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050000APIService_schema323.xsd"/>
+
+  <xs:import namespace="sonusgen2nrmcalltrace.types.v05_00_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050000APIService_schema105.xsd"/>
+
+  <xs:import namespace="calltrace.global.v05_00_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050000APIService_schema344.xsd"/>
+
+  <xs:import namespace="signalingpacketcapture.calltrace.global.v05_00_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050000APIService_schema156.xsd"/>
+
+  <xs:import namespace="callfilter.calltrace.global.v05_00_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050000APIService_schema352.xsd"/>
+
+  <xs:import namespace="sonusglobaltrunkgroup.types.v05_00_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050000APIService_schema92.xsd"/>
+
+  <xs:complexType name="cac">
+    <xs:complexContent>
+      <xs:extension base="ns8:sbcEntity">
+        <xs:sequence>
+          <xs:element name="mtrgClient" type="ns2:mtrgClient" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="mtrgClientStatus" type="ns2:mtrgClientStatus" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="mtrgClientRegTgStatus" type="ns2:mtrgClientRegTgStatus" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="mtrgServer" type="ns2:mtrgServer" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="mtrgServerStatus" type="ns2:mtrgServerStatus" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="mtrgServerRegTgStatus" type="ns2:mtrgServerRegTgStatus" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="sharedCacCurrentStatistics" type="ns2:sharedCacCurrentStatistics" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="sharedCacIntervalStatistics" type="ns2:sharedCacIntervalStatistics" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="sharedCacFailureCurStats" type="ns2:sharedCacFailureCurStats" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="sharedCacFailureIntStats" type="ns2:sharedCacFailureIntStats" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="sharedCacLimitsPool" type="ns2:sharedCacLimitsPool" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="sharedCacStatus" type="ns2:sharedCacStatus" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="cacKey">
+    <xs:complexContent>
+      <xs:extension base="ns8:sbcUnCreatableKey">
+        <xs:sequence>
+          <xs:element name="parentKey" type="ns9:globalKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="callRouting">
+    <xs:complexContent>
+      <xs:extension base="ns8:sbcEntity">
+        <xs:sequence>
+          <xs:element name="route" type="ns11:route" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="routingLabel" type="ns11:routingLabel" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="callRoutingKey">
+    <xs:complexContent>
+      <xs:extension base="ns8:sbcUnCreatableKey">
+        <xs:sequence>
+          <xs:element name="parentKey" type="ns9:globalKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="qoeCallRouting">
+    <xs:complexContent>
+      <xs:extension base="ns8:sbcEntity">
+        <xs:sequence>
+          <xs:element name="mediaQosBasedRouting" type="ns1:sonusAdminState" default="disabled" minOccurs="0"/>
+          <xs:element name="signalingQosBasedRouting" type="ns1:sonusAdminState" default="disabled" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="qoeCallRoutingKey">
+    <xs:complexContent>
+      <xs:extension base="ns8:sbcUnCreatableKey">
+        <xs:sequence>
+          <xs:element name="parentKey" type="ns9:globalKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="servers">
+    <xs:complexContent>
+      <xs:extension base="ns8:sbcEntity">
+        <xs:sequence>
+          <xs:element name="enumDomain" type="ns14:enumDomain" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="e911VpcDevice" type="ns14:e911VpcDevice" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="e911" type="ns14:e911" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="enumService" type="ns14:enumService" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="dns" type="ns14:dns" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="serversKey">
+    <xs:complexContent>
+      <xs:extension base="ns8:sbcUnCreatableKey">
+        <xs:sequence>
+          <xs:element name="parentKey" type="ns9:globalKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="signaling">
+    <xs:complexContent>
+      <xs:extension base="ns8:sbcEntity">
+        <xs:sequence>
+          <xs:element name="gwSigTimers" type="ns21:gwSigTimers" minOccurs="0"/>
+          <xs:element name="h323SigTimers" type="ns21:h323SigTimers" minOccurs="0"/>
+          <xs:element name="sipPeerOverloadControl" type="ns21:sipPeerOverloadControl" minOccurs="0"/>
+          <xs:element name="sipSigControls" type="ns21:sipSigControls" minOccurs="0"/>
+          <xs:element name="diamSigControls" type="ns21:diamSigControls" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="signalingKey">
+    <xs:complexContent>
+      <xs:extension base="ns8:sbcUnCreatableKey">
+        <xs:sequence>
+          <xs:element name="parentKey" type="ns9:globalKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="security">
+    <xs:complexContent>
+      <xs:extension base="ns8:sbcEntity">
+        <xs:sequence>
+          <xs:element name="ipsec" type="ns24:ipsec" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="securityKey">
+    <xs:complexContent>
+      <xs:extension base="ns8:sbcUnCreatableKey">
+        <xs:sequence>
+          <xs:element name="parentKey" type="ns9:globalKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="policyServer">
+    <xs:complexContent>
+      <xs:extension base="ns8:sbcEntity">
+        <xs:sequence>
+          <xs:element name="policyReqCounters" type="ns25:policyReqCounters" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="serviceUsageCounters" type="ns25:serviceUsageCounters" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="lnpTfCounters" type="ns25:lnpTfCounters" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="mwiServiceCounters" type="ns25:mwiServiceCounters" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="dnsEnumCounters" type="ns25:dnsEnumCounters" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="failureCounters" type="ns25:failureCounters" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="lnpGsxTable" type="ns25:lnpGsxTable" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="dialedDestAllowedTable" type="ns25:dialedDestAllowedTable" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="dialedDestBlockedTable" type="ns25:dialedDestBlockedTable" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="translatedDestAllowedTable" type="ns25:translatedDestAllowedTable" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="translatedDestBlockedTable" type="ns25:translatedDestBlockedTable" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="originationAllowedTable" type="ns25:originationAllowedTable" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="originationBlockedTable" type="ns25:originationBlockedTable" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="finalCallingNumberAllowedTable" type="ns25:finalCallingNumberAllowedTable" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="finalCallingNumberBlockedTable" type="ns25:finalCallingNumberBlockedTable" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="finalDestAllowedTable" type="ns25:finalDestAllowedTable" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="finalDestBlockedTable" type="ns25:finalDestBlockedTable" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="hpcExemptionGsxTable" type="ns25:hpcExemptionGsxTable" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="contractorBasedOrigAllowedTable" type="ns25:contractorBasedOrigAllowedTable" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="contractorBasedOrigBlockedTable" type="ns25:contractorBasedOrigBlockedTable" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="cdDNBasedDestAllowedTable" type="ns25:CdDNBasedDestAllowedTable" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="cdDNBasedDestBlockedTable" type="ns25:CdDNBasedDestBlockedTable" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="hpcCallsPerGsxTable" type="ns25:hpcCallsPerGsxTable" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="sipE911Counters" type="ns25:sipE911Counters" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="sipCounters" type="ns25:sipCounters" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="policyServerKey">
+    <xs:complexContent>
+      <xs:extension base="ns8:sbcUnCreatableKey">
+        <xs:sequence>
+          <xs:element name="parentKey" type="ns9:globalKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="ipGeneralGroupStatistics">
+    <xs:complexContent>
+      <xs:extension base="ns8:sbcEntity">
+        <xs:sequence>
+          <xs:element name="ceName" type="xs:string" minOccurs="0"/>
+          <xs:element name="inReceives" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="inHdrErrors" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="inAddrErrors" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="inUnknownProtos" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="inDiscards" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="inDelivers" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="outRequests" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="outDiscards" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="outNoRoutes" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="reasmTimeout" type="xs:int" minOccurs="0"/>
+          <xs:element name="reasmReqds" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="reasmOKs" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="reasmFails" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="fragOKs" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="fragFails" type="xs:unsignedInt" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="ipGeneralGroupStatisticsKey">
+    <xs:complexContent>
+      <xs:extension base="ns8:sbcReadOnlyKey">
+        <xs:sequence>
+          <xs:element name="ceName" type="xs:string" minOccurs="0"/>
+          <xs:element name="parentKey" type="ns9:globalKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="ipGeneralGroupStatisticsListWrapper">
+    <xs:complexContent>
+      <xs:extension base="ns8:sbcListWrapper">
+        <xs:sequence>
+          <xs:element name="ipGeneralGroupStatistics" type="tns:ipGeneralGroupStatistics" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="icmpGeneralGroupStatistics">
+    <xs:complexContent>
+      <xs:extension base="ns8:sbcEntity">
+        <xs:sequence>
+          <xs:element name="ceName" type="xs:string" minOccurs="0"/>
+          <xs:element name="inMsgs" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="inEchos" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="inEchoReps" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="inDestUnreachs" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="inErrors" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="outMsgs" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="outErrors" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="outEchos" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="outEchoReps" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="outDestUnreachs" type="xs:unsignedInt" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="icmpGeneralGroupStatisticsKey">
+    <xs:complexContent>
+      <xs:extension base="ns8:sbcReadOnlyKey">
+        <xs:sequence>
+          <xs:element name="ceName" type="xs:string" minOccurs="0"/>
+          <xs:element name="parentKey" type="ns9:globalKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="icmpGeneralGroupStatisticsListWrapper">
+    <xs:complexContent>
+      <xs:extension base="ns8:sbcListWrapper">
+        <xs:sequence>
+          <xs:element name="icmpGeneralGroupStatistics" type="tns:icmpGeneralGroupStatistics" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="tcpGeneralGroupStatistics">
+    <xs:complexContent>
+      <xs:extension base="ns8:sbcEntity">
+        <xs:sequence>
+          <xs:element name="ceName" type="xs:string" minOccurs="0"/>
+          <xs:element name="establishedConnections" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="clientConnections" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="serverConnections" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="failedAttempts" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="inSegments" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="outSegments" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="retransSegments" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="inErrors" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="inResets" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="outResets" type="xs:unsignedInt" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="tcpGeneralGroupStatisticsKey">
+    <xs:complexContent>
+      <xs:extension base="ns8:sbcReadOnlyKey">
+        <xs:sequence>
+          <xs:element name="ceName" type="xs:string" minOccurs="0"/>
+          <xs:element name="parentKey" type="ns9:globalKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="tcpGeneralGroupStatisticsListWrapper">
+    <xs:complexContent>
+      <xs:extension base="ns8:sbcListWrapper">
+        <xs:sequence>
+          <xs:element name="tcpGeneralGroupStatistics" type="tns:tcpGeneralGroupStatistics" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="udpGeneralGroupStatistics">
+    <xs:complexContent>
+      <xs:extension base="ns8:sbcEntity">
+        <xs:sequence>
+          <xs:element name="ceName" type="xs:string" minOccurs="0"/>
+          <xs:element name="inDatagrams" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="outDatagrams" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="unknownPorts" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="inErrors" type="xs:unsignedInt" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="udpGeneralGroupStatisticsKey">
+    <xs:complexContent>
+      <xs:extension base="ns8:sbcReadOnlyKey">
+        <xs:sequence>
+          <xs:element name="ceName" type="xs:string" minOccurs="0"/>
+          <xs:element name="parentKey" type="ns9:globalKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="udpGeneralGroupStatisticsListWrapper">
+    <xs:complexContent>
+      <xs:extension base="ns8:sbcListWrapper">
+        <xs:sequence>
+          <xs:element name="udpGeneralGroupStatistics" type="tns:udpGeneralGroupStatistics" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="monitorEndpoint">
+    <xs:complexContent>
+      <xs:extension base="ns8:sbcEntity">
+        <xs:sequence>
+          <xs:element name="mct" type="ns26:mct" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="monitorEndpointKey">
+    <xs:complexContent>
+      <xs:extension base="ns8:sbcUnCreatableKey">
+        <xs:sequence>
+          <xs:element name="parentKey" type="ns9:globalKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="mediaCapture">
+    <xs:complexContent>
+      <xs:extension base="ns8:sbcEntity">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="mediaCaptureKey">
+    <xs:complexContent>
+      <xs:extension base="ns8:sbcUnCreatableKey">
+        <xs:sequence>
+          <xs:element name="parentKey" type="ns9:globalKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="siprec">
+    <xs:complexContent>
+      <xs:extension base="ns8:sbcEntity">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="siprecKey">
+    <xs:complexContent>
+      <xs:extension base="ns8:sbcUnCreatableKey">
+        <xs:sequence>
+          <xs:element name="parentKey" type="ns9:globalKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="monitorEndpointStatus">
+    <xs:complexContent>
+      <xs:extension base="ns8:sbcEntity">
+        <xs:sequence>
+          <xs:element name="name" type="xs:string" minOccurs="0"/>
+          <xs:element name="state" type="ns1:sonusAdminState" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="monitorEndpointStatusKey">
+    <xs:complexContent>
+      <xs:extension base="ns8:sbcReadOnlyKey">
+        <xs:sequence>
+          <xs:element name="name" type="xs:string" minOccurs="0"/>
+          <xs:element name="parentKey" type="ns9:globalKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="monitorEndpointStatusListWrapper">
+    <xs:complexContent>
+      <xs:extension base="ns8:sbcListWrapper">
+        <xs:sequence>
+          <xs:element name="monitorEndpointStatus" type="tns:monitorEndpointStatus" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="monitorTarget">
+    <xs:complexContent>
+      <xs:extension base="ns8:sbcEntity">
+        <xs:sequence>
+          <xs:element name="name" type="xs:string" minOccurs="0"/>
+          <xs:element name="gcid" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="monitorEndpoint" type="xs:string" minOccurs="0"/>
+          <xs:element name="monitorLeg" type="ns27:sonusMonitorLegType" default="both" minOccurs="0"/>
+          <xs:element name="duration" type="xs:unsignedInt" default="0" minOccurs="0"/>
+          <xs:element name="state" type="ns1:sonusAdminState" default="disabled" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="monitorTargetKey">
+    <xs:complexContent>
+      <xs:extension base="ns8:sbcKey">
+        <xs:sequence>
+          <xs:element name="name" type="xs:string" minOccurs="0"/>
+          <xs:element name="parentKey" type="ns9:globalKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="monitorTargetListWrapper">
+    <xs:complexContent>
+      <xs:extension base="ns8:sbcListWrapper">
+        <xs:sequence>
+          <xs:element name="monitorTarget" type="tns:monitorTarget" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="monitorTargetStatus">
+    <xs:complexContent>
+      <xs:extension base="ns8:sbcEntity">
+        <xs:sequence>
+          <xs:element name="gcid" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="name" type="xs:string" minOccurs="0"/>
+          <xs:element name="monitorEndpoint" type="xs:string" minOccurs="0"/>
+          <xs:element name="monitorLeg" type="ns27:sonusMonitorLegType" minOccurs="0"/>
+          <xs:element name="duration" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="admnState" type="ns27:adminState" minOccurs="0"/>
+          <xs:element name="operState" type="ns27:operStateType" minOccurs="0"/>
+          <xs:element name="disableReason" type="ns27:disableReasonType" minOccurs="0"/>
+          <xs:element name="timeMonitorStarted" type="xs:string" minOccurs="0"/>
+          <xs:element name="commandSource" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="monitorTargetStatusKey">
+    <xs:complexContent>
+      <xs:extension base="ns8:sbcReadOnlyKey">
+        <xs:sequence>
+          <xs:element name="gcid" type="xs:long" minOccurs="0"/>
+          <xs:element name="parentKey" type="ns9:globalKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="monitorTargetStatusListWrapper">
+    <xs:complexContent>
+      <xs:extension base="ns8:sbcListWrapper">
+        <xs:sequence>
+          <xs:element name="monitorTargetStatus" type="tns:monitorTargetStatus" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="siprecStatus">
+    <xs:complexContent>
+      <xs:extension base="ns8:sbcEntity">
+        <xs:sequence>
+          <xs:element name="gcid" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="recorderAddress" type="xs:string" minOccurs="0"/>
+          <xs:element name="rxRtpAddress" type="xs:string" minOccurs="0"/>
+          <xs:element name="txRtpAddress" type="xs:string" minOccurs="0"/>
+          <xs:element name="recordingLeg" type="ns27:sonusMonitorLegType" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="siprecStatusKey">
+    <xs:complexContent>
+      <xs:extension base="ns8:sbcReadOnlyKey">
+        <xs:sequence>
+          <xs:element name="gcid" type="xs:long" minOccurs="0"/>
+          <xs:element name="parentKey" type="ns9:globalKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="siprecStatusListWrapper">
+    <xs:complexContent>
+      <xs:extension base="ns8:sbcListWrapper">
+        <xs:sequence>
+          <xs:element name="siprecStatus" type="tns:siprecStatus" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="npaNxx">
+    <xs:complexContent>
+      <xs:extension base="ns8:sbcEntity">
+        <xs:sequence>
+          <xs:element name="national" type="xs:string" minOccurs="0"/>
+          <xs:element name="portedFlag" type="ns1:sonusEnableDisable" default="disable" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="npaNxxKey">
+    <xs:complexContent>
+      <xs:extension base="ns8:sbcKey">
+        <xs:sequence>
+          <xs:element name="national" type="xs:string" minOccurs="0"/>
+          <xs:element name="parentKey" type="ns9:globalKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="npaNxxListWrapper">
+    <xs:complexContent>
+      <xs:extension base="ns8:sbcListWrapper">
+        <xs:sequence>
+          <xs:element name="npaNxx" type="tns:npaNxx" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="script">
+    <xs:complexContent>
+      <xs:extension base="ns8:sbcEntity">
+        <xs:sequence>
+          <xs:element name="name" type="xs:string" minOccurs="0"/>
+          <xs:element name="description" type="xs:string" minOccurs="0"/>
+          <xs:element name="majorVersion" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="minorVersion" type="xs:unsignedInt" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="scriptKey">
+    <xs:complexContent>
+      <xs:extension base="ns8:sbcReadOnlyKey">
+        <xs:sequence>
+          <xs:element name="name" type="xs:string" minOccurs="0"/>
+          <xs:element name="parentKey" type="ns9:globalKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="scriptListWrapper">
+    <xs:complexContent>
+      <xs:extension base="ns8:sbcListWrapper">
+        <xs:sequence>
+          <xs:element name="script" type="tns:script" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="sipDomain">
+    <xs:complexContent>
+      <xs:extension base="ns8:sbcEntity">
+        <xs:sequence>
+          <xs:element name="name" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="sipDomainKey">
+    <xs:complexContent>
+      <xs:extension base="ns8:sbcKey">
+        <xs:sequence>
+          <xs:element name="name" type="xs:string" minOccurs="0"/>
+          <xs:element name="parentKey" type="ns9:globalKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="sipDomainListWrapper">
+    <xs:complexContent>
+      <xs:extension base="ns8:sbcListWrapper">
+        <xs:sequence>
+          <xs:element name="sipDomain" type="tns:sipDomain" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="subscriber">
+    <xs:complexContent>
+      <xs:extension base="ns8:sbcEntity">
+        <xs:sequence>
+          <xs:element name="id" type="xs:string" minOccurs="0"/>
+          <xs:element name="country" type="xs:string" minOccurs="0"/>
+          <xs:element name="owningCarrier" type="xs:string" minOccurs="0"/>
+          <xs:element name="packetServiceProfile" type="xs:string" minOccurs="0"/>
+          <xs:element name="services" type="ns28:services" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="subscriberKey">
+    <xs:complexContent>
+      <xs:extension base="ns8:sbcKey">
+        <xs:sequence>
+          <xs:element name="id" type="xs:string" minOccurs="0"/>
+          <xs:element name="country" type="xs:string" minOccurs="0"/>
+          <xs:element name="owningCarrier" type="xs:string" minOccurs="0"/>
+          <xs:element name="parentKey" type="ns9:globalKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="subscriberListWrapper">
+    <xs:complexContent>
+      <xs:extension base="ns8:sbcListWrapper">
+        <xs:sequence>
+          <xs:element name="subscriber" type="tns:subscriber" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="callSummaryStatus">
+    <xs:complexContent>
+      <xs:extension base="ns8:sbcEntity">
+        <xs:sequence>
+          <xs:element name="GCID" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="state" type="xs:string" minOccurs="0"/>
+          <xs:element name="callingNumber" type="xs:string" minOccurs="0"/>
+          <xs:element name="calledNumber" type="xs:string" minOccurs="0"/>
+          <xs:element name="callIndex" type="xs:int" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="callSummaryStatusKey">
+    <xs:complexContent>
+      <xs:extension base="ns8:sbcReadOnlyKey">
+        <xs:sequence>
+          <xs:element name="gCID" type="xs:long" minOccurs="0"/>
+          <xs:element name="parentKey" type="ns9:globalKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="callSummaryStatusListWrapper">
+    <xs:complexContent>
+      <xs:extension base="ns8:sbcListWrapper">
+        <xs:sequence>
+          <xs:element name="callSummaryStatus" type="tns:callSummaryStatus" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="callDetailStatus">
+    <xs:complexContent>
+      <xs:extension base="ns8:sbcEntity">
+        <xs:sequence>
+          <xs:element name="GCID" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="mediaStreams" type="xs:string" minOccurs="0"/>
+          <xs:element name="state" type="xs:string" minOccurs="0"/>
+          <xs:element name="callingNumber" type="xs:string" minOccurs="0"/>
+          <xs:element name="calledNumber" type="xs:string" minOccurs="0"/>
+          <xs:element name="addressTransPerformed" type="ns29:sonusActiveCallAddressTransPerformedType" minOccurs="0"/>
+          <xs:element name="origCalledNum" type="xs:string" minOccurs="0"/>
+          <xs:element name="scenarioType" type="xs:string" minOccurs="0"/>
+          <xs:element name="callDuration" type="xs:int" minOccurs="0"/>
+          <xs:element name="mediaType" type="ns29:sonusActiveCallMediaTypeType" minOccurs="0"/>
+          <xs:element name="associatedGcid1" type="xs:int" minOccurs="0"/>
+          <xs:element name="associatedGcid2" type="xs:int" minOccurs="0"/>
+          <xs:element name="associatedGcidLegId1" type="xs:int" minOccurs="0"/>
+          <xs:element name="associatedGcidLegId2" type="xs:int" minOccurs="0"/>
+          <xs:element name="mediaStream1StatsValid" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="mediaStream2StatsValid" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="mediaStream3StatsValid" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="mediaStream4StatsValid" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="mediaStream5StatsValid" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="mediaStream6StatsValid" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="ingressMediaStream1LocalIpSockAddr" type="xs:string" minOccurs="0"/>
+          <xs:element name="ingressMediaStream1RemoteIpSockAddr" type="xs:string" minOccurs="0"/>
+          <xs:element name="egressMediaStream1LocalIpSockAddr" type="xs:string" minOccurs="0"/>
+          <xs:element name="egressMediaStream1RemoteIpSockAddr" type="xs:string" minOccurs="0"/>
+          <xs:element name="ingressMediaStream1SecurityBits" type="ns29:SonusSecurityTypeBitMaskBits" minOccurs="0"/>
+          <xs:element name="ingressMediaStream1Security" type="xs:string" minOccurs="0"/>
+          <xs:element name="egressMediaStream1SecurityBits" type="ns29:SonusSecurityTypeBitMaskBits" minOccurs="0"/>
+          <xs:element name="egressMediaStream1Security" type="xs:string" minOccurs="0"/>
+          <xs:element name="ingressMediaStream1Bandwidth" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="egressMediaStream1Bandwidth" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="ingressMediaStream1IceState" type="xs:string" minOccurs="0"/>
+          <xs:element name="egressMediaStream1IceState" type="xs:string" minOccurs="0"/>
+          <xs:element name="ingressDtlsSrtpStream1" type="xs:string" minOccurs="0"/>
+          <xs:element name="egressDtlsSrtpStream1" type="xs:string" minOccurs="0"/>
+          <xs:element name="ingressMediaStream2LocalIpSockAddr" type="xs:string" minOccurs="0"/>
+          <xs:element name="ingressMediaStream2RemoteIpSockAddr" type="xs:string" minOccurs="0"/>
+          <xs:element name="egressMediaStream2LocalIpSockAddr" type="xs:string" minOccurs="0"/>
+          <xs:element name="egressMediaStream2RemoteIpSockAddr" type="xs:string" minOccurs="0"/>
+          <xs:element name="ingressMediaStream2SecurityBits" type="ns29:SonusSecurityTypeBitMaskBits" minOccurs="0"/>
+          <xs:element name="ingressMediaStream2Security" type="xs:string" minOccurs="0"/>
+          <xs:element name="egressMediaStream2SecurityBits" type="ns29:SonusSecurityTypeBitMaskBits" minOccurs="0"/>
+          <xs:element name="egressMediaStream2Security" type="xs:string" minOccurs="0"/>
+          <xs:element name="ingressMediaStream2Bandwidth" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="egressMediaStream2Bandwidth" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="ingressMediaStream2IceState" type="xs:string" minOccurs="0"/>
+          <xs:element name="egressMediaStream2IceState" type="xs:string" minOccurs="0"/>
+          <xs:element name="ingressDtlsSrtpStream2" type="xs:string" minOccurs="0"/>
+          <xs:element name="egressDtlsSrtpStream2" type="xs:string" minOccurs="0"/>
+          <xs:element name="ingressMediaStream3LocalIpSockAddr" type="xs:string" minOccurs="0"/>
+          <xs:element name="ingressMediaStream3RemoteIpSockAddr" type="xs:string" minOccurs="0"/>
+          <xs:element name="egressMediaStream3LocalIpSockAddr" type="xs:string" minOccurs="0"/>
+          <xs:element name="egressMediaStream3RemoteIpSockAddr" type="xs:string" minOccurs="0"/>
+          <xs:element name="ingressMediaStream3SecurityBits" type="ns29:SonusSecurityTypeBitMaskBits" minOccurs="0"/>
+          <xs:element name="ingressMediaStream3Security" type="xs:string" minOccurs="0"/>
+          <xs:element name="egressMediaStream3SecurityBits" type="ns29:SonusSecurityTypeBitMaskBits" minOccurs="0"/>
+          <xs:element name="egressMediaStream3Security" type="xs:string" minOccurs="0"/>
+          <xs:element name="ingressMediaStream3Bandwidth" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="egressMediaStream3Bandwidth" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="ingressMediaStream3IceState" type="xs:string" minOccurs="0"/>
+          <xs:element name="egressMediaStream3IceState" type="xs:string" minOccurs="0"/>
+          <xs:element name="ingressDtlsSrtpStream3" type="xs:string" minOccurs="0"/>
+          <xs:element name="egressDtlsSrtpStream3" type="xs:string" minOccurs="0"/>
+          <xs:element name="ingressMediaStream4LocalIpSockAddr" type="xs:string" minOccurs="0"/>
+          <xs:element name="ingressMediaStream4RemoteIpSockAddr" type="xs:string" minOccurs="0"/>
+          <xs:element name="egressMediaStream4LocalIpSockAddr" type="xs:string" minOccurs="0"/>
+          <xs:element name="egressMediaStream4RemoteIpSockAddr" type="xs:string" minOccurs="0"/>
+          <xs:element name="ingressMediaStream4SecurityBits" type="ns29:SonusSecurityTypeBitMaskBits" minOccurs="0"/>
+          <xs:element name="ingressMediaStream4Security" type="xs:string" minOccurs="0"/>
+          <xs:element name="egressMediaStream4SecurityBits" type="ns29:SonusSecurityTypeBitMaskBits" minOccurs="0"/>
+          <xs:element name="egressMediaStream4Security" type="xs:string" minOccurs="0"/>
+          <xs:element name="ingressMediaStream4Bandwidth" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="egressMediaStream4Bandwidth" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="ingressMediaStream4IceState" type="xs:string" minOccurs="0"/>
+          <xs:element name="egressMediaStream4IceState" type="xs:string" minOccurs="0"/>
+          <xs:element name="ingressDtlsSrtpStream4" type="xs:string" minOccurs="0"/>
+          <xs:element name="egressDtlsSrtpStream4" type="xs:string" minOccurs="0"/>
+          <xs:element name="ingressMediaStream5LocalIpSockAddr" type="xs:string" minOccurs="0"/>
+          <xs:element name="ingressMediaStream5RemoteIpSockAddr" type="xs:string" minOccurs="0"/>
+          <xs:element name="egressMediaStream5LocalIpSockAddr" type="xs:string" minOccurs="0"/>
+          <xs:element name="egressMediaStream5RemoteIpSockAddr" type="xs:string" minOccurs="0"/>
+          <xs:element name="ingressMediaStream5SecurityBits" type="ns29:SonusSecurityTypeBitMaskBits" minOccurs="0"/>
+          <xs:element name="ingressMediaStream5Security" type="xs:string" minOccurs="0"/>
+          <xs:element name="egressMediaStream5SecurityBits" type="ns29:SonusSecurityTypeBitMaskBits" minOccurs="0"/>
+          <xs:element name="egressMediaStream5Security" type="xs:string" minOccurs="0"/>
+          <xs:element name="ingressMediaStream5Bandwidth" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="egressMediaStream5Bandwidth" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="ingressMediaStream5IceState" type="xs:string" minOccurs="0"/>
+          <xs:element name="egressMediaStream5IceState" type="xs:string" minOccurs="0"/>
+          <xs:element name="ingressDtlsSrtpStream5" type="xs:string" minOccurs="0"/>
+          <xs:element name="egressDtlsSrtpStream5" type="xs:string" minOccurs="0"/>
+          <xs:element name="ingressMediaStream6LocalIpSockAddr" type="xs:string" minOccurs="0"/>
+          <xs:element name="ingressMediaStream6RemoteIpSockAddr" type="xs:string" minOccurs="0"/>
+          <xs:element name="egressMediaStream6LocalIpSockAddr" type="xs:string" minOccurs="0"/>
+          <xs:element name="egressMediaStream6RemoteIpSockAddr" type="xs:string" minOccurs="0"/>
+          <xs:element name="ingressMediaStream6SecurityBits" type="ns29:SonusSecurityTypeBitMaskBits" minOccurs="0"/>
+          <xs:element name="ingressMediaStream6Security" type="xs:string" minOccurs="0"/>
+          <xs:element name="egressMediaStream6SecurityBits" type="ns29:SonusSecurityTypeBitMaskBits" minOccurs="0"/>
+          <xs:element name="egressMediaStream6Security" type="xs:string" minOccurs="0"/>
+          <xs:element name="ingressMediaStream6Bandwidth" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="egressMediaStream6Bandwidth" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="ingressMediaStream6IceState" type="xs:string" minOccurs="0"/>
+          <xs:element name="egressMediaStream6IceState" type="xs:string" minOccurs="0"/>
+          <xs:element name="ingressDtlsSrtpStream6" type="xs:string" minOccurs="0"/>
+          <xs:element name="egressDtlsSrtpStream6" type="xs:string" minOccurs="0"/>
+          <xs:element name="iceCallTypesBits" type="ns29:SonusActiveCallIceTypeBitMaskBits" minOccurs="0"/>
+          <xs:element name="iceCallTypes" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="callDetailStatusKey">
+    <xs:complexContent>
+      <xs:extension base="ns8:sbcReadOnlyKey">
+        <xs:sequence>
+          <xs:element name="gCID" type="xs:long" minOccurs="0"/>
+          <xs:element name="parentKey" type="ns9:globalKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="callDetailStatusListWrapper">
+    <xs:complexContent>
+      <xs:extension base="ns8:sbcListWrapper">
+        <xs:sequence>
+          <xs:element name="callDetailStatus" type="tns:callDetailStatus" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="callMediaStatus">
+    <xs:complexContent>
+      <xs:extension base="ns8:sbcEntity">
+        <xs:sequence>
+          <xs:element name="GCID" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="mediaStreamsInCall" type="xs:string" minOccurs="0"/>
+          <xs:element name="ingressMacHeader" type="xs:string" minOccurs="0"/>
+          <xs:element name="egressMacHeader" type="xs:string" minOccurs="0"/>
+          <xs:element name="ingressBearerType" type="ns29:sonusActiveCallIngressBearerTypeType" minOccurs="0"/>
+          <xs:element name="egressBearerType" type="ns29:sonusActiveCallEgressBearerTypeType" minOccurs="0"/>
+          <xs:element name="ingressCfgAudioType" type="xs:string" minOccurs="0"/>
+          <xs:element name="egressCfgAudioType" type="xs:string" minOccurs="0"/>
+          <xs:element name="ingressActAudioType" type="ns29:sonusActiveCallActAudioTypeType" minOccurs="0"/>
+          <xs:element name="egressActAudioType" type="ns29:sonusActiveCallActAudioTypeType" minOccurs="0"/>
+          <xs:element name="ingressRemPacketsLost" type="xs:int" minOccurs="0"/>
+          <xs:element name="ingressRFactorInbound" type="xs:int" minOccurs="0"/>
+          <xs:element name="ingressRFactorOutbound" type="xs:int" minOccurs="0"/>
+          <xs:element name="egressRemPacketsLost" type="xs:int" minOccurs="0"/>
+          <xs:element name="egressRFactorInbound" type="xs:int" minOccurs="0"/>
+          <xs:element name="egressRFactorOutbound" type="xs:int" minOccurs="0"/>
+          <xs:element name="ingressMediaStream1StatsValid" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="mediaStream1Label" type="xs:string" minOccurs="0"/>
+          <xs:element name="mediaStream1Codec" type="xs:string" minOccurs="0"/>
+          <xs:element name="ingressMediaStream1PacketsSent" type="xs:integer" minOccurs="0"/>
+          <xs:element name="ingressMediaStream1PacketsReceived" type="xs:integer" minOccurs="0"/>
+          <xs:element name="ingressMediaStream1OctetsSent" type="xs:integer" minOccurs="0"/>
+          <xs:element name="ingressMediaStream1OctetsReceived" type="xs:integer" minOccurs="0"/>
+          <xs:element name="ingressMediaStream1RtcpPacketsSent" type="xs:integer" minOccurs="0"/>
+          <xs:element name="ingressMediaStream1RtcpPacketsReceived" type="xs:integer" minOccurs="0"/>
+          <xs:element name="ingressMediaStream1PacketsLost" type="xs:int" minOccurs="0"/>
+          <xs:element name="ingressMediaStream1PacketsDiscarded" type="xs:integer" minOccurs="0"/>
+          <xs:element name="ingressMediaStream1PacketLatency" type="xs:int" minOccurs="0"/>
+          <xs:element name="ingressMediaStream1InterarrivalJitter" type="xs:int" minOccurs="0"/>
+          <xs:element name="ingressMediaStream1StunDtlsPacketsReceived" type="xs:int" minOccurs="0"/>
+          <xs:element name="ingressMediaStream1StunDtlsPacketsDiscarded" type="xs:int" minOccurs="0"/>
+          <xs:element name="ingressMediaStream1SrtpAuthFailure" type="xs:int" minOccurs="0"/>
+          <xs:element name="ingressMediaStream1SrtpReplayFailure" type="xs:int" minOccurs="0"/>
+          <xs:element name="egressMediaStream1StatsValid" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="egressMediaStream1PacketsSent" type="xs:integer" minOccurs="0"/>
+          <xs:element name="egressMediaStream1PacketsReceived" type="xs:integer" minOccurs="0"/>
+          <xs:element name="egressMediaStream1OctetsSent" type="xs:integer" minOccurs="0"/>
+          <xs:element name="egressMediaStream1OctetsReceived" type="xs:integer" minOccurs="0"/>
+          <xs:element name="egressMediaStream1RtcpPacketsSent" type="xs:integer" minOccurs="0"/>
+          <xs:element name="egressMediaStream1RtcpPacketsReceived" type="xs:integer" minOccurs="0"/>
+          <xs:element name="egressMediaStream1PacketsLost" type="xs:int" minOccurs="0"/>
+          <xs:element name="egressMediaStream1PacketsDiscarded" type="xs:integer" minOccurs="0"/>
+          <xs:element name="egressMediaStream1PacketLatency" type="xs:int" minOccurs="0"/>
+          <xs:element name="egressMediaStream1InterarrivalJitter" type="xs:int" minOccurs="0"/>
+          <xs:element name="egressMediaStream1StunDtlsPacketsReceived" type="xs:int" minOccurs="0"/>
+          <xs:element name="egressMediaStream1StunDtlsPacketsDiscarded" type="xs:int" minOccurs="0"/>
+          <xs:element name="egressMediaStream1SrtpAuthFailure" type="xs:int" minOccurs="0"/>
+          <xs:element name="egressMediaStream1SrtpReplayFailure" type="xs:int" minOccurs="0"/>
+          <xs:element name="egressMediaStream1TcpRoleBits" type="ns29:SonusTcpConnectionBitMaskBits" minOccurs="0"/>
+          <xs:element name="egressMediaStream1TcpRole" type="xs:string" minOccurs="0"/>
+          <xs:element name="ingressMediaStream1TcpRoleBits" type="ns29:SonusTcpConnectionBitMaskBits" minOccurs="0"/>
+          <xs:element name="ingressMediaStream1TcpRole" type="xs:string" minOccurs="0"/>
+          <xs:element name="ingressMediaStream2StatsValid" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="mediaStream2Label" type="xs:string" minOccurs="0"/>
+          <xs:element name="mediaStream2Codec" type="xs:string" minOccurs="0"/>
+          <xs:element name="ingressMediaStream2PacketsSent" type="xs:integer" minOccurs="0"/>
+          <xs:element name="ingressMediaStream2PacketsReceived" type="xs:integer" minOccurs="0"/>
+          <xs:element name="ingressMediaStream2OctetsSent" type="xs:integer" minOccurs="0"/>
+          <xs:element name="ingressMediaStream2OctetsReceived" type="xs:integer" minOccurs="0"/>
+          <xs:element name="ingressMediaStream2RtcpPacketsSent" type="xs:integer" minOccurs="0"/>
+          <xs:element name="ingressMediaStream2RtcpPacketsReceived" type="xs:integer" minOccurs="0"/>
+          <xs:element name="ingressMediaStream2PacketsLost" type="xs:int" minOccurs="0"/>
+          <xs:element name="ingressMediaStream2PacketsDiscarded" type="xs:integer" minOccurs="0"/>
+          <xs:element name="ingressMediaStream2PacketLatency" type="xs:int" minOccurs="0"/>
+          <xs:element name="ingressMediaStream2InterarrivalJitter" type="xs:int" minOccurs="0"/>
+          <xs:element name="ingressMediaStream2StunDtlsPacketsReceived" type="xs:int" minOccurs="0"/>
+          <xs:element name="ingressMediaStream2StunDtlsPacketsDiscarded" type="xs:int" minOccurs="0"/>
+          <xs:element name="ingressMediaStream2SrtpAuthFailure" type="xs:int" minOccurs="0"/>
+          <xs:element name="ingressMediaStream2SrtpReplayFailure" type="xs:int" minOccurs="0"/>
+          <xs:element name="egressMediaStream2StatsValid" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="egressMediaStream2PacketsSent" type="xs:integer" minOccurs="0"/>
+          <xs:element name="egressMediaStream2PacketsReceived" type="xs:integer" minOccurs="0"/>
+          <xs:element name="egressMediaStream2OctetsSent" type="xs:integer" minOccurs="0"/>
+          <xs:element name="egressMediaStream2OctetsReceived" type="xs:integer" minOccurs="0"/>
+          <xs:element name="egressMediaStream2RtcpPacketsSent" type="xs:integer" minOccurs="0"/>
+          <xs:element name="egressMediaStream2RtcpPacketsReceived" type="xs:integer" minOccurs="0"/>
+          <xs:element name="egressMediaStream2PacketsLost" type="xs:int" minOccurs="0"/>
+          <xs:element name="egressMediaStream2PacketsDiscarded" type="xs:integer" minOccurs="0"/>
+          <xs:element name="egressMediaStream2PacketLatency" type="xs:int" minOccurs="0"/>
+          <xs:element name="egressMediaStream2InterarrivalJitter" type="xs:int" minOccurs="0"/>
+          <xs:element name="egressMediaStream2StunDtlsPacketsReceived" type="xs:int" minOccurs="0"/>
+          <xs:element name="egressMediaStream2StunDtlsPacketsDiscarded" type="xs:int" minOccurs="0"/>
+          <xs:element name="egressMediaStream2SrtpAuthFailure" type="xs:int" minOccurs="0"/>
+          <xs:element name="egressMediaStream2SrtpReplayFailure" type="xs:int" minOccurs="0"/>
+          <xs:element name="egressMediaStream2TcpRoleBits" type="ns29:SonusTcpConnectionBitMaskBits" minOccurs="0"/>
+          <xs:element name="egressMediaStream2TcpRole" type="xs:string" minOccurs="0"/>
+          <xs:element name="ingressMediaStream2TcpRoleBits" type="ns29:SonusTcpConnectionBitMaskBits" minOccurs="0"/>
+          <xs:element name="ingressMediaStream2TcpRole" type="xs:string" minOccurs="0"/>
+          <xs:element name="ingressMediaStream3StatsValid" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="mediaStream3Label" type="xs:string" minOccurs="0"/>
+          <xs:element name="mediaStream3Codec" type="xs:string" minOccurs="0"/>
+          <xs:element name="ingressMediaStream3PacketsSent" type="xs:integer" minOccurs="0"/>
+          <xs:element name="ingressMediaStream3PacketsReceived" type="xs:integer" minOccurs="0"/>
+          <xs:element name="ingressMediaStream3OctetsSent" type="xs:integer" minOccurs="0"/>
+          <xs:element name="ingressMediaStream3OctetsReceived" type="xs:integer" minOccurs="0"/>
+          <xs:element name="ingressMediaStream3RtcpPacketsSent" type="xs:integer" minOccurs="0"/>
+          <xs:element name="ingressMediaStream3RtcpPacketsReceived" type="xs:integer" minOccurs="0"/>
+          <xs:element name="ingressMediaStream3PacketsLost" type="xs:int" minOccurs="0"/>
+          <xs:element name="ingressMediaStream3PacketsDiscarded" type="xs:integer" minOccurs="0"/>
+          <xs:element name="ingressMediaStream3PacketLatency" type="xs:int" minOccurs="0"/>
+          <xs:element name="ingressMediaStream3InterarrivalJitter" type="xs:int" minOccurs="0"/>
+          <xs:element name="ingressMediaStream3StunDtlsPacketsReceived" type="xs:int" minOccurs="0"/>
+          <xs:element name="ingressMediaStream3StunDtlsPacketsDiscarded" type="xs:int" minOccurs="0"/>
+          <xs:element name="ingressMediaStream3SrtpAuthFailure" type="xs:int" minOccurs="0"/>
+          <xs:element name="ingressMediaStream3SrtpReplayFailure" type="xs:int" minOccurs="0"/>
+          <xs:element name="egressMediaStream3StatsValid" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="egressMediaStream3PacketsSent" type="xs:integer" minOccurs="0"/>
+          <xs:element name="egressMediaStream3PacketsReceived" type="xs:integer" minOccurs="0"/>
+          <xs:element name="egressMediaStream3OctetsSent" type="xs:integer" minOccurs="0"/>
+          <xs:element name="egressMediaStream3OctetsReceived" type="xs:integer" minOccurs="0"/>
+          <xs:element name="egressMediaStream3RtcpPacketsSent" type="xs:integer" minOccurs="0"/>
+          <xs:element name="egressMediaStream3RtcpPacketsReceived" type="xs:integer" minOccurs="0"/>
+          <xs:element name="egressMediaStream3PacketsLost" type="xs:int" minOccurs="0"/>
+          <xs:element name="egressMediaStream3PacketsDiscarded" type="xs:integer" minOccurs="0"/>
+          <xs:element name="egressMediaStream3PacketLatency" type="xs:int" minOccurs="0"/>
+          <xs:element name="egressMediaStream3InterarrivalJitter" type="xs:int" minOccurs="0"/>
+          <xs:element name="egressMediaStream3StunDtlsPacketsReceived" type="xs:int" minOccurs="0"/>
+          <xs:element name="egressMediaStream3StunDtlsPacketsDiscarded" type="xs:int" minOccurs="0"/>
+          <xs:element name="egressMediaStream3SrtpAuthFailure" type="xs:int" minOccurs="0"/>
+          <xs:element name="egressMediaStream3SrtpReplayFailure" type="xs:int" minOccurs="0"/>
+          <xs:element name="egressMediaStream3TcpRoleBits" type="ns29:SonusTcpConnectionBitMaskBits" minOccurs="0"/>
+          <xs:element name="egressMediaStream3TcpRole" type="xs:string" minOccurs="0"/>
+          <xs:element name="ingressMediaStream3TcpRoleBits" type="ns29:SonusTcpConnectionBitMaskBits" minOccurs="0"/>
+          <xs:element name="ingressMediaStream3TcpRole" type="xs:string" minOccurs="0"/>
+          <xs:element name="ingressMediaStream4StatsValid" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="mediaStream4Label" type="xs:string" minOccurs="0"/>
+          <xs:element name="mediaStream4Codec" type="xs:string" minOccurs="0"/>
+          <xs:element name="ingressMediaStream4PacketsSent" type="xs:integer" minOccurs="0"/>
+          <xs:element name="ingressMediaStream4PacketsReceived" type="xs:integer" minOccurs="0"/>
+          <xs:element name="ingressMediaStream4OctetsSent" type="xs:integer" minOccurs="0"/>
+          <xs:element name="ingressMediaStream4OctetsReceived" type="xs:integer" minOccurs="0"/>
+          <xs:element name="ingressMediaStream4RtcpPacketsSent" type="xs:integer" minOccurs="0"/>
+          <xs:element name="ingressMediaStream4RtcpPacketsReceived" type="xs:integer" minOccurs="0"/>
+          <xs:element name="ingressMediaStream4PacketsLost" type="xs:int" minOccurs="0"/>
+          <xs:element name="ingressMediaStream4PacketsDiscarded" type="xs:integer" minOccurs="0"/>
+          <xs:element name="ingressMediaStream4PacketLatency" type="xs:int" minOccurs="0"/>
+          <xs:element name="ingressMediaStream4InterarrivalJitter" type="xs:int" minOccurs="0"/>
+          <xs:element name="ingressMediaStream4StunDtlsPacketsReceived" type="xs:int" minOccurs="0"/>
+          <xs:element name="ingressMediaStream4StunDtlsPacketsDiscarded" type="xs:int" minOccurs="0"/>
+          <xs:element name="ingressMediaStream4SrtpAuthFailure" type="xs:int" minOccurs="0"/>
+          <xs:element name="ingressMediaStream4SrtpReplayFailure" type="xs:int" minOccurs="0"/>
+          <xs:element name="egressMediaStream4StatsValid" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="egressMediaStream4PacketsSent" type="xs:integer" minOccurs="0"/>
+          <xs:element name="egressMediaStream4PacketsReceived" type="xs:integer" minOccurs="0"/>
+          <xs:element name="egressMediaStream4OctetsSent" type="xs:integer" minOccurs="0"/>
+          <xs:element name="egressMediaStream4OctetsReceived" type="xs:integer" minOccurs="0"/>
+          <xs:element name="egressMediaStream4RtcpPacketsSent" type="xs:integer" minOccurs="0"/>
+          <xs:element name="egressMediaStream4RtcpPacketsReceived" type="xs:integer" minOccurs="0"/>
+          <xs:element name="egressMediaStream4PacketsLost" type="xs:int" minOccurs="0"/>
+          <xs:element name="egressMediaStream4PacketsDiscarded" type="xs:integer" minOccurs="0"/>
+          <xs:element name="egressMediaStream4PacketLatency" type="xs:int" minOccurs="0"/>
+          <xs:element name="egressMediaStream4InterarrivalJitter" type="xs:int" minOccurs="0"/>
+          <xs:element name="egressMediaStream4StunDtlsPacketsReceived" type="xs:int" minOccurs="0"/>
+          <xs:element name="egressMediaStream4StunDtlsPacketsDiscarded" type="xs:int" minOccurs="0"/>
+          <xs:element name="egressMediaStream4SrtpAuthFailure" type="xs:int" minOccurs="0"/>
+          <xs:element name="egressMediaStream4SrtpReplayFailure" type="xs:int" minOccurs="0"/>
+          <xs:element name="egressMediaStream4TcpRoleBits" type="ns29:SonusTcpConnectionBitMaskBits" minOccurs="0"/>
+          <xs:element name="egressMediaStream4TcpRole" type="xs:string" minOccurs="0"/>
+          <xs:element name="ingressMediaStream4TcpRoleBits" type="ns29:SonusTcpConnectionBitMaskBits" minOccurs="0"/>
+          <xs:element name="ingressMediaStream4TcpRole" type="xs:string" minOccurs="0"/>
+          <xs:element name="ingressMediaStream5StatsValid" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="mediaStream5Label" type="xs:string" minOccurs="0"/>
+          <xs:element name="mediaStream5Codec" type="xs:string" minOccurs="0"/>
+          <xs:element name="ingressMediaStream5PacketsSent" type="xs:integer" minOccurs="0"/>
+          <xs:element name="ingressMediaStream5PacketsReceived" type="xs:integer" minOccurs="0"/>
+          <xs:element name="ingressMediaStream5OctetsSent" type="xs:integer" minOccurs="0"/>
+          <xs:element name="ingressMediaStream5OctetsReceived" type="xs:integer" minOccurs="0"/>
+          <xs:element name="ingressMediaStream5RtcpPacketsSent" type="xs:integer" minOccurs="0"/>
+          <xs:element name="ingressMediaStream5RtcpPacketsReceived" type="xs:integer" minOccurs="0"/>
+          <xs:element name="ingressMediaStream5PacketsLost" type="xs:int" minOccurs="0"/>
+          <xs:element name="ingressMediaStream5PacketsDiscarded" type="xs:integer" minOccurs="0"/>
+          <xs:element name="ingressMediaStream5PacketLatency" type="xs:int" minOccurs="0"/>
+          <xs:element name="ingressMediaStream5InterarrivalJitter" type="xs:int" minOccurs="0"/>
+          <xs:element name="ingressMediaStream5StunDtlsPacketsReceived" type="xs:int" minOccurs="0"/>
+          <xs:element name="ingressMediaStream5StunDtlsPacketsDiscarded" type="xs:int" minOccurs="0"/>
+          <xs:element name="ingressMediaStream5SrtpAuthFailure" type="xs:int" minOccurs="0"/>
+          <xs:element name="ingressMediaStream5SrtpReplayFailure" type="xs:int" minOccurs="0"/>
+          <xs:element name="egressMediaStream5StatsValid" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="egressMediaStream5PacketsSent" type="xs:integer" minOccurs="0"/>
+          <xs:element name="egressMediaStream5PacketsReceived" type="xs:integer" minOccurs="0"/>
+          <xs:element name="egressMediaStream5OctetsSent" type="xs:integer" minOccurs="0"/>
+          <xs:element name="egressMediaStream5OctetsReceived" type="xs:integer" minOccurs="0"/>
+          <xs:element name="egressMediaStream5RtcpPacketsSent" type="xs:integer" minOccurs="0"/>
+          <xs:element name="egressMediaStream5RtcpPacketsReceived" type="xs:integer" minOccurs="0"/>
+          <xs:element name="egressMediaStream5PacketsLost" type="xs:int" minOccurs="0"/>
+          <xs:element name="egressMediaStream5PacketsDiscarded" type="xs:integer" minOccurs="0"/>
+          <xs:element name="egressMediaStream5PacketLatency" type="xs:int" minOccurs="0"/>
+          <xs:element name="egressMediaStream5InterarrivalJitter" type="xs:int" minOccurs="0"/>
+          <xs:element name="egressMediaStream5StunDtlsPacketsReceived" type="xs:int" minOccurs="0"/>
+          <xs:element name="egressMediaStream5StunDtlsPacketsDiscarded" type="xs:int" minOccurs="0"/>
+          <xs:element name="egressMediaStream5SrtpAuthFailure" type="xs:int" minOccurs="0"/>
+          <xs:element name="egressMediaStream5SrtpReplayFailure" type="xs:int" minOccurs="0"/>
+          <xs:element name="egressMediaStream5TcpRoleBits" type="ns29:SonusTcpConnectionBitMaskBits" minOccurs="0"/>
+          <xs:element name="egressMediaStream5TcpRole" type="xs:string" minOccurs="0"/>
+          <xs:element name="ingressMediaStream5TcpRoleBits" type="ns29:SonusTcpConnectionBitMaskBits" minOccurs="0"/>
+          <xs:element name="ingressMediaStream5TcpRole" type="xs:string" minOccurs="0"/>
+          <xs:element name="ingressMediaStream6StatsValid" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="mediaStream6Label" type="xs:string" minOccurs="0"/>
+          <xs:element name="mediaStream6Codec" type="xs:string" minOccurs="0"/>
+          <xs:element name="ingressMediaStream6PacketsSent" type="xs:integer" minOccurs="0"/>
+          <xs:element name="ingressMediaStream6PacketsReceived" type="xs:integer" minOccurs="0"/>
+          <xs:element name="ingressMediaStream6OctetsSent" type="xs:integer" minOccurs="0"/>
+          <xs:element name="ingressMediaStream6OctetsReceived" type="xs:integer" minOccurs="0"/>
+          <xs:element name="ingressMediaStream6RtcpPacketsSent" type="xs:integer" minOccurs="0"/>
+          <xs:element name="ingressMediaStream6RtcpPacketsReceived" type="xs:integer" minOccurs="0"/>
+          <xs:element name="ingressMediaStream6PacketsLost" type="xs:int" minOccurs="0"/>
+          <xs:element name="ingressMediaStream6PacketsDiscarded" type="xs:integer" minOccurs="0"/>
+          <xs:element name="ingressMediaStream6PacketLatency" type="xs:int" minOccurs="0"/>
+          <xs:element name="ingressMediaStream6InterarrivalJitter" type="xs:int" minOccurs="0"/>
+          <xs:element name="ingressMediaStream6StunDtlsPacketsReceived" type="xs:int" minOccurs="0"/>
+          <xs:element name="ingressMediaStream6StunDtlsPacketsDiscarded" type="xs:int" minOccurs="0"/>
+          <xs:element name="ingressMediaStream6SrtpAuthFailure" type="xs:int" minOccurs="0"/>
+          <xs:element name="ingressMediaStream6SrtpReplayFailure" type="xs:int" minOccurs="0"/>
+          <xs:element name="egressMediaStream6StatsValid" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="egressMediaStream6PacketsSent" type="xs:integer" minOccurs="0"/>
+          <xs:element name="egressMediaStream6PacketsReceived" type="xs:integer" minOccurs="0"/>
+          <xs:element name="egressMediaStream6OctetsSent" type="xs:integer" minOccurs="0"/>
+          <xs:element name="egressMediaStream6OctetsReceived" type="xs:integer" minOccurs="0"/>
+          <xs:element name="egressMediaStream6RtcpPacketsSent" type="xs:integer" minOccurs="0"/>
+          <xs:element name="egressMediaStream6RtcpPacketsReceived" type="xs:integer" minOccurs="0"/>
+          <xs:element name="egressMediaStream6PacketsLost" type="xs:int" minOccurs="0"/>
+          <xs:element name="egressMediaStream6PacketsDiscarded" type="xs:integer" minOccurs="0"/>
+          <xs:element name="egressMediaStream6PacketLatency" type="xs:int" minOccurs="0"/>
+          <xs:element name="egressMediaStream6InterarrivalJitter" type="xs:int" minOccurs="0"/>
+          <xs:element name="egressMediaStream6StunDtlsPacketsReceived" type="xs:int" minOccurs="0"/>
+          <xs:element name="egressMediaStream6StunDtlsPacketsDiscarded" type="xs:int" minOccurs="0"/>
+          <xs:element name="egressMediaStream6SrtpAuthFailure" type="xs:int" minOccurs="0"/>
+          <xs:element name="egressMediaStream6SrtpReplayFailure" type="xs:int" minOccurs="0"/>
+          <xs:element name="egressMediaStream6TcpRoleBits" type="ns29:SonusTcpConnectionBitMaskBits" minOccurs="0"/>
+          <xs:element name="egressMediaStream6TcpRole" type="xs:string" minOccurs="0"/>
+          <xs:element name="ingressMediaStream6TcpRoleBits" type="ns29:SonusTcpConnectionBitMaskBits" minOccurs="0"/>
+          <xs:element name="ingressMediaStream6TcpRole" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="callMediaStatusKey">
+    <xs:complexContent>
+      <xs:extension base="ns8:sbcReadOnlyKey">
+        <xs:sequence>
+          <xs:element name="gCID" type="xs:long" minOccurs="0"/>
+          <xs:element name="parentKey" type="ns9:globalKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="callMediaStatusListWrapper">
+    <xs:complexContent>
+      <xs:extension base="ns8:sbcListWrapper">
+        <xs:sequence>
+          <xs:element name="callMediaStatus" type="tns:callMediaStatus" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="callResourceDetailStatus">
+    <xs:complexContent>
+      <xs:extension base="ns8:sbcEntity">
+        <xs:sequence>
+          <xs:element name="GCID" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="resIndex" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="resId" type="xs:int" minOccurs="0"/>
+          <xs:element name="resType" type="ns29:sonusCallResTypeType" minOccurs="0"/>
+          <xs:element name="callId" type="xs:int" minOccurs="0"/>
+          <xs:element name="legId" type="xs:int" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="callResourceDetailStatusKey">
+    <xs:complexContent>
+      <xs:extension base="ns8:sbcReadOnlyKey">
+        <xs:sequence>
+          <xs:element name="gCID" type="xs:long" minOccurs="0"/>
+          <xs:element name="resIndex" type="xs:long" minOccurs="0"/>
+          <xs:element name="parentKey" type="ns9:globalKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="callResourceDetailStatusListWrapper">
+    <xs:complexContent>
+      <xs:extension base="ns8:sbcListWrapper">
+        <xs:sequence>
+          <xs:element name="callResourceDetailStatus" type="tns:callResourceDetailStatus" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="callCountStatus">
+    <xs:complexContent>
+      <xs:extension base="ns8:sbcEntity">
+        <xs:sequence>
+          <xs:element name="key" type="xs:string" minOccurs="0"/>
+          <xs:element name="callAttempts" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="callCompletions" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="activeCalls" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="stableCalls" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="callUpdates" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="activeCallsNonUser" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="stableCallsNonUser" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="totalCalls" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="totalCallsNonUser" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="totalCallsEmergEstablishing" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="totalCallsEmergStable" type="xs:unsignedInt" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="callCountStatusKey">
+    <xs:complexContent>
+      <xs:extension base="ns8:sbcReadOnlyKey">
+        <xs:sequence>
+          <xs:element name="key" type="xs:string" minOccurs="0"/>
+          <xs:element name="parentKey" type="ns9:globalKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="callCountStatusListWrapper">
+    <xs:complexContent>
+      <xs:extension base="ns8:sbcListWrapper">
+        <xs:sequence>
+          <xs:element name="callCountStatus" type="tns:callCountStatus" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="ocsCallCountStatus">
+    <xs:complexContent>
+      <xs:extension base="ns8:sbcEntity">
+        <xs:sequence>
+          <xs:element name="key" type="xs:string" minOccurs="0"/>
+          <xs:element name="attemptedCall" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="relayedCall" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="establishedCalls" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="successfulCalls" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="failedCalls" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="pendingCalls" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="rejectedCalls" type="xs:unsignedInt" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="ocsCallCountStatusKey">
+    <xs:complexContent>
+      <xs:extension base="ns8:sbcReadOnlyKey">
+        <xs:sequence>
+          <xs:element name="key" type="xs:string" minOccurs="0"/>
+          <xs:element name="parentKey" type="ns9:globalKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="ocsCallCountStatusListWrapper">
+    <xs:complexContent>
+      <xs:extension base="ns8:sbcListWrapper">
+        <xs:sequence>
+          <xs:element name="ocsCallCountStatus" type="tns:ocsCallCountStatus" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="carrier">
+    <xs:complexContent>
+      <xs:extension base="ns8:sbcEntity">
+        <xs:sequence>
+          <xs:element name="id" type="xs:string" minOccurs="0"/>
+          <xs:element name="services" type="ns30:services" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="carrierKey">
+    <xs:complexContent>
+      <xs:extension base="ns8:sbcKey">
+        <xs:sequence>
+          <xs:element name="id" type="xs:string" minOccurs="0"/>
+          <xs:element name="parentKey" type="ns9:globalKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="carrierListWrapper">
+    <xs:complexContent>
+      <xs:extension base="ns8:sbcListWrapper">
+        <xs:sequence>
+          <xs:element name="carrier" type="tns:carrier" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="country">
+    <xs:complexContent>
+      <xs:extension base="ns8:sbcEntity">
+        <xs:sequence>
+          <xs:element name="id" type="xs:string" minOccurs="0"/>
+          <xs:element name="variableLengthDialPlan" type="ns1:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="listOfNumberOfDigitsToMatch" type="ns31:listOfNumberOfDigitsToMatch" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="countryKey">
+    <xs:complexContent>
+      <xs:extension base="ns8:sbcKey">
+        <xs:sequence>
+          <xs:element name="id" type="xs:string" minOccurs="0"/>
+          <xs:element name="parentKey" type="ns9:globalKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="countryListWrapper">
+    <xs:complexContent>
+      <xs:extension base="ns8:sbcListWrapper">
+        <xs:sequence>
+          <xs:element name="country" type="tns:country" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="dtlsSrtpStatistics">
+    <xs:complexContent>
+      <xs:extension base="ns8:sbcEntity">
+        <xs:sequence>
+          <xs:element name="ceName" type="xs:string" minOccurs="0"/>
+          <xs:element name="currentClientConnections" type="xs:int" minOccurs="0"/>
+          <xs:element name="currentServerConnections" type="xs:int" minOccurs="0"/>
+          <xs:element name="totalClientSessions" type="xs:int" minOccurs="0"/>
+          <xs:element name="totalServerSessions" type="xs:int" minOccurs="0"/>
+          <xs:element name="successfulClientHandshakes" type="xs:int" minOccurs="0"/>
+          <xs:element name="successfulServerHandshakes" type="xs:int" minOccurs="0"/>
+          <xs:element name="sessionResumptions" type="xs:int" minOccurs="0"/>
+          <xs:element name="noCipherSuite" type="xs:int" minOccurs="0"/>
+          <xs:element name="handshakeTimeouts" type="xs:int" minOccurs="0"/>
+          <xs:element name="clientAuthFailures" type="xs:int" minOccurs="0"/>
+          <xs:element name="serverAuthFailures" type="xs:int" minOccurs="0"/>
+          <xs:element name="fatelAlertsReceived" type="xs:int" minOccurs="0"/>
+          <xs:element name="warningAlertsReceived" type="xs:int" minOccurs="0"/>
+          <xs:element name="handshakeFailures" type="xs:int" minOccurs="0"/>
+          <xs:element name="receiveFailures" type="xs:int" minOccurs="0"/>
+          <xs:element name="sendFailures" type="xs:int" minOccurs="0"/>
+          <xs:element name="noClientCert" type="xs:int" minOccurs="0"/>
+          <xs:element name="versionMismatch" type="xs:int" minOccurs="0"/>
+          <xs:element name="fingerprintMismatch" type="xs:int" minOccurs="0"/>
+          <xs:element name="noSrtpProfile" type="xs:int" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="dtlsSrtpStatisticsKey">
+    <xs:complexContent>
+      <xs:extension base="ns8:sbcReadOnlyKey">
+        <xs:sequence>
+          <xs:element name="ceName" type="xs:string" minOccurs="0"/>
+          <xs:element name="parentKey" type="ns9:globalKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="dtlsSrtpStatisticsListWrapper">
+    <xs:complexContent>
+      <xs:extension base="ns8:sbcListWrapper">
+        <xs:sequence>
+          <xs:element name="dtlsSrtpStatistics" type="tns:dtlsSrtpStatistics" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="callTrace">
+    <xs:complexContent>
+      <xs:extension base="ns8:sbcEntity">
+        <xs:sequence>
+          <xs:element name="maxTriggerCount" type="xs:int" default="0" minOccurs="0"/>
+          <xs:element name="callTraceTimer" type="xs:int" default="180" minOccurs="0"/>
+          <xs:element name="errorFilter" type="ns33:errorFilter" minOccurs="0"/>
+          <xs:element name="signalingPacketCapture" type="ns33:signalingPacketCapture" minOccurs="0"/>
+          <xs:element name="callFilter" type="ns33:callFilter" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="callTraceKey">
+    <xs:complexContent>
+      <xs:extension base="ns8:sbcUnCreatableKey">
+        <xs:sequence>
+          <xs:element name="parentKey" type="ns9:globalKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="callTraceStatus">
+    <xs:complexContent>
+      <xs:extension base="ns8:sbcEntity">
+        <xs:sequence>
+          <xs:element name="key" type="xs:string" minOccurs="0"/>
+          <xs:element name="timerValue" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="timeUsed" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="timeLeft" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="triggerCount" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="triggerCountLeft" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="state" type="ns32:sonusCallTraceStateType" minOccurs="0"/>
+          <xs:element name="signalingTimerValue" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="signalingTimerUsed" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="signalingTimerLeft" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="signalingCaptureState" type="ns32:sonusCallTraceStateType" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="callTraceStatusKey">
+    <xs:complexContent>
+      <xs:extension base="ns8:sbcReadOnlyKey">
+        <xs:sequence>
+          <xs:element name="key" type="xs:string" minOccurs="0"/>
+          <xs:element name="parentKey" type="ns9:globalKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="callTraceStatusListWrapper">
+    <xs:complexContent>
+      <xs:extension base="ns8:sbcListWrapper">
+        <xs:sequence>
+          <xs:element name="callTraceStatus" type="tns:callTraceStatus" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="globalTrunkGroupStatus">
+    <xs:complexContent>
+      <xs:extension base="ns8:sbcEntity">
+        <xs:sequence>
+          <xs:element name="name" type="xs:string" minOccurs="0"/>
+          <xs:element name="state" type="ns36:sonusTgOperStateType" minOccurs="0"/>
+          <xs:element name="totalCallsAvailable" type="xs:int" minOccurs="0"/>
+          <xs:element name="totalCallsInboundReserved" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="inboundCallsUsage" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="outboundCallsUsage" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="totalCallsConfigured" type="xs:int" minOccurs="0"/>
+          <xs:element name="priorityCallUsage" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="totalOutboundCallsReserved" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="bwCurrentLimit" type="xs:int" minOccurs="0"/>
+          <xs:element name="bwAvailable" type="xs:int" minOccurs="0"/>
+          <xs:element name="bwInboundUsage" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="bwOutboundUsage" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="packetOutDetectState" type="ns36:sonusTgPacketOutageDetectionStateType" minOccurs="0"/>
+          <xs:element name="addressContext" type="xs:string" minOccurs="0"/>
+          <xs:element name="zone" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="globalTrunkGroupStatusKey">
+    <xs:complexContent>
+      <xs:extension base="ns8:sbcReadOnlyKey">
+        <xs:sequence>
+          <xs:element name="name" type="xs:string" minOccurs="0"/>
+          <xs:element name="parentKey" type="ns9:globalKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="globalTrunkGroupStatusListWrapper">
+    <xs:complexContent>
+      <xs:extension base="ns8:sbcListWrapper">
+        <xs:sequence>
+          <xs:element name="globalTrunkGroupStatus" type="tns:globalTrunkGroupStatus" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+</xs:schema>
+

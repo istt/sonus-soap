@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="accounting.oam.v04_02_00.sbc.api.ems.sonus.com" xmlns:ns2="radius.accounting.oam.v04_02_00.sbc.api.ems.sonus.com" xmlns:ns1="sonusgen2radius.types.v04_02_00.sbc.api.ems.sonus.com" xmlns:ns4="v04_02_00.sbc.api.ems.sonus.com" xmlns:ns3="common.sbc.api.ems.sonus.com" xmlns:ns9="sonustc.types.v04_02_00.sbc.api.ems.sonus.com" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ns5="oam.v04_02_00.sbc.api.ems.sonus.com" xmlns:ns6="sonuscdrserver.types.v04_02_00.sbc.api.ems.sonus.com" xmlns:ns7="cdrserver.accounting.oam.v04_02_00.sbc.api.ems.sonus.com" xmlns:ns8="sonusaccounting.types.v04_02_00.sbc.api.ems.sonus.com">
+
+  <xs:import namespace="sonusgen2radius.types.v04_02_00.sbc.api.ems.sonus.com" schemaLocation="SBCV040200APIService_schema97.xsd"/>
+
+  <xs:import namespace="radius.accounting.oam.v04_02_00.sbc.api.ems.sonus.com" schemaLocation="SBCV040200APIService_schema194.xsd"/>
+
+  <xs:import namespace="common.sbc.api.ems.sonus.com" schemaLocation="SBCV040200APIService_schema325.xsd"/>
+
+  <xs:import namespace="v04_02_00.sbc.api.ems.sonus.com" schemaLocation="SBCV040200APIService_schema7.xsd"/>
+
+  <xs:import namespace="oam.v04_02_00.sbc.api.ems.sonus.com" schemaLocation="SBCV040200APIService_schema220.xsd"/>
+
+  <xs:import namespace="sonuscdrserver.types.v04_02_00.sbc.api.ems.sonus.com" schemaLocation="SBCV040200APIService_schema125.xsd"/>
+
+  <xs:import namespace="cdrserver.accounting.oam.v04_02_00.sbc.api.ems.sonus.com" schemaLocation="SBCV040200APIService_schema336.xsd"/>
+
+  <xs:import namespace="sonusaccounting.types.v04_02_00.sbc.api.ems.sonus.com" schemaLocation="SBCV040200APIService_schema129.xsd"/>
+
+  <xs:import namespace="sonustc.types.v04_02_00.sbc.api.ems.sonus.com" schemaLocation="SBCV040200APIService_schema42.xsd"/>
+
+  <xs:complexType name="radius">
+    <xs:complexContent>
+      <xs:extension base="ns3:sbcEntity">
+        <xs:sequence>
+          <xs:element name="accountingAdmin" type="ns2:accountingAdmin" minOccurs="0"/>
+          <xs:element name="radiusAuthentication" type="ns2:radiusAuthentication" minOccurs="0"/>
+          <xs:element name="radiusServer" type="ns2:radiusServer" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="radiusServerStatus" type="ns2:radiusServerStatus" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="radiusKey">
+    <xs:complexContent>
+      <xs:extension base="ns3:sbcUnCreatableKey">
+        <xs:sequence>
+          <xs:element name="parentKey" type="ns5:accountingKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="cdrServer">
+    <xs:complexContent>
+      <xs:extension base="ns3:sbcEntity">
+        <xs:sequence>
+          <xs:element name="admin" type="ns7:admin" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="status" type="ns7:status" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="cdrServerKey">
+    <xs:complexContent>
+      <xs:extension base="ns3:sbcUnCreatableKey">
+        <xs:sequence>
+          <xs:element name="parentKey" type="ns5:accountingKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="admin">
+    <xs:complexContent>
+      <xs:extension base="ns3:sbcEntity">
+        <xs:sequence>
+          <xs:element name="generationMode" type="ns8:sonusAcctGenerationModeType" default="origination" minOccurs="0"/>
+          <xs:element name="intermediateAcctState" type="ns9:sonusAdminState" default="disabled" minOccurs="0"/>
+          <xs:element name="intermediateAcctInterval" type="xs:int" default="60" minOccurs="0"/>
+          <xs:element name="secondStageInheritFirstStage" type="xs:boolean" default="false" minOccurs="0"/>
+          <xs:element name="populateNonPortedLnpNumbers" type="xs:boolean" default="true" minOccurs="0"/>
+          <xs:element name="intermediateAcctMode" type="ns8:sonusAcctIntAcctModeType" default="interval" minOccurs="0"/>
+          <xs:element name="intermediateLongDurGenTime" type="xs:string" default="00:00:00.0" minOccurs="0"/>
+          <xs:element name="startAcctState" type="ns9:sonusAdminState" default="enabled" minOccurs="0"/>
+          <xs:element name="intermediateTrapState" type="ns9:sonusAdminState" default="disabled" minOccurs="0"/>
+          <xs:element name="populateRemoteGsxInfoState" type="ns9:sonusAdminState" default="disabled" minOccurs="0"/>
+          <xs:element name="earlyAttemptState" type="ns9:sonusAdminState" default="disabled" minOccurs="0"/>
+          <xs:element name="intermediateLongDurThreshold" type="xs:unsignedInt" default="24" minOccurs="0"/>
+          <xs:element name="sendEgressCdrInfoOnReceipt" type="xs:boolean" default="false" minOccurs="0"/>
+          <xs:element name="populateIpTgFarEndSwitchType" type="ns9:sonusAdminState" default="disabled" minOccurs="0"/>
+          <xs:element name="maxRecordSequenceNum" type="ns8:sonusAcctMaxRecordSequenceNumType" default="uint16" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="adminKey">
+    <xs:complexContent>
+      <xs:extension base="ns3:sbcUnCreatableKey">
+        <xs:sequence>
+          <xs:element name="parentKey" type="ns5:accountingKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+</xs:schema>
+

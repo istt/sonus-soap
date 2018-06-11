@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="dynamicblacklist.addresscontext.v04_02_00.sbc.api.ems.sonus.com" xmlns:ns2="common.sbc.api.ems.sonus.com" xmlns:ns1="sonusdbl.types.v04_02_00.sbc.api.ems.sonus.com" xmlns:ns4="addresscontext.v04_02_00.sbc.api.ems.sonus.com" xmlns:ns3="v04_02_00.sbc.api.ems.sonus.com" xmlns:tns="dynamicblacklist.addresscontext.v04_02_00.sbc.api.ems.sonus.com" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:import namespace="sonusdbl.types.v04_02_00.sbc.api.ems.sonus.com" schemaLocation="SBCV040200APIService_schema120.xsd"/>
+
+  <xs:import namespace="common.sbc.api.ems.sonus.com" schemaLocation="SBCV040200APIService_schema325.xsd"/>
+
+  <xs:import namespace="v04_02_00.sbc.api.ems.sonus.com" schemaLocation="SBCV040200APIService_schema7.xsd"/>
+
+  <xs:import namespace="addresscontext.v04_02_00.sbc.api.ems.sonus.com" schemaLocation="SBCV040200APIService_schema364.xsd"/>
+
+  <xs:complexType name="dblStatus">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcEntity">
+        <xs:sequence>
+          <xs:element name="sourceIpAddress" type="xs:string" minOccurs="0"/>
+          <xs:element name="profile" type="xs:string" minOccurs="0"/>
+          <xs:element name="rule" type="xs:string" minOccurs="0"/>
+          <xs:element name="trunkGroup" type="xs:string" minOccurs="0"/>
+          <xs:element name="currentAction" type="ns1:sonusDBLRuleActionType" minOccurs="0"/>
+          <xs:element name="effectivePeriodRemaining" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="discardPacketCount" type="xs:unsignedInt" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="dblStatusKey">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcReadOnlyKey">
+        <xs:sequence>
+          <xs:element name="sourceIpAddress" type="xs:string" minOccurs="0"/>
+          <xs:element name="profile" type="xs:string" minOccurs="0"/>
+          <xs:element name="rule" type="xs:string" minOccurs="0"/>
+          <xs:element name="parentKey" type="ns4:dynamicBlackListKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="dblStatusListWrapper">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcListWrapper">
+        <xs:sequence>
+          <xs:element name="dblStatus" type="tns:dblStatus" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="dblPolicerStatus">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcEntity">
+        <xs:sequence>
+          <xs:element name="type" type="ns1:sonusApplicationTypeType" minOccurs="0"/>
+          <xs:element name="trunkGroupName" type="xs:string" minOccurs="0"/>
+          <xs:element name="profile" type="xs:string" minOccurs="0"/>
+          <xs:element name="rule" type="xs:string" minOccurs="0"/>
+          <xs:element name="cumulativeEnforcements" type="xs:unsignedLong" minOccurs="0"/>
+          <xs:element name="policerEnforcements" type="xs:unsignedInt" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="dblPolicerStatusKey">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcReadOnlyKey">
+        <xs:sequence>
+          <xs:element name="type" type="ns1:sonusApplicationTypeType" minOccurs="0"/>
+          <xs:element name="trunkGroupName" type="xs:string" minOccurs="0"/>
+          <xs:element name="profile" type="xs:string" minOccurs="0"/>
+          <xs:element name="rule" type="xs:string" minOccurs="0"/>
+          <xs:element name="parentKey" type="ns4:dynamicBlackListKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="dblPolicerStatusListWrapper">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcListWrapper">
+        <xs:sequence>
+          <xs:element name="dblPolicerStatus" type="tns:dblPolicerStatus" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+</xs:schema>
+

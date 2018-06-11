@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="dmpmcriteria.digitparameterhandling.profiles.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns16="cpc.parametercriteria.dmpmcriteria.digitparameterhandling.profiles.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns17="forwardcallindicator.parametercriteria.dmpmcriteria.digitparameterhandling.profiles.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns14="causeofnoid.parametercriteria.dmpmcriteria.digitparameterhandling.profiles.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns15="cliblockingindicator.parametercriteria.dmpmcriteria.digitparameterhandling.profiles.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns18="charactermatch.parametercriteria.dmpmcriteria.digitparameterhandling.profiles.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns19="paicharactermatch.parametercriteria.dmpmcriteria.digitparameterhandling.profiles.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns9="parametercriteria.dmpmcriteria.digitparameterhandling.profiles.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns21="uricriteria.dmpmcriteria.digitparameterhandling.profiles.v05_01_00.sbc.api.ems.sonus.com" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ns22="userinfo.uricriteria.dmpmcriteria.digitparameterhandling.profiles.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns5="common.sbc.api.ems.sonus.com" xmlns:ns12="carriercode.parametercriteria.dmpmcriteria.digitparameterhandling.profiles.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns6="profiles.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns13="carrierselectionparameter.parametercriteria.dmpmcriteria.digitparameterhandling.profiles.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns7="digitparameterhandling.profiles.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns10="prefixtype.parametercriteria.dmpmcriteria.digitparameterhandling.profiles.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns8="additionalcategory.parametercriteria.dmpmcriteria.digitparameterhandling.profiles.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns20="fromdisplayname.parametercriteria.dmpmcriteria.digitparameterhandling.profiles.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns11="callingname.parametercriteria.dmpmcriteria.digitparameterhandling.profiles.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns2="digitcriteria.dmpmcriteria.digitparameterhandling.profiles.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns1="sonusdmpmcriteria.types.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns4="sonusorcatc.types.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns3="digitmatch.digitcriteria.dmpmcriteria.digitparameterhandling.profiles.v05_01_00.sbc.api.ems.sonus.com">
+
+  <xs:import namespace="sonusdmpmcriteria.types.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema124.xsd"/>
+
+  <xs:import namespace="digitcriteria.dmpmcriteria.digitparameterhandling.profiles.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema343.xsd"/>
+
+  <xs:import namespace="digitmatch.digitcriteria.dmpmcriteria.digitparameterhandling.profiles.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema341.xsd"/>
+
+  <xs:import namespace="sonusorcatc.types.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema70.xsd"/>
+
+  <xs:import namespace="common.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema360.xsd"/>
+
+  <xs:import namespace="profiles.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema217.xsd"/>
+
+  <xs:import namespace="digitparameterhandling.profiles.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema340.xsd"/>
+
+  <xs:import namespace="additionalcategory.parametercriteria.dmpmcriteria.digitparameterhandling.profiles.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema409.xsd"/>
+
+  <xs:import namespace="parametercriteria.dmpmcriteria.digitparameterhandling.profiles.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema231.xsd"/>
+
+  <xs:import namespace="prefixtype.parametercriteria.dmpmcriteria.digitparameterhandling.profiles.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema219.xsd"/>
+
+  <xs:import namespace="callingname.parametercriteria.dmpmcriteria.digitparameterhandling.profiles.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema385.xsd"/>
+
+  <xs:import namespace="carriercode.parametercriteria.dmpmcriteria.digitparameterhandling.profiles.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema377.xsd"/>
+
+  <xs:import namespace="carrierselectionparameter.parametercriteria.dmpmcriteria.digitparameterhandling.profiles.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema374.xsd"/>
+
+  <xs:import namespace="causeofnoid.parametercriteria.dmpmcriteria.digitparameterhandling.profiles.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema373.xsd"/>
+
+  <xs:import namespace="cliblockingindicator.parametercriteria.dmpmcriteria.digitparameterhandling.profiles.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema363.xsd"/>
+
+  <xs:import namespace="cpc.parametercriteria.dmpmcriteria.digitparameterhandling.profiles.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema356.xsd"/>
+
+  <xs:import namespace="forwardcallindicator.parametercriteria.dmpmcriteria.digitparameterhandling.profiles.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema302.xsd"/>
+
+  <xs:import namespace="charactermatch.parametercriteria.dmpmcriteria.digitparameterhandling.profiles.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema369.xsd"/>
+
+  <xs:import namespace="paicharactermatch.parametercriteria.dmpmcriteria.digitparameterhandling.profiles.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema233.xsd"/>
+
+  <xs:import namespace="fromdisplayname.parametercriteria.dmpmcriteria.digitparameterhandling.profiles.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema298.xsd"/>
+
+  <xs:import namespace="uricriteria.dmpmcriteria.digitparameterhandling.profiles.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema12.xsd"/>
+
+  <xs:import namespace="userinfo.uricriteria.dmpmcriteria.digitparameterhandling.profiles.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema9.xsd"/>
+
+  <xs:complexType name="digitCriteria">
+    <xs:complexContent>
+      <xs:extension base="ns5:sbcEntity">
+        <xs:sequence>
+          <xs:element name="egressFlag" type="ns2:egressFlag" minOccurs="0"/>
+          <xs:element name="digitMatch" type="ns2:digitMatch" minOccurs="0"/>
+          <xs:element name="natureOfAddress" type="ns2:natureOfAddress" minOccurs="0"/>
+          <xs:element name="numberingPlanIndicator" type="ns2:numberingPlanIndicator" minOccurs="0"/>
+          <xs:element name="numberLength" type="ns2:numberLength" minOccurs="0"/>
+          <xs:element name="presentationMatch" type="ns2:presentationMatch" minOccurs="0"/>
+          <xs:element name="screeningMatch" type="ns2:screeningMatch" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="digitCriteriaKey">
+    <xs:complexContent>
+      <xs:extension base="ns5:sbcUnCreatableKey">
+        <xs:sequence>
+          <xs:element name="parentKey" type="ns7:dmPmCriteriaKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="parameterCriteria">
+    <xs:complexContent>
+      <xs:extension base="ns5:sbcEntity">
+        <xs:sequence>
+          <xs:element name="additionalCategory" type="ns9:additionalCategory" minOccurs="0"/>
+          <xs:element name="prefixType" type="ns9:prefixType" minOccurs="0"/>
+          <xs:element name="callingName" type="ns9:callingName" minOccurs="0"/>
+          <xs:element name="carrierCode" type="ns9:carrierCode" minOccurs="0"/>
+          <xs:element name="carrierSelectionParameter" type="ns9:carrierSelectionParameter" minOccurs="0"/>
+          <xs:element name="causeOfNoId" type="ns9:causeOfNoId" minOccurs="0"/>
+          <xs:element name="cliBlockingIndicator" type="ns9:cliBlockingIndicator" minOccurs="0"/>
+          <xs:element name="cpc" type="ns9:cpc" minOccurs="0"/>
+          <xs:element name="dpcIndicator" type="ns9:dpcIndicator" minOccurs="0"/>
+          <xs:element name="forwardCallIndicator" type="ns9:forwardCallIndicator" minOccurs="0"/>
+          <xs:element name="characterMatch" type="ns9:characterMatch" minOccurs="0"/>
+          <xs:element name="paiCharacterMatch" type="ns9:paiCharacterMatch" minOccurs="0"/>
+          <xs:element name="fromDisplayName" type="ns9:fromDisplayName" minOccurs="0"/>
+          <xs:element name="jurisdictionSwitch" type="ns9:jurisdictionSwitch" minOccurs="0"/>
+          <xs:element name="olip" type="ns9:olip" minOccurs="0"/>
+          <xs:element name="paiSipDisplayName" type="ns9:paiSipDisplayName" minOccurs="0"/>
+          <xs:element name="paiTelDisplayName" type="ns9:paiTelDisplayName" minOccurs="0"/>
+          <xs:element name="zzCode" type="ns9:zzCode" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="parameterCriteriaKey">
+    <xs:complexContent>
+      <xs:extension base="ns5:sbcUnCreatableKey">
+        <xs:sequence>
+          <xs:element name="parentKey" type="ns7:dmPmCriteriaKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="uriCriteria">
+    <xs:complexContent>
+      <xs:extension base="ns5:sbcEntity">
+        <xs:sequence>
+          <xs:element name="validateUserInfoDigits" type="ns1:sonusValidateUserOperationRange" default="ignore" minOccurs="0"/>
+          <xs:element name="presentationMatch" type="ns21:presentationMatch" minOccurs="0"/>
+          <xs:element name="host" type="ns21:host" minOccurs="0"/>
+          <xs:element name="userInfo" type="ns21:userInfo" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="uriCriteriaKey">
+    <xs:complexContent>
+      <xs:extension base="ns5:sbcUnCreatableKey">
+        <xs:sequence>
+          <xs:element name="parentKey" type="ns7:dmPmCriteriaKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+</xs:schema>
+

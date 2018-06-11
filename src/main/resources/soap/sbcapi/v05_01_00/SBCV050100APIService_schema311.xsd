@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="enumdomainnamelabel.servers.global.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns2="sonusdnszonelabel.types.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns1="common.sbc.api.ems.sonus.com" xmlns:ns4="servers.global.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns3="global.v05_01_00.sbc.api.ems.sonus.com" xmlns:tns="enumdomainnamelabel.servers.global.v05_01_00.sbc.api.ems.sonus.com" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:import namespace="common.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema360.xsd"/>
+
+  <xs:import namespace="sonusdnszonelabel.types.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema120.xsd"/>
+
+  <xs:import namespace="global.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema295.xsd"/>
+
+  <xs:import namespace="servers.global.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema177.xsd"/>
+
+  <xs:complexType name="enumDomainNameId">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcEntity">
+        <xs:sequence>
+          <xs:element name="enumDomainNameId" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="enumDomainNameIdKey">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcKey">
+        <xs:sequence>
+          <xs:element name="enumDomainNameId" type="xs:string" minOccurs="0"/>
+          <xs:element name="parentKey" type="ns4:enumDomainNameLabelKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="enumDomainNameIdListWrapper">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcListWrapper">
+        <xs:sequence>
+          <xs:element name="enumDomainNameId" type="tns:enumDomainNameId" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+</xs:schema>
+

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="codecroutingpriority.media.profiles.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns2="common.sbc.api.ems.sonus.com" xmlns:ns1="sonuscodecroutingpriority.types.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns4="media.profiles.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns3="profiles.v05_01_00.sbc.api.ems.sonus.com" xmlns:tns="codecroutingpriority.media.profiles.v05_01_00.sbc.api.ems.sonus.com" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:import namespace="sonuscodecroutingpriority.types.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema131.xsd"/>
+
+  <xs:import namespace="common.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema360.xsd"/>
+
+  <xs:import namespace="profiles.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema217.xsd"/>
+
+  <xs:import namespace="media.profiles.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema254.xsd"/>
+
+  <xs:complexType name="entry">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcEntity">
+        <xs:sequence>
+          <xs:element name="egressCodecGroup" type="ns1:sonusCodecGroup" minOccurs="0"/>
+          <xs:element name="codecPriority" type="xs:unsignedInt" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="entryKey">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcKey">
+        <xs:sequence>
+          <xs:element name="egressCodecGroup" type="ns1:sonusCodecGroup" minOccurs="0"/>
+          <xs:element name="codecPriority" type="xs:long" minOccurs="0"/>
+          <xs:element name="parentKey" type="ns4:codecRoutingPriorityKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="entryListWrapper">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcListWrapper">
+        <xs:sequence>
+          <xs:element name="entry" type="tns:entry" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+</xs:schema>
+

@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="ipaccesscontrollist.addresscontext.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns2="sonustc.types.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns1="sonusipacl.types.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns4="v05_01_00.sbc.api.ems.sonus.com" xmlns:ns3="common.sbc.api.ems.sonus.com" xmlns:tns="ipaccesscontrollist.addresscontext.v05_01_00.sbc.api.ems.sonus.com" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ns5="addresscontext.v05_01_00.sbc.api.ems.sonus.com">
+
+  <xs:import namespace="sonusipacl.types.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema89.xsd"/>
+
+  <xs:import namespace="sonustc.types.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema44.xsd"/>
+
+  <xs:import namespace="common.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema360.xsd"/>
+
+  <xs:import namespace="v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema7.xsd"/>
+
+  <xs:import namespace="addresscontext.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema408.xsd"/>
+
+  <xs:complexType name="rule">
+    <xs:complexContent>
+      <xs:extension base="ns3:sbcEntity">
+        <xs:sequence>
+          <xs:element name="name" type="xs:string" minOccurs="0"/>
+          <xs:element name="precedence" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="protocol" type="xs:string" default="any" minOccurs="0"/>
+          <xs:element name="protocolUnion" type="ns1:SonusIpAclProtocolTypeUnion" minOccurs="0"/>
+          <xs:element name="ipInterfaceGroup" type="xs:string" minOccurs="0"/>
+          <xs:element name="ipInterface" type="xs:string" minOccurs="0"/>
+          <xs:element name="mgmtIpInterfaceGroup" type="xs:string" minOccurs="0"/>
+          <xs:element name="mgmtIpInterface" type="xs:string" minOccurs="0"/>
+          <xs:element name="sourceIpAddress" type="xs:string" default="0.0.0.0" minOccurs="0"/>
+          <xs:element name="sourceAddressPrefixLength" type="xs:unsignedInt" default="0" minOccurs="0"/>
+          <xs:element name="destinationIpAddress" type="xs:string" default="0.0.0.0" minOccurs="0"/>
+          <xs:element name="destinationAddressPrefixLength" type="xs:unsignedInt" default="0" minOccurs="0"/>
+          <xs:element name="sourcePort" type="xs:string" default="any" minOccurs="0"/>
+          <xs:element name="sourcePortUnion" type="ns1:SonusIpAclPortTypeUnion" minOccurs="0"/>
+          <xs:element name="destinationPort" type="xs:string" default="any" minOccurs="0"/>
+          <xs:element name="destinationPortUnion" type="ns1:SonusIpAclPortTypeUnion" minOccurs="0"/>
+          <xs:element name="action" type="ns1:sonusIpAclActionType" default="accept" minOccurs="0"/>
+          <xs:element name="fillRate" type="xs:string" default="50" minOccurs="0"/>
+          <xs:element name="fillRateUnion" type="ns1:SonusIpAclFillRateTypeUnion" minOccurs="0"/>
+          <xs:element name="bucketSize" type="xs:string" default="50" minOccurs="0"/>
+          <xs:element name="bucketSizeUnion" type="ns1:SonusIpAclBucketSizeTypeUnion" minOccurs="0"/>
+          <xs:element name="state" type="ns2:sonusAdminState" default="disabled" minOccurs="0"/>
+          <xs:element name="vmAppName" type="xs:string" minOccurs="0"/>
+          <xs:element name="aggregatePolicer" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="ruleKey">
+    <xs:complexContent>
+      <xs:extension base="ns3:sbcKey">
+        <xs:sequence>
+          <xs:element name="name" type="xs:string" minOccurs="0"/>
+          <xs:element name="parentKey" type="ns5:ipAccessControlListKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="ruleListWrapper">
+    <xs:complexContent>
+      <xs:extension base="ns3:sbcListWrapper">
+        <xs:sequence>
+          <xs:element name="rule" type="tns:rule" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="ipAclRuleStatistics">
+    <xs:complexContent>
+      <xs:extension base="ns3:sbcEntity">
+        <xs:sequence>
+          <xs:element name="name" type="xs:string" minOccurs="0"/>
+          <xs:element name="matches" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="policerDiscards" type="xs:unsignedInt" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="ipAclRuleStatisticsKey">
+    <xs:complexContent>
+      <xs:extension base="ns3:sbcReadOnlyKey">
+        <xs:sequence>
+          <xs:element name="name" type="xs:string" minOccurs="0"/>
+          <xs:element name="parentKey" type="ns5:ipAccessControlListKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="ipAclRuleStatisticsListWrapper">
+    <xs:complexContent>
+      <xs:extension base="ns3:sbcListWrapper">
+        <xs:sequence>
+          <xs:element name="ipAclRuleStatistics" type="tns:ipAclRuleStatistics" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="ipAclOverallStatistics">
+    <xs:complexContent>
+      <xs:extension base="ns3:sbcEntity">
+        <xs:sequence>
+          <xs:element name="name" type="xs:string" minOccurs="0"/>
+          <xs:element name="matchedNoRule" type="xs:unsignedInt" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="ipAclOverallStatisticsKey">
+    <xs:complexContent>
+      <xs:extension base="ns3:sbcReadOnlyKey">
+        <xs:sequence>
+          <xs:element name="name" type="xs:string" minOccurs="0"/>
+          <xs:element name="parentKey" type="ns5:ipAccessControlListKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="ipAclOverallStatisticsListWrapper">
+    <xs:complexContent>
+      <xs:extension base="ns3:sbcListWrapper">
+        <xs:sequence>
+          <xs:element name="ipAclOverallStatistics" type="tns:ipAclOverallStatistics" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="ipAclRulesByPrecedence">
+    <xs:complexContent>
+      <xs:extension base="ns3:sbcEntity">
+        <xs:sequence>
+          <xs:element name="precedence" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="name" type="xs:string" minOccurs="0"/>
+          <xs:element name="matches" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="policerDiscards" type="xs:unsignedInt" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="ipAclRulesByPrecedenceKey">
+    <xs:complexContent>
+      <xs:extension base="ns3:sbcReadOnlyKey">
+        <xs:sequence>
+          <xs:element name="precedence" type="xs:long" minOccurs="0"/>
+          <xs:element name="parentKey" type="ns5:ipAccessControlListKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="ipAclRulesByPrecedenceListWrapper">
+    <xs:complexContent>
+      <xs:extension base="ns3:sbcListWrapper">
+        <xs:sequence>
+          <xs:element name="ipAclRulesByPrecedence" type="tns:ipAclRulesByPrecedence" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="defaultAclStatistics">
+    <xs:complexContent>
+      <xs:extension base="ns3:sbcEntity">
+        <xs:sequence>
+          <xs:element name="aclId" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="protocol" type="xs:string" minOccurs="0"/>
+          <xs:element name="application" type="xs:string" minOccurs="0"/>
+          <xs:element name="addressContextId" type="xs:string" minOccurs="0"/>
+          <xs:element name="lifGrpId" type="xs:string" minOccurs="0"/>
+          <xs:element name="sourceIpAddress" type="xs:string" minOccurs="0"/>
+          <xs:element name="destinationIpAddress" type="xs:string" minOccurs="0"/>
+          <xs:element name="policingMode" type="xs:string" minOccurs="0"/>
+          <xs:element name="bucketSize" type="xs:string" minOccurs="0"/>
+          <xs:element name="creditRate" type="xs:string" minOccurs="0"/>
+          <xs:element name="polId" type="xs:int" minOccurs="0"/>
+          <xs:element name="polPriority" type="xs:int" minOccurs="0"/>
+          <xs:element name="packetAccept" type="xs:int" minOccurs="0"/>
+          <xs:element name="packetDiscard" type="xs:int" minOccurs="0"/>
+          <xs:element name="aggPol" type="xs:string" minOccurs="0"/>
+          <xs:element name="owner" type="xs:string" minOccurs="0"/>
+          <xs:element name="vmGuestId" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="defaultAclStatisticsKey">
+    <xs:complexContent>
+      <xs:extension base="ns3:sbcReadOnlyKey">
+        <xs:sequence>
+          <xs:element name="aclId" type="xs:long" minOccurs="0"/>
+          <xs:element name="parentKey" type="ns5:ipAccessControlListKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="defaultAclStatisticsListWrapper">
+    <xs:complexContent>
+      <xs:extension base="ns3:sbcListWrapper">
+        <xs:sequence>
+          <xs:element name="defaultAclStatistics" type="tns:defaultAclStatistics" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="getAggrPolicers">
+    <xs:complexContent>
+      <xs:extension base="ns3:sbcEntity">
+        <xs:sequence>
+          <xs:element name="polId" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="policingType" type="xs:string" minOccurs="0"/>
+          <xs:element name="zoneId" type="xs:string" minOccurs="0"/>
+          <xs:element name="policingMode" type="xs:string" minOccurs="0"/>
+          <xs:element name="bucketSize" type="xs:string" minOccurs="0"/>
+          <xs:element name="creditRate" type="xs:string" minOccurs="0"/>
+          <xs:element name="packetAccept" type="xs:int" minOccurs="0"/>
+          <xs:element name="packetDiscard" type="xs:int" minOccurs="0"/>
+          <xs:element name="aggPolName" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="getAggrPolicersKey">
+    <xs:complexContent>
+      <xs:extension base="ns3:sbcReadOnlyKey">
+        <xs:sequence>
+          <xs:element name="polId" type="xs:long" minOccurs="0"/>
+          <xs:element name="parentKey" type="ns5:ipAccessControlListKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="getAggrPolicersListWrapper">
+    <xs:complexContent>
+      <xs:extension base="ns3:sbcListWrapper">
+        <xs:sequence>
+          <xs:element name="getAggrPolicers" type="tns:getAggrPolicers" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+</xs:schema>
+

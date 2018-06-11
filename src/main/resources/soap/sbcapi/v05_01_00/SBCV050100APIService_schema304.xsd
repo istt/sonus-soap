@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="forcecurrentserver.operation.admin.cdrserver.accounting.oam.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns2="accounting.oam.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns1="sonuscdrserver.types.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns4="common.sbc.api.ems.sonus.com" xmlns:ns3="cdrserver.accounting.oam.v05_01_00.sbc.api.ems.sonus.com" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:import namespace="sonuscdrserver.types.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema134.xsd"/>
+
+  <xs:import namespace="accounting.oam.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema413.xsd"/>
+
+  <xs:import namespace="cdrserver.accounting.oam.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema372.xsd"/>
+
+  <xs:import namespace="common.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema360.xsd"/>
+
+  <xs:complexType name="forceCurrentServerKey">
+    <xs:complexContent>
+      <xs:extension base="ns4:sbcOperationKey">
+        <xs:sequence>
+          <xs:element name="parentKey" type="ns3:adminKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="forceCurrentServer">
+    <xs:complexContent>
+      <xs:extension base="ns4:sbcOperationInput">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+</xs:schema>
+

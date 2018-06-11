@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="sonustimerangeprofile.types.v05_00_00.sbc.api.ems.sonus.com" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:complexType name="SonusDayOfWeekBitMaskBits">
+    <xs:sequence>
+      <xs:element name="monday" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="tuesday" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="wednesday" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="thursday" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="friday" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="saturday" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="sunday" type="xs:boolean" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:simpleType name="sonusTimeZone">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="psxLocal"/>
+      <xs:enumeration value="gmt"/>
+      <xs:enumeration value="unitedStatesEastern"/>
+      <xs:enumeration value="unitedStatesCentral"/>
+      <xs:enumeration value="unitedStatesMountain"/>
+      <xs:enumeration value="unitedStatesPacific"/>
+      <xs:enumeration value="unitedStatesAlaska"/>
+      <xs:enumeration value="unitedStatesAleutian"/>
+      <xs:enumeration value="unitedStatesArizona"/>
+      <xs:enumeration value="unitedStatesEastIndiana"/>
+      <xs:enumeration value="unitedStatesHawaii"/>
+      <xs:enumeration value="unitedStatesMichigan"/>
+      <xs:enumeration value="unitedStatesPacificNew"/>
+      <xs:enumeration value="unitedStatesSamoa"/>
+      <xs:enumeration value="australiaAct"/>
+      <xs:enumeration value="australiaBrokenHill"/>
+      <xs:enumeration value="australiaLhi"/>
+      <xs:enumeration value="australiaNsw"/>
+      <xs:enumeration value="australiaNorth"/>
+      <xs:enumeration value="australiaQueensland"/>
+      <xs:enumeration value="australiaSouth"/>
+      <xs:enumeration value="australiaTasmania"/>
+      <xs:enumeration value="australiaVictoria"/>
+      <xs:enumeration value="australiaWest"/>
+      <xs:enumeration value="australiaYancowinna"/>
+      <xs:enumeration value="brazilAcre"/>
+      <xs:enumeration value="brazilDeNoronha"/>
+      <xs:enumeration value="brazilEast"/>
+      <xs:enumeration value="brazilWest"/>
+      <xs:enumeration value="canadaAtlantic"/>
+      <xs:enumeration value="canadaCentral"/>
+      <xs:enumeration value="canadaEastern"/>
+      <xs:enumeration value="canadaEast Saskatchewan"/>
+      <xs:enumeration value="canadaMountain"/>
+      <xs:enumeration value="canadaNewfoundland"/>
+      <xs:enumeration value="canadaPacific"/>
+      <xs:enumeration value="canadaYukon"/>
+      <xs:enumeration value="chileContinental"/>
+      <xs:enumeration value="chileEasterIsland"/>
+      <xs:enumeration value="egypt"/>
+      <xs:enumeration value="ireland"/>
+      <xs:enumeration value="greatBritain"/>
+      <xs:enumeration value="greenwich"/>
+      <xs:enumeration value="hstHonolulu"/>
+      <xs:enumeration value="hongKong"/>
+      <xs:enumeration value="iceland"/>
+      <xs:enumeration value="iran"/>
+      <xs:enumeration value="israel"/>
+      <xs:enumeration value="jamaica"/>
+      <xs:enumeration value="japan"/>
+      <xs:enumeration value="kwajalein"/>
+      <xs:enumeration value="libya"/>
+      <xs:enumeration value="europeEastern"/>
+      <xs:enumeration value="europeCentral"/>
+      <xs:enumeration value="europeWestern"/>
+      <xs:enumeration value="mexicoBajaNorte"/>
+      <xs:enumeration value="mexicoBajaSur"/>
+      <xs:enumeration value="mexicoGeneral"/>
+      <xs:enumeration value="newZealand"/>
+      <xs:enumeration value="newZealandChatham"/>
+      <xs:enumeration value="navajo"/>
+      <xs:enumeration value="china"/>
+      <xs:enumeration value="poland"/>
+      <xs:enumeration value="portugal"/>
+      <xs:enumeration value="taiwan"/>
+      <xs:enumeration value="korea"/>
+      <xs:enumeration value="singapore"/>
+      <xs:enumeration value="turkey"/>
+      <xs:enumeration value="uct"/>
+      <xs:enumeration value="moscow"/>
+      <xs:enumeration value="zulu"/>
+      <xs:enumeration value="gmt+1"/>
+      <xs:enumeration value="gmt+2"/>
+      <xs:enumeration value="gmt+3"/>
+      <xs:enumeration value="gmt+4"/>
+      <xs:enumeration value="gmt+5"/>
+      <xs:enumeration value="gmt+6"/>
+      <xs:enumeration value="gmt+7"/>
+      <xs:enumeration value="gmt+8"/>
+      <xs:enumeration value="gmt+9"/>
+      <xs:enumeration value="gmt+10"/>
+      <xs:enumeration value="gmt+11"/>
+      <xs:enumeration value="gmt+12"/>
+      <xs:enumeration value="gmt+13"/>
+      <xs:enumeration value="gmt-1"/>
+      <xs:enumeration value="gmt-2"/>
+      <xs:enumeration value="gmt-3"/>
+      <xs:enumeration value="gmt-4"/>
+      <xs:enumeration value="gmt-5"/>
+      <xs:enumeration value="gmt-6"/>
+      <xs:enumeration value="gmt-7"/>
+      <xs:enumeration value="gmt-8"/>
+      <xs:enumeration value="gmt-9"/>
+      <xs:enumeration value="gmt-10"/>
+      <xs:enumeration value="gmt-11"/>
+      <xs:enumeration value="gmt-12"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusSpecialDaysRange">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="all"/>
+      <xs:enumeration value="none"/>
+      <xs:enumeration value="days"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusTimeRange">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="all"/>
+      <xs:enumeration value="none"/>
+      <xs:enumeration value="minutes"/>
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>
+

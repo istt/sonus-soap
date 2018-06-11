@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="signaling.global.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns2="v05_01_00.sbc.api.ems.sonus.com" xmlns:ns1="common.sbc.api.ems.sonus.com" xmlns:ns4="sonussipsigcontrols.types.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns3="global.v05_01_00.sbc.api.ems.sonus.com" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ns5="sonustc.types.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns6="sonusdiamsigcontrols.types.v05_01_00.sbc.api.ems.sonus.com">
+
+  <xs:import namespace="common.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema360.xsd"/>
+
+  <xs:import namespace="v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema7.xsd"/>
+
+  <xs:import namespace="global.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema295.xsd"/>
+
+  <xs:import namespace="sonussipsigcontrols.types.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema53.xsd"/>
+
+  <xs:import namespace="sonustc.types.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema44.xsd"/>
+
+  <xs:import namespace="sonusdiamsigcontrols.types.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema125.xsd"/>
+
+  <xs:complexType name="srvcc">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcEntity">
+        <xs:sequence>
+          <xs:element name="stnSr" type="xs:string" minOccurs="0"/>
+          <xs:element name="eStnSr" type="xs:string" minOccurs="0"/>
+          <xs:element name="atcfUri" type="xs:string" minOccurs="0"/>
+          <xs:element name="callLingerTimer" type="xs:int" default="8" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="srvccKey">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcUnCreatableKey">
+        <xs:sequence>
+          <xs:element name="parentKey" type="ns3:signalingKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="gwSigTimers">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcEntity">
+        <xs:sequence>
+          <xs:element name="establish" type="xs:unsignedShort" default="10" minOccurs="0"/>
+          <xs:element name="keepalive" type="xs:unsignedShort" default="3" minOccurs="0"/>
+          <xs:element name="retry" type="xs:unsignedShort" default="60" minOccurs="0"/>
+          <xs:element name="idle" type="xs:unsignedShort" default="0" minOccurs="0"/>
+          <xs:element name="congRelDelay" type="xs:unsignedShort" default="0" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="gwSigTimersKey">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcUnCreatableKey">
+        <xs:sequence>
+          <xs:element name="parentKey" type="ns3:signalingKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="h323SigTimers">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcEntity">
+        <xs:sequence>
+          <xs:element name="establish" type="xs:unsignedShort" default="4" minOccurs="0"/>
+          <xs:element name="tcpConnect" type="xs:unsignedShort" default="3" minOccurs="0"/>
+          <xs:element name="t301" type="xs:unsignedShort" default="180" minOccurs="0"/>
+          <xs:element name="t302" type="xs:unsignedShort" default="15" minOccurs="0"/>
+          <xs:element name="t303" type="xs:unsignedShort" default="4" minOccurs="0"/>
+          <xs:element name="t304" type="xs:unsignedShort" default="20" minOccurs="0"/>
+          <xs:element name="t310" type="xs:unsignedShort" default="10" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="h323SigTimersKey">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcUnCreatableKey">
+        <xs:sequence>
+          <xs:element name="parentKey" type="ns3:signalingKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="sipPeerOverloadControl">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcEntity">
+        <xs:sequence>
+          <xs:element name="samplingPeriod" type="xs:unsignedShort" default="2" minOccurs="0"/>
+          <xs:element name="discardPeriod" type="xs:unsignedShort" default="2" minOccurs="0"/>
+          <xs:element name="stepDownGain" type="xs:unsignedShort" default="100" minOccurs="0"/>
+          <xs:element name="rejectThreshold" type="xs:unsignedShort" default="1" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="sipPeerOverloadControlKey">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcUnCreatableKey">
+        <xs:sequence>
+          <xs:element name="parentKey" type="ns3:signalingKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="sipSigControls">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcEntity">
+        <xs:sequence>
+          <xs:element name="loopDetectionFeature" type="ns4:sonusSipSigControlsLoopDetectionFeatureType" default="enabled" minOccurs="0"/>
+          <xs:element name="registrarSupportContactParam" type="ns4:sonusSipSigControlsRegistrarSupportContactParamType" default="enabled" minOccurs="0"/>
+          <xs:element name="suppressErrorInfoHdr" type="ns4:sonusSipSigControlsSuppressErrorInfoHdrType" default="disabled" minOccurs="0"/>
+          <xs:element name="maxPduSizeValue" type="ns4:sonusSipSigControlsMaxPduSizeValueType" default="pdusize15kb" minOccurs="0"/>
+          <xs:element name="egressRNParam" type="ns4:sonusSipSigControlsEgressRNParamType" default="enabled" minOccurs="0"/>
+          <xs:element name="multipleContactsPerAor" type="ns4:sonusSipSigControlsMultipleContactsPerAor" default="enabled" minOccurs="0"/>
+          <xs:element name="ucidNodeId" type="xs:unsignedShort" default="0" minOccurs="0"/>
+          <xs:element name="surrogateRegisterPacingTime" type="xs:unsignedShort" default="0" minOccurs="0"/>
+          <xs:element name="sendSurrogateUnRegAfterReboot" type="ns5:sonusAdminState" default="disabled" minOccurs="0"/>
+          <xs:element name="send503DuringSwitchover" type="ns5:sonusAdminState" default="enabled" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="sipSigControlsKey">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcUnCreatableKey">
+        <xs:sequence>
+          <xs:element name="parentKey" type="ns3:signalingKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="diamSigControls">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcEntity">
+        <xs:sequence>
+          <xs:element name="enableRfApp" type="ns6:sonusDiamSigControlsEnableRfAppType" default="disabled" minOccurs="0"/>
+          <xs:element name="defaultCCF" type="xs:string" default="0.0.0.0" minOccurs="0"/>
+          <xs:element name="rfInterimAccInrvl" type="xs:unsignedShort" default="30" minOccurs="0"/>
+          <xs:element name="generateFailedEventAcr" type="ns6:sonusDiamSigControlsGenerateFailedEventAcrType" default="disabled" minOccurs="0"/>
+          <xs:element name="maxACRretransmission" type="xs:unsignedShort" default="0" minOccurs="0"/>
+          <xs:element name="addSonusSpecificAVP" type="ns6:sonusDiamSigControlsAddSonusSpecificAVPType" default="disabled" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="diamSigControlsKey">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcUnCreatableKey">
+        <xs:sequence>
+          <xs:element name="parentKey" type="ns3:signalingKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+</xs:schema>
+

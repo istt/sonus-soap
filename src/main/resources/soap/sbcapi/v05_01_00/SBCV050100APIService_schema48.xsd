@@ -1,0 +1,568 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="sonussiptrunkgroup.types.v05_01_00.sbc.api.ems.sonus.com" xmlns:tns="sonussiptrunkgroup.types.v05_01_00.sbc.api.ems.sonus.com" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:complexType name="SonusTgCallLimitTypeUnion">
+    <xs:sequence>
+      <xs:element name="sonusTgLimitTypeVal" type="xs:int" minOccurs="0"/>
+      <xs:element name="sonusTgLimitTypeUnlimited" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="SonusTgBandwidthLimitTypeUnion">
+    <xs:sequence>
+      <xs:element name="sonusTgLimitTypeVal" type="xs:int" minOccurs="0"/>
+      <xs:element name="sonusTgLimitTypeUnlimited" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="SonusTgRegLimitTypeUnion">
+    <xs:sequence>
+      <xs:element name="sonusTgLimitTypeVal" type="xs:int" minOccurs="0"/>
+      <xs:element name="sonusTgLimitTypeUnlimited" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="SonusTgSubsLimitTypeUnion">
+    <xs:sequence>
+      <xs:element name="sonusTgLimitTypeVal" type="xs:int" minOccurs="0"/>
+      <xs:element name="sonusTgLimitTypeUnlimited" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="SonusTgTcpMediaLimitTypeUnion">
+    <xs:sequence>
+      <xs:element name="sonusTgTcpLimitTypeVal" type="xs:int" minOccurs="0"/>
+      <xs:element name="sonusTgLimitTypeUnlimited" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="SonusTgMaxSustainedCallRateTypeUnion">
+    <xs:sequence>
+      <xs:element name="sonusTgTypeUnlimited" type="tns:sonusTgTypeUnlimited" minOccurs="0"/>
+      <xs:element name="sonusTgMaxSustainedCallRateTypeValue" type="xs:unsignedShort" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="SonusTgMaxCallBurstSizeTypeUnion">
+    <xs:sequence>
+      <xs:element name="sonusTgTypeUnlimited" type="tns:sonusTgTypeUnlimited" minOccurs="0"/>
+      <xs:element name="sonusTgMaxCallBurstSizeTypeValue" type="xs:unsignedShort" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="SonusTgMaxSustainedSIPRegRateTypeUnion">
+    <xs:sequence>
+      <xs:element name="sonusTgTypeUnlimited" type="tns:sonusTgTypeUnlimited" minOccurs="0"/>
+      <xs:element name="sonusTgMaxSustainedSIPRegRateTypeValue" type="xs:unsignedShort" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="SonusTgMaxSIPRegBurstSizeTypeUnion">
+    <xs:sequence>
+      <xs:element name="sonusTgTypeUnlimited" type="tns:sonusTgTypeUnlimited" minOccurs="0"/>
+      <xs:element name="sonusTgMaxSIPRegBurstSizeTypeValue" type="xs:unsignedShort" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="SonusTgMaxSustainedSIPSubsRateTypeUnion">
+    <xs:sequence>
+      <xs:element name="sonusTgTypeUnlimited" type="tns:sonusTgTypeUnlimited" minOccurs="0"/>
+      <xs:element name="sonusTgMaxSustainedSIPSubsRateTypeValue" type="xs:unsignedShort" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="SonusTgMaxSIPSubsBurstSizeTypeUnion">
+    <xs:sequence>
+      <xs:element name="sonusTgTypeUnlimited" type="tns:sonusTgTypeUnlimited" minOccurs="0"/>
+      <xs:element name="sonusTgMaxSIPSubsBurstSizeTypeValue" type="xs:unsignedShort" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="SonusTgMaxSustainedSIPOtherReqRateTypeUnion">
+    <xs:sequence>
+      <xs:element name="sonusTgTypeUnlimited" type="tns:sonusTgTypeUnlimited" minOccurs="0"/>
+      <xs:element name="sonusTgMaxSustainedSIPOtherReqRateTypeValue" type="xs:unsignedShort" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="SonusTgMaxSIPOtherReqBurstSizeTypeUnion">
+    <xs:sequence>
+      <xs:element name="sonusTgTypeUnlimited" type="tns:sonusTgTypeUnlimited" minOccurs="0"/>
+      <xs:element name="sonusTgMaxSIPOtherReqBurstSizeTypeValue" type="xs:unsignedShort" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="SonusSipSigTrunkGroupNatReLearningIntervalUnion">
+    <xs:sequence>
+      <xs:element name="sonusSipSigTrunkGroupNatReLearningIntervalNoneType" type="tns:sonusSipSigTrunkGroupNatReLearningIntervalNoneType" minOccurs="0"/>
+      <xs:element name="sonusSipSigTrunkGroupNatReLearningIntervalNumberType" type="xs:unsignedInt" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="SonusUdpPortNumTypeUnion">
+    <xs:sequence>
+      <xs:element name="sonusUdpPortNumTypeNone" type="tns:sonusUdpPortNumTypeNone" minOccurs="0"/>
+      <xs:element name="sonusUdpPortNumTypeVal" type="xs:unsignedShort" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="SonusTcpPortNumTypeUnion">
+    <xs:sequence>
+      <xs:element name="sonusTcpPortNumTypeNone" type="tns:sonusTcpPortNumTypeNone" minOccurs="0"/>
+      <xs:element name="sonusTcpPortNumTypeVal" type="xs:unsignedShort" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:simpleType name="sonusTgActionType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="dryUp"/>
+      <xs:enumeration value="force"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusTgUcidType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="none"/>
+      <xs:enumeration value="passthruOrGenerate"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusTgRecordingDNpreferenceType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="fromHeaderOnly"/>
+      <xs:enumeration value="toHeaderOnly"/>
+      <xs:enumeration value="fromHeaderPreferred"/>
+      <xs:enumeration value="toHeaderPreferred"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusTgMtrgResAllocation">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="localignored"/>
+      <xs:enumeration value="localpreffered"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusTgTypeUnlimited">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="unlimited"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusSipSigTrunkGroupAccessClassType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="none"/>
+      <xs:enumeration value="ac-3GPP"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusSipSigTrunkGroupRouteMsgValidationType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="noValidation"/>
+      <xs:enumeration value="sipOnly"/>
+      <xs:enumeration value="sipI"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusSipSigTrunkGroup100RelSupportType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="disabled"/>
+      <xs:enumeration value="enabled"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusSipSigTrunkGroupPrefRequireTransparencyType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="disabled"/>
+      <xs:enumeration value="enabled"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusSipSigTrunkGroupPrivacyParamRestrictedType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="default"/>
+      <xs:enumeration value="idonly"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusSipSigTrunkGroupURIPreferenceType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="none"/>
+      <xs:enumeration value="sip"/>
+      <xs:enumeration value="tel"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusSipSigTrunkGroupIsubParamPreferenceType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="rfc2806"/>
+      <xs:enumeration value="nonstandard"/>
+      <xs:enumeration value="rfc3966"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusSipSigTrunkGroupVariantTypeType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="sonus"/>
+      <xs:enumeration value="ttc"/>
+      <xs:enumeration value="q1912"/>
+      <xs:enumeration value="uk"/>
+      <xs:enumeration value="mgcf"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusSipSigTrunkGroupSilenceSuppTreatmentType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="treatAsFaxTransmissionIndication"/>
+      <xs:enumeration value="treatAsG711SilenceSuppOff"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusSipSigTrunkGroupUsePcfaCcfType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="disabled"/>
+      <xs:enumeration value="enabled"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusSipSigTrunkGroupCpcParamFromHeaderType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="default"/>
+      <xs:enumeration value="paitel"/>
+      <xs:enumeration value="fromheader"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusSipSigTrunkGroupMethodMessageType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="allow"/>
+      <xs:enumeration value="reject"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusSipSigTrunkGroupMethodPublishType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="allow"/>
+      <xs:enumeration value="reject"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusSipSigTrunkGroupMethodOptionsType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="allow"/>
+      <xs:enumeration value="reject"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusSipSigTrunkGroupMethodReferType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="allow"/>
+      <xs:enumeration value="reject"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusSipSigTrunkGroupMethodSubscribeType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="allow"/>
+      <xs:enumeration value="reject"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusSipSigTrunkGroupMethodNotifyType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="allow"/>
+      <xs:enumeration value="reject"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusSipSigTrunkGroupMethodInfoType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="allow"/>
+      <xs:enumeration value="reject"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusSipSigTrunkGroupMethodRegisterType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="allow"/>
+      <xs:enumeration value="reject"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusSipSigTrunkGroupMethodUpdateType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="allow"/>
+      <xs:enumeration value="reject"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusSipSigServiceGroupEnableSuspendResumeTimerForType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="userTypeOnly"/>
+      <xs:enumeration value="networkTypeOnly"/>
+      <xs:enumeration value="both"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusSipSigTrunkGroupRegistrationType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="none"/>
+      <xs:enumeration value="supported"/>
+      <xs:enumeration value="required"/>
+      <xs:enumeration value="required-nonpriority"/>
+      <xs:enumeration value="supported-group"/>
+      <xs:enumeration value="required-group"/>
+      <xs:enumeration value="required-group-nonpriority"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusBulkRegistration">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="disabled"/>
+      <xs:enumeration value="enabled"/>
+      <xs:enumeration value="followIngress"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="headerTypeAllowed">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="none"/>
+      <xs:enumeration value="xHeaders"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusSipSigTrunkGroupDnsSupportTypeType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="a-only"/>
+      <xs:enumeration value="a-srv-naptr"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusSipSigTrunkGroupReceivePreconditionsType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="none"/>
+      <xs:enumeration value="supported"/>
+      <xs:enumeration value="required"/>
+      <xs:enumeration value="transparent"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusSipSigTrunkGroupTransmitPreconditionsType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="none"/>
+      <xs:enumeration value="supported"/>
+      <xs:enumeration value="required"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusSipSigTrunkGroupEmergencyCallHandlingMode">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="none"/>
+      <xs:enumeration value="rejectWith380"/>
+      <xs:enumeration value="emergencyRegSupported"/>
+      <xs:enumeration value="emergencyRegRequired"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusSipSigTrunkGroupOverlapReceive">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="disabled"/>
+      <xs:enumeration value="infoMethod"/>
+      <xs:enumeration value="multiInvite"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusSipSigTrunkGroupOverlapSend">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="disabled"/>
+      <xs:enumeration value="infoMethod"/>
+      <xs:enumeration value="multiInvite"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusSipSigTrunkGroupLdcActionType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="noAction"/>
+      <xs:enumeration value="trap"/>
+      <xs:enumeration value="release"/>
+      <xs:enumeration value="trapAndRelease"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusSipSigTrunkGroupLdcEmergencyCallsType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="include"/>
+      <xs:enumeration value="exclude"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusIceSupportType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="none"/>
+      <xs:enumeration value="iceWebrtc"/>
+      <xs:enumeration value="iceLync"/>
+      <xs:enumeration value="iceFull"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusSipSigTrunkGroupNatReLearningIntervalNoneType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="none"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusSipSigTrunkGroupLateMediaSupportType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="convert"/>
+      <xs:enumeration value="passthru"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusSipSigTrunkGroupComediaConnectionRoleType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="none"/>
+      <xs:enumeration value="active"/>
+      <xs:enumeration value="passive"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusMediaIpAddressType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="matchSigAddrType"/>
+      <xs:enumeration value="iPv4"/>
+      <xs:enumeration value="iPv6"/>
+      <xs:enumeration value="iPv4andiPv6"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusOmrType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="disabled"/>
+      <xs:enumeration value="enabled"/>
+      <xs:enumeration value="ravelCallOnly"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusOfferBothEgVersionPrec">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="matchSigAddrType"/>
+      <xs:enumeration value="ipv4"/>
+      <xs:enumeration value="ipv6"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusOfferBothInVersionPrec">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="matchSigAddrType"/>
+      <xs:enumeration value="ipv4"/>
+      <xs:enumeration value="ipv6"/>
+      <xs:enumeration value="honorRecvPrec"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusEarlyMediaMethodType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="sessionAnswer"/>
+      <xs:enumeration value="pEarlyMedia"/>
+      <xs:enumeration value="rtpServerTable"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusPEarlyMediaGatingType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="sendrecv"/>
+      <xs:enumeration value="sendonly"/>
+      <xs:enumeration value="recvonly"/>
+      <xs:enumeration value="inactive"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusEarlyDialogMediaForkingBehaviour">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="lastProvResponse"/>
+      <xs:enumeration value="pemPriority"/>
+      <xs:enumeration value="firstProvResponse"/>
+      <xs:enumeration value="firstRtp"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusPcrfCommitmentType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="none"/>
+      <xs:enumeration value="supported"/>
+      <xs:enumeration value="required"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusFetchLocationInfoType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="none"/>
+      <xs:enumeration value="retrieveInOffer"/>
+      <xs:enumeration value="retrieveInAnswer"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusPcrfInteractionModeType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="synchronous"/>
+      <xs:enumeration value="asynchronous"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusUdpPortNumTypeNone">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="none"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusTcpPortNumTypeNone">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="none"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusSipSigTrunkGroupUseRouteSetType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="disabled"/>
+      <xs:enumeration value="stored"/>
+      <xs:enumeration value="received"/>
+      <xs:enumeration value="storedAll"/>
+      <xs:enumeration value="roamingOrStored"/>
+      <xs:enumeration value="rcbNextHopAndStored"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusSipSigTrunkGroupAnsSupervisionTimeoutActionType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="release"/>
+      <xs:enumeration value="trapAndRestart"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusTgOperStateType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="inService"/>
+      <xs:enumeration value="outOfService"/>
+      <xs:enumeration value="oosPending"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusTgPacketOutageDetectionStateType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="normal"/>
+      <xs:enumeration value="packetOutageState"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusSipArsStatEndpointArsStateType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="idle"/>
+      <xs:enumeration value="monitoring"/>
+      <xs:enumeration value="blacklisted"/>
+      <xs:enumeration value="recovering"/>
+      <xs:enumeration value="distrib-blklist"/>
+      <xs:enumeration value="distrib-recovery"/>
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>
+

@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="ipinterfacegroup.addresscontext.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns2="sonusipinterface.types.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns1="sonustc.types.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns4="common.sbc.api.ems.sonus.com" xmlns:ns3="ipinterface.ipinterfacegroup.addresscontext.v05_01_00.sbc.api.ems.sonus.com" xmlns:tns="ipinterfacegroup.addresscontext.v05_01_00.sbc.api.ems.sonus.com" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ns5="v05_01_00.sbc.api.ems.sonus.com" xmlns:ns6="addresscontext.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns7="sonusorcatc.types.v05_01_00.sbc.api.ems.sonus.com">
+
+  <xs:import namespace="sonustc.types.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema44.xsd"/>
+
+  <xs:import namespace="sonusipinterface.types.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema88.xsd"/>
+
+  <xs:import namespace="ipinterface.ipinterfacegroup.addresscontext.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema274.xsd"/>
+
+  <xs:import namespace="common.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema360.xsd"/>
+
+  <xs:import namespace="v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema7.xsd"/>
+
+  <xs:import namespace="addresscontext.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema408.xsd"/>
+
+  <xs:import namespace="sonusorcatc.types.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema70.xsd"/>
+
+  <xs:complexType name="ipInterface">
+    <xs:complexContent>
+      <xs:extension base="ns4:sbcEntity">
+        <xs:sequence>
+          <xs:element name="name" type="xs:string" minOccurs="0"/>
+          <xs:element name="ceName" type="xs:string" minOccurs="0"/>
+          <xs:element name="portName" type="xs:string" minOccurs="0"/>
+          <xs:element name="ipAddress" type="xs:string" minOccurs="0"/>
+          <xs:element name="prefix" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="altIpAddress" type="xs:string" minOccurs="0"/>
+          <xs:element name="altPrefix" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="mode" type="ns1:sonusServiceState" default="outOfService" minOccurs="0"/>
+          <xs:element name="action" type="ns2:sonusNifActionType" default="dryUp" minOccurs="0"/>
+          <xs:element name="dryupTimeout" type="xs:int" default="60" minOccurs="0"/>
+          <xs:element name="state" type="ns1:sonusAdminState" default="disabled" minOccurs="0"/>
+          <xs:element name="bwContingency" type="xs:int" default="0" minOccurs="0"/>
+          <xs:element name="vlanTag" type="xs:int" minOccurs="0"/>
+          <xs:element name="bandwidth" type="xs:int" default="0" minOccurs="0"/>
+          <xs:element name="altMediaIpAddresses" type="ns3:altMediaIpAddresses" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="ipInterfaceKey">
+    <xs:complexContent>
+      <xs:extension base="ns4:sbcKey">
+        <xs:sequence>
+          <xs:element name="name" type="xs:string" minOccurs="0"/>
+          <xs:element name="parentKey" type="ns6:ipInterfaceGroupKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="ipInterfaceListWrapper">
+    <xs:complexContent>
+      <xs:extension base="ns4:sbcListWrapper">
+        <xs:sequence>
+          <xs:element name="ipInterface" type="tns:ipInterface" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="ipInterfaceStatus">
+    <xs:complexContent>
+      <xs:extension base="ns4:sbcEntity">
+        <xs:sequence>
+          <xs:element name="name" type="xs:string" minOccurs="0"/>
+          <xs:element name="ifindex" type="xs:int" minOccurs="0"/>
+          <xs:element name="operState" type="ns2:sonusPktLifOperStateType" minOccurs="0"/>
+          <xs:element name="oosReason" type="ns7:sonusPktLifOutOfServiceReasonType" minOccurs="0"/>
+          <xs:element name="rxPackets" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="txPackets" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="allocatedBandwidth" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="bwDeviation" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="numMediaStreams" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="rxActualBandwidth" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="txActualBandwidth" type="xs:unsignedInt" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="ipInterfaceStatusKey">
+    <xs:complexContent>
+      <xs:extension base="ns4:sbcReadOnlyKey">
+        <xs:sequence>
+          <xs:element name="name" type="xs:string" minOccurs="0"/>
+          <xs:element name="parentKey" type="ns6:ipInterfaceGroupKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="ipInterfaceStatusListWrapper">
+    <xs:complexContent>
+      <xs:extension base="ns4:sbcListWrapper">
+        <xs:sequence>
+          <xs:element name="ipInterfaceStatus" type="tns:ipInterfaceStatus" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="mediaPortRangeAssigned">
+    <xs:complexContent>
+      <xs:extension base="ns4:sbcEntity">
+        <xs:sequence>
+          <xs:element name="baseUdpPort" type="xs:unsignedShort" minOccurs="0"/>
+          <xs:element name="maxUdpPort" type="xs:unsignedShort" minOccurs="0"/>
+          <xs:element name="maxSessions" type="xs:unsignedShort" minOccurs="0"/>
+          <xs:element name="mediaIpAddress" type="xs:string" minOccurs="0"/>
+          <xs:element name="tgName" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="mediaPortRangeAssignedKey">
+    <xs:complexContent>
+      <xs:extension base="ns4:sbcReadOnlyKey">
+        <xs:sequence>
+          <xs:element name="baseUdpPort" type="xs:int" minOccurs="0"/>
+          <xs:element name="parentKey" type="ns6:ipInterfaceGroupKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="mediaPortRangeAssignedListWrapper">
+    <xs:complexContent>
+      <xs:extension base="ns4:sbcListWrapper">
+        <xs:sequence>
+          <xs:element name="mediaPortRangeAssigned" type="tns:mediaPortRangeAssigned" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="mediaPortRangeUnassigned">
+    <xs:complexContent>
+      <xs:extension base="ns4:sbcEntity">
+        <xs:sequence>
+          <xs:element name="baseUdpPort" type="xs:unsignedShort" minOccurs="0"/>
+          <xs:element name="maxUdpPort" type="xs:unsignedShort" minOccurs="0"/>
+          <xs:element name="maxSessions" type="xs:unsignedShort" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="mediaPortRangeUnassignedKey">
+    <xs:complexContent>
+      <xs:extension base="ns4:sbcReadOnlyKey">
+        <xs:sequence>
+          <xs:element name="baseUdpPort" type="xs:int" minOccurs="0"/>
+          <xs:element name="parentKey" type="ns6:ipInterfaceGroupKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="mediaPortRangeUnassignedListWrapper">
+    <xs:complexContent>
+      <xs:extension base="ns4:sbcListWrapper">
+        <xs:sequence>
+          <xs:element name="mediaPortRangeUnassigned" type="tns:mediaPortRangeUnassigned" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="tcpPortRangeAssigned">
+    <xs:complexContent>
+      <xs:extension base="ns4:sbcEntity">
+        <xs:sequence>
+          <xs:element name="baseServerPort" type="xs:unsignedShort" minOccurs="0"/>
+          <xs:element name="maxServerPort" type="xs:unsignedShort" minOccurs="0"/>
+          <xs:element name="maxSessions" type="xs:unsignedShort" minOccurs="0"/>
+          <xs:element name="mediaIpAddress" type="xs:string" minOccurs="0"/>
+          <xs:element name="tgName" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="tcpPortRangeAssignedKey">
+    <xs:complexContent>
+      <xs:extension base="ns4:sbcReadOnlyKey">
+        <xs:sequence>
+          <xs:element name="baseServerPort" type="xs:int" minOccurs="0"/>
+          <xs:element name="parentKey" type="ns6:ipInterfaceGroupKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="tcpPortRangeAssignedListWrapper">
+    <xs:complexContent>
+      <xs:extension base="ns4:sbcListWrapper">
+        <xs:sequence>
+          <xs:element name="tcpPortRangeAssigned" type="tns:tcpPortRangeAssigned" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="tcpPortRangeUnassigned">
+    <xs:complexContent>
+      <xs:extension base="ns4:sbcEntity">
+        <xs:sequence>
+          <xs:element name="baseServerPort" type="xs:unsignedShort" minOccurs="0"/>
+          <xs:element name="maxServerPort" type="xs:unsignedShort" minOccurs="0"/>
+          <xs:element name="maxSessions" type="xs:unsignedShort" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="tcpPortRangeUnassignedKey">
+    <xs:complexContent>
+      <xs:extension base="ns4:sbcReadOnlyKey">
+        <xs:sequence>
+          <xs:element name="baseServerPort" type="xs:int" minOccurs="0"/>
+          <xs:element name="parentKey" type="ns6:ipInterfaceGroupKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="tcpPortRangeUnassignedListWrapper">
+    <xs:complexContent>
+      <xs:extension base="ns4:sbcListWrapper">
+        <xs:sequence>
+          <xs:element name="tcpPortRangeUnassigned" type="tns:tcpPortRangeUnassigned" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+</xs:schema>
+

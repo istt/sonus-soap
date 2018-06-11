@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="redirect.egressipattributes.ipsignalingprofile.signaling.profiles.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns2="common.sbc.api.ems.sonus.com" xmlns:ns1="sonustc.types.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns4="egressipattributes.ipsignalingprofile.signaling.profiles.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns3="ipsignalingprofile.signaling.profiles.v05_01_00.sbc.api.ems.sonus.com" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:import namespace="sonustc.types.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema44.xsd"/>
+
+  <xs:import namespace="common.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema360.xsd"/>
+
+  <xs:import namespace="ipsignalingprofile.signaling.profiles.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema266.xsd"/>
+
+  <xs:import namespace="egressipattributes.ipsignalingprofile.signaling.profiles.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema319.xsd"/>
+
+  <xs:complexType name="flags">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcEntity">
+        <xs:sequence>
+          <xs:element name="skipCrankbackProfileAndAlwaysCrankback" type="ns1:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="forceRequeryForRedirection" type="ns1:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="relayUnusedContactParams" type="ns1:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="honorEmbeddedHeadersIn3xx" type="ns1:sonusEnableDisable" default="disable" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="flagsKey">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcUnCreatableKey">
+        <xs:sequence>
+          <xs:element name="parentKey" type="ns4:redirectKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+</xs:schema>
+

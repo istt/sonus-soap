@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="dnsgroup.addresscontext.v04_02_00.sbc.api.ems.sonus.com" xmlns:ns2="sonusdns.types.v04_02_00.sbc.api.ems.sonus.com" xmlns:ns1="sonustc.types.v04_02_00.sbc.api.ems.sonus.com" xmlns:ns4="v04_02_00.sbc.api.ems.sonus.com" xmlns:ns3="common.sbc.api.ems.sonus.com" xmlns:tns="dnsgroup.addresscontext.v04_02_00.sbc.api.ems.sonus.com" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ns5="addresscontext.v04_02_00.sbc.api.ems.sonus.com" xmlns:ns6="localrecord.dnsgroup.addresscontext.v04_02_00.sbc.api.ems.sonus.com">
+
+  <xs:import namespace="sonustc.types.v04_02_00.sbc.api.ems.sonus.com" schemaLocation="SBCV040200APIService_schema42.xsd"/>
+
+  <xs:import namespace="sonusdns.types.v04_02_00.sbc.api.ems.sonus.com" schemaLocation="SBCV040200APIService_schema114.xsd"/>
+
+  <xs:import namespace="common.sbc.api.ems.sonus.com" schemaLocation="SBCV040200APIService_schema325.xsd"/>
+
+  <xs:import namespace="v04_02_00.sbc.api.ems.sonus.com" schemaLocation="SBCV040200APIService_schema7.xsd"/>
+
+  <xs:import namespace="addresscontext.v04_02_00.sbc.api.ems.sonus.com" schemaLocation="SBCV040200APIService_schema364.xsd"/>
+
+  <xs:import namespace="localrecord.dnsgroup.addresscontext.v04_02_00.sbc.api.ems.sonus.com" schemaLocation="SBCV040200APIService_schema235.xsd"/>
+
+  <xs:complexType name="server">
+    <xs:complexContent>
+      <xs:extension base="ns3:sbcEntity">
+        <xs:sequence>
+          <xs:element name="name" type="xs:string" minOccurs="0"/>
+          <xs:element name="state" type="ns1:sonusAdminState" default="disabled" minOccurs="0"/>
+          <xs:element name="recursionDesired" type="xs:boolean" default="true" minOccurs="0"/>
+          <xs:element name="ipAddress" type="xs:string" minOccurs="0"/>
+          <xs:element name="priority" type="xs:unsignedShort" default="0" minOccurs="0"/>
+          <xs:element name="weight" type="xs:unsignedShort" default="0" minOccurs="0"/>
+          <xs:element name="recordOrder" type="ns2:sonusDnsRecordOrderType" default="priority" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="serverKey">
+    <xs:complexContent>
+      <xs:extension base="ns3:sbcKey">
+        <xs:sequence>
+          <xs:element name="name" type="xs:string" minOccurs="0"/>
+          <xs:element name="parentKey" type="ns5:dnsGroupKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="serverListWrapper">
+    <xs:complexContent>
+      <xs:extension base="ns3:sbcListWrapper">
+        <xs:sequence>
+          <xs:element name="server" type="tns:server" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="dnsServerStatistics">
+    <xs:complexContent>
+      <xs:extension base="ns3:sbcEntity">
+        <xs:sequence>
+          <xs:element name="index" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="ipAddress" type="xs:string" minOccurs="0"/>
+          <xs:element name="queries" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="timeouts" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="errors" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="referrals" type="xs:unsignedInt" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="dnsServerStatisticsKey">
+    <xs:complexContent>
+      <xs:extension base="ns3:sbcReadOnlyKey">
+        <xs:sequence>
+          <xs:element name="index" type="xs:long" minOccurs="0"/>
+          <xs:element name="parentKey" type="ns5:dnsGroupKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="dnsServerStatisticsListWrapper">
+    <xs:complexContent>
+      <xs:extension base="ns3:sbcListWrapper">
+        <xs:sequence>
+          <xs:element name="dnsServerStatistics" type="tns:dnsServerStatistics" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="dnsEntryStatus">
+    <xs:complexContent>
+      <xs:extension base="ns3:sbcEntity">
+        <xs:sequence>
+          <xs:element name="name" type="xs:string" minOccurs="0"/>
+          <xs:element name="index" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="domainName" type="xs:string" minOccurs="0"/>
+          <xs:element name="type" type="ns2:sonusDnsEntryStatusTypeType" minOccurs="0"/>
+          <xs:element name="foreignRecord" type="xs:boolean" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="dnsEntryStatusKey">
+    <xs:complexContent>
+      <xs:extension base="ns3:sbcReadOnlyKey">
+        <xs:sequence>
+          <xs:element name="name" type="xs:string" minOccurs="0"/>
+          <xs:element name="index" type="xs:long" minOccurs="0"/>
+          <xs:element name="parentKey" type="ns5:dnsGroupKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="dnsEntryStatusListWrapper">
+    <xs:complexContent>
+      <xs:extension base="ns3:sbcListWrapper">
+        <xs:sequence>
+          <xs:element name="dnsEntryStatus" type="tns:dnsEntryStatus" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="localRecord">
+    <xs:complexContent>
+      <xs:extension base="ns3:sbcEntity">
+        <xs:sequence>
+          <xs:element name="name" type="xs:string" minOccurs="0"/>
+          <xs:element name="hostName" type="xs:string" minOccurs="0"/>
+          <xs:element name="state" type="ns1:sonusAdminState" default="enabled" minOccurs="0"/>
+          <xs:element name="order" type="ns2:sonusDnsRecordOrderType" default="priority" minOccurs="0"/>
+          <xs:element name="data" type="ns6:data" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="localRecordKey">
+    <xs:complexContent>
+      <xs:extension base="ns3:sbcKey">
+        <xs:sequence>
+          <xs:element name="name" type="xs:string" minOccurs="0"/>
+          <xs:element name="parentKey" type="ns5:dnsGroupKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="localRecordListWrapper">
+    <xs:complexContent>
+      <xs:extension base="ns3:sbcListWrapper">
+        <xs:sequence>
+          <xs:element name="localRecord" type="tns:localRecord" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="dnsEntryDataStatus">
+    <xs:complexContent>
+      <xs:extension base="ns3:sbcEntity">
+        <xs:sequence>
+          <xs:element name="type" type="ns2:sonusDnsEntryDataStatusTypeType" minOccurs="0"/>
+          <xs:element name="domainName" type="xs:string" minOccurs="0"/>
+          <xs:element name="recordIndex" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="recordDataIndex" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="recordName" type="xs:string" minOccurs="0"/>
+          <xs:element name="ttl" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="priority" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="weight" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="portNum" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="preference" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="ipAddress" type="xs:string" minOccurs="0"/>
+          <xs:element name="service" type="xs:string" minOccurs="0"/>
+          <xs:element name="hostName" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="dnsEntryDataStatusKey">
+    <xs:complexContent>
+      <xs:extension base="ns3:sbcReadOnlyKey">
+        <xs:sequence>
+          <xs:element name="type" type="ns2:sonusDnsEntryDataStatusTypeType" minOccurs="0"/>
+          <xs:element name="domainName" type="xs:string" minOccurs="0"/>
+          <xs:element name="recordIndex" type="xs:long" minOccurs="0"/>
+          <xs:element name="recordDataIndex" type="xs:long" minOccurs="0"/>
+          <xs:element name="recordName" type="xs:string" minOccurs="0"/>
+          <xs:element name="parentKey" type="ns5:dnsGroupKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="dnsEntryDataStatusListWrapper">
+    <xs:complexContent>
+      <xs:extension base="ns3:sbcListWrapper">
+        <xs:sequence>
+          <xs:element name="dnsEntryDataStatus" type="tns:dnsEntryDataStatus" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+</xs:schema>
+

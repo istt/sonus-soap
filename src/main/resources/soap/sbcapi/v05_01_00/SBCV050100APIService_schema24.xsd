@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="timerangeprofile.callrouting.profiles.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns2="sonustc.types.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns1="sonustimerangeprofile.types.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns4="entry.timerangeprofile.callrouting.profiles.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns3="daymatching.entry.timerangeprofile.callrouting.profiles.v05_01_00.sbc.api.ems.sonus.com" xmlns:tns="timerangeprofile.callrouting.profiles.v05_01_00.sbc.api.ems.sonus.com" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ns5="common.sbc.api.ems.sonus.com" xmlns:ns6="profiles.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns7="callrouting.profiles.v05_01_00.sbc.api.ems.sonus.com">
+
+  <xs:import namespace="sonustimerangeprofile.types.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema43.xsd"/>
+
+  <xs:import namespace="sonustc.types.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema44.xsd"/>
+
+  <xs:import namespace="daymatching.entry.timerangeprofile.callrouting.profiles.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema348.xsd"/>
+
+  <xs:import namespace="entry.timerangeprofile.callrouting.profiles.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema313.xsd"/>
+
+  <xs:import namespace="common.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema360.xsd"/>
+
+  <xs:import namespace="profiles.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema217.xsd"/>
+
+  <xs:import namespace="callrouting.profiles.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema380.xsd"/>
+
+  <xs:complexType name="entry">
+    <xs:complexContent>
+      <xs:extension base="ns5:sbcEntity">
+        <xs:sequence>
+          <xs:element name="entry" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="timeZone" type="ns1:sonusTimeZone" default="psxLocal" minOccurs="0"/>
+          <xs:element name="dayMatching" type="ns4:dayMatching" minOccurs="0"/>
+          <xs:element name="timeMatching" type="ns4:timeMatching" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="entryKey">
+    <xs:complexContent>
+      <xs:extension base="ns5:sbcKey">
+        <xs:sequence>
+          <xs:element name="entry" type="xs:long" minOccurs="0"/>
+          <xs:element name="parentKey" type="ns7:timeRangeProfileKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="entryListWrapper">
+    <xs:complexContent>
+      <xs:extension base="ns5:sbcListWrapper">
+        <xs:sequence>
+          <xs:element name="entry" type="tns:entry" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+</xs:schema>
+

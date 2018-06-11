@@ -1,0 +1,370 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="dspres.system.v04_02_00.sbc.api.ems.sonus.com" xmlns:ns2="v04_02_00.sbc.api.ems.sonus.com" xmlns:ns1="common.sbc.api.ems.sonus.com" xmlns:ns4="snmpv2_tc.types.v04_02_00.sbc.api.ems.sonus.com" xmlns:ns3="system.v04_02_00.sbc.api.ems.sonus.com" xmlns:tns="dspres.system.v04_02_00.sbc.api.ems.sonus.com" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:import namespace="common.sbc.api.ems.sonus.com" schemaLocation="SBCV040200APIService_schema325.xsd"/>
+
+  <xs:import namespace="v04_02_00.sbc.api.ems.sonus.com" schemaLocation="SBCV040200APIService_schema7.xsd"/>
+
+  <xs:import namespace="system.v04_02_00.sbc.api.ems.sonus.com" schemaLocation="SBCV040200APIService_schema26.xsd"/>
+
+  <xs:import namespace="snmpv2_tc.types.v04_02_00.sbc.api.ems.sonus.com" schemaLocation="SBCV040200APIService_schema132.xsd"/>
+
+  <xs:complexType name="dspCallCurrentStatistics">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcEntity">
+        <xs:sequence>
+          <xs:element name="systemName" type="xs:string" minOccurs="0"/>
+          <xs:element name="numCallSuccessNoDspAllocFailure" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="numCallSuccessWithDspAllocFailure" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="numCallFailNoG729" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="numCallFailOtherOnG729" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="numCallSuccessNoG729" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="numCallFailNoG726" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="numCallFailOtherOnG726" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="numCallSuccessNoG726" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="numCallFailNoG711Packet" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="numCallFailOtherOnG711Packet" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="numCallSuccessNoG711Packet" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="numCallFailNoG723" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="numCallFailOtherOnG723" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="numCallSuccessNoG723" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="numCallFailNoIlbc" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="numCallFailOtherOnIlbc" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="numCallSuccessNoIlbc" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="numCallFailNoEvrcb0" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="numCallFailOtherOnEvrcb0" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="numCallSuccessNoEvrcb0" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="numCallFailNoAmr" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="numCallFailOtherOnAmr" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="numCallSuccessNoAmr" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="numCallFailNoAmrwb" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="numCallFailOtherOnAmrwb" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="numCallSuccessNoAmrwb" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="numCallFailNoG722" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="numCallFailOtherOnG722" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="numCallSuccessNoG722" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="numCallFailNoTone" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="numCallFailOtherOnTone" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="numCallSuccessNoTone" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="numCallFailNoEvrc" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="numCallFailOtherOnEvrc" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="numCallSuccessNoEvrc" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="numCallFailNoG7221" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="numCallFailOtherOnG7221" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="numCallSuccessNoG7221" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="numCallFailNoEfr" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="numCallFailOtherOnEfr" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="numCallSuccessNoEfr" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="numCallFailNoOpus" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="numCallFailOtherOnOpus" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="numCallSuccessNoOpus" type="xs:unsignedInt" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="dspCallCurrentStatisticsKey">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcReadOnlyKey">
+        <xs:sequence>
+          <xs:element name="systemName" type="xs:string" minOccurs="0"/>
+          <xs:element name="parentKey" type="ns3:dspResKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="dspCallCurrentStatisticsListWrapper">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcListWrapper">
+        <xs:sequence>
+          <xs:element name="dspCallCurrentStatistics" type="tns:dspCallCurrentStatistics" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="dspCallIntervalStatistics">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcEntity">
+        <xs:sequence>
+          <xs:element name="number" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="systemName" type="xs:string" minOccurs="0"/>
+          <xs:element name="intervalValid" type="ns4:truthValue" minOccurs="0"/>
+          <xs:element name="time" type="xs:long" minOccurs="0"/>
+          <xs:element name="numCallSuccessNoDspAllocFailure" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="numCallSuccessWithDspAllocFailure" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="numCallFailNoG729" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="numCallFailOtherOnG729" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="numCallSuccessNoG729" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="numCallFailNoG726" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="numCallFailOtherOnG726" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="numCallSuccessNoG726" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="numCallFailNoG711Packet" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="numCallFailOtherOnG711Packet" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="numCallSuccessNoG711Packet" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="numCallFailNoG723" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="numCallFailOtherOnG723" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="numCallSuccessNoG723" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="numCallFailNoIlbc" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="numCallFailOtherOnIlbc" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="numCallSuccessNoIlbc" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="numCallFailNoEvrcb0" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="numCallFailOtherOnEvrcb0" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="numCallSuccessNoEvrcb0" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="numCallFailNoAmr" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="numCallFailOtherOnAmr" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="numCallSuccessNoAmr" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="numCallFailNoAmrwb" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="numCallFailOtherOnAmrwb" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="numCallSuccessNoAmrwb" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="numCallFailNoG722" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="numCallFailOtherOnG722" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="numCallSuccessNoG722" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="numCallFailNoTone" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="numCallFailOtherOnTone" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="numCallSuccessNoTone" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="numCallFailNoEvrc" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="numCallFailOtherOnEvrc" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="numCallSuccessNoEvrc" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="numCallFailNoG7221" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="numCallFailOtherOnG7221" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="numCallSuccessNoG7221" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="numCallFailNoEfr" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="numCallFailOtherOnEfr" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="numCallSuccessNoEfr" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="numCallFailNoOpus" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="numCallFailOtherOnOpus" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="numCallSuccessNoOpus" type="xs:unsignedInt" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="dspCallIntervalStatisticsKey">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcReadOnlyKey">
+        <xs:sequence>
+          <xs:element name="number" type="xs:long" minOccurs="0"/>
+          <xs:element name="systemName" type="xs:string" minOccurs="0"/>
+          <xs:element name="parentKey" type="ns3:dspResKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="dspCallIntervalStatisticsListWrapper">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcListWrapper">
+        <xs:sequence>
+          <xs:element name="dspCallIntervalStatistics" type="tns:dspCallIntervalStatistics" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="dspUsageCurrentStatistics">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcEntity">
+        <xs:sequence>
+          <xs:element name="systemName" type="xs:string" minOccurs="0"/>
+          <xs:element name="G729PeakUsedCount" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="G729AverageUsedCount" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="G729AverageAvailCount" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="G726PeakUsedCount" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="G726AverageUsedCount" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="G726AverageAvailCount" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="G711PacketPeakUsedCount" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="G711PacketAverageUsedCount" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="G711PacketAverageAvailCount" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="G711SSPacketPeakUsedCount" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="G711SSPacketAverageUsedCount" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="G711SSPacketAverageAvailCount" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="G723PeakUsedCount" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="G723AverageUsedCount" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="G723AverageAvailCount" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="ilbcPeakUsedCount" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="ilbcAverageUsedCount" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="ilbcAverageAvailCount" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="evrcb0PeakUsedCount" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="evrcb0AverageUsedCount" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="evrcb0AverageAvailCount" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="amrPeakUsedCount" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="amrAverageUsedCount" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="amrAverageAvailCount" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="amrwbPeakUsedCount" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="amrwbAverageUsedCount" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="amrwbAverageAvailCount" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="G722PeakUsedCount" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="G722AverageUsedCount" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="G722AverageAvailCount" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="TonePeakUsedCount" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="ToneAverageUsedCount" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="ToneAverageAvailCount" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="evrcPeakUsedCount" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="evrcAverageUsedCount" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="evrcAverageAvailCount" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="G7221PeakUsedCount" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="G7221AverageUsedCount" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="G7221AverageAvailCount" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="efrPeakUsedCount" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="efrAverageUsedCount" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="efrAverageAvailCount" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="G729V8PeakUsedCount" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="G729V8AverageUsedCount" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="G729V8AverageAvailCount" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="G726V8PeakUsedCount" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="G726V8AverageUsedCount" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="G726V8AverageAvailCount" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="G711PacketV8PeakUsedCount" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="G711PacketV8AverageUsedCount" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="G711PacketV8AverageAvailCount" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="G711SSPacketV8PeakUsedCount" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="G711SSPacketV8AverageUsedCount" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="G711SSPacketV8AverageAvailCount" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="G723V8PeakUsedCount" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="G723V8AverageUsedCount" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="G723V8AverageAvailCount" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="ilbcV8PeakUsedCount" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="ilbcV8AverageUsedCount" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="ilbcV8AverageAvailCount" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="G722V8PeakUsedCount" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="G722V8AverageUsedCount" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="G722V8AverageAvailCount" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="G7221V8PeakUsedCount" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="G7221V8AverageUsedCount" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="G7221V8AverageAvailCount" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="opusPeakUsedCount" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="opusAverageUsedCount" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="opusAverageAvailCount" type="xs:unsignedInt" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="dspUsageCurrentStatisticsKey">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcReadOnlyKey">
+        <xs:sequence>
+          <xs:element name="systemName" type="xs:string" minOccurs="0"/>
+          <xs:element name="parentKey" type="ns3:dspResKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="dspUsageCurrentStatisticsListWrapper">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcListWrapper">
+        <xs:sequence>
+          <xs:element name="dspUsageCurrentStatistics" type="tns:dspUsageCurrentStatistics" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="dspUsageIntervalStatistics">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcEntity">
+        <xs:sequence>
+          <xs:element name="number" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="systemName" type="xs:string" minOccurs="0"/>
+          <xs:element name="intervalValid" type="ns4:truthValue" minOccurs="0"/>
+          <xs:element name="time" type="xs:long" minOccurs="0"/>
+          <xs:element name="G729PeakUsedCount" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="G729AverageUsedCount" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="G729AverageAvailCount" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="G726PeakUsedCount" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="G726AverageUsedCount" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="G726AverageAvailCount" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="G711PacketPeakUsedCount" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="G711PacketAverageUsedCount" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="G711PacketAverageAvailCount" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="G711SSPacketPeakUsedCount" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="G711SSPacketAverageUsedCount" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="G711SSPacketAverageAvailCount" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="G723PeakUsedCount" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="G723AverageUsedCount" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="G723AverageAvailCount" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="ilbcPeakUsedCount" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="ilbcAverageUsedCount" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="ilbcAverageAvailCount" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="evrcb0PeakUsedCount" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="evrcb0AverageUsedCount" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="evrcb0AverageAvailCount" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="amrPeakUsedCount" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="amrAverageUsedCount" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="amrAverageAvailCount" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="amrwbPeakUsedCount" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="amrwbAverageUsedCount" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="amrwbAverageAvailCount" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="G722PeakUsedCount" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="G722AverageUsedCount" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="G722AverageAvailCount" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="TonePeakUsedCount" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="ToneAverageUsedCount" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="ToneAverageAvailCount" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="evrcPeakUsedCount" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="evrcAverageUsedCount" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="evrcAverageAvailCount" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="G7221PeakUsedCount" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="G7221AverageUsedCount" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="G7221AverageAvailCount" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="efrPeakUsedCount" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="efrAverageUsedCount" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="efrAverageAvailCount" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="G729V8PeakUsedCount" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="G729V8AverageUsedCount" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="G729V8AverageAvailCount" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="G726V8PeakUsedCount" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="G726V8AverageUsedCount" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="G726V8AverageAvailCount" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="G711PacketV8PeakUsedCount" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="G711PacketV8AverageUsedCount" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="G711PacketV8AverageAvailCount" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="G711SSPacketV8PeakUsedCount" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="G711SSPacketV8AverageUsedCount" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="G711SSPacketV8AverageAvailCount" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="G723V8PeakUsedCount" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="G723V8AverageUsedCount" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="G723V8AverageAvailCount" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="ilbcV8PeakUsedCount" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="ilbcV8AverageUsedCount" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="ilbcV8AverageAvailCount" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="G722V8PeakUsedCount" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="G722V8AverageUsedCount" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="G722V8AverageAvailCount" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="G7221V8PeakUsedCount" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="G7221V8AverageUsedCount" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="G7221V8AverageAvailCount" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="opusPeakUsedCount" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="opusAverageUsedCount" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="opusAverageAvailCount" type="xs:unsignedInt" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="dspUsageIntervalStatisticsKey">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcReadOnlyKey">
+        <xs:sequence>
+          <xs:element name="number" type="xs:long" minOccurs="0"/>
+          <xs:element name="systemName" type="xs:string" minOccurs="0"/>
+          <xs:element name="parentKey" type="ns3:dspResKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="dspUsageIntervalStatisticsListWrapper">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcListWrapper">
+        <xs:sequence>
+          <xs:element name="dspUsageIntervalStatistics" type="tns:dspUsageIntervalStatistics" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+</xs:schema>
+

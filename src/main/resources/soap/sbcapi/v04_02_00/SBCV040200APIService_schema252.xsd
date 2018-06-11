@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="internalsipcausemapprofile.sipcausecodemapping.signaling.profiles.v04_02_00.sbc.api.ems.sonus.com" xmlns:ns2="common.sbc.api.ems.sonus.com" xmlns:ns1="sonussipinternalcausemapprofile.types.v04_02_00.sbc.api.ems.sonus.com" xmlns:ns4="sipcausecodemapping.signaling.profiles.v04_02_00.sbc.api.ems.sonus.com" xmlns:ns3="signaling.profiles.v04_02_00.sbc.api.ems.sonus.com" xmlns:tns="internalsipcausemapprofile.sipcausecodemapping.signaling.profiles.v04_02_00.sbc.api.ems.sonus.com" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:import namespace="sonussipinternalcausemapprofile.types.v04_02_00.sbc.api.ems.sonus.com" schemaLocation="SBCV040200APIService_schema54.xsd"/>
+
+  <xs:import namespace="common.sbc.api.ems.sonus.com" schemaLocation="SBCV040200APIService_schema325.xsd"/>
+
+  <xs:import namespace="signaling.profiles.v04_02_00.sbc.api.ems.sonus.com" schemaLocation="SBCV040200APIService_schema156.xsd"/>
+
+  <xs:import namespace="sipcausecodemapping.signaling.profiles.v04_02_00.sbc.api.ems.sonus.com" schemaLocation="SBCV040200APIService_schema148.xsd"/>
+
+  <xs:complexType name="causeMap">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcEntity">
+        <xs:sequence>
+          <xs:element name="internalCause" type="ns1:sonusSipInternalCauseMappingInternalCauseType" minOccurs="0"/>
+          <xs:element name="sipCause" type="xs:unsignedShort" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="causeMapKey">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcKey">
+        <xs:sequence>
+          <xs:element name="internalCause" type="ns1:sonusSipInternalCauseMappingInternalCauseType" minOccurs="0"/>
+          <xs:element name="parentKey" type="ns4:internalSipCauseMapProfileKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="causeMapListWrapper">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcListWrapper">
+        <xs:sequence>
+          <xs:element name="causeMap" type="tns:causeMap" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+</xs:schema>
+

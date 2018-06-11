@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="sonuse911.types.v04_02_00.sbc.api.ems.sonus.com" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:simpleType name="sonusE911Name">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="DEFAULT_E911"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusScpTriggerTreatment">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="routeAsDialed"/>
+      <xs:enumeration value="applyFinalTreatment"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusRoutePrecedence">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="lro"/>
+      <xs:enumeration value="local"/>
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>
+

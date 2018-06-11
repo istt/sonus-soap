@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="signalingpacketcapture.calltrace.global.v04_02_00.sbc.api.ems.sonus.com" xmlns:ns2="global.v04_02_00.sbc.api.ems.sonus.com" xmlns:ns1="common.sbc.api.ems.sonus.com" xmlns:ns3="calltrace.global.v04_02_00.sbc.api.ems.sonus.com" xmlns:tns="signalingpacketcapture.calltrace.global.v04_02_00.sbc.api.ems.sonus.com" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:import namespace="common.sbc.api.ems.sonus.com" schemaLocation="SBCV040200APIService_schema325.xsd"/>
+
+  <xs:import namespace="global.v04_02_00.sbc.api.ems.sonus.com" schemaLocation="SBCV040200APIService_schema271.xsd"/>
+
+  <xs:import namespace="calltrace.global.v04_02_00.sbc.api.ems.sonus.com" schemaLocation="SBCV040200APIService_schema343.xsd"/>
+
+  <xs:complexType name="devices">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcEntity">
+        <xs:sequence>
+          <xs:element name="portName" type="xs:string" minOccurs="0"/>
+          <xs:element name="vlanTag" type="xs:int" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="devicesKey">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcKey">
+        <xs:sequence>
+          <xs:element name="portName" type="xs:string" minOccurs="0"/>
+          <xs:element name="vlanTag" type="xs:int" minOccurs="0"/>
+          <xs:element name="parentKey" type="ns3:signalingPacketCaptureKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="devicesListWrapper">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcListWrapper">
+        <xs:sequence>
+          <xs:element name="devices" type="tns:devices" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="filter">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcEntity">
+        <xs:sequence>
+          <xs:element name="name" type="xs:string" minOccurs="0"/>
+          <xs:element name="peerIpAddress" type="xs:string" minOccurs="0"/>
+          <xs:element name="peerIpAddressPrefix" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="localIpAddress" type="xs:string" minOccurs="0"/>
+          <xs:element name="localPortNumber" type="xs:int" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="filterKey">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcKey">
+        <xs:sequence>
+          <xs:element name="name" type="xs:string" minOccurs="0"/>
+          <xs:element name="parentKey" type="ns3:signalingPacketCaptureKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="filterListWrapper">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcListWrapper">
+        <xs:sequence>
+          <xs:element name="filter" type="tns:filter" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+</xs:schema>
+

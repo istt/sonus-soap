@@ -1,0 +1,312 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="packetserviceprofile.media.profiles.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns2="common.sbc.api.ems.sonus.com" xmlns:ns1="sonuspacketserviceprofile.types.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns4="media.profiles.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns3="profiles.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns9="dtls.packetserviceprofile.media.profiles.v05_01_00.sbc.api.ems.sonus.com" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ns5="sonustc.types.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns6="packettopacketcontrol.packetserviceprofile.media.profiles.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns7="t38.packetserviceprofile.media.profiles.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns8="securertprtcp.packetserviceprofile.media.profiles.v05_01_00.sbc.api.ems.sonus.com">
+
+  <xs:import namespace="sonuspacketserviceprofile.types.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema69.xsd"/>
+
+  <xs:import namespace="common.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema360.xsd"/>
+
+  <xs:import namespace="profiles.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema217.xsd"/>
+
+  <xs:import namespace="media.profiles.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema254.xsd"/>
+
+  <xs:import namespace="sonustc.types.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema44.xsd"/>
+
+  <xs:import namespace="packettopacketcontrol.packetserviceprofile.media.profiles.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema234.xsd"/>
+
+  <xs:import namespace="t38.packetserviceprofile.media.profiles.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema27.xsd"/>
+
+  <xs:import namespace="securertprtcp.packetserviceprofile.media.profiles.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema181.xsd"/>
+
+  <xs:import namespace="dtls.packetserviceprofile.media.profiles.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema324.xsd"/>
+
+  <xs:complexType name="dataCalls">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcEntity">
+        <xs:sequence>
+          <xs:element name="preferredRtpDataPayloadType" type="xs:unsignedInt" default="56" minOccurs="0"/>
+          <xs:element name="initialPlayoutBufferDelay" type="xs:unsignedInt" default="50" minOccurs="0"/>
+          <xs:element name="packetSize" type="ns1:sonusDataCallPacketSizeRange" default="20" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="dataCallsKey">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcUnCreatableKey">
+        <xs:sequence>
+          <xs:element name="parentKey" type="ns4:packetServiceProfileKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="rtcpOptions">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcEntity">
+        <xs:sequence>
+          <xs:element name="rtcp" type="ns5:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="terminationForPassthrough" type="ns5:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="enableRTCPForHeldCalls" type="ns5:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="packetLossThreshold" type="xs:unsignedInt" default="0" minOccurs="0"/>
+          <xs:element name="rrBandwidth" type="xs:unsignedInt" default="250" minOccurs="0"/>
+          <xs:element name="rsBandwidth" type="xs:unsignedInt" default="250" minOccurs="0"/>
+          <xs:element name="packetLossAction" type="ns1:sonusPacketLossActionRange" default="none" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="rtcpOptionsKey">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcUnCreatableKey">
+        <xs:sequence>
+          <xs:element name="parentKey" type="ns4:packetServiceProfileKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="silenceInsertionDescriptor">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcEntity">
+        <xs:sequence>
+          <xs:element name="g711SidRtpPayloadType" type="xs:unsignedInt" default="13" minOccurs="0"/>
+          <xs:element name="heartbeat" type="ns5:sonusEnableDisable" default="enable" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="silenceInsertionDescriptorKey">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcUnCreatableKey">
+        <xs:sequence>
+          <xs:element name="parentKey" type="ns4:packetServiceProfileKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="codec">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcEntity">
+        <xs:sequence>
+          <xs:element name="codecEntry1" type="xs:string" minOccurs="0"/>
+          <xs:element name="codecEntry2" type="xs:string" minOccurs="0"/>
+          <xs:element name="codecEntry3" type="xs:string" minOccurs="0"/>
+          <xs:element name="codecEntry4" type="xs:string" minOccurs="0"/>
+          <xs:element name="codecEntry5" type="xs:string" minOccurs="0"/>
+          <xs:element name="codecEntry6" type="xs:string" minOccurs="0"/>
+          <xs:element name="codecEntry7" type="xs:string" minOccurs="0"/>
+          <xs:element name="codecEntry8" type="xs:string" minOccurs="0"/>
+          <xs:element name="codecEntry9" type="xs:string" minOccurs="0"/>
+          <xs:element name="codecEntry10" type="xs:string" minOccurs="0"/>
+          <xs:element name="codecEntry11" type="xs:string" minOccurs="0"/>
+          <xs:element name="codecEntry12" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="codecKey">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcUnCreatableKey">
+        <xs:sequence>
+          <xs:element name="parentKey" type="ns4:packetServiceProfileKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="packetToPacketControl">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcEntity">
+        <xs:sequence>
+          <xs:element name="transcode" type="ns1:sonusTranscodeRange" default="conditional" minOccurs="0"/>
+          <xs:element name="conditionsInAdditionToNoCommonCodec" type="ns6:conditionsInAdditionToNoCommonCodec" minOccurs="0"/>
+          <xs:element name="codecsAllowedForTranscoding" type="ns6:codecsAllowedForTranscoding" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="packetToPacketControlKey">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcUnCreatableKey">
+        <xs:sequence>
+          <xs:element name="parentKey" type="ns4:packetServiceProfileKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="flags">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcEntity">
+        <xs:sequence>
+          <xs:element name="disallowDataCalls" type="ns5:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="digitDetectSendEnabled" type="ns5:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="useDirectMedia" type="ns5:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="validatePeerSupportForDtmfEvents" type="ns5:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="interworkDtmfWithoutTranscoding" type="ns5:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="dscpPassthrough" type="ns5:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="ssrcRandomize" type="ns5:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="HDCodecPreferred" type="ns5:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="preferNBPassthruOverHDTranscode" type="ns5:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="MatchOfferedCodecGroupIfNbOnly" type="ns5:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="forceRoutePSPOrder" type="ns5:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="mediaLockDownForPassThrough" type="ns5:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="reserveBwForPreferredAudioCommonCodec" type="ns5:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="policeOnHeaviestAudioCodec" type="ns5:sonusEnableDisable" default="disable" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="flagsKey">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcUnCreatableKey">
+        <xs:sequence>
+          <xs:element name="parentKey" type="ns4:packetServiceProfileKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="t38">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcEntity">
+        <xs:sequence>
+          <xs:element name="dataRateManagementType" type="ns1:sonusDataRateManagementTypeRange" default="type2TransferOfTcf" minOccurs="0"/>
+          <xs:element name="lowSpeedNumberOfRedundantPackets" type="ns1:sonusLowSpeedNumberOfRedundantPacketsRange" default="1" minOccurs="0"/>
+          <xs:element name="maxBitRate" type="ns1:sonusMaxBitRateRange" default="14.4Kbits_s" minOccurs="0"/>
+          <xs:element name="numberOfRedundantPackets" type="ns1:sonusNumberOfRedundantPacketsRange" default="1" minOccurs="0"/>
+          <xs:element name="protocolVersion" type="ns1:sonusT38ProtocolVersion" default="0" minOccurs="0"/>
+          <xs:element name="ecm" type="ns7:ecm" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="t38Key">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcUnCreatableKey">
+        <xs:sequence>
+          <xs:element name="parentKey" type="ns4:packetServiceProfileKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="secureRtpRtcp">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcEntity">
+        <xs:sequence>
+          <xs:element name="cryptoSuiteProfile" type="xs:string" minOccurs="0"/>
+          <xs:element name="flags" type="ns8:flags" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="secureRtpRtcpKey">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcUnCreatableKey">
+        <xs:sequence>
+          <xs:element name="parentKey" type="ns4:packetServiceProfileKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="videoCalls">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcEntity">
+        <xs:sequence>
+          <xs:element name="maxVideoBandwith" type="xs:unsignedInt" default="0" minOccurs="0"/>
+          <xs:element name="videoBandwidthReductionFactor" type="xs:unsignedInt" default="0" minOccurs="0"/>
+          <xs:element name="ipv4Tos" type="xs:unsignedInt" default="0" minOccurs="0"/>
+          <xs:element name="ipv6TrafficClass" type="xs:unsignedInt" default="0" minOccurs="0"/>
+          <xs:element name="ieee8021QVLanCos" type="xs:unsignedInt" default="0" minOccurs="0"/>
+          <xs:element name="codecListProfile" type="xs:string" minOccurs="0"/>
+          <xs:element name="audioOnlyIfVideoIsPrevented" type="ns1:sonusVideoEnableDisable" default="enable" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="videoCallsKey">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcUnCreatableKey">
+        <xs:sequence>
+          <xs:element name="parentKey" type="ns4:packetServiceProfileKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="qosValues">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcEntity">
+        <xs:sequence>
+          <xs:element name="msrpDscp" type="xs:unsignedInt" default="0" minOccurs="0"/>
+          <xs:element name="dtlsSctpDscp" type="xs:unsignedInt" default="0" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="qosValuesKey">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcUnCreatableKey">
+        <xs:sequence>
+          <xs:element name="parentKey" type="ns4:packetServiceProfileKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="audioTransparency">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcEntity">
+        <xs:sequence>
+          <xs:element name="unknownCodecPacketSize" type="xs:unsignedInt" default="10" minOccurs="0"/>
+          <xs:element name="unknownCodecBitRate" type="xs:unsignedInt" default="124" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="audioTransparencyKey">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcUnCreatableKey">
+        <xs:sequence>
+          <xs:element name="parentKey" type="ns4:packetServiceProfileKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="dtls">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcEntity">
+        <xs:sequence>
+          <xs:element name="dtlsCryptoSuiteProfile" type="xs:string" minOccurs="0"/>
+          <xs:element name="dtlsFlags" type="ns9:dtlsFlags" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="dtlsKey">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcUnCreatableKey">
+        <xs:sequence>
+          <xs:element name="parentKey" type="ns4:packetServiceProfileKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+</xs:schema>
+

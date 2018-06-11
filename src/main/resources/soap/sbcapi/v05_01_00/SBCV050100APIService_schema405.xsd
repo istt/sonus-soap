@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="alarm.operation.comment.current.alarms.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns2="current.alarms.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns1="alarms.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns3="common.sbc.api.ems.sonus.com" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:import namespace="alarms.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema399.xsd"/>
+
+  <xs:import namespace="current.alarms.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema350.xsd"/>
+
+  <xs:import namespace="common.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema360.xsd"/>
+
+  <xs:complexType name="alarmKey">
+    <xs:complexContent>
+      <xs:extension base="ns3:sbcOperationKey">
+        <xs:sequence>
+          <xs:element name="parentKey" type="ns2:commentKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="alarm">
+    <xs:complexContent>
+      <xs:extension base="ns3:sbcOperationInput">
+        <xs:sequence>
+          <xs:element name="id" type="xs:int" minOccurs="0"/>
+          <xs:element name="text" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+</xs:schema>
+

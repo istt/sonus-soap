@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="cryptosuiteprofile.security.profiles.v05_00_00.sbc.api.ems.sonus.com" xmlns:ns2="sonustc.types.v05_00_00.sbc.api.ems.sonus.com" xmlns:ns1="sonuscryptosuiteprofile.types.v05_00_00.sbc.api.ems.sonus.com" xmlns:ns4="common.sbc.api.ems.sonus.com" xmlns:ns3="entry.cryptosuiteprofile.security.profiles.v05_00_00.sbc.api.ems.sonus.com" xmlns:tns="cryptosuiteprofile.security.profiles.v05_00_00.sbc.api.ems.sonus.com" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ns5="profiles.v05_00_00.sbc.api.ems.sonus.com" xmlns:ns6="security.profiles.v05_00_00.sbc.api.ems.sonus.com">
+
+  <xs:import namespace="sonuscryptosuiteprofile.types.v05_00_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050000APIService_schema122.xsd"/>
+
+  <xs:import namespace="sonustc.types.v05_00_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050000APIService_schema42.xsd"/>
+
+  <xs:import namespace="entry.cryptosuiteprofile.security.profiles.v05_00_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050000APIService_schema284.xsd"/>
+
+  <xs:import namespace="common.sbc.api.ems.sonus.com" schemaLocation="SBCV050000APIService_schema326.xsd"/>
+
+  <xs:import namespace="profiles.v05_00_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050000APIService_schema197.xsd"/>
+
+  <xs:import namespace="security.profiles.v05_00_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050000APIService_schema167.xsd"/>
+
+  <xs:complexType name="entry">
+    <xs:complexContent>
+      <xs:extension base="ns4:sbcEntity">
+        <xs:sequence>
+          <xs:element name="priority" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="cryptoSuite" type="ns1:sonusCryptoSuiteType" default="none" minOccurs="0"/>
+          <xs:element name="sessionParameterFlags" type="ns3:sessionParameterFlags" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="entryKey">
+    <xs:complexContent>
+      <xs:extension base="ns4:sbcKey">
+        <xs:sequence>
+          <xs:element name="priority" type="xs:long" minOccurs="0"/>
+          <xs:element name="parentKey" type="ns6:cryptoSuiteProfileKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="entryListWrapper">
+    <xs:complexContent>
+      <xs:extension base="ns4:sbcListWrapper">
+        <xs:sequence>
+          <xs:element name="entry" type="tns:entry" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+</xs:schema>
+

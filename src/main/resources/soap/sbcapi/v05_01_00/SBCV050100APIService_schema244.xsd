@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="networkprocessorstatistics.system.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns2="v05_01_00.sbc.api.ems.sonus.com" xmlns:ns1="common.sbc.api.ems.sonus.com" xmlns:ns3="system.v05_01_00.sbc.api.ems.sonus.com" xmlns:tns="networkprocessorstatistics.system.v05_01_00.sbc.api.ems.sonus.com" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:import namespace="common.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema360.xsd"/>
+
+  <xs:import namespace="v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema7.xsd"/>
+
+  <xs:import namespace="system.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema28.xsd"/>
+
+  <xs:complexType name="defragStatistics">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcEntity">
+        <xs:sequence>
+          <xs:element name="npId" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="reassembleRequired" type="xs:unsignedLong" minOccurs="0"/>
+          <xs:element name="goodFragments" type="xs:unsignedLong" minOccurs="0"/>
+          <xs:element name="reassembleComplete" type="xs:unsignedLong" minOccurs="0"/>
+          <xs:element name="inUse" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="errorPkt" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="timeoutCnt" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="badInputBuffer" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="badDefragPool" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="badTimeoutList" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="tooManyFrags" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="noDefragMatch" type="xs:unsignedInt" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="defragStatisticsKey">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcReadOnlyKey">
+        <xs:sequence>
+          <xs:element name="npId" type="xs:long" minOccurs="0"/>
+          <xs:element name="parentKey" type="ns3:networkProcessorStatisticsKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="defragStatisticsListWrapper">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcListWrapper">
+        <xs:sequence>
+          <xs:element name="defragStatistics" type="tns:defragStatistics" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="annStatistics">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcEntity">
+        <xs:sequence>
+          <xs:element name="npId" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="numEnable" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="numPlaying" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="pktsToDsp" type="xs:unsignedLong" minOccurs="0"/>
+          <xs:element name="pktsToEth" type="xs:unsignedLong" minOccurs="0"/>
+          <xs:element name="stop" type="xs:unsignedShort" minOccurs="0"/>
+          <xs:element name="numAnnIndToHost" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="numSlip" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="outQCongest" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="timerAddErr" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="lastErrAid" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="indWorkNull" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="indBufNull" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="annWorkNull" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="annBufNull" type="xs:unsignedInt" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="annStatisticsKey">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcReadOnlyKey">
+        <xs:sequence>
+          <xs:element name="npId" type="xs:long" minOccurs="0"/>
+          <xs:element name="parentKey" type="ns3:networkProcessorStatisticsKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="annStatisticsListWrapper">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcListWrapper">
+        <xs:sequence>
+          <xs:element name="annStatistics" type="tns:annStatistics" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="digitStatistics">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcEntity">
+        <xs:sequence>
+          <xs:element name="npId" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="startCnt" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="stopCnt" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="modifyCnt" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="earlyStartCnt" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="cancelRescheduleCnt" type="xs:unsignedLong" minOccurs="0"/>
+          <xs:element name="badStopCnt" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="mediaNotEnabledCnt" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="uknownStateCnt" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="timerCancelFailCnt" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="timerAddFailCnt" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="failedGetWork" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="failedGetPktBuf" type="xs:unsignedInt" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="digitStatisticsKey">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcReadOnlyKey">
+        <xs:sequence>
+          <xs:element name="npId" type="xs:long" minOccurs="0"/>
+          <xs:element name="parentKey" type="ns3:networkProcessorStatisticsKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="digitStatisticsListWrapper">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcListWrapper">
+        <xs:sequence>
+          <xs:element name="digitStatistics" type="tns:digitStatistics" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="rtcpGenStatistics">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcEntity">
+        <xs:sequence>
+          <xs:element name="npId" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="startCnt" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="stopCnt" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="modifyCnt" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="haltCnt" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="restartCnt" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="cancelCnt" type="xs:unsignedLong" minOccurs="0"/>
+          <xs:element name="totalScheduled" type="xs:unsignedLong" minOccurs="0"/>
+          <xs:element name="lastScheduled" type="xs:unsignedLong" minOccurs="0"/>
+          <xs:element name="earlyStartCnt" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="badStopCnt" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="badModifyCnt" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="badGenType" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="doubleEnableCnt" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="timerCancelFailCnt" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="timerAddFailCnt" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="failedGetWork" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="failedGetPktBuf" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="numWorkAtDiscard" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="numWorkAtDisabled" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="numWorkAtHalt" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="lastBadRtcpGen" type="xs:unsignedInt" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="rtcpGenStatisticsKey">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcReadOnlyKey">
+        <xs:sequence>
+          <xs:element name="npId" type="xs:long" minOccurs="0"/>
+          <xs:element name="parentKey" type="ns3:networkProcessorStatisticsKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="rtcpGenStatisticsListWrapper">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcListWrapper">
+        <xs:sequence>
+          <xs:element name="rtcpGenStatistics" type="tns:rtcpGenStatistics" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+</xs:schema>
+

@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="alarms.oam.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns2="common.sbc.api.ems.sonus.com" xmlns:ns1="sonustc.types.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns4="oam.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns3="v05_01_00.sbc.api.ems.sonus.com" xmlns:tns="alarms.oam.v05_01_00.sbc.api.ems.sonus.com" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ns5="sonusorca.types.v05_01_00.sbc.api.ems.sonus.com">
+
+  <xs:import namespace="sonustc.types.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema44.xsd"/>
+
+  <xs:import namespace="common.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema360.xsd"/>
+
+  <xs:import namespace="v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema7.xsd"/>
+
+  <xs:import namespace="oam.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema240.xsd"/>
+
+  <xs:import namespace="sonusorca.types.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema71.xsd"/>
+
+  <xs:complexType name="ipPolicingAlarmAdmin">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcEntity">
+        <xs:sequence>
+          <xs:element name="minorAlarmMode" type="ns1:sonusServiceState" default="inService" minOccurs="0"/>
+          <xs:element name="majorAlarmMode" type="ns1:sonusServiceState" default="inService" minOccurs="0"/>
+          <xs:element name="minorAlarmProfileName" type="xs:string" minOccurs="0"/>
+          <xs:element name="majorAlarmProfileName" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="ipPolicingAlarmAdminKey">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcUnCreatableKey">
+        <xs:sequence>
+          <xs:element name="parentKey" type="ns4:alarmsKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="ethernetCrcErrAlarm">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcEntity">
+        <xs:sequence>
+          <xs:element name="setThreshold" type="xs:unsignedInt" default="0" minOccurs="0"/>
+          <xs:element name="clearThreshold" type="xs:unsignedInt" default="100" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="ethernetCrcErrAlarmKey">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcUnCreatableKey">
+        <xs:sequence>
+          <xs:element name="parentKey" type="ns4:alarmsKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="mediaSrtpErrAlarm">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcEntity">
+        <xs:sequence>
+          <xs:element name="setThreshold" type="xs:unsignedInt" default="1000" minOccurs="0"/>
+          <xs:element name="clearThreshold" type="xs:unsignedInt" default="100" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="mediaSrtpErrAlarmKey">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcUnCreatableKey">
+        <xs:sequence>
+          <xs:element name="parentKey" type="ns4:alarmsKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="ipPolicingAlarmStatus">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcEntity">
+        <xs:sequence>
+          <xs:element name="systemName" type="xs:string" minOccurs="0"/>
+          <xs:element name="badEthernetIpHeaderAlarmLevel" type="ns5:sonusAlarmLevelType" minOccurs="0"/>
+          <xs:element name="badEthernetIpHeaderAlarmDuration" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="badEthernetIpHeaderDiscardRate" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="badEthernetIpHeaderPacketsDiscarded" type="xs:unsignedLong" minOccurs="0"/>
+          <xs:element name="arpAlarmLevel" type="ns5:sonusAlarmLevelType" minOccurs="0"/>
+          <xs:element name="arpAlarmDuration" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="arpDiscardRate" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="arpPacketsDiscarded" type="xs:unsignedLong" minOccurs="0"/>
+          <xs:element name="arpPacketsAccepted" type="xs:unsignedLong" minOccurs="0"/>
+          <xs:element name="uFlowAlarmLevel" type="ns5:sonusAlarmLevelType" minOccurs="0"/>
+          <xs:element name="uFlowAlarmDuration" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="uFlowDiscardRate" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="uFlowPacketsDiscarded" type="xs:unsignedLong" minOccurs="0"/>
+          <xs:element name="uFlowPacketsAccepted" type="xs:unsignedLong" minOccurs="0"/>
+          <xs:element name="aclAlarmLevel" type="ns5:sonusAlarmLevelType" minOccurs="0"/>
+          <xs:element name="aclAlarmDuration" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="aclDiscardRate" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="aclPacketsDiscarded" type="xs:unsignedLong" minOccurs="0"/>
+          <xs:element name="aclPacketsAccepted" type="xs:unsignedLong" minOccurs="0"/>
+          <xs:element name="aggregateAlarmLevel" type="ns5:sonusAlarmLevelType" minOccurs="0"/>
+          <xs:element name="aggregateAlarmDuration" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="aggregateDiscardRate" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="aggregatePacketsDiscarded" type="xs:unsignedLong" minOccurs="0"/>
+          <xs:element name="aggregatePacketsAccepted" type="xs:unsignedLong" minOccurs="0"/>
+          <xs:element name="ipSecDecryptAlarmLevel" type="ns5:sonusAlarmLevelType" minOccurs="0"/>
+          <xs:element name="ipSecDecryptAlarmDuration" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="ipSecDecryptDiscardRate" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="ipSecDecryptPacketsDiscarded" type="xs:unsignedLong" minOccurs="0"/>
+          <xs:element name="mediaAlarmLevel" type="ns5:sonusAlarmLevelType" minOccurs="0"/>
+          <xs:element name="mediaAlarmDuration" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="mediaDiscardRate" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="mediaPacketsDiscarded" type="xs:unsignedLong" minOccurs="0"/>
+          <xs:element name="rogueMediaAlarmLevel" type="ns5:sonusAlarmLevelType" minOccurs="0"/>
+          <xs:element name="rogueMediaAlarmDuration" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="rogueMediaDiscardRate" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="rogueMediaPacketsDiscarded" type="xs:unsignedLong" minOccurs="0"/>
+          <xs:element name="discardRuleAlarmLevel" type="ns5:sonusAlarmLevelType" minOccurs="0"/>
+          <xs:element name="discardRuleAlarmDuration" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="discardRuleDiscardRate" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="discardRulePacketsDiscarded" type="xs:unsignedLong" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="ipPolicingAlarmStatusKey">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcReadOnlyKey">
+        <xs:sequence>
+          <xs:element name="systemName" type="xs:string" minOccurs="0"/>
+          <xs:element name="parentKey" type="ns4:alarmsKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="ipPolicingAlarmStatusListWrapper">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcListWrapper">
+        <xs:sequence>
+          <xs:element name="ipPolicingAlarmStatus" type="tns:ipPolicingAlarmStatus" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="ethernetCrcErrAlarmStatus">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcEntity">
+        <xs:sequence>
+          <xs:element name="interfaceName" type="xs:string" minOccurs="0"/>
+          <xs:element name="currentErrRate" type="xs:unsignedLong" minOccurs="0"/>
+          <xs:element name="maxErrRate" type="xs:unsignedLong" minOccurs="0"/>
+          <xs:element name="totalCrcErrors" type="xs:unsignedLong" minOccurs="0"/>
+          <xs:element name="numAlarmsRaised" type="xs:unsignedLong" minOccurs="0"/>
+          <xs:element name="currentAlarmState" type="ns5:sonusEthCrcAlarmLevelType" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="ethernetCrcErrAlarmStatusKey">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcReadOnlyKey">
+        <xs:sequence>
+          <xs:element name="interfaceName" type="xs:string" minOccurs="0"/>
+          <xs:element name="parentKey" type="ns4:alarmsKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="ethernetCrcErrAlarmStatusListWrapper">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcListWrapper">
+        <xs:sequence>
+          <xs:element name="ethernetCrcErrAlarmStatus" type="tns:ethernetCrcErrAlarmStatus" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="mediaSrtpErrAlarmStatus">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcEntity">
+        <xs:sequence>
+          <xs:element name="systemName" type="xs:string" minOccurs="0"/>
+          <xs:element name="currentErrRate" type="xs:unsignedLong" minOccurs="0"/>
+          <xs:element name="maxErrRate" type="xs:unsignedLong" minOccurs="0"/>
+          <xs:element name="totalSrtpErrors" type="xs:unsignedLong" minOccurs="0"/>
+          <xs:element name="numAlarmsRaised" type="xs:unsignedLong" minOccurs="0"/>
+          <xs:element name="currentAlarmState" type="ns5:sonusAlarmLevelType" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="mediaSrtpErrAlarmStatusKey">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcReadOnlyKey">
+        <xs:sequence>
+          <xs:element name="systemName" type="xs:string" minOccurs="0"/>
+          <xs:element name="parentKey" type="ns4:alarmsKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="mediaSrtpErrAlarmStatusListWrapper">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcListWrapper">
+        <xs:sequence>
+          <xs:element name="mediaSrtpErrAlarmStatus" type="tns:mediaSrtpErrAlarmStatus" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+</xs:schema>
+

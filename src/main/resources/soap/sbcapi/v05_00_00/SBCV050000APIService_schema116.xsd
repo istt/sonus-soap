@@ -1,0 +1,360 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="sonusdmpmrule.types.v05_00_00.sbc.api.ems.sonus.com" xmlns:tns="sonusdmpmrule.types.v05_00_00.sbc.api.ems.sonus.com" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:complexType name="SonusDigitTypeBitMaskBits">
+    <xs:sequence>
+      <xs:element name="callingNumber" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="calledNumber" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="pretranslated" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="redirection" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="originalCalledNumber" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="location" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="redirecting" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="outpulseNumber" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="billingNumber" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="gnDialedDigits" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="gnDestination" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="gnUserCallingScreened" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="gnUserCallingNotScreened" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="gnRedirectingTerminating" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="gnPortedDialed" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="gnCalledCesId" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="gnAdditionalCalled" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="gnAdditionalConnected" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="gnAdditionalCalling" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="gnAdditionalOriginalCalled" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="gnAdditionalRedirecting" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="gnAdditionalRedirection" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="gnNQI-252" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="gnNQI-253" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="gnNQI-254" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="twoStageCollected" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="contractorNumber" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="gnNetworkProvidedNumber" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="calledDirectoryNumber" type="xs:boolean" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="SonusNumberLengthRangeNoInputUnion">
+    <xs:sequence>
+      <xs:element name="sonusNumberLengthNoInput" type="tns:sonusNumberLengthNoInput" minOccurs="0"/>
+      <xs:element name="sonusNumberLengthRange" type="xs:unsignedInt" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="SonusUriTypeRangeBitMaskBits">
+    <xs:sequence>
+      <xs:element name="toUri" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="fromUri" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="paiSipUri" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="callingUri" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="calledUri" type="xs:boolean" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="SonusUserInfoLengthRangeUnion">
+    <xs:sequence>
+      <xs:element name="sonusUserInfoLengthNoInput" type="tns:sonusUserInfoLengthNoInput" minOccurs="0"/>
+      <xs:element name="sonusUserInfoLengthNumericRange" type="xs:unsignedInt" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="SonusPortNumberRangeNoChangeUnion">
+    <xs:sequence>
+      <xs:element name="sonusPortNumberNoChange" type="tns:sonusPortNumberNoChange" minOccurs="0"/>
+      <xs:element name="sonusPortNumberRange" type="xs:unsignedInt" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:simpleType name="sonusRuleTypeRange">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="digit"/>
+      <xs:enumeration value="parameter"/>
+      <xs:enumeration value="uri"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusNumberLengthNoInput">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="noInput"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusPresentationRange">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="none"/>
+      <xs:enumeration value="allowed"/>
+      <xs:enumeration value="restricted"/>
+      <xs:enumeration value="numberUnavailable"/>
+      <xs:enumeration value="spare"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusScreeningRange">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="none"/>
+      <xs:enumeration value="userProvidedNotScreened"/>
+      <xs:enumeration value="userProvidedPassedNetworkScreening"/>
+      <xs:enumeration value="userProvidedFailedNetworkScreening"/>
+      <xs:enumeration value="networkProvidedNotScreened"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusIncludeInEgressRange">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="none"/>
+      <xs:enumeration value="includeInEgress"/>
+      <xs:enumeration value="discardInEgress"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusActionsRange">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="none"/>
+      <xs:enumeration value="addOriginatingCountry"/>
+      <xs:enumeration value="addDestinationCountry"/>
+      <xs:enumeration value="addIngressTrunkGroupCountry"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusTypeRange">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="constant"/>
+      <xs:enumeration value="variable"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusCommonTypeRange">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="callingNumber"/>
+      <xs:enumeration value="calledNumber"/>
+      <xs:enumeration value="pretranslated"/>
+      <xs:enumeration value="redirection"/>
+      <xs:enumeration value="originalCalledNumber"/>
+      <xs:enumeration value="location"/>
+      <xs:enumeration value="redirecting"/>
+      <xs:enumeration value="outpulseNumber"/>
+      <xs:enumeration value="billingNumber"/>
+      <xs:enumeration value="gnDialedDigits"/>
+      <xs:enumeration value="gnDestination"/>
+      <xs:enumeration value="gnUserCallingScreened"/>
+      <xs:enumeration value="gnUserCallingNotScreened"/>
+      <xs:enumeration value="gnRedirectingTerminating"/>
+      <xs:enumeration value="gnPortedDialed"/>
+      <xs:enumeration value="gnCalledCesId"/>
+      <xs:enumeration value="gnAdditionalCalled"/>
+      <xs:enumeration value="gnAdditionalConnected"/>
+      <xs:enumeration value="gnAdditionalCalling"/>
+      <xs:enumeration value="gnAdditionalOriginalCalled"/>
+      <xs:enumeration value="gnAdditionalRedirecting"/>
+      <xs:enumeration value="gnAdditionalRedirection"/>
+      <xs:enumeration value="252"/>
+      <xs:enumeration value="253"/>
+      <xs:enumeration value="254"/>
+      <xs:enumeration value="twoStageCollected"/>
+      <xs:enumeration value="contractorNumber"/>
+      <xs:enumeration value="gnNetworkProvidedNumber"/>
+      <xs:enumeration value="presentationNumber"/>
+      <xs:enumeration value="calledDirectoryNumber"/>
+      <xs:enumeration value="dialedNumber"/>
+      <xs:enumeration value="gnThirdPartyNumber"/>
+      <xs:enumeration value="gnCollectCallNumber"/>
+      <xs:enumeration value="gnLocalAni"/>
+      <xs:enumeration value="calledInNumber"/>
+      <xs:enumeration value="callingName"/>
+      <xs:enumeration value="paiSipDisplayName"/>
+      <xs:enumeration value="paiTelDisplayName"/>
+      <xs:enumeration value="sipFromDisplayName"/>
+      <xs:enumeration value="causeOfNoId"/>
+      <xs:enumeration value="toUri"/>
+      <xs:enumeration value="fromUri"/>
+      <xs:enumeration value="paiSipUri"/>
+      <xs:enumeration value="callingUri"/>
+      <xs:enumeration value="calledUri"/>
+      <xs:enumeration value="none"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusParameterTypeRange">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="cpc"/>
+      <xs:enumeration value="olip"/>
+      <xs:enumeration value="forwardCallIndicator"/>
+      <xs:enumeration value="carrierSelectionParameter"/>
+      <xs:enumeration value="carrierCode"/>
+      <xs:enumeration value="transitNetworkSelection"/>
+      <xs:enumeration value="jurisdiction"/>
+      <xs:enumeration value="zzCode"/>
+      <xs:enumeration value="additionalCategory"/>
+      <xs:enumeration value="originatingCarrier"/>
+      <xs:enumeration value="callingName"/>
+      <xs:enumeration value="paiSipDisplayName"/>
+      <xs:enumeration value="paiTelDisplayName"/>
+      <xs:enumeration value="sipFromDisplayName"/>
+      <xs:enumeration value="causeOfNoId"/>
+      <xs:enumeration value="cliBlockingIndicator"/>
+      <xs:enumeration value="originatingChargeArea"/>
+      <xs:enumeration value="dpcIndicator"/>
+      <xs:enumeration value="chargeRateInfoIndicator"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusAvailabilityRange">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="yes"/>
+      <xs:enumeration value="no"/>
+      <xs:enumeration value="none"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusCallingPresentationRange">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="allowed"/>
+      <xs:enumeration value="restricted"/>
+      <xs:enumeration value="blockingToggle"/>
+      <xs:enumeration value="noIndication"/>
+      <xs:enumeration value="none"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusTypeOfNameRange">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="spare"/>
+      <xs:enumeration value="calling"/>
+      <xs:enumeration value="originalCalled"/>
+      <xs:enumeration value="redirecting"/>
+      <xs:enumeration value="connected"/>
+      <xs:enumeration value="none"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusIncludeInEgressFlagRange">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="none"/>
+      <xs:enumeration value="includeInEgress"/>
+      <xs:enumeration value="discardInEgress"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusYesNoNoneRange">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="none"/>
+      <xs:enumeration value="yes"/>
+      <xs:enumeration value="no"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusDiscardChargeParametersEnableDisable">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="disable"/>
+      <xs:enumeration value="enable"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusInternationalYesNoNoneRange">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="none"/>
+      <xs:enumeration value="yes"/>
+      <xs:enumeration value="no"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusInterworkingYesNoNoneRange">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="none"/>
+      <xs:enumeration value="yes"/>
+      <xs:enumeration value="no"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusIsdnIndicatorYesNoNoneRange">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="none"/>
+      <xs:enumeration value="yes"/>
+      <xs:enumeration value="no"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusIsupBiccIndicatorYesNoNoneRange">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="none"/>
+      <xs:enumeration value="yes"/>
+      <xs:enumeration value="no"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusReplacementTypeRange">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="constant"/>
+      <xs:enumeration value="variable"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusPoiLevelRange">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="0"/>
+      <xs:enumeration value="1"/>
+      <xs:enumeration value="2"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusUriUserParamRange">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="none"/>
+      <xs:enumeration value="unknown"/>
+      <xs:enumeration value="phone"/>
+      <xs:enumeration value="ip"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusUriSchemeRange">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="none"/>
+      <xs:enumeration value="unknown"/>
+      <xs:enumeration value="sip"/>
+      <xs:enumeration value="sips"/>
+      <xs:enumeration value="tel"/>
+      <xs:enumeration value="urn"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusUriFlagRange">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="none"/>
+      <xs:enumeration value="username"/>
+      <xs:enumeration value="telephone"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusUserInfoLengthNoInput">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="noInput"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusType2Range">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="constant"/>
+      <xs:enumeration value="variable"/>
+      <xs:enumeration value="noChange"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusPortNumberNoChange">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="noChange"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusParameterTypeUriRange">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="toUri"/>
+      <xs:enumeration value="fromUri"/>
+      <xs:enumeration value="paiSipUri"/>
+      <xs:enumeration value="callingUri"/>
+      <xs:enumeration value="calledUri"/>
+      <xs:enumeration value="none"/>
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>
+

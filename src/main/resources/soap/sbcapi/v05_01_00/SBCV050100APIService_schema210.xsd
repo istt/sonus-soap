@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="radiusauthentication.radius.accounting.oam.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns2="accounting.oam.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns1="common.sbc.api.ems.sonus.com" xmlns:ns4="sonustc.types.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns3="radius.accounting.oam.v05_01_00.sbc.api.ems.sonus.com" xmlns:tns="radiusauthentication.radius.accounting.oam.v05_01_00.sbc.api.ems.sonus.com" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ns5="sonusgen2radius.types.v05_01_00.sbc.api.ems.sonus.com">
+
+  <xs:import namespace="common.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema360.xsd"/>
+
+  <xs:import namespace="accounting.oam.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema413.xsd"/>
+
+  <xs:import namespace="radius.accounting.oam.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema211.xsd"/>
+
+  <xs:import namespace="sonustc.types.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema44.xsd"/>
+
+  <xs:import namespace="sonusgen2radius.types.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema101.xsd"/>
+
+  <xs:complexType name="retryCriteria">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcEntity">
+        <xs:sequence>
+          <xs:element name="retryTimer" type="xs:int" default="1000" minOccurs="0"/>
+          <xs:element name="retryCount" type="xs:byte" default="3" minOccurs="0"/>
+          <xs:element name="oosDuration" type="xs:unsignedInt" default="60" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="retryCriteriaKey">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcUnCreatableKey">
+        <xs:sequence>
+          <xs:element name="parentKey" type="ns3:radiusAuthenticationKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="radiusServer">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcEntity">
+        <xs:sequence>
+          <xs:element name="serverName" type="xs:string" minOccurs="0"/>
+          <xs:element name="priority" type="xs:int" minOccurs="0"/>
+          <xs:element name="state" type="ns4:sonusAdminState" default="disabled" minOccurs="0"/>
+          <xs:element name="radiusServerIp" type="xs:string" default="0.0.0.0" minOccurs="0"/>
+          <xs:element name="radiusServerPort" type="xs:unsignedShort" default="1812" minOccurs="0"/>
+          <xs:element name="radiusNasIp" type="xs:string" default="0.0.0.0" minOccurs="0"/>
+          <xs:element name="radiusSharedSecret" type="xs:string" minOccurs="0"/>
+          <xs:element name="mgmtInterfaceGroup" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="radiusServerKey">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcKey">
+        <xs:sequence>
+          <xs:element name="serverName" type="xs:string" minOccurs="0"/>
+          <xs:element name="parentKey" type="ns3:radiusAuthenticationKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="radiusServerListWrapper">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcListWrapper">
+        <xs:sequence>
+          <xs:element name="radiusServer" type="tns:radiusServer" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="radiusStatus">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcEntity">
+        <xs:sequence>
+          <xs:element name="serverNameId" type="xs:string" minOccurs="0"/>
+          <xs:element name="status" type="ns5:sonusRadiusStatus" minOccurs="0"/>
+          <xs:element name="availableAt" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="radiusStatusKey">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcReadOnlyKey">
+        <xs:sequence>
+          <xs:element name="serverNameId" type="xs:string" minOccurs="0"/>
+          <xs:element name="parentKey" type="ns3:radiusAuthenticationKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="radiusStatusListWrapper">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcListWrapper">
+        <xs:sequence>
+          <xs:element name="radiusStatus" type="tns:radiusStatus" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+</xs:schema>
+

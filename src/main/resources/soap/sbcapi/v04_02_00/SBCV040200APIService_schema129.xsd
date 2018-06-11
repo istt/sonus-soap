@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="sonusaccounting.types.v04_02_00.sbc.api.ems.sonus.com" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:simpleType name="sonusAcctGenerationModeType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="origination"/>
+      <xs:enumeration value="destination"/>
+      <xs:enumeration value="allcalls"/>
+      <xs:enumeration value="none"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusAcctIntAcctModeType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="interval"/>
+      <xs:enumeration value="telcordia"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusAcctMaxRecordSequenceNumType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="uint16"/>
+      <xs:enumeration value="uint32"/>
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>
+

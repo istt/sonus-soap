@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="callrouting.global.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns2="common.sbc.api.ems.sonus.com" xmlns:ns1="sonusroute.types.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns4="global.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns3="v05_01_00.sbc.api.ems.sonus.com" xmlns:tns="callrouting.global.v05_01_00.sbc.api.ems.sonus.com" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ns5="sonusorcatc.types.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns6="sonusroutinglabel.types.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns7="routinglabel.callrouting.global.v05_01_00.sbc.api.ems.sonus.com">
+
+  <xs:import namespace="sonusroute.types.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema63.xsd"/>
+
+  <xs:import namespace="common.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema360.xsd"/>
+
+  <xs:import namespace="v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema7.xsd"/>
+
+  <xs:import namespace="global.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema295.xsd"/>
+
+  <xs:import namespace="sonusorcatc.types.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema70.xsd"/>
+
+  <xs:import namespace="sonusroutinglabel.types.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema62.xsd"/>
+
+  <xs:import namespace="routinglabel.callrouting.global.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema188.xsd"/>
+
+  <xs:complexType name="route">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcEntity">
+        <xs:sequence>
+          <xs:element name="elementType" type="ns1:sonusElementType" minOccurs="0"/>
+          <xs:element name="elementId1" type="xs:string" minOccurs="0"/>
+          <xs:element name="elementId2" type="xs:string" minOccurs="0"/>
+          <xs:element name="routingType" type="ns1:sonusRoutingType" minOccurs="0"/>
+          <xs:element name="destinationNational" type="xs:string" minOccurs="0"/>
+          <xs:element name="destinationCountry" type="xs:string" minOccurs="0"/>
+          <xs:element name="callTypeBits" type="ns1:SonusCallTypeBits" minOccurs="0"/>
+          <xs:element name="callType" type="xs:string" minOccurs="0"/>
+          <xs:element name="digitTypeBits" type="ns1:SonusDigitTypeBitMaskRouteBits" minOccurs="0"/>
+          <xs:element name="digitType" type="xs:string" minOccurs="0"/>
+          <xs:element name="timeRangeProfile" type="xs:string" minOccurs="0"/>
+          <xs:element name="callParameterFilterProfile" type="xs:string" minOccurs="0"/>
+          <xs:element name="domainName" type="xs:string" minOccurs="0"/>
+          <xs:element name="routingLabel" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="routeKey">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcKey">
+        <xs:sequence>
+          <xs:element name="elementType" type="ns1:sonusElementType" minOccurs="0"/>
+          <xs:element name="elementId1" type="xs:string" minOccurs="0"/>
+          <xs:element name="elementId2" type="xs:string" minOccurs="0"/>
+          <xs:element name="routingType" type="ns1:sonusRoutingType" minOccurs="0"/>
+          <xs:element name="destinationNational" type="xs:string" minOccurs="0"/>
+          <xs:element name="destinationCountry" type="xs:string" minOccurs="0"/>
+          <xs:element name="callTypeBits" type="ns1:SonusCallTypeBits" minOccurs="0"/>
+          <xs:element name="digitTypeBits" type="ns1:SonusDigitTypeBitMaskRouteBits" minOccurs="0"/>
+          <xs:element name="timeRangeProfile" type="xs:string" minOccurs="0"/>
+          <xs:element name="callParameterFilterProfile" type="xs:string" minOccurs="0"/>
+          <xs:element name="domainName" type="xs:string" minOccurs="0"/>
+          <xs:element name="parentKey" type="ns4:callRoutingKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="routeListWrapper">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcListWrapper">
+        <xs:sequence>
+          <xs:element name="route" type="tns:route" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="routingLabel">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcEntity">
+        <xs:sequence>
+          <xs:element name="name" type="xs:string" minOccurs="0"/>
+          <xs:element name="overflowNumber" type="xs:string" minOccurs="0"/>
+          <xs:element name="overflowNOA" type="ns5:sonusNatureOfAddressRange" default="none" minOccurs="0"/>
+          <xs:element name="overflowNPI" type="ns6:sonusNumberingPlanIndicatorRange" default="none" minOccurs="0"/>
+          <xs:element name="routePrioritizationType" type="ns6:sonusRPT" default="sequence" minOccurs="0"/>
+          <xs:element name="routePrioritizationTypeForEqualCostRoutes" type="ns6:sonusRPTFECR" default="sequence" minOccurs="0"/>
+          <xs:element name="script" type="xs:string" minOccurs="0"/>
+          <xs:element name="action" type="ns6:sonusAction" default="routes" minOccurs="0"/>
+          <xs:element name="numRoutesPerCall" type="xs:unsignedInt" default="10" minOccurs="0"/>
+          <xs:element name="routingLabelRoute" type="ns7:routingLabelRoute" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="routingLabelKey">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcKey">
+        <xs:sequence>
+          <xs:element name="name" type="xs:string" minOccurs="0"/>
+          <xs:element name="parentKey" type="ns4:callRoutingKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="routingLabelListWrapper">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcListWrapper">
+        <xs:sequence>
+          <xs:element name="routingLabel" type="tns:routingLabel" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+</xs:schema>
+

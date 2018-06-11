@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="sonusiproute.types.v05_00_00.sbc.api.ems.sonus.com" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:simpleType name="sonusIpRouteProtoType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="other"/>
+      <xs:enumeration value="local"/>
+      <xs:enumeration value="netmgmt"/>
+      <xs:enumeration value="icmp"/>
+      <xs:enumeration value="egp"/>
+      <xs:enumeration value="ggp"/>
+      <xs:enumeration value="hello"/>
+      <xs:enumeration value="rip"/>
+      <xs:enumeration value="isIs"/>
+      <xs:enumeration value="esIs"/>
+      <xs:enumeration value="ciscoIgrp"/>
+      <xs:enumeration value="bbnSpfIgp"/>
+      <xs:enumeration value="ospf"/>
+      <xs:enumeration value="bgp"/>
+      <xs:enumeration value="idpr"/>
+      <xs:enumeration value="ciscoEigrp"/>
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>
+

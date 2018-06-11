@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="sonusmonitor.types.v05_00_00.sbc.api.ems.sonus.com" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:simpleType name="sonusMonitorLegType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="ingress"/>
+      <xs:enumeration value="egress"/>
+      <xs:enumeration value="both"/>
+      <xs:enumeration value="all"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="adminState">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="disable"/>
+      <xs:enumeration value="enable"/>
+      <xs:enumeration value="notApplicable"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="operStateType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="idle"/>
+      <xs:enumeration value="gcid-req"/>
+      <xs:enumeration value="disabled"/>
+      <xs:enumeration value="enable-req"/>
+      <xs:enumeration value="enabled"/>
+      <xs:enumeration value="disable-req"/>
+      <xs:enumeration value="fax-mod-req"/>
+      <xs:enumeration value="inactive"/>
+      <xs:enumeration value="not-applicable"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="disableReasonType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="not-applicable"/>
+      <xs:enumeration value="call-finished"/>
+      <xs:enumeration value="timeout"/>
+      <xs:enumeration value="enable-failed"/>
+      <xs:enumeration value="gcid-not-exist"/>
+      <xs:enumeration value="admn-disable"/>
+      <xs:enumeration value="monitor-endpoint-not-exist"/>
+      <xs:enumeration value="recording-duration-times-up-or-out-of-storage-space"/>
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>
+

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="causeofnoid.parametercriteria.dmpmcriteria.digitparameterhandling.profiles.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns2="sonusdmpmcriteria.types.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns1="sonusorcatc.types.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns4="dmpmcriteria.digitparameterhandling.profiles.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns3="common.sbc.api.ems.sonus.com" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ns5="parametercriteria.dmpmcriteria.digitparameterhandling.profiles.v05_01_00.sbc.api.ems.sonus.com">
+
+  <xs:import namespace="sonusorcatc.types.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema70.xsd"/>
+
+  <xs:import namespace="sonusdmpmcriteria.types.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema124.xsd"/>
+
+  <xs:import namespace="common.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema360.xsd"/>
+
+  <xs:import namespace="dmpmcriteria.digitparameterhandling.profiles.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema333.xsd"/>
+
+  <xs:import namespace="parametercriteria.dmpmcriteria.digitparameterhandling.profiles.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema231.xsd"/>
+
+  <xs:complexType name="value">
+    <xs:complexContent>
+      <xs:extension base="ns3:sbcEntity">
+        <xs:sequence>
+          <xs:element name="matchNumber" type="ns1:sonusMatchNumberRange" default="coinPhone" minOccurs="0"/>
+          <xs:element name="operation" type="ns2:sonusCauseOfNoIdOperationRange" default="ignore" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="valueKey">
+    <xs:complexContent>
+      <xs:extension base="ns3:sbcUnCreatableKey">
+        <xs:sequence>
+          <xs:element name="parentKey" type="ns5:causeOfNoIdKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+</xs:schema>
+

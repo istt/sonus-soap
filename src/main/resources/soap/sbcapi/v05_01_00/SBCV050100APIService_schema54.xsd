@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="sonussipsecurityprofile.types.v05_01_00.sbc.api.ems.sonus.com" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:simpleType name="sonusSipSecSbxModeType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="sbc-pcscf"/>
+      <xs:enumeration value="sbc-only"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusSipSigTrunkGroupSecurityType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="ipsec-3gpp"/>
+      <xs:enumeration value="tls"/>
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>
+

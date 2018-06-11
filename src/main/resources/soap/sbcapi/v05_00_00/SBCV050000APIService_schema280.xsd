@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="eventlog.oam.v05_00_00.sbc.api.ems.sonus.com" xmlns:ns2="v05_00_00.sbc.api.ems.sonus.com" xmlns:ns1="common.sbc.api.ems.sonus.com" xmlns:ns4="sonustc.types.v05_00_00.sbc.api.ems.sonus.com" xmlns:ns3="oam.v05_00_00.sbc.api.ems.sonus.com" xmlns:tns="eventlog.oam.v05_00_00.sbc.api.ems.sonus.com" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ns5="sonusgen2eventlog.types.v05_00_00.sbc.api.ems.sonus.com">
+
+  <xs:import namespace="common.sbc.api.ems.sonus.com" schemaLocation="SBCV050000APIService_schema326.xsd"/>
+
+  <xs:import namespace="v05_00_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050000APIService_schema7.xsd"/>
+
+  <xs:import namespace="oam.v05_00_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050000APIService_schema220.xsd"/>
+
+  <xs:import namespace="sonustc.types.v05_00_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050000APIService_schema42.xsd"/>
+
+  <xs:import namespace="sonusgen2eventlog.types.v05_00_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050000APIService_schema107.xsd"/>
+
+  <xs:complexType name="infoLevelLoggingEnable">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcEntity">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="infoLevelLoggingEnableKey">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcUnCreatableKey">
+        <xs:sequence>
+          <xs:element name="parentKey" type="ns3:eventLogKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="platformAuditLogs">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcEntity">
+        <xs:sequence>
+          <xs:element name="state" type="ns4:sonusAdminState" default="disabled" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="platformAuditLogsKey">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcUnCreatableKey">
+        <xs:sequence>
+          <xs:element name="parentKey" type="ns3:eventLogKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="typeAdmin">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcEntity">
+        <xs:sequence>
+          <xs:element name="type" type="ns5:sonusEvLogTypeType" minOccurs="0"/>
+          <xs:element name="state" type="ns5:sonusEvLogTypeAdminStateType" default="enabled" minOccurs="0"/>
+          <xs:element name="fileCount" type="xs:int" default="32" minOccurs="0"/>
+          <xs:element name="fileSize" type="xs:int" default="2048" minOccurs="0"/>
+          <xs:element name="messageQueueSize" type="xs:int" default="10" minOccurs="0"/>
+          <xs:element name="saveTo" type="ns5:sonusEvLogTypeSaveToType" default="disk" minOccurs="0"/>
+          <xs:element name="filterLevel" type="ns4:sonusEventFilterLevel" default="major" minOccurs="0"/>
+          <xs:element name="rolloverStartTime" type="xs:dateTime" minOccurs="0"/>
+          <xs:element name="rolloverInterval" type="xs:int" default="0" minOccurs="0"/>
+          <xs:element name="rolloverType" type="ns5:sonusEvLogTypeRolloverTypeType" default="nonrepetitive" minOccurs="0"/>
+          <xs:element name="rolloverAction" type="ns5:sonusEvLogTypeRolloverActionType" default="stop" minOccurs="0"/>
+          <xs:element name="fileWriteMode" type="ns5:sonusEvLogTypeFileWriteModeType" default="default" minOccurs="0"/>
+          <xs:element name="syslogState" type="ns5:sonusEvLogTypeSyslogStateType" default="disabled" minOccurs="0"/>
+          <xs:element name="syslogRemoteHost" type="xs:string" default="0.0.0.0" minOccurs="0"/>
+          <xs:element name="syslogRemoteProtocol" type="ns5:syslogRemoteProtocolType" default="tcp" minOccurs="0"/>
+          <xs:element name="syslogRemotePort" type="xs:unsignedShort" default="514" minOccurs="0"/>
+          <xs:element name="renameOpenFiles" type="ns4:sonusAdminState" default="disabled" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="typeAdminKey">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcUnCreatableKey">
+        <xs:sequence>
+          <xs:element name="type" type="ns5:sonusEvLogTypeType" minOccurs="0"/>
+          <xs:element name="parentKey" type="ns3:eventLogKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="typeAdminListWrapper">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcListWrapper">
+        <xs:sequence>
+          <xs:element name="typeAdmin" type="tns:typeAdmin" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="typeStatus">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcEntity">
+        <xs:sequence>
+          <xs:element name="type" type="ns5:sonusEvLogTypeStatusTypeType" minOccurs="0"/>
+          <xs:element name="currentFile" type="xs:string" minOccurs="0"/>
+          <xs:element name="fileRecords" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="fileBytes" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="totalFiles" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="totalFileBytes" type="xs:unsignedLong" minOccurs="0"/>
+          <xs:element name="filesDropped" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="nextRollover" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="logDestination" type="ns5:sonusEvLogTypeStatusLogDestinationType" minOccurs="0"/>
+          <xs:element name="lastFileDrop" type="xs:dateTime" minOccurs="0"/>
+          <xs:element name="infoLevelLoggingDisabled" type="ns5:infoLevelLoggingState" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="typeStatusKey">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcReadOnlyKey">
+        <xs:sequence>
+          <xs:element name="type" type="ns5:sonusEvLogTypeStatusTypeType" minOccurs="0"/>
+          <xs:element name="parentKey" type="ns3:eventLogKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="typeStatusListWrapper">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcListWrapper">
+        <xs:sequence>
+          <xs:element name="typeStatus" type="tns:typeStatus" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="filterAdmin">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcEntity">
+        <xs:sequence>
+          <xs:element name="ceName" type="xs:string" minOccurs="0"/>
+          <xs:element name="type" type="ns5:sonusEvLogFilterTypeType" minOccurs="0"/>
+          <xs:element name="eventClass" type="ns5:eventClassType" minOccurs="0"/>
+          <xs:element name="level" type="ns4:sonusEventFilterLevel" default="major" minOccurs="0"/>
+          <xs:element name="state" type="ns5:sonusEvLogFilterStateType" default="off" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="filterAdminKey">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcKey">
+        <xs:sequence>
+          <xs:element name="ceName" type="xs:string" minOccurs="0"/>
+          <xs:element name="type" type="ns5:sonusEvLogFilterTypeType" minOccurs="0"/>
+          <xs:element name="eventClass" type="ns5:eventClassType" minOccurs="0"/>
+          <xs:element name="parentKey" type="ns3:eventLogKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="filterAdminListWrapper">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcListWrapper">
+        <xs:sequence>
+          <xs:element name="filterAdmin" type="tns:filterAdmin" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="filterStatus">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcEntity">
+        <xs:sequence>
+          <xs:element name="ceName" type="xs:string" minOccurs="0"/>
+          <xs:element name="type" type="ns5:sonusEvLogFilterStatusTypeType" minOccurs="0"/>
+          <xs:element name="eventClass" type="ns5:eventClassType" minOccurs="0"/>
+          <xs:element name="eventsFiltered" type="xs:int" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="filterStatusKey">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcReadOnlyKey">
+        <xs:sequence>
+          <xs:element name="ceName" type="xs:string" minOccurs="0"/>
+          <xs:element name="type" type="ns5:sonusEvLogFilterStatusTypeType" minOccurs="0"/>
+          <xs:element name="eventClass" type="ns5:eventClassType" minOccurs="0"/>
+          <xs:element name="parentKey" type="ns3:eventLogKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="filterStatusListWrapper">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcListWrapper">
+        <xs:sequence>
+          <xs:element name="filterStatus" type="tns:filterStatus" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="subSystemAdmin">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcEntity">
+        <xs:sequence>
+          <xs:element name="ceName" type="xs:string" minOccurs="0"/>
+          <xs:element name="systemId" type="xs:string" minOccurs="0"/>
+          <xs:element name="infoLogState" type="ns4:sonusAdminState" default="enabled" minOccurs="0"/>
+          <xs:element name="minEventId" type="xs:unsignedInt" default="0" minOccurs="0"/>
+          <xs:element name="maxEventId" type="xs:unsignedInt" default="2048" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="subSystemAdminKey">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcKey">
+        <xs:sequence>
+          <xs:element name="ceName" type="xs:string" minOccurs="0"/>
+          <xs:element name="systemId" type="xs:string" minOccurs="0"/>
+          <xs:element name="parentKey" type="ns3:eventLogKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="subSystemAdminListWrapper">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcListWrapper">
+        <xs:sequence>
+          <xs:element name="subSystemAdmin" type="tns:subSystemAdmin" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+</xs:schema>
+

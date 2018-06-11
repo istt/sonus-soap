@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="sonuscodecentry.types.v04_02_00.sbc.api.ems.sonus.com" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:complexType name="SonusAmrModeSetBitMaskBits">
+    <xs:sequence>
+      <xs:element name="AMR-0-4.75kbps" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="AMR-1-5.15kbps" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="AMR-2-5.90kbps" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="AMR-3-6.70kbps" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="AMR-4-7.40kbps" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="AMR-5-7.950kbps" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="AMR-6-10.20kbps" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="AMR-7-12.20kbps" type="xs:boolean" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="SonusAmrwbModeSetBitMaskBits">
+    <xs:sequence>
+      <xs:element name="AMR-0-6.6" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="AMR-1-8.85" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="AMR-2-12.65" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="AMR-3-14.25" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="AMR-4-15.85" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="AMR-5-18.25" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="AMR-6-19.85" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="AMR-7-23.05" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="AMR-8-23.85" type="xs:boolean" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:simpleType name="sonusCodingRateG726">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="32"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusCodingRateG723">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="5.3"/>
+      <xs:enumeration value="6.3"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusCodingRateIlbc">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="13.3"/>
+      <xs:enumeration value="15.2"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusCodingRateG722">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="48"/>
+      <xs:enumeration value="56"/>
+      <xs:enumeration value="64"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusCodingRateG7221">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="24"/>
+      <xs:enumeration value="32"/>
+      <xs:enumeration value="16"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusCodingRateEvrcb0">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="9.3"/>
+      <xs:enumeration value="8.5"/>
+      <xs:enumeration value="7.5"/>
+      <xs:enumeration value="7.0"/>
+      <xs:enumeration value="6.6"/>
+      <xs:enumeration value="6.2"/>
+      <xs:enumeration value="5.8"/>
+      <xs:enumeration value="4.8"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusPacketSizeRangeG711">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="10"/>
+      <xs:enumeration value="15"/>
+      <xs:enumeration value="20"/>
+      <xs:enumeration value="25"/>
+      <xs:enumeration value="30"/>
+      <xs:enumeration value="35"/>
+      <xs:enumeration value="40"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusPacketSizeRangeG723">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="30"/>
+      <xs:enumeration value="60"/>
+      <xs:enumeration value="90"/>
+      <xs:enumeration value="120"/>
+      <xs:enumeration value="150"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusPacketSizeRangeIlbc13_3">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="30"/>
+      <xs:enumeration value="60"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusPacketSizeRangeIlbc">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="20"/>
+      <xs:enumeration value="40"/>
+      <xs:enumeration value="60"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusPacketSizeRangeG722">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="10"/>
+      <xs:enumeration value="20"/>
+      <xs:enumeration value="30"/>
+      <xs:enumeration value="40"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusPacketSizeRangeG728">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="10"/>
+      <xs:enumeration value="20"/>
+      <xs:enumeration value="30"/>
+      <xs:enumeration value="40"/>
+      <xs:enumeration value="50"/>
+      <xs:enumeration value="60"/>
+      <xs:enumeration value="70"/>
+      <xs:enumeration value="80"/>
+      <xs:enumeration value="90"/>
+      <xs:enumeration value="100"/>
+      <xs:enumeration value="110"/>
+      <xs:enumeration value="120"/>
+      <xs:enumeration value="130"/>
+      <xs:enumeration value="140"/>
+      <xs:enumeration value="150"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusPacketSizeRangeG7221">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="20"/>
+      <xs:enumeration value="40"/>
+      <xs:enumeration value="60"/>
+      <xs:enumeration value="80"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusPacketSizeRangeAmrwb">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="20"/>
+      <xs:enumeration value="40"/>
+      <xs:enumeration value="60"/>
+      <xs:enumeration value="80"/>
+      <xs:enumeration value="100"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusPacketSizeRangeAmrEvrc">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="20"/>
+      <xs:enumeration value="40"/>
+      <xs:enumeration value="60"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusPacketSizeRangeEvrcb0Evrc0">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="20"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusPacketSizeRangeG729G726">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="10"/>
+      <xs:enumeration value="20"/>
+      <xs:enumeration value="30"/>
+      <xs:enumeration value="40"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusPacketSizeRangeOPUS">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="10"/>
+      <xs:enumeration value="20"/>
+      <xs:enumeration value="30"/>
+      <xs:enumeration value="40"/>
+      <xs:enumeration value="50"/>
+      <xs:enumeration value="60"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusFECRedundancy">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="0"/>
+      <xs:enumeration value="1"/>
+      <xs:enumeration value="2"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusLaw">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="deriveFromOtherLeg"/>
+      <xs:enumeration value="ALaw"/>
+      <xs:enumeration value="ULaw"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusUseCbr">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="0"/>
+      <xs:enumeration value="1"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusUseFec">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="0"/>
+      <xs:enumeration value="1"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusUseDtx">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="0"/>
+      <xs:enumeration value="1"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusFailureHandling">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="disconnect"/>
+      <xs:enumeration value="continue"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusToneTreatement">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="none"/>
+      <xs:enumeration value="notifyPeer"/>
+      <xs:enumeration value="disconnect"/>
+      <xs:enumeration value="fallbackToG711"/>
+      <xs:enumeration value="faxRelay"/>
+      <xs:enumeration value="faxRelayOrFallbackToG711"/>
+      <xs:enumeration value="ignoreDetectionAllowPeerToNegotiateFaxRelay"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusModemFailureHandling">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="none"/>
+      <xs:enumeration value="notifyPeer"/>
+      <xs:enumeration value="disconnect"/>
+      <xs:enumeration value="applyFaxTreatment"/>
+      <xs:enumeration value="fallbackToG711"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusRelay">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="none"/>
+      <xs:enumeration value="outOfBand"/>
+      <xs:enumeration value="rfc2833"/>
+      <xs:enumeration value="eitherOobOrRfc2833"/>
+      <xs:enumeration value="bothOobAnd2833"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusAmrNbVadType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="vad1"/>
+      <xs:enumeration value="vad2"/>
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>
+

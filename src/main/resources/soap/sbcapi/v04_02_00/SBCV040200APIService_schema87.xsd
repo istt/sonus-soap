@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="sonusholiday.types.v04_02_00.sbc.api.ems.sonus.com" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:simpleType name="sonusMonthOfYear">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="january"/>
+      <xs:enumeration value="february"/>
+      <xs:enumeration value="march"/>
+      <xs:enumeration value="april"/>
+      <xs:enumeration value="may"/>
+      <xs:enumeration value="june"/>
+      <xs:enumeration value="july"/>
+      <xs:enumeration value="august"/>
+      <xs:enumeration value="september"/>
+      <xs:enumeration value="october"/>
+      <xs:enumeration value="november"/>
+      <xs:enumeration value="december"/>
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>
+

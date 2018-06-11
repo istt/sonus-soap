@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="sonusroute.types.v05_01_00.sbc.api.ems.sonus.com" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:complexType name="SonusCallTypeBits">
+    <xs:sequence>
+      <xs:element name="private" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="nationalOperator" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="localOperator" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="nationalType" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="internationalType" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="internationalOperator" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="longDistanceOperator" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="ipVpnService" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="test" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="transit" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="otherCarrierChosen" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="carrierCutThrough" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="userName" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="mobile" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="all" type="xs:boolean" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="SonusDigitTypeBitMaskRouteBits">
+    <xs:sequence>
+      <xs:element name="subscriberType" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="nationalType" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="internationalType" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="subscriberOperator" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="nationalOperator" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="internationalOperator" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="verticalServiceCode" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="easilyIdentifiableNumber" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="tollFree" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="_900PremiumToll" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="_950CarrierAccess" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="localOperator" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="longDistanceOperator" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="emergency" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="directoryAssistance" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="serviceAccessCode" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="ipVpn" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="test" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="transit" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="otherCarrierChosen" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="carrierAccess" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="noDigits" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="private" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="governmentEmergency" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="userName" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="ieps" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="all" type="xs:boolean" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:simpleType name="sonusElementType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="none"/>
+      <xs:enumeration value="carrier"/>
+      <xs:enumeration value="trunkGroup"/>
+      <xs:enumeration value="callingNumber"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusRoutingType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="standard"/>
+      <xs:enumeration value="username"/>
+      <xs:enumeration value="relay"/>
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>
+

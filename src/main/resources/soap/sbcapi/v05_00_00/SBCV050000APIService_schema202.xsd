@@ -1,0 +1,960 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="policyserver.global.v05_00_00.sbc.api.ems.sonus.com" xmlns:ns2="v05_00_00.sbc.api.ems.sonus.com" xmlns:ns1="common.sbc.api.ems.sonus.com" xmlns:ns3="global.v05_00_00.sbc.api.ems.sonus.com" xmlns:tns="policyserver.global.v05_00_00.sbc.api.ems.sonus.com" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:import namespace="common.sbc.api.ems.sonus.com" schemaLocation="SBCV050000APIService_schema326.xsd"/>
+
+  <xs:import namespace="v05_00_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050000APIService_schema7.xsd"/>
+
+  <xs:import namespace="global.v05_00_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050000APIService_schema272.xsd"/>
+
+  <xs:complexType name="policyReqCounters">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcEntity">
+        <xs:sequence>
+          <xs:element name="systemName" type="xs:string" minOccurs="0"/>
+          <xs:element name="totalReqsNoExtSvc" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="totalTimeNoExtSvc" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="averageTimeNoExtSvc" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="totalRequestsExtSvc" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="totalTimeExtSvc" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="averageTimeExtSvc" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="extTime" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="averagExtTime" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="totalTimeouts" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="totalTimeTORequests" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="averageTimeTORequests" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="totalNonSsRequests" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="totalTimeNonSsRequests" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="averagTimeNonSsRequests" type="xs:unsignedInt" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="policyReqCountersKey">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcReadOnlyKey">
+        <xs:sequence>
+          <xs:element name="systemName" type="xs:string" minOccurs="0"/>
+          <xs:element name="parentKey" type="ns3:policyServerKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="policyReqCountersListWrapper">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcListWrapper">
+        <xs:sequence>
+          <xs:element name="policyReqCounters" type="tns:policyReqCounters" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="serviceUsageCounters">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcEntity">
+        <xs:sequence>
+          <xs:element name="systemName" type="xs:string" minOccurs="0"/>
+          <xs:element name="defaultSvcs" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="subsScreening" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="subsBlocking" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="nonSubsScreening" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="nonSubsBlocking" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="subsForcedRouting" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="subsHiFraudBlocking" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="subsSacNonSacRoutes" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="destNumForcedRouting" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="cicPhoneScreening" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="cicScreening" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="cicBlocking" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="cicForcedRouting" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="cicHiFraudBlocking" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="cicSacNonSacRoutes" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="tgScreening" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="tgBlocking" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="tgForcedRouting" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="tgHiFraudBlocking" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="tgSacNonSacRoutes" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="casualCallUnallowed" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="nonSubscriberCallsUnallowed" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="gwScreening" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="gwBlocking" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="gwForcedRouting" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="gwHiFraudBlocking" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="gwSacNonSacRoutes" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="authcodeScreening" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="authcodeBlocking" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="authcodeForcedRouting" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="authcodeHiFraudBlocking" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="authcodeSacNonSacRoutes" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="infodigitScreening" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="infodigitBlocking" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="infodigitForcedRouting" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="infodigitHiFraudBlocking" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="infodigitSacNonSacRoutes" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="softswitchScreening" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="softswitchBlocking" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="softswitchForcedRouting" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="softswitchHiFraudBlocking" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="softswitchSacNonSacRoutes" type="xs:unsignedInt" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="serviceUsageCountersKey">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcReadOnlyKey">
+        <xs:sequence>
+          <xs:element name="systemName" type="xs:string" minOccurs="0"/>
+          <xs:element name="parentKey" type="ns3:policyServerKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="serviceUsageCountersListWrapper">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcListWrapper">
+        <xs:sequence>
+          <xs:element name="serviceUsageCounters" type="tns:serviceUsageCounters" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="lnpTfCounters">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcEntity">
+        <xs:sequence>
+          <xs:element name="systemName" type="xs:string" minOccurs="0"/>
+          <xs:element name="numLNPRequests" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="numSCPRequests" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="numDNRequests" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="numTimedOutRequests" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="numRequestErrors" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="tfcNumRequests" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="tfcNumRequestsToScp" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="tfcNumRequestsTranslated" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="tfcNumTimedOutRequests" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="tfcNumRequestErrors" type="xs:unsignedInt" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="lnpTfCountersKey">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcReadOnlyKey">
+        <xs:sequence>
+          <xs:element name="systemName" type="xs:string" minOccurs="0"/>
+          <xs:element name="parentKey" type="ns3:policyServerKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="lnpTfCountersListWrapper">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcListWrapper">
+        <xs:sequence>
+          <xs:element name="lnpTfCounters" type="tns:lnpTfCounters" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="mwiServiceCounters">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcEntity">
+        <xs:sequence>
+          <xs:element name="systemName" type="xs:string" minOccurs="0"/>
+          <xs:element name="MWIService" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="MWIUpdateService" type="xs:unsignedInt" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="mwiServiceCountersKey">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcReadOnlyKey">
+        <xs:sequence>
+          <xs:element name="systemName" type="xs:string" minOccurs="0"/>
+          <xs:element name="parentKey" type="ns3:policyServerKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="mwiServiceCountersListWrapper">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcListWrapper">
+        <xs:sequence>
+          <xs:element name="mwiServiceCounters" type="tns:mwiServiceCounters" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="dnsEnumCounters">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcEntity">
+        <xs:sequence>
+          <xs:element name="systemName" type="xs:string" minOccurs="0"/>
+          <xs:element name="DNSRequestsSent" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="DNSResponsesReceived" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="ENUMRequestsSent" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="ENUMResponsesReceived" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="KARequestsSent" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="KAResponsesReceived" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="ENUMResponseSuccess" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="ENUMResponseGeneralFailure" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="ENUMResponseNoMemory" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="ENUMResponseInvalidParameter" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="ENUMResponseNoName" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="ENUMResponseNoData" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="DNSCanceledRequests" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="ENUMCanceledRequests" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="longTermAverageTransTime" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="shortTermAverageTransTime" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="NAPTRRscRecordReqSent" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="NAPTRRscRecordRspReceived" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="NAPTRRscRecordCanceledReq" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="NAPTRRscRecordRspSuccess" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="NAPTRRscRecordRspGeneralFailure" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="NAPTRRscRecordRspNoMemory" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="NAPTRResourceRecordRspInvalidParam" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="NAPTRResourceRecordRspNoName" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="NAPTRResourceRecordRspNoData" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="SRVResourceRecordRequestsSent" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="SRVResourceRecordResponsesReceived" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="SRVResourceRecordCanceledRequests" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="SRVResourceRecordRspSuccess" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="SRVResourceRecordRspGeneralFailure" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="SRVResourceRecordRspNoMemory" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="SRVResourceRecordRspInvalidParam" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="SRVResourceRecordRspNoName" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="SRVResourceRecordRspNoData" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="AResourceRecordRequestsSent" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="AResourceRecordResponsesReceived" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="AResourceRecordCanceledRequests" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="AResourceRecordRspSuccess" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="AResourceRecordRspHostNotFound" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="AResourceRecordRspTryAgain" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="AResourceRecordRspNoRecovery" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="AResourceRecordRspNoData" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="LNPRequestsSent" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="CNAMRequestsSent" type="xs:unsignedInt" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="dnsEnumCountersKey">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcReadOnlyKey">
+        <xs:sequence>
+          <xs:element name="systemName" type="xs:string" minOccurs="0"/>
+          <xs:element name="parentKey" type="ns3:policyServerKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="dnsEnumCountersListWrapper">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcListWrapper">
+        <xs:sequence>
+          <xs:element name="dnsEnumCounters" type="tns:dnsEnumCounters" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="failureCounters">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcEntity">
+        <xs:sequence>
+          <xs:element name="systemName" type="xs:string" minOccurs="0"/>
+          <xs:element name="numQueryError" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="numInternalError" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="numExternalError" type="xs:unsignedInt" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="failureCountersKey">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcReadOnlyKey">
+        <xs:sequence>
+          <xs:element name="systemName" type="xs:string" minOccurs="0"/>
+          <xs:element name="parentKey" type="ns3:policyServerKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="failureCountersListWrapper">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcListWrapper">
+        <xs:sequence>
+          <xs:element name="failureCounters" type="tns:failureCounters" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="lnpGsxTable">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcEntity">
+        <xs:sequence>
+          <xs:element name="gsxIp" type="xs:string" minOccurs="0"/>
+          <xs:element name="gsxName" type="xs:string" minOccurs="0"/>
+          <xs:element name="gsxMisroutedCalls" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="gsxInvalidNumbers" type="xs:unsignedInt" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="lnpGsxTableKey">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcReadOnlyKey">
+        <xs:sequence>
+          <xs:element name="gsxIp" type="xs:string" minOccurs="0"/>
+          <xs:element name="parentKey" type="ns3:policyServerKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="lnpGsxTableListWrapper">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcListWrapper">
+        <xs:sequence>
+          <xs:element name="lnpGsxTable" type="tns:lnpGsxTable" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="dialedDestAllowedTable">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcEntity">
+        <xs:sequence>
+          <xs:element name="allowedEntity" type="xs:string" minOccurs="0"/>
+          <xs:element name="allowedEntity2" type="xs:string" minOccurs="0"/>
+          <xs:element name="allowedValue" type="xs:unsignedInt" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="dialedDestAllowedTableKey">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcReadOnlyKey">
+        <xs:sequence>
+          <xs:element name="allowedEntity" type="xs:string" minOccurs="0"/>
+          <xs:element name="allowedEntity2" type="xs:string" minOccurs="0"/>
+          <xs:element name="parentKey" type="ns3:policyServerKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="dialedDestAllowedTableListWrapper">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcListWrapper">
+        <xs:sequence>
+          <xs:element name="dialedDestAllowedTable" type="tns:dialedDestAllowedTable" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="dialedDestBlockedTable">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcEntity">
+        <xs:sequence>
+          <xs:element name="blockedEntity" type="xs:string" minOccurs="0"/>
+          <xs:element name="blockedEntity2" type="xs:string" minOccurs="0"/>
+          <xs:element name="blockedValue" type="xs:unsignedInt" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="dialedDestBlockedTableKey">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcReadOnlyKey">
+        <xs:sequence>
+          <xs:element name="blockedEntity" type="xs:string" minOccurs="0"/>
+          <xs:element name="blockedEntity2" type="xs:string" minOccurs="0"/>
+          <xs:element name="parentKey" type="ns3:policyServerKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="dialedDestBlockedTableListWrapper">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcListWrapper">
+        <xs:sequence>
+          <xs:element name="dialedDestBlockedTable" type="tns:dialedDestBlockedTable" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="translatedDestAllowedTable">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcEntity">
+        <xs:sequence>
+          <xs:element name="allowedEntity" type="xs:string" minOccurs="0"/>
+          <xs:element name="allowedEntity2" type="xs:string" minOccurs="0"/>
+          <xs:element name="allowedValue" type="xs:unsignedInt" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="translatedDestAllowedTableKey">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcReadOnlyKey">
+        <xs:sequence>
+          <xs:element name="allowedEntity" type="xs:string" minOccurs="0"/>
+          <xs:element name="allowedEntity2" type="xs:string" minOccurs="0"/>
+          <xs:element name="parentKey" type="ns3:policyServerKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="translatedDestAllowedTableListWrapper">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcListWrapper">
+        <xs:sequence>
+          <xs:element name="translatedDestAllowedTable" type="tns:translatedDestAllowedTable" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="translatedDestBlockedTable">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcEntity">
+        <xs:sequence>
+          <xs:element name="blockedEntity" type="xs:string" minOccurs="0"/>
+          <xs:element name="blockedEntity2" type="xs:string" minOccurs="0"/>
+          <xs:element name="blockedValue" type="xs:unsignedInt" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="translatedDestBlockedTableKey">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcReadOnlyKey">
+        <xs:sequence>
+          <xs:element name="blockedEntity" type="xs:string" minOccurs="0"/>
+          <xs:element name="blockedEntity2" type="xs:string" minOccurs="0"/>
+          <xs:element name="parentKey" type="ns3:policyServerKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="translatedDestBlockedTableListWrapper">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcListWrapper">
+        <xs:sequence>
+          <xs:element name="translatedDestBlockedTable" type="tns:translatedDestBlockedTable" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="originationAllowedTable">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcEntity">
+        <xs:sequence>
+          <xs:element name="allowedEntity" type="xs:string" minOccurs="0"/>
+          <xs:element name="allowedEntity2" type="xs:string" minOccurs="0"/>
+          <xs:element name="allowedValue" type="xs:unsignedInt" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="originationAllowedTableKey">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcReadOnlyKey">
+        <xs:sequence>
+          <xs:element name="allowedEntity" type="xs:string" minOccurs="0"/>
+          <xs:element name="allowedEntity2" type="xs:string" minOccurs="0"/>
+          <xs:element name="parentKey" type="ns3:policyServerKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="originationAllowedTableListWrapper">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcListWrapper">
+        <xs:sequence>
+          <xs:element name="originationAllowedTable" type="tns:originationAllowedTable" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="originationBlockedTable">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcEntity">
+        <xs:sequence>
+          <xs:element name="blockedEntity" type="xs:string" minOccurs="0"/>
+          <xs:element name="blockedEntity2" type="xs:string" minOccurs="0"/>
+          <xs:element name="blockedValue" type="xs:unsignedInt" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="originationBlockedTableKey">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcReadOnlyKey">
+        <xs:sequence>
+          <xs:element name="blockedEntity" type="xs:string" minOccurs="0"/>
+          <xs:element name="blockedEntity2" type="xs:string" minOccurs="0"/>
+          <xs:element name="parentKey" type="ns3:policyServerKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="originationBlockedTableListWrapper">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcListWrapper">
+        <xs:sequence>
+          <xs:element name="originationBlockedTable" type="tns:originationBlockedTable" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="finalCallingNumberAllowedTable">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcEntity">
+        <xs:sequence>
+          <xs:element name="allowedEntity" type="xs:string" minOccurs="0"/>
+          <xs:element name="allowedEntity2" type="xs:string" minOccurs="0"/>
+          <xs:element name="allowedValue" type="xs:unsignedInt" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="finalCallingNumberAllowedTableKey">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcReadOnlyKey">
+        <xs:sequence>
+          <xs:element name="allowedEntity" type="xs:string" minOccurs="0"/>
+          <xs:element name="allowedEntity2" type="xs:string" minOccurs="0"/>
+          <xs:element name="parentKey" type="ns3:policyServerKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="finalCallingNumberAllowedTableListWrapper">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcListWrapper">
+        <xs:sequence>
+          <xs:element name="finalCallingNumberAllowedTable" type="tns:finalCallingNumberAllowedTable" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="finalCallingNumberBlockedTable">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcEntity">
+        <xs:sequence>
+          <xs:element name="blockedEntity" type="xs:string" minOccurs="0"/>
+          <xs:element name="blockedEntity2" type="xs:string" minOccurs="0"/>
+          <xs:element name="blockedValue" type="xs:unsignedInt" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="finalCallingNumberBlockedTableKey">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcReadOnlyKey">
+        <xs:sequence>
+          <xs:element name="blockedEntity" type="xs:string" minOccurs="0"/>
+          <xs:element name="blockedEntity2" type="xs:string" minOccurs="0"/>
+          <xs:element name="parentKey" type="ns3:policyServerKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="finalCallingNumberBlockedTableListWrapper">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcListWrapper">
+        <xs:sequence>
+          <xs:element name="finalCallingNumberBlockedTable" type="tns:finalCallingNumberBlockedTable" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="finalDestAllowedTable">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcEntity">
+        <xs:sequence>
+          <xs:element name="allowedEntity" type="xs:string" minOccurs="0"/>
+          <xs:element name="allowedEntity2" type="xs:string" minOccurs="0"/>
+          <xs:element name="allowedValue" type="xs:unsignedInt" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="finalDestAllowedTableKey">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcReadOnlyKey">
+        <xs:sequence>
+          <xs:element name="allowedEntity" type="xs:string" minOccurs="0"/>
+          <xs:element name="allowedEntity2" type="xs:string" minOccurs="0"/>
+          <xs:element name="parentKey" type="ns3:policyServerKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="finalDestAllowedTableListWrapper">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcListWrapper">
+        <xs:sequence>
+          <xs:element name="finalDestAllowedTable" type="tns:finalDestAllowedTable" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="finalDestBlockedTable">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcEntity">
+        <xs:sequence>
+          <xs:element name="blockedEntity" type="xs:string" minOccurs="0"/>
+          <xs:element name="blockedEntity2" type="xs:string" minOccurs="0"/>
+          <xs:element name="blockedValue" type="xs:unsignedInt" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="finalDestBlockedTableKey">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcReadOnlyKey">
+        <xs:sequence>
+          <xs:element name="blockedEntity" type="xs:string" minOccurs="0"/>
+          <xs:element name="blockedEntity2" type="xs:string" minOccurs="0"/>
+          <xs:element name="parentKey" type="ns3:policyServerKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="finalDestBlockedTableListWrapper">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcListWrapper">
+        <xs:sequence>
+          <xs:element name="finalDestBlockedTable" type="tns:finalDestBlockedTable" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="hpcExemptionGsxTable">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcEntity">
+        <xs:sequence>
+          <xs:element name="gsxIp" type="xs:string" minOccurs="0"/>
+          <xs:element name="gsxName" type="xs:string" minOccurs="0"/>
+          <xs:element name="gsxExemptedCalls" type="xs:unsignedInt" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="hpcExemptionGsxTableKey">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcReadOnlyKey">
+        <xs:sequence>
+          <xs:element name="gsxIp" type="xs:string" minOccurs="0"/>
+          <xs:element name="parentKey" type="ns3:policyServerKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="hpcExemptionGsxTableListWrapper">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcListWrapper">
+        <xs:sequence>
+          <xs:element name="hpcExemptionGsxTable" type="tns:hpcExemptionGsxTable" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="contractorBasedOrigAllowedTable">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcEntity">
+        <xs:sequence>
+          <xs:element name="allowedEntity" type="xs:string" minOccurs="0"/>
+          <xs:element name="allowedEntity2" type="xs:string" minOccurs="0"/>
+          <xs:element name="allowedValue" type="xs:unsignedInt" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="contractorBasedOrigAllowedTableKey">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcReadOnlyKey">
+        <xs:sequence>
+          <xs:element name="allowedEntity" type="xs:string" minOccurs="0"/>
+          <xs:element name="allowedEntity2" type="xs:string" minOccurs="0"/>
+          <xs:element name="parentKey" type="ns3:policyServerKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="contractorBasedOrigAllowedTableListWrapper">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcListWrapper">
+        <xs:sequence>
+          <xs:element name="contractorBasedOrigAllowedTable" type="tns:contractorBasedOrigAllowedTable" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="contractorBasedOrigBlockedTable">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcEntity">
+        <xs:sequence>
+          <xs:element name="blockedEntity" type="xs:string" minOccurs="0"/>
+          <xs:element name="blockedEntity2" type="xs:string" minOccurs="0"/>
+          <xs:element name="blockedValue" type="xs:unsignedInt" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="contractorBasedOrigBlockedTableKey">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcReadOnlyKey">
+        <xs:sequence>
+          <xs:element name="blockedEntity" type="xs:string" minOccurs="0"/>
+          <xs:element name="blockedEntity2" type="xs:string" minOccurs="0"/>
+          <xs:element name="parentKey" type="ns3:policyServerKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="contractorBasedOrigBlockedTableListWrapper">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcListWrapper">
+        <xs:sequence>
+          <xs:element name="contractorBasedOrigBlockedTable" type="tns:contractorBasedOrigBlockedTable" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="CdDNBasedDestAllowedTable">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcEntity">
+        <xs:sequence>
+          <xs:element name="allowedEntity" type="xs:string" minOccurs="0"/>
+          <xs:element name="allowedEntity2" type="xs:string" minOccurs="0"/>
+          <xs:element name="allowedValue" type="xs:unsignedInt" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="CdDNBasedDestAllowedTableKey">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcReadOnlyKey">
+        <xs:sequence>
+          <xs:element name="allowedEntity" type="xs:string" minOccurs="0"/>
+          <xs:element name="allowedEntity2" type="xs:string" minOccurs="0"/>
+          <xs:element name="parentKey" type="ns3:policyServerKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="cdDNBasedDestAllowedTableListWrapper">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcListWrapper">
+        <xs:sequence>
+          <xs:element name="CdDNBasedDestAllowedTable" type="tns:CdDNBasedDestAllowedTable" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="CdDNBasedDestBlockedTable">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcEntity">
+        <xs:sequence>
+          <xs:element name="blockedEntity" type="xs:string" minOccurs="0"/>
+          <xs:element name="blockedEntity2" type="xs:string" minOccurs="0"/>
+          <xs:element name="blockedValue" type="xs:unsignedInt" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="CdDNBasedDestBlockedTableKey">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcReadOnlyKey">
+        <xs:sequence>
+          <xs:element name="blockedEntity" type="xs:string" minOccurs="0"/>
+          <xs:element name="blockedEntity2" type="xs:string" minOccurs="0"/>
+          <xs:element name="parentKey" type="ns3:policyServerKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="cdDNBasedDestBlockedTableListWrapper">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcListWrapper">
+        <xs:sequence>
+          <xs:element name="CdDNBasedDestBlockedTable" type="tns:CdDNBasedDestBlockedTable" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="hpcCallsPerGsxTable">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcEntity">
+        <xs:sequence>
+          <xs:element name="gsxIp" type="xs:string" minOccurs="0"/>
+          <xs:element name="gsxName" type="xs:string" minOccurs="0"/>
+          <xs:element name="gsxIngressPstn" type="xs:unsignedInt" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="hpcCallsPerGsxTableKey">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcReadOnlyKey">
+        <xs:sequence>
+          <xs:element name="gsxIp" type="xs:string" minOccurs="0"/>
+          <xs:element name="parentKey" type="ns3:policyServerKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="hpcCallsPerGsxTableListWrapper">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcListWrapper">
+        <xs:sequence>
+          <xs:element name="hpcCallsPerGsxTable" type="tns:hpcCallsPerGsxTable" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="sipE911Counters">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcEntity">
+        <xs:sequence>
+          <xs:element name="systemName" type="xs:string" minOccurs="0"/>
+          <xs:element name="reqSent" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="totalRspRcvd" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="successfulRspRcvd" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="failedRspRcvd" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="reqRetry" type="xs:unsignedInt" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="sipE911CountersKey">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcReadOnlyKey">
+        <xs:sequence>
+          <xs:element name="systemName" type="xs:string" minOccurs="0"/>
+          <xs:element name="parentKey" type="ns3:policyServerKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="sipE911CountersListWrapper">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcListWrapper">
+        <xs:sequence>
+          <xs:element name="sipE911Counters" type="tns:sipE911Counters" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="sipCounters">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcEntity">
+        <xs:sequence>
+          <xs:element name="systemName" type="xs:string" minOccurs="0"/>
+          <xs:element name="sipInviteSent" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="sip2xxRcvd" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="sip3xxRcvd" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="sip4xxRcvd" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="sip5xxRcvd" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="sip6xxRcvd" type="xs:unsignedInt" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="sipCountersKey">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcReadOnlyKey">
+        <xs:sequence>
+          <xs:element name="systemName" type="xs:string" minOccurs="0"/>
+          <xs:element name="parentKey" type="ns3:policyServerKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="sipCountersListWrapper">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcListWrapper">
+        <xs:sequence>
+          <xs:element name="sipCounters" type="tns:sipCounters" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+</xs:schema>
+

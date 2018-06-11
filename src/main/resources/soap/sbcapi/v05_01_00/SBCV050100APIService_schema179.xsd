@@ -1,0 +1,301 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="security.profiles.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns14="ikeprotectionprofile.security.profiles.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns15="sonustlsprofile.types.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns9="sonustc.types.v05_01_00.sbc.api.ems.sonus.com" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ns12="sonusipsecprofiles.types.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns5="v05_01_00.sbc.api.ems.sonus.com" xmlns:ns13="ipsecprotectionprofile.security.profiles.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns6="profiles.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns10="sonusematlsprofile.types.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns7="sonushornettc.types.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns11="ematlsprofile.security.profiles.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns8="sonusdtlsprofile.types.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns2="entry.cryptosuiteprofile.security.profiles.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns1="sonuscryptosuiteprofile.types.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns4="common.sbc.api.ems.sonus.com" xmlns:ns3="cryptosuiteprofile.security.profiles.v05_01_00.sbc.api.ems.sonus.com" xmlns:tns="security.profiles.v05_01_00.sbc.api.ems.sonus.com">
+
+  <xs:import namespace="sonuscryptosuiteprofile.types.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema129.xsd"/>
+
+  <xs:import namespace="entry.cryptosuiteprofile.security.profiles.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema314.xsd"/>
+
+  <xs:import namespace="cryptosuiteprofile.security.profiles.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema351.xsd"/>
+
+  <xs:import namespace="common.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema360.xsd"/>
+
+  <xs:import namespace="v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema7.xsd"/>
+
+  <xs:import namespace="profiles.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema217.xsd"/>
+
+  <xs:import namespace="sonushornettc.types.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema90.xsd"/>
+
+  <xs:import namespace="sonusdtlsprofile.types.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema119.xsd"/>
+
+  <xs:import namespace="sonustc.types.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema44.xsd"/>
+
+  <xs:import namespace="sonusematlsprofile.types.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema115.xsd"/>
+
+  <xs:import namespace="ematlsprofile.security.profiles.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema317.xsd"/>
+
+  <xs:import namespace="sonusipsecprofiles.types.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema84.xsd"/>
+
+  <xs:import namespace="ipsecprotectionprofile.security.profiles.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema269.xsd"/>
+
+  <xs:import namespace="ikeprotectionprofile.security.profiles.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema286.xsd"/>
+
+  <xs:import namespace="sonustlsprofile.types.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema42.xsd"/>
+
+  <xs:complexType name="cryptoSuiteProfile">
+    <xs:complexContent>
+      <xs:extension base="ns4:sbcEntity">
+        <xs:sequence>
+          <xs:element name="name" type="xs:string" minOccurs="0"/>
+          <xs:element name="entry" type="ns3:entry" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="cryptoSuiteProfileKey">
+    <xs:complexContent>
+      <xs:extension base="ns4:sbcKey">
+        <xs:sequence>
+          <xs:element name="name" type="xs:string" minOccurs="0"/>
+          <xs:element name="parentKey" type="ns6:securityKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="cryptoSuiteProfileListWrapper">
+    <xs:complexContent>
+      <xs:extension base="ns4:sbcListWrapper">
+        <xs:sequence>
+          <xs:element name="cryptoSuiteProfile" type="tns:cryptoSuiteProfile" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="dtlsProfile">
+    <xs:complexContent>
+      <xs:extension base="ns4:sbcEntity">
+        <xs:sequence>
+          <xs:element name="name" type="xs:string" minOccurs="0"/>
+          <xs:element name="handshakeTimer" type="xs:unsignedInt" default="5" minOccurs="0"/>
+          <xs:element name="sessionResumpTimer" type="xs:unsignedInt" default="300" minOccurs="0"/>
+          <xs:element name="cipherSuite1" type="ns7:sonusTlsCipherSuite" default="rsa-with-aes-128-cbc-sha" minOccurs="0"/>
+          <xs:element name="cipherSuite2" type="ns7:sonusTlsCipherSuite" default="nosuite" minOccurs="0"/>
+          <xs:element name="cipherSuite3" type="ns7:sonusTlsCipherSuite" default="nosuite" minOccurs="0"/>
+          <xs:element name="dtlsRole" type="ns8:sonusDtlsProfileDtlsRole" default="server" minOccurs="0"/>
+          <xs:element name="hashType" type="ns8:sonusDtlsProfileHashFunction" default="sha1" minOccurs="0"/>
+          <xs:element name="CertName" type="xs:string" default="defaultDtlsSBCCert" minOccurs="0"/>
+          <xs:element name="cookieExchange" type="ns9:sonusAdminState" default="enabled" minOccurs="0"/>
+          <xs:element name="v1_0" type="ns9:sonusAdminState" default="enabled" minOccurs="0"/>
+          <xs:element name="v1_1" type="ns9:sonusAdminState" default="disabled" minOccurs="0"/>
+          <xs:element name="v1_2" type="ns9:sonusAdminState" default="disabled" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="dtlsProfileKey">
+    <xs:complexContent>
+      <xs:extension base="ns4:sbcKey">
+        <xs:sequence>
+          <xs:element name="name" type="xs:string" minOccurs="0"/>
+          <xs:element name="parentKey" type="ns6:securityKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="dtlsProfileListWrapper">
+    <xs:complexContent>
+      <xs:extension base="ns4:sbcListWrapper">
+        <xs:sequence>
+          <xs:element name="dtlsProfile" type="tns:dtlsProfile" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="EmaTlsProfile">
+    <xs:complexContent>
+      <xs:extension base="ns4:sbcEntity">
+        <xs:sequence>
+          <xs:element name="name" type="xs:string" minOccurs="0"/>
+          <xs:element name="authClient" type="ns10:authClientType" default="true" minOccurs="0"/>
+          <xs:element name="serverCertName" type="xs:string" minOccurs="0"/>
+          <xs:element name="ocspProfileName" type="xs:string" minOccurs="0"/>
+          <xs:element name="v1_0" type="ns9:sonusAdminState" default="enabled" minOccurs="0"/>
+          <xs:element name="v1_1" type="ns9:sonusAdminState" default="disabled" minOccurs="0"/>
+          <xs:element name="v1_2" type="ns9:sonusAdminState" default="enabled" minOccurs="0"/>
+          <xs:element name="clientCaCert" type="ns11:ClientCaCert" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="EmaTlsProfileKey">
+    <xs:complexContent>
+      <xs:extension base="ns4:sbcKey">
+        <xs:sequence>
+          <xs:element name="name" type="xs:string" minOccurs="0"/>
+          <xs:element name="parentKey" type="ns6:securityKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="emaTlsProfileListWrapper">
+    <xs:complexContent>
+      <xs:extension base="ns4:sbcListWrapper">
+        <xs:sequence>
+          <xs:element name="EmaTlsProfile" type="tns:EmaTlsProfile" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="ipsecProtectionProfile">
+    <xs:complexContent>
+      <xs:extension base="ns4:sbcEntity">
+        <xs:sequence>
+          <xs:element name="name" type="xs:string" minOccurs="0"/>
+          <xs:element name="saLifetimeTime" type="xs:unsignedInt" default="28800" minOccurs="0"/>
+          <xs:element name="saLifetimeByte" type="xs:string" default="unlimited" minOccurs="0"/>
+          <xs:element name="saLifetimeByteUnion" type="ns12:SonusIpsecProtectionSaLifetimeByteTypeUnion" minOccurs="0"/>
+          <xs:element name="espAlgorithms" type="ns13:espAlgorithms" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="ipsecProtectionProfileKey">
+    <xs:complexContent>
+      <xs:extension base="ns4:sbcKey">
+        <xs:sequence>
+          <xs:element name="name" type="xs:string" minOccurs="0"/>
+          <xs:element name="parentKey" type="ns6:securityKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="ipsecProtectionProfileListWrapper">
+    <xs:complexContent>
+      <xs:extension base="ns4:sbcListWrapper">
+        <xs:sequence>
+          <xs:element name="ipsecProtectionProfile" type="tns:ipsecProtectionProfile" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="ikeProtectionProfile">
+    <xs:complexContent>
+      <xs:extension base="ns4:sbcEntity">
+        <xs:sequence>
+          <xs:element name="name" type="xs:string" minOccurs="0"/>
+          <xs:element name="saLifetimeTime" type="xs:unsignedInt" default="28800" minOccurs="0"/>
+          <xs:element name="dpdInterval" type="xs:string" default="30" minOccurs="0"/>
+          <xs:element name="dpdIntervalUnion" type="ns12:SonusIpsecProtectionDPDIntervalTypeUnion" minOccurs="0"/>
+          <xs:element name="pfsRequired" type="ns9:sonusAdminState" default="disabled" minOccurs="0"/>
+          <xs:element name="algorithms" type="ns14:algorithms" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="ikeProtectionProfileKey">
+    <xs:complexContent>
+      <xs:extension base="ns4:sbcKey">
+        <xs:sequence>
+          <xs:element name="name" type="xs:string" minOccurs="0"/>
+          <xs:element name="parentKey" type="ns6:securityKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="ikeProtectionProfileListWrapper">
+    <xs:complexContent>
+      <xs:extension base="ns4:sbcListWrapper">
+        <xs:sequence>
+          <xs:element name="ikeProtectionProfile" type="tns:ikeProtectionProfile" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="tlsProfile">
+    <xs:complexContent>
+      <xs:extension base="ns4:sbcEntity">
+        <xs:sequence>
+          <xs:element name="name" type="xs:string" minOccurs="0"/>
+          <xs:element name="appAuthTimer" type="xs:unsignedInt" default="5" minOccurs="0"/>
+          <xs:element name="handshakeTimer" type="xs:unsignedInt" default="5" minOccurs="0"/>
+          <xs:element name="sessionResumpTimer" type="xs:unsignedInt" default="3600" minOccurs="0"/>
+          <xs:element name="cipherSuite1" type="ns7:sonusTlsCipherSuite" default="rsa-with-aes-128-cbc-sha" minOccurs="0"/>
+          <xs:element name="cipherSuite2" type="ns7:sonusTlsCipherSuite" default="nosuite" minOccurs="0"/>
+          <xs:element name="cipherSuite3" type="ns7:sonusTlsCipherSuite" default="nosuite" minOccurs="0"/>
+          <xs:element name="allowedRoles" type="ns15:sonusTlsProfileAllowedRolesType" default="clientandserver" minOccurs="0"/>
+          <xs:element name="authClient" type="ns15:authClientType" default="true" minOccurs="0"/>
+          <xs:element name="clientCertName" type="xs:string" minOccurs="0"/>
+          <xs:element name="serverCertName" type="xs:string" minOccurs="0"/>
+          <xs:element name="acceptableCertValidationErrorsBits" type="ns15:SonusCertValidationErrorsBits" minOccurs="0"/>
+          <xs:element name="acceptableCertValidationErrors" type="xs:string" default="none" minOccurs="0"/>
+          <xs:element name="ocspProfileName" type="xs:string" minOccurs="0"/>
+          <xs:element name="v1_0" type="ns9:sonusAdminState" default="enabled" minOccurs="0"/>
+          <xs:element name="v1_1" type="ns9:sonusAdminState" default="disabled" minOccurs="0"/>
+          <xs:element name="v1_2" type="ns9:sonusAdminState" default="disabled" minOccurs="0"/>
+          <xs:element name="suppressEmptyFragments" type="ns9:sonusAdminState" default="disabled" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="tlsProfileKey">
+    <xs:complexContent>
+      <xs:extension base="ns4:sbcKey">
+        <xs:sequence>
+          <xs:element name="name" type="xs:string" minOccurs="0"/>
+          <xs:element name="parentKey" type="ns6:securityKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="tlsProfileListWrapper">
+    <xs:complexContent>
+      <xs:extension base="ns4:sbcListWrapper">
+        <xs:sequence>
+          <xs:element name="tlsProfile" type="tns:tlsProfile" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="ocspProfile">
+    <xs:complexContent>
+      <xs:extension base="ns4:sbcEntity">
+        <xs:sequence>
+          <xs:element name="ocspName" type="xs:string" minOccurs="0"/>
+          <xs:element name="state" type="ns9:sonusAdminState" default="disabled" minOccurs="0"/>
+          <xs:element name="defaultResponder" type="xs:string" minOccurs="0"/>
+          <xs:element name="aiaOverride" type="ns9:sonusAdminState" default="disabled" minOccurs="0"/>
+          <xs:element name="responseWaitTime" type="xs:unsignedInt" default="2" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="ocspProfileKey">
+    <xs:complexContent>
+      <xs:extension base="ns4:sbcKey">
+        <xs:sequence>
+          <xs:element name="ocspName" type="xs:string" minOccurs="0"/>
+          <xs:element name="parentKey" type="ns6:securityKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="ocspProfileListWrapper">
+    <xs:complexContent>
+      <xs:extension base="ns4:sbcListWrapper">
+        <xs:sequence>
+          <xs:element name="ocspProfile" type="tns:ocspProfile" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+</xs:schema>
+

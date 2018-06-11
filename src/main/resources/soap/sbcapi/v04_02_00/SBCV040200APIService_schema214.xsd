@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="packettopacketcontrol.packetserviceprofile.media.profiles.v04_02_00.sbc.api.ems.sonus.com" xmlns:ns2="common.sbc.api.ems.sonus.com" xmlns:ns1="sonustc.types.v04_02_00.sbc.api.ems.sonus.com" xmlns:ns4="packetserviceprofile.media.profiles.v04_02_00.sbc.api.ems.sonus.com" xmlns:ns3="media.profiles.v04_02_00.sbc.api.ems.sonus.com" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ns5="sonuspacketserviceprofile.types.v04_02_00.sbc.api.ems.sonus.com">
+
+  <xs:import namespace="sonustc.types.v04_02_00.sbc.api.ems.sonus.com" schemaLocation="SBCV040200APIService_schema42.xsd"/>
+
+  <xs:import namespace="common.sbc.api.ems.sonus.com" schemaLocation="SBCV040200APIService_schema325.xsd"/>
+
+  <xs:import namespace="media.profiles.v04_02_00.sbc.api.ems.sonus.com" schemaLocation="SBCV040200APIService_schema233.xsd"/>
+
+  <xs:import namespace="packetserviceprofile.media.profiles.v04_02_00.sbc.api.ems.sonus.com" schemaLocation="SBCV040200APIService_schema215.xsd"/>
+
+  <xs:import namespace="sonuspacketserviceprofile.types.v04_02_00.sbc.api.ems.sonus.com" schemaLocation="SBCV040200APIService_schema65.xsd"/>
+
+  <xs:complexType name="conditionsInAdditionToNoCommonCodec">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcEntity">
+        <xs:sequence>
+          <xs:element name="applyFaxToneTreatment" type="ns1:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="differentDtmfRelay" type="ns1:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="differentPacketSize" type="ns1:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="differentSilenceSuppression" type="ns1:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="honorOfferPreference" type="ns1:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="honorAnswerPreference" type="ns1:sonusEnableDisable" default="disable" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="conditionsInAdditionToNoCommonCodecKey">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcUnCreatableKey">
+        <xs:sequence>
+          <xs:element name="parentKey" type="ns4:packetToPacketControlKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="codecsAllowedForTranscoding">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcEntity">
+        <xs:sequence>
+          <xs:element name="thisLegBits" type="ns5:SonusThisLegBitMaskBits" minOccurs="0"/>
+          <xs:element name="thisLeg" type="xs:string" minOccurs="0"/>
+          <xs:element name="otherLegBits" type="ns5:SonusOtherLegBitMaskBits" minOccurs="0"/>
+          <xs:element name="otherLeg" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="codecsAllowedForTranscodingKey">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcUnCreatableKey">
+        <xs:sequence>
+          <xs:element name="parentKey" type="ns4:packetToPacketControlKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+</xs:schema>
+

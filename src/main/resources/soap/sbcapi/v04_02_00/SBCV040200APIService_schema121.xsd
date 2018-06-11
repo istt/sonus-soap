@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="sonuscryptosuiteprofile.types.v04_02_00.sbc.api.ems.sonus.com" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:simpleType name="sonusCryptoSuiteType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="none"/>
+      <xs:enumeration value="AES-CM-128-HMAC-SHA1-32"/>
+      <xs:enumeration value="AES-CM-128-HMAC-SHA1-80"/>
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>
+

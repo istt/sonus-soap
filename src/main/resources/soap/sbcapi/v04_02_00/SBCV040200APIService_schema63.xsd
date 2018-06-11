@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="sonuspolicyserver.types.v04_02_00.sbc.api.ems.sonus.com" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:simpleType name="sonusPolicyServerSwitchOverModeType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="automatic"/>
+      <xs:enumeration value="manual"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusPolicyServerInterfaceGroupType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="mgmt"/>
+      <xs:enumeration value="ip"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusPolicyServerModeType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="active"/>
+      <xs:enumeration value="standby"/>
+      <xs:enumeration value="outOfService"/>
+      <xs:enumeration value="alternate"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusPolicyServerActionType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="dryUp"/>
+      <xs:enumeration value="force"/>
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>
+

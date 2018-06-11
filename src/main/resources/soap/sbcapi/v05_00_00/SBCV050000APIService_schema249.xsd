@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="ippeer.zone.addresscontext.v05_00_00.sbc.api.ems.sonus.com" xmlns:ns2="addresscontext.v05_00_00.sbc.api.ems.sonus.com" xmlns:ns1="common.sbc.api.ems.sonus.com" xmlns:ns4="policy.ippeer.zone.addresscontext.v05_00_00.sbc.api.ems.sonus.com" xmlns:ns3="zone.addresscontext.v05_00_00.sbc.api.ems.sonus.com" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ns5="sonustc.types.v05_00_00.sbc.api.ems.sonus.com" xmlns:ns6="sonusippeer.types.v05_00_00.sbc.api.ems.sonus.com">
+
+  <xs:import namespace="common.sbc.api.ems.sonus.com" schemaLocation="SBCV050000APIService_schema326.xsd"/>
+
+  <xs:import namespace="addresscontext.v05_00_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050000APIService_schema366.xsd"/>
+
+  <xs:import namespace="zone.addresscontext.v05_00_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050000APIService_schema1.xsd"/>
+
+  <xs:import namespace="policy.ippeer.zone.addresscontext.v05_00_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050000APIService_schema204.xsd"/>
+
+  <xs:import namespace="sonustc.types.v05_00_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050000APIService_schema42.xsd"/>
+
+  <xs:import namespace="sonusippeer.types.v05_00_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050000APIService_schema83.xsd"/>
+
+  <xs:complexType name="sip">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcEntity">
+        <xs:sequence>
+          <xs:element name="cacProfile" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="sipKey">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcUnCreatableKey">
+        <xs:sequence>
+          <xs:element name="parentKey" type="ns3:ipPeerKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="policy">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcEntity">
+        <xs:sequence>
+          <xs:element name="description" type="xs:string" minOccurs="0"/>
+          <xs:element name="packetServiceProfile" type="xs:string" minOccurs="0"/>
+          <xs:element name="ipSignalingProfile" type="xs:string" minOccurs="0"/>
+          <xs:element name="sip" type="ns4:sip" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="policyKey">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcUnCreatableKey">
+        <xs:sequence>
+          <xs:element name="parentKey" type="ns3:ipPeerKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="pathCheck">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcEntity">
+        <xs:sequence>
+          <xs:element name="profile" type="xs:string" minOccurs="0"/>
+          <xs:element name="hostName" type="xs:string" minOccurs="0"/>
+          <xs:element name="hostPort" type="xs:int" default="0" minOccurs="0"/>
+          <xs:element name="state" type="ns5:sonusAdminState" default="disabled" minOccurs="0"/>
+          <xs:element name="statusUpdateSupport" type="ns5:sonusAdminState" default="disabled" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="pathCheckKey">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcUnCreatableKey">
+        <xs:sequence>
+          <xs:element name="parentKey" type="ns3:ipPeerKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="surrogateRegistration">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcEntity">
+        <xs:sequence>
+          <xs:element name="userPart" type="xs:string" minOccurs="0"/>
+          <xs:element name="authUserName" type="xs:string" minOccurs="0"/>
+          <xs:element name="retryTimer" type="xs:unsignedInt" default="900000" minOccurs="0"/>
+          <xs:element name="regAuthPassword" type="xs:string" minOccurs="0"/>
+          <xs:element name="state" type="ns5:sonusAdminState" default="disabled" minOccurs="0"/>
+          <xs:element name="sendCredentials" type="ns6:sonusSurrRegSendCredentialsType" default="challengeForRegister" minOccurs="0"/>
+          <xs:element name="suppressRegRetryAfterAuthFail" type="ns5:sonusAdminState" default="disabled" minOccurs="0"/>
+          <xs:element name="surrRegProfile" type="xs:string" minOccurs="0"/>
+          <xs:element name="useNextSurrRegForCall" type="ns5:sonusAdminState" default="disabled" minOccurs="0"/>
+          <xs:element name="useUserNameAsPAI" type="ns5:sonusAdminState" default="disabled" minOccurs="0"/>
+          <xs:element name="hostPart" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="surrogateRegistrationKey">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcUnCreatableKey">
+        <xs:sequence>
+          <xs:element name="parentKey" type="ns3:ipPeerKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="authentication">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcEntity">
+        <xs:sequence>
+          <xs:element name="intChallengeResponse" type="ns5:sonusAdminState" default="disabled" minOccurs="0"/>
+          <xs:element name="incInternalCredentials" type="ns5:sonusAdminState" default="disabled" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="authenticationKey">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcUnCreatableKey">
+        <xs:sequence>
+          <xs:element name="parentKey" type="ns3:ipPeerKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+</xs:schema>
+

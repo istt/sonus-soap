@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="v05_01_00.sbc.api.ems.sonus.com" xmlns:ns21="sonushornettc.types.v05_01_00.sbc.api.ems.sonus.com" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ns22="sonussipsub.types.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns23="sonuszone.types.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns24="zone.addresscontext.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns20="sonussipreg.types.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns16="linkdetectiongroup.addresscontext.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns17="realm.addresscontext.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns14="intercept.addresscontext.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns15="sonuslvm.types.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns18="snmpv2_tc.types.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns19="rtpservertable.addresscontext.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns9="dnsgroup.addresscontext.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns12="sonusiproute.types.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns5="dynamicblacklist.addresscontext.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns13="ipsec.addresscontext.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns6="sonustc.types.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns10="ipaccesscontrollist.addresscontext.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns7="diamnode.addresscontext.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns11="ipinterfacegroup.addresscontext.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns8="sonusdns.types.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns2="common.sbc.api.ems.sonus.com" xmlns:ns1="http://www.sonus.com/ems/api/sbc/v05_01_00" xmlns:ns4="natdirectmediagroup.addresscontext.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns3="addresscontext.v05_01_00.sbc.api.ems.sonus.com" xmlns:tns="v05_01_00.sbc.api.ems.sonus.com">
+
+  <xs:import namespace="http://www.sonus.com/ems/api/sbc/v05_01_00" schemaLocation="SBCV050100APIService_schema288.xsd"/>
+
+  <xs:import namespace="common.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema360.xsd"/>
+
+  <xs:import namespace="addresscontext.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema408.xsd"/>
+
+  <xs:import namespace="natdirectmediagroup.addresscontext.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema246.xsd"/>
+
+  <xs:import namespace="dynamicblacklist.addresscontext.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema323.xsd"/>
+
+  <xs:import namespace="sonustc.types.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema44.xsd"/>
+
+  <xs:import namespace="diamnode.addresscontext.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema344.xsd"/>
+
+  <xs:import namespace="sonusdns.types.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema122.xsd"/>
+
+  <xs:import namespace="dnsgroup.addresscontext.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema329.xsd"/>
+
+  <xs:import namespace="ipaccesscontrollist.addresscontext.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema275.xsd"/>
+
+  <xs:import namespace="ipinterfacegroup.addresscontext.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema273.xsd"/>
+
+  <xs:import namespace="sonusiproute.types.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema86.xsd"/>
+
+  <xs:import namespace="ipsec.addresscontext.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema270.xsd"/>
+
+  <xs:import namespace="intercept.addresscontext.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema277.xsd"/>
+
+  <xs:import namespace="sonuslvm.types.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema78.xsd"/>
+
+  <xs:import namespace="linkdetectiongroup.addresscontext.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema263.xsd"/>
+
+  <xs:import namespace="realm.addresscontext.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema209.xsd"/>
+
+  <xs:import namespace="snmpv2_tc.types.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema143.xsd"/>
+
+  <xs:import namespace="rtpservertable.addresscontext.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema187.xsd"/>
+
+  <xs:import namespace="sonussipreg.types.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema55.xsd"/>
+
+  <xs:import namespace="sonushornettc.types.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema90.xsd"/>
+
+  <xs:import namespace="sonussipsub.types.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema51.xsd"/>
+
+  <xs:import namespace="sonuszone.types.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema40.xsd"/>
+
+  <xs:import namespace="zone.addresscontext.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema1.xsd"/>
+
+  <xs:element name="alarms" type="ns1:alarms"/>
+
+  <xs:element name="global" type="ns1:global"/>
+
+  <xs:element name="oam" type="ns1:oam"/>
+
+  <xs:element name="profiles" type="ns1:profiles"/>
+
+  <xs:element name="system" type="ns1:system"/>
+
+
+  <xs:complexType name="alarmsKey">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcUnCreatableKey">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+
+  <xs:complexType name="profilesKey">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcUnCreatableKey">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+
+  <xs:complexType name="systemKey">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcUnCreatableKey">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="addressContext">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcResource">
+        <xs:sequence>
+          <xs:element name="name" type="xs:string" minOccurs="0"/>
+          <xs:element name="cmds" type="ns3:cmds" minOccurs="0"/>
+          <xs:element name="natDirectMediaGroup" type="ns3:natDirectMediaGroup" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="dynamicBlackList" type="ns3:dynamicBlackList" minOccurs="0"/>
+          <xs:element name="diamNode" type="ns3:diamNode" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="dnsGroup" type="ns3:dnsGroup" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="ipAccessControlList" type="ns3:ipAccessControlList" minOccurs="0"/>
+          <xs:element name="ipInterfaceGroup" type="ns3:ipInterfaceGroup" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="staticRoute" type="ns3:staticRoute" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="logicalSigAddressBindingStatus" type="ns3:logicalSigAddressBindingStatus" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="ipRouteStatus" type="ns3:ipRouteStatus" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="ipsec" type="ns3:ipsec" minOccurs="0"/>
+          <xs:element name="intercept" type="ns3:intercept" minOccurs="0"/>
+          <xs:element name="linkDetectionGroup" type="ns3:linkDetectionGroup" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="linkDetectionGroupStatus" type="ns3:linkDetectionGroupStatus" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="linkDetectionGroupStatistics" type="ns3:linkDetectionGroupStatistics" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="realm" type="ns3:realm" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="relayCurrentStatistics" type="ns3:relayCurrentStatistics" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="relayIntervalStatistics" type="ns3:relayIntervalStatistics" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="relaySessionStats" type="ns3:relaySessionStats" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="rtpServerTable" type="ns3:rtpServerTable" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="cacOffenderStatus" type="ns3:cacOffenderStatus" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="sipDeletedRegStatus" type="ns3:sipDeletedRegStatus" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="sipActiveRegisterNameStatus" type="ns3:sipActiveRegisterNameStatus" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="sipDeletedRegisterNameStatus" type="ns3:sipDeletedRegisterNameStatus" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="sipActiveGroupRegStatus" type="ns3:sipActiveGroupRegStatus" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="sipGeneratedSubscriptionStatus" type="ns3:sipGeneratedSubscriptionStatus" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="sipActiveGroupRegSummaryStatus" type="ns3:sipActiveGroupRegSummaryStatus" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="sipRegCountStatistics" type="ns3:sipRegCountStatistics" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="surrRegCountStatistics" type="ns3:surrRegCountStatistics" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="sipSubscriptionCountStatistics" type="ns3:sipSubscriptionCountStatistics" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="sipSubscriptionStatus" type="ns3:sipSubscriptionStatus" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="sipSubCountStatistics" type="ns3:sipSubCountStatistics" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="zone" type="ns3:zone" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="zoneStatus" type="ns3:zoneStatus" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="zoneCurrentStatistics" type="ns3:zoneCurrentStatistics" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="zoneIntervalStatistics" type="ns3:zoneIntervalStatistics" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="addressContextKey">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcKey">
+        <xs:sequence>
+          <xs:element name="name" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="addressContextListWrapper">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcListWrapper">
+        <xs:sequence>
+          <xs:element name="addressContext" type="tns:addressContext" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+
+  <xs:complexType name="globalKey">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcUnCreatableKey">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+
+  <xs:complexType name="oamKey">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcUnCreatableKey">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+</xs:schema>
+

@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="calltrace.global.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns2="common.sbc.api.ems.sonus.com" xmlns:ns1="sonusgen2nrmcalltrace.types.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns4="global.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns3="v05_01_00.sbc.api.ems.sonus.com" xmlns:tns="calltrace.global.v05_01_00.sbc.api.ems.sonus.com" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ns5="sonustc.types.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns6="signalingpacketcapture.calltrace.global.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns7="callfilter.calltrace.global.v05_01_00.sbc.api.ems.sonus.com">
+
+  <xs:import namespace="sonusgen2nrmcalltrace.types.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema109.xsd"/>
+
+  <xs:import namespace="common.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema360.xsd"/>
+
+  <xs:import namespace="v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema7.xsd"/>
+
+  <xs:import namespace="global.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema295.xsd"/>
+
+  <xs:import namespace="sonustc.types.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema44.xsd"/>
+
+  <xs:import namespace="signalingpacketcapture.calltrace.global.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema167.xsd"/>
+
+  <xs:import namespace="callfilter.calltrace.global.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema387.xsd"/>
+
+  <xs:complexType name="errorFilter">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcEntity">
+        <xs:sequence>
+          <xs:element name="errorType" type="ns1:sonusCallTraceErrorFilterTypeType" default="none" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="errorFilterKey">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcUnCreatableKey">
+        <xs:sequence>
+          <xs:element name="parentKey" type="ns4:callTraceKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="signalingPacketCapture">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcEntity">
+        <xs:sequence>
+          <xs:element name="signalingPacketCaptureTimer" type="xs:int" default="180" minOccurs="0"/>
+          <xs:element name="state" type="ns5:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="devices" type="ns6:devices" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="filter" type="ns6:filter" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="signalingPacketCaptureKey">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcUnCreatableKey">
+        <xs:sequence>
+          <xs:element name="parentKey" type="ns4:callTraceKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="callFilter">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcEntity">
+        <xs:sequence>
+          <xs:element name="name" type="xs:string" minOccurs="0"/>
+          <xs:element name="state" type="ns1:sonusCallTraceStateType" default="disabled" minOccurs="0"/>
+          <xs:element name="level" type="ns1:sonusCallTraceLevelType" default="level2" minOccurs="0"/>
+          <xs:element name="keyBits" type="ns1:SonusCallTraceKeyTypeBits" minOccurs="0"/>
+          <xs:element name="key" type="xs:string" minOccurs="0"/>
+          <xs:element name="stopMatch" type="ns1:sonusCallTraceSupportFlag" default="unsupported" minOccurs="0"/>
+          <xs:element name="mediaPacketCapture" type="ns5:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="callDetailCapture" type="ns5:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="match" type="ns7:match" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="callFilterKey">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcKey">
+        <xs:sequence>
+          <xs:element name="name" type="xs:string" minOccurs="0"/>
+          <xs:element name="parentKey" type="ns4:callTraceKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="callFilterListWrapper">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcListWrapper">
+        <xs:sequence>
+          <xs:element name="callFilter" type="tns:callFilter" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+</xs:schema>
+

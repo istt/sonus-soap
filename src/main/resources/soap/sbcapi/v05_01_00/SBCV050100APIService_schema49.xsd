@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="sonussiptransparencyprofile.types.v05_01_00.sbc.api.ems.sonus.com" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:complexType name="SonusSipHeaderMethodBitMaskBits">
+    <xs:sequence>
+      <xs:element name="register" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="invite" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="subscribe" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="notify" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="info" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="publish" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="message" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="refer" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="options" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="update" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="bye" type="xs:boolean" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:simpleType name="sonusSipIgnoreTransparencyType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="no"/>
+      <xs:enumeration value="yes"/>
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>
+

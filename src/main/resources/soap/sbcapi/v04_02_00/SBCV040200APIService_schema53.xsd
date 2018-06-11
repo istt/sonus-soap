@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="sonussipreg.types.v04_02_00.sbc.api.ems.sonus.com" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:simpleType name="sonusSipRegDelRegStatusReasonCodeType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="none"/>
+      <xs:enumeration value="internalError"/>
+      <xs:enumeration value="serviceUnavailable"/>
+      <xs:enumeration value="configProblem"/>
+      <xs:enumeration value="endpointInitiated"/>
+      <xs:enumeration value="registrationRejected"/>
+      <xs:enumeration value="registrationMoved"/>
+      <xs:enumeration value="regTimerExpired"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusSipRegActRegNameStatusStateType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="null"/>
+      <xs:enumeration value="initiating"/>
+      <xs:enumeration value="completed"/>
+      <xs:enumeration value="refreshing"/>
+      <xs:enumeration value="updating"/>
+      <xs:enumeration value="challenged"/>
+      <xs:enumeration value="deleting"/>
+      <xs:enumeration value="terminated"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusNatPinholeLearningStatusType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="none"/>
+      <xs:enumeration value="progressing"/>
+      <xs:enumeration value="completed"/>
+      <xs:enumeration value="completed-due-to-timeout"/>
+      <xs:enumeration value="aborted-due-to-traffic"/>
+      <xs:enumeration value="disabled"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusSipSecurityMechanismType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="none"/>
+      <xs:enumeration value="ipsec-3gpp"/>
+      <xs:enumeration value="tls"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusSipRegistrationType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="normal"/>
+      <xs:enumeration value="emergency"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusSipRegDelRegNameStatusReasonCodeType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="none"/>
+      <xs:enumeration value="internalError"/>
+      <xs:enumeration value="serviceUnavailable"/>
+      <xs:enumeration value="configProblem"/>
+      <xs:enumeration value="endpointInitiated"/>
+      <xs:enumeration value="registrationRejected"/>
+      <xs:enumeration value="registrationMoved"/>
+      <xs:enumeration value="regTimerExpired"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusSipRegActGroupRegStatusStateType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="null"/>
+      <xs:enumeration value="initiating"/>
+      <xs:enumeration value="completed"/>
+      <xs:enumeration value="refreshing"/>
+      <xs:enumeration value="updating"/>
+      <xs:enumeration value="challenged"/>
+      <xs:enumeration value="deleting"/>
+      <xs:enumeration value="terminated"/>
+      <xs:enumeration value="expired"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusSipRegActGroupRegStatusSummaryStateType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="null"/>
+      <xs:enumeration value="initiating"/>
+      <xs:enumeration value="completed"/>
+      <xs:enumeration value="refreshing"/>
+      <xs:enumeration value="updating"/>
+      <xs:enumeration value="challenged"/>
+      <xs:enumeration value="deleting"/>
+      <xs:enumeration value="terminated"/>
+      <xs:enumeration value="expired"/>
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>
+

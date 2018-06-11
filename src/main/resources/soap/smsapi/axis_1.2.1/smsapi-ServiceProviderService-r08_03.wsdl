@@ -1,0 +1,2365 @@
+<?xml version="1.0" encoding="UTF-8"?><!--"V09.03.00A018"-->
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://www.sonusnet.com/sms/smsapi/r08_03/ServiceProviderService" xmlns:intf="http://www.sonusnet.com/sms/smsapi/r08_03/ServiceProviderService" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tns1="http://www.sonusnet.com/sms/smsapi/r08_03/model" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.sonusnet.com/sms/smsapi/r08_03/ServiceProviderService">
+<!--WSDL created by Apache Axis version: 1.2.1
+Built on Jun 14, 2005 (09:15:57 EDT)-->
+ <wsdl:types>
+  <schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.sonusnet.com/sms/smsapi/r08_03/model">
+   <import namespace="http://www.sonusnet.com/sms/smsapi/r08_03/ServiceProviderService"/>
+   <import namespace="http://schemas.xmlsoap.org/soap/encoding/"/>
+   <complexType name="ManagedEntityValue">
+    <sequence/>
+   </complexType>
+   <complexType name="NamedValue">
+    <sequence>
+     <element name="name" nillable="true" type="xsd:string"/>
+     <element name="value" nillable="true" type="xsd:string"/>
+    </sequence>
+   </complexType>
+   <complexType name="ManagedEntityKey">
+    <sequence>
+     <element name="internalId" nillable="true" type="xsd:string"/>
+     <element name="displayAttributes" nillable="true" type="impl:ArrayOf_tns1_NamedValue"/>
+    </sequence>
+   </complexType>
+   <complexType name="ServingRouterKey">
+    <complexContent>
+     <extension base="tns1:ManagedEntityKey">
+      <sequence/>
+     </extension>
+    </complexContent>
+   </complexType>
+   <complexType name="Address">
+    <complexContent>
+     <extension base="tns1:ManagedEntityValue">
+      <sequence>
+       <element name="address1" nillable="true" type="xsd:string"/>
+       <element name="address2" nillable="true" type="xsd:string"/>
+       <element name="address3" nillable="true" type="xsd:string"/>
+       <element name="city" nillable="true" type="xsd:string"/>
+       <element name="state" nillable="true" type="xsd:string"/>
+       <element name="postalCode" nillable="true" type="xsd:string"/>
+       <element name="country" nillable="true" type="xsd:string"/>
+      </sequence>
+     </extension>
+    </complexContent>
+   </complexType>
+   <complexType name="ASXKey">
+    <complexContent>
+     <extension base="tns1:ManagedEntityKey">
+      <sequence/>
+     </extension>
+    </complexContent>
+   </complexType>
+   <simpleType name="KeyManagementSchemeType">
+    <restriction base="xsd:string">
+     <enumeration value="IKE"/>
+     <enumeration value="Kerberos"/>
+    </restriction>
+   </simpleType>
+   <simpleType name="EncryptionAlgorithmType">
+    <restriction base="xsd:string">
+     <enumeration value="ESP_3DES"/>
+     <enumeration value="ESP_NULL"/>
+    </restriction>
+   </simpleType>
+   <simpleType name="AuthenticationAlgorithmType">
+    <restriction base="xsd:string">
+     <enumeration value="HMAC_MD5-96"/>
+     <enumeration value="HMAC_SHA-1-96"/>
+    </restriction>
+   </simpleType>
+   <complexType name="IKEKeyManagementInformation">
+    <complexContent>
+     <extension base="tns1:ManagedEntityValue">
+      <sequence>
+       <element name="phase1EncryptionAlgorithm" nillable="true" type="tns1:EncryptionAlgorithmType"/>
+       <element name="phase1AuthenticationAlgorithm" nillable="true" type="tns1:AuthenticationAlgorithmType"/>
+       <element name="phase2EncryptionAlgorithm" nillable="true" type="tns1:EncryptionAlgorithmType"/>
+       <element name="phase2AuthenticationAlgorithm" nillable="true" type="tns1:AuthenticationAlgorithmType"/>
+       <element name="ikePreSharedKey" nillable="true" type="xsd:string"/>
+      </sequence>
+     </extension>
+    </complexContent>
+   </complexType>
+   <simpleType name="KerberosKeyStatusType">
+    <restriction base="xsd:string">
+     <enumeration value="Current"/>
+     <enumeration value="Refreshed"/>
+     <enumeration value="Compromised"/>
+    </restriction>
+   </simpleType>
+   <complexType name="KerberosServiceKeyRecord">
+    <complexContent>
+     <extension base="tns1:ManagedEntityValue">
+      <sequence>
+       <element name="kerberosPreSharedKey" nillable="true" type="xsd:string"/>
+       <element name="keyVersionNumber" nillable="true" type="xsd:int"/>
+       <element name="kerberosKeyStatus" nillable="true" type="tns1:KerberosKeyStatusType"/>
+       <element name="keyPurgeTime" nillable="true" type="xsd:int"/>
+      </sequence>
+     </extension>
+    </complexContent>
+   </complexType>
+   <complexType name="KerberosKeyManagementInformation">
+    <complexContent>
+     <extension base="tns1:ManagedEntityValue">
+      <sequence>
+       <element name="encryptionAlgorithm" nillable="true" type="tns1:EncryptionAlgorithmType"/>
+       <element name="authenticationAlgorithm" nillable="true" type="tns1:AuthenticationAlgorithmType"/>
+       <element name="kerberosServiceKeyRecordList" nillable="true" type="impl:ArrayOf_tns1_KerberosServiceKeyRecord"/>
+       <element name="cmsDefaultRealmFQDN" nillable="true" type="xsd:string"/>
+       <element name="keyDistributionCenterFQDN" nillable="true" type="xsd:string"/>
+       <element name="cmsDomainRealmFQDN" nillable="true" type="xsd:string"/>
+       <element name="cmsServiceFQDN" nillable="true" type="xsd:string"/>
+      </sequence>
+     </extension>
+    </complexContent>
+   </complexType>
+   <complexType name="SignalingSecurityInformation">
+    <complexContent>
+     <extension base="tns1:ManagedEntityValue">
+      <sequence>
+       <element name="keyManagementScheme" nillable="true" type="tns1:KeyManagementSchemeType"/>
+       <element name="ikeKeyManagementInformation" nillable="true" type="tns1:IKEKeyManagementInformation"/>
+       <element name="kerberosKeyManagementInformation" nillable="true" type="tns1:KerberosKeyManagementInformation"/>
+      </sequence>
+     </extension>
+    </complexContent>
+   </complexType>
+   <complexType name="ServingRouter_ASXAssociation">
+    <complexContent>
+     <extension base="tns1:ManagedEntityValue">
+      <sequence>
+       <element name="asx" nillable="true" type="tns1:ASXKey"/>
+       <element name="copsDestinationPort" nillable="true" type="xsd:int"/>
+       <element name="dQoSSupport" nillable="true" type="xsd:boolean"/>
+       <element name="securityIndicator" nillable="true" type="xsd:boolean"/>
+       <element name="cmsCmtsSignalingSecurityInformation" nillable="true" type="tns1:SignalingSecurityInformation"/>
+      </sequence>
+     </extension>
+    </complexContent>
+   </complexType>
+   <complexType name="ServingRouter">
+    <complexContent>
+     <extension base="tns1:ManagedEntityValue">
+      <sequence>
+       <element name="key" nillable="true" type="tns1:ServingRouterKey"/>
+       <element name="name" nillable="true" type="xsd:string"/>
+       <element name="address" nillable="true" type="xsd:string"/>
+       <element name="location" nillable="true" type="tns1:Address"/>
+       <element name="servingRouter_ASXAssociationList" nillable="true" type="impl:ArrayOf_tns1_ServingRouter_ASXAssociation"/>
+      </sequence>
+     </extension>
+    </complexContent>
+   </complexType>
+   <complexType name="NodeKey">
+    <complexContent>
+     <extension base="tns1:ManagedEntityKey">
+      <sequence/>
+     </extension>
+    </complexContent>
+   </complexType>
+   <complexType name="SMSAPIException">
+    <sequence>
+     <element name="errorMessage" nillable="true" type="xsd:string"/>
+     <element name="exceptionDetails" nillable="true" type="impl:ArrayOf_tns1_NamedValue"/>
+     <element name="errorCode" type="xsd:int"/>
+     <element name="messageKey" nillable="true" type="xsd:string"/>
+     <element name="messageArgs" nillable="true" type="impl:ArrayOf_xsd_string"/>
+    </sequence>
+   </complexType>
+   <complexType name="SMSAPIValidationException">
+    <complexContent>
+     <extension base="tns1:SMSAPIException">
+      <sequence/>
+     </extension>
+    </complexContent>
+   </complexType>
+   <complexType name="SMSAPIInternalException">
+    <complexContent>
+     <extension base="tns1:SMSAPIException">
+      <sequence/>
+     </extension>
+    </complexContent>
+   </complexType>
+   <complexType name="SMSAPINetworkException">
+    <complexContent>
+     <extension base="tns1:SMSAPIException">
+      <sequence/>
+     </extension>
+    </complexContent>
+   </complexType>
+   <complexType name="ServingASXKey">
+    <complexContent>
+     <extension base="tns1:ManagedEntityKey">
+      <sequence/>
+     </extension>
+    </complexContent>
+   </complexType>
+   <simpleType name="ASXStateType">
+    <restriction base="xsd:string">
+     <enumeration value="Unknown"/>
+     <enumeration value="InService"/>
+     <enumeration value="InServiceNotResponding"/>
+     <enumeration value="OutOfService"/>
+     <enumeration value="Invalid"/>
+    </restriction>
+   </simpleType>
+   <complexType name="ServingASX">
+    <complexContent>
+     <extension base="tns1:ManagedEntityValue">
+      <sequence>
+       <element name="key" nillable="true" type="tns1:ServingASXKey"/>
+       <element name="logicalASX" nillable="true" type="tns1:ASXKey"/>
+       <element name="iadLogicalName" nillable="true" type="xsd:string"/>
+       <element name="asxState" nillable="true" type="tns1:ASXStateType"/>
+       <element name="subscriberLimit" nillable="true" type="xsd:int"/>
+       <element name="subscriberCount" nillable="true" type="xsd:int"/>
+       <element name="location" nillable="true" type="tns1:Address"/>
+      </sequence>
+     </extension>
+    </complexContent>
+   </complexType>
+   <complexType name="EnterpriseKey">
+    <complexContent>
+     <extension base="tns1:ManagedEntityKey">
+      <sequence>
+       <element name="name" nillable="true" type="xsd:string"/>
+      </sequence>
+     </extension>
+    </complexContent>
+   </complexType>
+   <complexType name="Node">
+    <complexContent>
+     <extension base="tns1:ManagedEntityValue">
+      <sequence>
+       <element name="key" nillable="true" type="tns1:NodeKey"/>
+       <element name="name" nillable="true" type="xsd:string"/>
+       <element name="version" nillable="true" type="xsd:string"/>
+      </sequence>
+     </extension>
+    </complexContent>
+   </complexType>
+   <complexType name="Enterprise">
+    <complexContent>
+     <extension base="tns1:ManagedEntityValue">
+      <sequence>
+       <element name="key" nillable="true" type="tns1:EnterpriseKey"/>
+       <element name="name" nillable="true" type="xsd:string"/>
+       <element name="adsNode" nillable="true" type="tns1:Node"/>
+       <element name="psxNode" nillable="true" type="tns1:Node"/>
+       <element name="notes" nillable="true" type="xsd:string"/>
+      </sequence>
+     </extension>
+    </complexContent>
+   </complexType>
+   <complexType name="SIPToCauseCodeMappingKey">
+    <complexContent>
+     <extension base="tns1:ManagedEntityKey">
+      <sequence/>
+     </extension>
+    </complexContent>
+   </complexType>
+   <complexType name="CauseCodeToSIPMappingKey">
+    <complexContent>
+     <extension base="tns1:ManagedEntityKey">
+      <sequence/>
+     </extension>
+    </complexContent>
+   </complexType>
+   <complexType name="SIPTransparencyInformationKey">
+    <complexContent>
+     <extension base="tns1:ManagedEntityKey">
+      <sequence/>
+     </extension>
+    </complexContent>
+   </complexType>
+   <complexType name="SessionRedirectionInformationKey">
+    <complexContent>
+     <extension base="tns1:ManagedEntityKey">
+      <sequence/>
+     </extension>
+    </complexContent>
+   </complexType>
+   <complexType name="EnabledFeatures">
+    <complexContent>
+     <extension base="tns1:ManagedEntityValue">
+      <sequence>
+       <element name="messageWaitingIndicator" nillable="true" type="xsd:boolean"/>
+       <element name="callForwardingVariable" nillable="true" type="xsd:boolean"/>
+       <element name="callForwardingDontAnswer" nillable="true" type="xsd:boolean"/>
+       <element name="callForwardingBusyLine" nillable="true" type="xsd:boolean"/>
+       <element name="remoteCallForwarding" nillable="true" type="xsd:boolean"/>
+       <element name="selectiveCallForwarding" nillable="true" type="xsd:boolean"/>
+       <element name="callWaiting" nillable="true" type="xsd:boolean"/>
+       <element name="callerId" nillable="true" type="xsd:boolean"/>
+       <element name="callingPartyCallerIdVSCControl" nillable="true" type="xsd:boolean"/>
+       <element name="callerIdWithName" nillable="true" type="xsd:boolean"/>
+       <element name="anonymousCallRejection" nillable="true" type="xsd:boolean"/>
+       <element name="callHold" nillable="true" type="xsd:boolean"/>
+       <element name="threeWayCalling" nillable="true" type="xsd:boolean"/>
+       <element name="callTransfer" nillable="true" type="xsd:boolean"/>
+       <element name="multilineHunting" nillable="true" type="xsd:boolean"/>
+       <element name="faxModemControl" nillable="true" type="xsd:boolean"/>
+       <element name="sipEndpointSupport" nillable="true" type="xsd:boolean"/>
+       <element name="callConfirmationTone" nillable="true" type="xsd:boolean"/>
+       <element name="simpleCodecEnforcement" nillable="true" type="xsd:boolean"/>
+       <element name="callCrankbackSupport" nillable="true" type="xsd:boolean"/>
+       <element name="smartAuditSupport" nillable="true" type="xsd:boolean"/>
+       <element name="callAnalysisSupport" nillable="true" type="xsd:boolean"/>
+       <element name="pilotNumberPresentation" nillable="true" type="xsd:boolean"/>
+       <element name="nWayCalling" nillable="true" type="xsd:boolean"/>
+       <element name="speedDialingSingleDigit" nillable="true" type="xsd:boolean"/>
+       <element name="speedDialingTwoDigit" nillable="true" type="xsd:boolean"/>
+       <element name="distinctiveRinging" nillable="true" type="xsd:boolean"/>
+       <element name="doNotDisturb" nillable="true" type="xsd:boolean"/>
+       <element name="findMeFollowMe" nillable="true" type="xsd:boolean"/>
+       <element name="clickToDial" nillable="true" type="xsd:boolean"/>
+       <element name="packetCableDQoS" nillable="true" type="xsd:boolean"/>
+       <element name="cmsCmtsSecurity" nillable="true" type="xsd:boolean"/>
+       <element name="rtpRtcpEncryption" nillable="true" type="xsd:boolean"/>
+       <element name="automaticCallback" nillable="true" type="xsd:boolean"/>
+       <element name="automaticRecall" nillable="true" type="xsd:boolean"/>
+       <element name="busyBuster" nillable="true" type="xsd:boolean"/>
+       <element name="selectiveCallAcceptance" nillable="true" type="xsd:boolean"/>
+       <element name="selectiveCallRejection" nillable="true" type="xsd:boolean"/>
+       <element name="musicOnHold" nillable="true" type="xsd:boolean"/>
+       <element name="incomingMemorySlot" nillable="true" type="xsd:boolean"/>
+       <element name="outgoingMemorySlot" nillable="true" type="xsd:boolean"/>
+       <element name="voiceMailAccessVSC" nillable="true" type="xsd:boolean"/>
+       <element name="applicationServerFeatureControlVSC" nillable="true" type="xsd:boolean"/>
+       <element name="sessionRedirection" nillable="true" type="xsd:boolean"/>
+       <element name="customCallForwarding" nillable="true" type="xsd:boolean"/>
+       <element name="remoteFeatureControl" nillable="true" type="xsd:boolean"/>
+       <element name="maliciousCallIdentification" nillable="true" type="xsd:boolean"/>
+       <element name="ringBackWhenFree" nillable="true" type="xsd:boolean"/>
+       <element name="ringBackWhenFreeQueuing" nillable="true" type="xsd:boolean"/>
+       <element name="outgoingCallRestriction" nillable="true" type="xsd:boolean"/>
+       <element name="sipTransparency" nillable="true" type="xsd:boolean"/>
+       <element name="sdpTransparency" nillable="true" type="xsd:boolean"/>
+       <element name="routeHeaderProcessing" nillable="true" type="xsd:boolean"/>
+       <element name="multiServiceControl" nillable="true" type="xsd:boolean"/>
+       <element name="callForwardingUnreachable" nillable="true" type="xsd:boolean"/>
+       <element name="H248Support" nillable="true" type="xsd:boolean"/>
+       <element name="directedCallPickup" nillable="true" type="xsd:boolean"/>
+       <element name="businessGroupFeatureControls" nillable="true" type="xsd:boolean"/>
+       <element name="presentationNumber" nillable="true" type="xsd:boolean"/>
+       <element name="callingNumberSourceSupport" nillable="true" type="xsd:boolean"/>
+       <element name="alarmCall" nillable="true" type="xsd:boolean"/>
+       <element name="callOffer" nillable="true" type="xsd:boolean"/>
+       <element name="callPark" nillable="true" type="xsd:boolean"/>
+       <element name="changeNumber" nillable="true" type="xsd:boolean"/>
+       <element name="hotLine" nillable="true" type="xsd:boolean"/>
+       <element name="warmLine" nillable="true" type="xsd:boolean"/>
+       <element name="pilotNumberHunting" nillable="true" type="xsd:boolean"/>
+       <element name="bypassPSXIfCalledPublicUserIdentity" nillable="true" type="xsd:boolean"/>
+       <element name="multiplePublicUserIdentitySupport" nillable="true" type="xsd:boolean"/>
+       <element name="egressOverlapSignaling" nillable="true" type="xsd:boolean"/>
+       <element name="agcfSupport" nillable="true" type="xsd:boolean"/>
+       <element name="deluxeFlashProcessing" nillable="true" type="xsd:boolean"/>
+       <element name="callQueuing" nillable="true" type="xsd:boolean"/>
+       <element name="huntGroupControls" nillable="true" type="xsd:boolean"/>
+       <element name="collectH248ServingDeviceCallStats" nillable="true" type="xsd:boolean"/>
+       <element name="collectSipMwBusinessGroupCallStats" nillable="true" type="xsd:boolean"/>
+       <element name="collectKPICallStats" nillable="true" type="xsd:boolean"/>
+       <element name="trafficControls" nillable="true" type="xsd:boolean"/>
+       <element name="applicationServerControl" nillable="true" type="xsd:boolean"/>
+       <element name="groupRegistrationSupport" nillable="true" type="xsd:boolean"/>
+       <element name="sctpSupport" nillable="true" type="xsd:boolean"/>
+       <element name="incomingMemorySlotReplication" nillable="true" type="xsd:boolean"/>
+       <element name="outgoingMemorySlotReplication" nillable="true" type="xsd:boolean"/>
+       <element name="sipDialogEventCallPickup" nillable="true" type="xsd:boolean"/>
+       <element name="ddiNumberRange" nillable="true" type="xsd:boolean"/>
+       <element name="pulseMetering" nillable="true" type="xsd:boolean"/>
+       <element name="callNotification" nillable="true" type="xsd:boolean"/>
+       <element name="multipleRegistrations" nillable="true" type="xsd:boolean"/>
+       <element name="outgoingMemorySlotFromSpecificContact" nillable="true" type="xsd:boolean"/>
+       <element name="multipleLineAppearance" nillable="true" type="xsd:boolean"/>
+      </sequence>
+     </extension>
+    </complexContent>
+   </complexType>
+   <complexType name="ASX">
+    <complexContent>
+     <extension base="tns1:ManagedEntityValue">
+      <sequence>
+       <element name="key" nillable="true" type="tns1:ASXKey"/>
+       <element name="sipIpAddress" nillable="true" type="xsd:string"/>
+       <element name="sipPort" nillable="true" type="xsd:int"/>
+       <element name="cmsMtaSecurityIndicator" nillable="true" type="xsd:boolean"/>
+       <element name="cmsMtaSignalingSecurityInformation" nillable="true" type="tns1:SignalingSecurityInformation"/>
+       <element name="location" nillable="true" type="tns1:Address"/>
+       <element name="enabledFeatures" nillable="true" type="tns1:EnabledFeatures"/>
+       <element name="sessionRedirectionInfo" nillable="true" type="tns1:SessionRedirectionInformationKey"/>
+       <element name="causeCodeToSIPMapping" nillable="true" type="tns1:CauseCodeToSIPMappingKey"/>
+       <element name="sipToCauseCodeMapping" nillable="true" type="tns1:SIPToCauseCodeMappingKey"/>
+       <element name="sipTransparencyInformation" nillable="true" type="tns1:SIPTransparencyInformationKey"/>
+       <element name="sipGatewayReferSupport" nillable="true" type="xsd:boolean"/>
+       <element name="peerGroupASX" nillable="true" type="xsd:boolean"/>
+      </sequence>
+     </extension>
+    </complexContent>
+   </complexType>
+  </schema>
+  <schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.sonusnet.com/sms/smsapi/r08_03/ServiceProviderService">
+   <import namespace="http://www.sonusnet.com/sms/smsapi/r08_03/model"/>
+   <import namespace="http://schemas.xmlsoap.org/soap/encoding/"/>
+   <complexType name="ArrayOf_tns1_NamedValue">
+    <complexContent>
+     <restriction base="soapenc:Array">
+      <attribute ref="soapenc:arrayType" wsdl:arrayType="tns1:NamedValue[]"/>
+     </restriction>
+    </complexContent>
+   </complexType>
+   <complexType name="ArrayOf_tns1_KerberosServiceKeyRecord">
+    <complexContent>
+     <restriction base="soapenc:Array">
+      <attribute ref="soapenc:arrayType" wsdl:arrayType="tns1:KerberosServiceKeyRecord[]"/>
+     </restriction>
+    </complexContent>
+   </complexType>
+   <complexType name="ArrayOf_tns1_ServingRouter_ASXAssociation">
+    <complexContent>
+     <restriction base="soapenc:Array">
+      <attribute ref="soapenc:arrayType" wsdl:arrayType="tns1:ServingRouter_ASXAssociation[]"/>
+     </restriction>
+    </complexContent>
+   </complexType>
+   <complexType name="ArrayOf_xsd_string">
+    <complexContent>
+     <restriction base="soapenc:Array">
+      <attribute ref="soapenc:arrayType" wsdl:arrayType="xsd:string[]"/>
+     </restriction>
+    </complexContent>
+   </complexType>
+   <complexType name="ArrayOf_tns1_NodeKey">
+    <complexContent>
+     <restriction base="soapenc:Array">
+      <attribute ref="soapenc:arrayType" wsdl:arrayType="tns1:NodeKey[]"/>
+     </restriction>
+    </complexContent>
+   </complexType>
+   <complexType name="ArrayOf_tns1_ASXKey">
+    <complexContent>
+     <restriction base="soapenc:Array">
+      <attribute ref="soapenc:arrayType" wsdl:arrayType="tns1:ASXKey[]"/>
+     </restriction>
+    </complexContent>
+   </complexType>
+   <complexType name="ArrayOf_tns1_EnterpriseKey">
+    <complexContent>
+     <restriction base="soapenc:Array">
+      <attribute ref="soapenc:arrayType" wsdl:arrayType="tns1:EnterpriseKey[]"/>
+     </restriction>
+    </complexContent>
+   </complexType>
+   <complexType name="ArrayOf_tns1_ServingASXKey">
+    <complexContent>
+     <restriction base="soapenc:Array">
+      <attribute ref="soapenc:arrayType" wsdl:arrayType="tns1:ServingASXKey[]"/>
+     </restriction>
+    </complexContent>
+   </complexType>
+   <complexType name="ArrayOf_tns1_SIPToCauseCodeMappingKey">
+    <complexContent>
+     <restriction base="soapenc:Array">
+      <attribute ref="soapenc:arrayType" wsdl:arrayType="tns1:SIPToCauseCodeMappingKey[]"/>
+     </restriction>
+    </complexContent>
+   </complexType>
+   <complexType name="ArrayOf_tns1_CauseCodeToSIPMappingKey">
+    <complexContent>
+     <restriction base="soapenc:Array">
+      <attribute ref="soapenc:arrayType" wsdl:arrayType="tns1:CauseCodeToSIPMappingKey[]"/>
+     </restriction>
+    </complexContent>
+   </complexType>
+   <complexType name="ArrayOf_tns1_SIPTransparencyInformationKey">
+    <complexContent>
+     <restriction base="soapenc:Array">
+      <attribute ref="soapenc:arrayType" wsdl:arrayType="tns1:SIPTransparencyInformationKey[]"/>
+     </restriction>
+    </complexContent>
+   </complexType>
+   <complexType name="ArrayOf_tns1_ServingRouterKey">
+    <complexContent>
+     <restriction base="soapenc:Array">
+      <attribute ref="soapenc:arrayType" wsdl:arrayType="tns1:ServingRouterKey[]"/>
+     </restriction>
+    </complexContent>
+   </complexType>
+   <complexType name="ArrayOf_tns1_SessionRedirectionInformationKey">
+    <complexContent>
+     <restriction base="soapenc:Array">
+      <attribute ref="soapenc:arrayType" wsdl:arrayType="tns1:SessionRedirectionInformationKey[]"/>
+     </restriction>
+    </complexContent>
+   </complexType>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="createServingASXRequest">
+
+      <wsdl:part name="in0" type="tns1:ServingASX"/>
+
+      <wsdl:part name="in1" type="tns1:NodeKey"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="getServingASXRequest">
+
+      <wsdl:part name="in0" type="tns1:ServingASXKey"/>
+
+      <wsdl:part name="in1" type="tns1:NodeKey"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="listServingASXsByLogicalASXRequest">
+
+      <wsdl:part name="in0" type="tns1:NodeKey"/>
+
+      <wsdl:part name="in1" type="tns1:ASXKey"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="listASXCauseCodeToSIPMappingResponse">
+
+      <wsdl:part name="listASXCauseCodeToSIPMappingReturn" type="impl:ArrayOf_tns1_CauseCodeToSIPMappingKey"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="updateEnterpriseResponse">
+
+   </wsdl:message>
+
+   <wsdl:message name="listServingASXRequest">
+
+      <wsdl:part name="in0" type="tns1:NodeKey"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="updateServingASXRequest">
+
+      <wsdl:part name="in0" type="tns1:ServingASX"/>
+
+      <wsdl:part name="in1" type="tns1:NodeKey"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="listADSNodesRequest">
+
+   </wsdl:message>
+
+   <wsdl:message name="removeASXServiceKeysRequest">
+
+      <wsdl:part name="in0" type="tns1:NodeKey"/>
+
+      <wsdl:part name="in1" type="tns1:ASXKey"/>
+
+      <wsdl:part name="in2" type="impl:ArrayOf_xsd_string"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="listEnterprisesRequest">
+
+   </wsdl:message>
+
+   <wsdl:message name="listASXCauseCodeToSIPMappingRequest">
+
+      <wsdl:part name="in0" type="tns1:NodeKey"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="getServingASXResponse">
+
+      <wsdl:part name="getServingASXReturn" type="tns1:ServingASX"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="deleteASXResponse">
+
+   </wsdl:message>
+
+   <wsdl:message name="listASXSIPToCauseCodeMappingRequest">
+
+      <wsdl:part name="in0" type="tns1:NodeKey"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="createServingASXResponse">
+
+      <wsdl:part name="createServingASXReturn" type="tns1:ServingASXKey"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="listADSNodesResponse">
+
+      <wsdl:part name="listADSNodesReturn" type="impl:ArrayOf_tns1_NodeKey"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="listServingASXResponse">
+
+      <wsdl:part name="listServingASXReturn" type="impl:ArrayOf_tns1_ServingASXKey"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="deleteServingRouterRequest">
+
+      <wsdl:part name="in0" type="tns1:ServingRouterKey"/>
+
+      <wsdl:part name="in1" type="tns1:NodeKey"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="SMSAPIInternalException">
+
+      <wsdl:part name="fault" type="tns1:SMSAPIInternalException"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="listServingRoutersResponse">
+
+      <wsdl:part name="listServingRoutersReturn" type="impl:ArrayOf_tns1_ServingRouterKey"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="createASXRequest">
+
+      <wsdl:part name="in0" type="tns1:ASX"/>
+
+      <wsdl:part name="in1" type="tns1:NodeKey"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="compromiseAllASXServiceKeysRequest">
+
+      <wsdl:part name="in0" type="tns1:NodeKey"/>
+
+      <wsdl:part name="in1" type="tns1:ASXKey"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="listASXSIPTransparencyInformationResponse">
+
+      <wsdl:part name="listASXSIPTransparencyInformationReturn" type="impl:ArrayOf_tns1_SIPTransparencyInformationKey"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="getEnterpriseRequest">
+
+      <wsdl:part name="in0" type="tns1:EnterpriseKey"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="createServingRouterResponse">
+
+      <wsdl:part name="createServingRouterReturn" type="tns1:ServingRouterKey"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="updateEnterpriseRequest">
+
+      <wsdl:part name="in0" type="tns1:Enterprise"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="updateASXRequest">
+
+      <wsdl:part name="in0" type="tns1:ASX"/>
+
+      <wsdl:part name="in1" type="tns1:NodeKey"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="listASXsRequest">
+
+      <wsdl:part name="in0" type="tns1:NodeKey"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="listASXSIPToCauseCodeMappingResponse">
+
+      <wsdl:part name="listASXSIPToCauseCodeMappingReturn" type="impl:ArrayOf_tns1_SIPToCauseCodeMappingKey"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="listServingRoutersRequest">
+
+      <wsdl:part name="in0" type="tns1:NodeKey"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="updateServingRouterResponse">
+
+   </wsdl:message>
+
+   <wsdl:message name="createASXResponse">
+
+      <wsdl:part name="createASXReturn" type="tns1:ASXKey"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="setServingRouterPreSharedKeyResponse">
+
+   </wsdl:message>
+
+   <wsdl:message name="createServingRouterRequest">
+
+      <wsdl:part name="in0" type="tns1:ServingRouter"/>
+
+      <wsdl:part name="in1" type="tns1:NodeKey"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="SMSAPINetworkException">
+
+      <wsdl:part name="fault" type="tns1:SMSAPINetworkException"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="deleteServingRouterResponse">
+
+   </wsdl:message>
+
+   <wsdl:message name="getServingRouterRequest">
+
+      <wsdl:part name="in0" type="tns1:ServingRouterKey"/>
+
+      <wsdl:part name="in1" type="tns1:NodeKey"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="listASXsResponse">
+
+      <wsdl:part name="listASXsReturn" type="impl:ArrayOf_tns1_ASXKey"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="updateServingASXResponse">
+
+   </wsdl:message>
+
+   <wsdl:message name="getServingRouterResponse">
+
+      <wsdl:part name="getServingRouterReturn" type="tns1:ServingRouter"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="getASXRequest">
+
+      <wsdl:part name="in0" type="tns1:ASXKey"/>
+
+      <wsdl:part name="in1" type="tns1:NodeKey"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="setServingRouterPreSharedKeyRequest">
+
+      <wsdl:part name="in0" type="tns1:NodeKey"/>
+
+      <wsdl:part name="in1" type="tns1:ServingRouterKey"/>
+
+      <wsdl:part name="in2" type="tns1:ASXKey"/>
+
+      <wsdl:part name="in3" type="xsd:string"/>
+
+      <wsdl:part name="in4" type="xsd:boolean"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="listEnterprisesResponse">
+
+      <wsdl:part name="listEnterprisesReturn" type="impl:ArrayOf_tns1_EnterpriseKey"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="listServingRoutersByASXRequest">
+
+      <wsdl:part name="in0" type="tns1:NodeKey"/>
+
+      <wsdl:part name="in1" type="tns1:ASXKey"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="setASXServiceKeyResponse">
+
+   </wsdl:message>
+
+   <wsdl:message name="listASXSessionRedirectionInformationResponse">
+
+      <wsdl:part name="listASXSessionRedirectionInformationReturn" type="impl:ArrayOf_tns1_SessionRedirectionInformationKey"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="compromiseAllASXServiceKeysResponse">
+
+   </wsdl:message>
+
+   <wsdl:message name="listASXSIPTransparencyInformationRequest">
+
+      <wsdl:part name="in0" type="tns1:NodeKey"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="deleteASXRequest">
+
+      <wsdl:part name="in0" type="tns1:ASXKey"/>
+
+      <wsdl:part name="in1" type="tns1:NodeKey"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="listServingASXsByLogicalASXResponse">
+
+      <wsdl:part name="listServingASXsByLogicalASXReturn" type="impl:ArrayOf_tns1_ServingASXKey"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="getASXResponse">
+
+      <wsdl:part name="getASXReturn" type="tns1:ASX"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="removeASXServiceKeysResponse">
+
+   </wsdl:message>
+
+   <wsdl:message name="listServingRoutersByASXResponse">
+
+      <wsdl:part name="listServingRoutersByASXReturn" type="impl:ArrayOf_tns1_ServingRouterKey"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="deleteServingASXResponse">
+
+   </wsdl:message>
+
+   <wsdl:message name="updateASXResponse">
+
+   </wsdl:message>
+
+   <wsdl:message name="listASXSessionRedirectionInformationRequest">
+
+      <wsdl:part name="in0" type="tns1:NodeKey"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="updateServingRouterRequest">
+
+      <wsdl:part name="in0" type="tns1:ServingRouter"/>
+
+      <wsdl:part name="in1" type="tns1:NodeKey"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="getEnterpriseResponse">
+
+      <wsdl:part name="getEnterpriseReturn" type="tns1:Enterprise"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="setASXServiceKeyRequest">
+
+      <wsdl:part name="in0" type="tns1:NodeKey"/>
+
+      <wsdl:part name="in1" type="tns1:ASXKey"/>
+
+      <wsdl:part name="in2" type="xsd:string"/>
+
+      <wsdl:part name="in3" type="xsd:int"/>
+
+      <wsdl:part name="in4" type="tns1:KerberosKeyStatusType"/>
+
+      <wsdl:part name="in5" type="xsd:int"/>
+
+      <wsdl:part name="in6" type="xsd:boolean"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="SMSAPIValidationException">
+
+      <wsdl:part name="fault" type="tns1:SMSAPIValidationException"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="deleteServingASXRequest">
+
+      <wsdl:part name="in0" type="tns1:ServingASXKey"/>
+
+      <wsdl:part name="in1" type="tns1:NodeKey"/>
+
+   </wsdl:message>
+
+   <wsdl:portType name="SMSAPI-r08_03-ServiceProviderService">
+
+      <wsdl:operation name="createServingRouter" parameterOrder="in0 in1">
+
+         <wsdl:input message="impl:createServingRouterRequest" name="createServingRouterRequest"/>
+
+         <wsdl:output message="impl:createServingRouterResponse" name="createServingRouterResponse"/>
+
+         <wsdl:fault message="impl:SMSAPINetworkException" name="SMSAPINetworkException"/>
+
+         <wsdl:fault message="impl:SMSAPIValidationException" name="SMSAPIValidationException"/>
+
+         <wsdl:fault message="impl:SMSAPIInternalException" name="SMSAPIInternalException"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getServingRouter" parameterOrder="in0 in1">
+
+         <wsdl:input message="impl:getServingRouterRequest" name="getServingRouterRequest"/>
+
+         <wsdl:output message="impl:getServingRouterResponse" name="getServingRouterResponse"/>
+
+         <wsdl:fault message="impl:SMSAPINetworkException" name="SMSAPINetworkException"/>
+
+         <wsdl:fault message="impl:SMSAPIValidationException" name="SMSAPIValidationException"/>
+
+         <wsdl:fault message="impl:SMSAPIInternalException" name="SMSAPIInternalException"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="listADSNodes">
+
+         <wsdl:input message="impl:listADSNodesRequest" name="listADSNodesRequest"/>
+
+         <wsdl:output message="impl:listADSNodesResponse" name="listADSNodesResponse"/>
+
+         <wsdl:fault message="impl:SMSAPINetworkException" name="SMSAPINetworkException"/>
+
+         <wsdl:fault message="impl:SMSAPIValidationException" name="SMSAPIValidationException"/>
+
+         <wsdl:fault message="impl:SMSAPIInternalException" name="SMSAPIInternalException"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="listASXs" parameterOrder="in0">
+
+         <wsdl:input message="impl:listASXsRequest" name="listASXsRequest"/>
+
+         <wsdl:output message="impl:listASXsResponse" name="listASXsResponse"/>
+
+         <wsdl:fault message="impl:SMSAPINetworkException" name="SMSAPINetworkException"/>
+
+         <wsdl:fault message="impl:SMSAPIValidationException" name="SMSAPIValidationException"/>
+
+         <wsdl:fault message="impl:SMSAPIInternalException" name="SMSAPIInternalException"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="deleteASX" parameterOrder="in0 in1">
+
+         <wsdl:input message="impl:deleteASXRequest" name="deleteASXRequest"/>
+
+         <wsdl:output message="impl:deleteASXResponse" name="deleteASXResponse"/>
+
+         <wsdl:fault message="impl:SMSAPINetworkException" name="SMSAPINetworkException"/>
+
+         <wsdl:fault message="impl:SMSAPIValidationException" name="SMSAPIValidationException"/>
+
+         <wsdl:fault message="impl:SMSAPIInternalException" name="SMSAPIInternalException"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="createServingASX" parameterOrder="in0 in1">
+
+         <wsdl:input message="impl:createServingASXRequest" name="createServingASXRequest"/>
+
+         <wsdl:output message="impl:createServingASXResponse" name="createServingASXResponse"/>
+
+         <wsdl:fault message="impl:SMSAPINetworkException" name="SMSAPINetworkException"/>
+
+         <wsdl:fault message="impl:SMSAPIValidationException" name="SMSAPIValidationException"/>
+
+         <wsdl:fault message="impl:SMSAPIInternalException" name="SMSAPIInternalException"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getServingASX" parameterOrder="in0 in1">
+
+         <wsdl:input message="impl:getServingASXRequest" name="getServingASXRequest"/>
+
+         <wsdl:output message="impl:getServingASXResponse" name="getServingASXResponse"/>
+
+         <wsdl:fault message="impl:SMSAPINetworkException" name="SMSAPINetworkException"/>
+
+         <wsdl:fault message="impl:SMSAPIValidationException" name="SMSAPIValidationException"/>
+
+         <wsdl:fault message="impl:SMSAPIInternalException" name="SMSAPIInternalException"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="updateServingASX" parameterOrder="in0 in1">
+
+         <wsdl:input message="impl:updateServingASXRequest" name="updateServingASXRequest"/>
+
+         <wsdl:output message="impl:updateServingASXResponse" name="updateServingASXResponse"/>
+
+         <wsdl:fault message="impl:SMSAPINetworkException" name="SMSAPINetworkException"/>
+
+         <wsdl:fault message="impl:SMSAPIValidationException" name="SMSAPIValidationException"/>
+
+         <wsdl:fault message="impl:SMSAPIInternalException" name="SMSAPIInternalException"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="deleteServingASX" parameterOrder="in0 in1">
+
+         <wsdl:input message="impl:deleteServingASXRequest" name="deleteServingASXRequest"/>
+
+         <wsdl:output message="impl:deleteServingASXResponse" name="deleteServingASXResponse"/>
+
+         <wsdl:fault message="impl:SMSAPINetworkException" name="SMSAPINetworkException"/>
+
+         <wsdl:fault message="impl:SMSAPIValidationException" name="SMSAPIValidationException"/>
+
+         <wsdl:fault message="impl:SMSAPIInternalException" name="SMSAPIInternalException"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="updateEnterprise" parameterOrder="in0">
+
+         <wsdl:input message="impl:updateEnterpriseRequest" name="updateEnterpriseRequest"/>
+
+         <wsdl:output message="impl:updateEnterpriseResponse" name="updateEnterpriseResponse"/>
+
+         <wsdl:fault message="impl:SMSAPINetworkException" name="SMSAPINetworkException"/>
+
+         <wsdl:fault message="impl:SMSAPIValidationException" name="SMSAPIValidationException"/>
+
+         <wsdl:fault message="impl:SMSAPIInternalException" name="SMSAPIInternalException"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="listEnterprises">
+
+         <wsdl:input message="impl:listEnterprisesRequest" name="listEnterprisesRequest"/>
+
+         <wsdl:output message="impl:listEnterprisesResponse" name="listEnterprisesResponse"/>
+
+         <wsdl:fault message="impl:SMSAPINetworkException" name="SMSAPINetworkException"/>
+
+         <wsdl:fault message="impl:SMSAPIValidationException" name="SMSAPIValidationException"/>
+
+         <wsdl:fault message="impl:SMSAPIInternalException" name="SMSAPIInternalException"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="listServingASX" parameterOrder="in0">
+
+         <wsdl:input message="impl:listServingASXRequest" name="listServingASXRequest"/>
+
+         <wsdl:output message="impl:listServingASXResponse" name="listServingASXResponse"/>
+
+         <wsdl:fault message="impl:SMSAPINetworkException" name="SMSAPINetworkException"/>
+
+         <wsdl:fault message="impl:SMSAPIValidationException" name="SMSAPIValidationException"/>
+
+         <wsdl:fault message="impl:SMSAPIInternalException" name="SMSAPIInternalException"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="listServingASXsByLogicalASX" parameterOrder="in0 in1">
+
+         <wsdl:input message="impl:listServingASXsByLogicalASXRequest" name="listServingASXsByLogicalASXRequest"/>
+
+         <wsdl:output message="impl:listServingASXsByLogicalASXResponse" name="listServingASXsByLogicalASXResponse"/>
+
+         <wsdl:fault message="impl:SMSAPINetworkException" name="SMSAPINetworkException"/>
+
+         <wsdl:fault message="impl:SMSAPIValidationException" name="SMSAPIValidationException"/>
+
+         <wsdl:fault message="impl:SMSAPIInternalException" name="SMSAPIInternalException"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="listASXSIPToCauseCodeMapping" parameterOrder="in0">
+
+         <wsdl:input message="impl:listASXSIPToCauseCodeMappingRequest" name="listASXSIPToCauseCodeMappingRequest"/>
+
+         <wsdl:output message="impl:listASXSIPToCauseCodeMappingResponse" name="listASXSIPToCauseCodeMappingResponse"/>
+
+         <wsdl:fault message="impl:SMSAPINetworkException" name="SMSAPINetworkException"/>
+
+         <wsdl:fault message="impl:SMSAPIValidationException" name="SMSAPIValidationException"/>
+
+         <wsdl:fault message="impl:SMSAPIInternalException" name="SMSAPIInternalException"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="listASXCauseCodeToSIPMapping" parameterOrder="in0">
+
+         <wsdl:input message="impl:listASXCauseCodeToSIPMappingRequest" name="listASXCauseCodeToSIPMappingRequest"/>
+
+         <wsdl:output message="impl:listASXCauseCodeToSIPMappingResponse" name="listASXCauseCodeToSIPMappingResponse"/>
+
+         <wsdl:fault message="impl:SMSAPINetworkException" name="SMSAPINetworkException"/>
+
+         <wsdl:fault message="impl:SMSAPIValidationException" name="SMSAPIValidationException"/>
+
+         <wsdl:fault message="impl:SMSAPIInternalException" name="SMSAPIInternalException"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="listASXSIPTransparencyInformation" parameterOrder="in0">
+
+         <wsdl:input message="impl:listASXSIPTransparencyInformationRequest" name="listASXSIPTransparencyInformationRequest"/>
+
+         <wsdl:output message="impl:listASXSIPTransparencyInformationResponse" name="listASXSIPTransparencyInformationResponse"/>
+
+         <wsdl:fault message="impl:SMSAPINetworkException" name="SMSAPINetworkException"/>
+
+         <wsdl:fault message="impl:SMSAPIValidationException" name="SMSAPIValidationException"/>
+
+         <wsdl:fault message="impl:SMSAPIInternalException" name="SMSAPIInternalException"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getEnterprise" parameterOrder="in0">
+
+         <wsdl:input message="impl:getEnterpriseRequest" name="getEnterpriseRequest"/>
+
+         <wsdl:output message="impl:getEnterpriseResponse" name="getEnterpriseResponse"/>
+
+         <wsdl:fault message="impl:SMSAPINetworkException" name="SMSAPINetworkException"/>
+
+         <wsdl:fault message="impl:SMSAPIValidationException" name="SMSAPIValidationException"/>
+
+         <wsdl:fault message="impl:SMSAPIInternalException" name="SMSAPIInternalException"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="deleteServingRouter" parameterOrder="in0 in1">
+
+         <wsdl:input message="impl:deleteServingRouterRequest" name="deleteServingRouterRequest"/>
+
+         <wsdl:output message="impl:deleteServingRouterResponse" name="deleteServingRouterResponse"/>
+
+         <wsdl:fault message="impl:SMSAPINetworkException" name="SMSAPINetworkException"/>
+
+         <wsdl:fault message="impl:SMSAPIValidationException" name="SMSAPIValidationException"/>
+
+         <wsdl:fault message="impl:SMSAPIInternalException" name="SMSAPIInternalException"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="listServingRouters" parameterOrder="in0">
+
+         <wsdl:input message="impl:listServingRoutersRequest" name="listServingRoutersRequest"/>
+
+         <wsdl:output message="impl:listServingRoutersResponse" name="listServingRoutersResponse"/>
+
+         <wsdl:fault message="impl:SMSAPINetworkException" name="SMSAPINetworkException"/>
+
+         <wsdl:fault message="impl:SMSAPIValidationException" name="SMSAPIValidationException"/>
+
+         <wsdl:fault message="impl:SMSAPIInternalException" name="SMSAPIInternalException"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="listServingRoutersByASX" parameterOrder="in0 in1">
+
+         <wsdl:input message="impl:listServingRoutersByASXRequest" name="listServingRoutersByASXRequest"/>
+
+         <wsdl:output message="impl:listServingRoutersByASXResponse" name="listServingRoutersByASXResponse"/>
+
+         <wsdl:fault message="impl:SMSAPINetworkException" name="SMSAPINetworkException"/>
+
+         <wsdl:fault message="impl:SMSAPIValidationException" name="SMSAPIValidationException"/>
+
+         <wsdl:fault message="impl:SMSAPIInternalException" name="SMSAPIInternalException"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="listASXSessionRedirectionInformation" parameterOrder="in0">
+
+         <wsdl:input message="impl:listASXSessionRedirectionInformationRequest" name="listASXSessionRedirectionInformationRequest"/>
+
+         <wsdl:output message="impl:listASXSessionRedirectionInformationResponse" name="listASXSessionRedirectionInformationResponse"/>
+
+         <wsdl:fault message="impl:SMSAPINetworkException" name="SMSAPINetworkException"/>
+
+         <wsdl:fault message="impl:SMSAPIValidationException" name="SMSAPIValidationException"/>
+
+         <wsdl:fault message="impl:SMSAPIInternalException" name="SMSAPIInternalException"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="setASXServiceKey" parameterOrder="in0 in1 in2 in3 in4 in5 in6">
+
+         <wsdl:input message="impl:setASXServiceKeyRequest" name="setASXServiceKeyRequest"/>
+
+         <wsdl:output message="impl:setASXServiceKeyResponse" name="setASXServiceKeyResponse"/>
+
+         <wsdl:fault message="impl:SMSAPINetworkException" name="SMSAPINetworkException"/>
+
+         <wsdl:fault message="impl:SMSAPIValidationException" name="SMSAPIValidationException"/>
+
+         <wsdl:fault message="impl:SMSAPIInternalException" name="SMSAPIInternalException"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="createASX" parameterOrder="in0 in1">
+
+         <wsdl:input message="impl:createASXRequest" name="createASXRequest"/>
+
+         <wsdl:output message="impl:createASXResponse" name="createASXResponse"/>
+
+         <wsdl:fault message="impl:SMSAPINetworkException" name="SMSAPINetworkException"/>
+
+         <wsdl:fault message="impl:SMSAPIValidationException" name="SMSAPIValidationException"/>
+
+         <wsdl:fault message="impl:SMSAPIInternalException" name="SMSAPIInternalException"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="updateServingRouter" parameterOrder="in0 in1">
+
+         <wsdl:input message="impl:updateServingRouterRequest" name="updateServingRouterRequest"/>
+
+         <wsdl:output message="impl:updateServingRouterResponse" name="updateServingRouterResponse"/>
+
+         <wsdl:fault message="impl:SMSAPINetworkException" name="SMSAPINetworkException"/>
+
+         <wsdl:fault message="impl:SMSAPIValidationException" name="SMSAPIValidationException"/>
+
+         <wsdl:fault message="impl:SMSAPIInternalException" name="SMSAPIInternalException"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="removeASXServiceKeys" parameterOrder="in0 in1 in2">
+
+         <wsdl:input message="impl:removeASXServiceKeysRequest" name="removeASXServiceKeysRequest"/>
+
+         <wsdl:output message="impl:removeASXServiceKeysResponse" name="removeASXServiceKeysResponse"/>
+
+         <wsdl:fault message="impl:SMSAPINetworkException" name="SMSAPINetworkException"/>
+
+         <wsdl:fault message="impl:SMSAPIValidationException" name="SMSAPIValidationException"/>
+
+         <wsdl:fault message="impl:SMSAPIInternalException" name="SMSAPIInternalException"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="setServingRouterPreSharedKey" parameterOrder="in0 in1 in2 in3 in4">
+
+         <wsdl:input message="impl:setServingRouterPreSharedKeyRequest" name="setServingRouterPreSharedKeyRequest"/>
+
+         <wsdl:output message="impl:setServingRouterPreSharedKeyResponse" name="setServingRouterPreSharedKeyResponse"/>
+
+         <wsdl:fault message="impl:SMSAPINetworkException" name="SMSAPINetworkException"/>
+
+         <wsdl:fault message="impl:SMSAPIValidationException" name="SMSAPIValidationException"/>
+
+         <wsdl:fault message="impl:SMSAPIInternalException" name="SMSAPIInternalException"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="compromiseAllASXServiceKeys" parameterOrder="in0 in1">
+
+         <wsdl:input message="impl:compromiseAllASXServiceKeysRequest" name="compromiseAllASXServiceKeysRequest"/>
+
+         <wsdl:output message="impl:compromiseAllASXServiceKeysResponse" name="compromiseAllASXServiceKeysResponse"/>
+
+         <wsdl:fault message="impl:SMSAPINetworkException" name="SMSAPINetworkException"/>
+
+         <wsdl:fault message="impl:SMSAPIValidationException" name="SMSAPIValidationException"/>
+
+         <wsdl:fault message="impl:SMSAPIInternalException" name="SMSAPIInternalException"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getASX" parameterOrder="in0 in1">
+
+         <wsdl:input message="impl:getASXRequest" name="getASXRequest"/>
+
+         <wsdl:output message="impl:getASXResponse" name="getASXResponse"/>
+
+         <wsdl:fault message="impl:SMSAPINetworkException" name="SMSAPINetworkException"/>
+
+         <wsdl:fault message="impl:SMSAPIValidationException" name="SMSAPIValidationException"/>
+
+         <wsdl:fault message="impl:SMSAPIInternalException" name="SMSAPIInternalException"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="updateASX" parameterOrder="in0 in1">
+
+         <wsdl:input message="impl:updateASXRequest" name="updateASXRequest"/>
+
+         <wsdl:output message="impl:updateASXResponse" name="updateASXResponse"/>
+
+         <wsdl:fault message="impl:SMSAPINetworkException" name="SMSAPINetworkException"/>
+
+         <wsdl:fault message="impl:SMSAPIValidationException" name="SMSAPIValidationException"/>
+
+         <wsdl:fault message="impl:SMSAPIInternalException" name="SMSAPIInternalException"/>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="SMSAPI/r08_03/ServiceProviderServiceSoapBinding" type="impl:SMSAPI-r08_03-ServiceProviderService">
+
+      <wsdlsoap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="createServingRouter">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="createServingRouterRequest">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://www.sonusnet.com/sms/smsapi/r08_03/ServiceProviderService" use="encoded"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="createServingRouterResponse">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://www.sonusnet.com/sms/smsapi/r08_03/ServiceProviderService" use="encoded"/>
+
+         </wsdl:output>
+
+         <wsdl:fault name="SMSAPINetworkException">
+
+            <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="SMSAPINetworkException" namespace="http://www.sonusnet.com/sms/smsapi/r08_03/ServiceProviderService" use="encoded"/>
+
+         </wsdl:fault>
+
+         <wsdl:fault name="SMSAPIValidationException">
+
+            <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="SMSAPIValidationException" namespace="http://www.sonusnet.com/sms/smsapi/r08_03/ServiceProviderService" use="encoded"/>
+
+         </wsdl:fault>
+
+         <wsdl:fault name="SMSAPIInternalException">
+
+            <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="SMSAPIInternalException" namespace="http://www.sonusnet.com/sms/smsapi/r08_03/ServiceProviderService" use="encoded"/>
+
+         </wsdl:fault>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getServingRouter">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getServingRouterRequest">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://www.sonusnet.com/sms/smsapi/r08_03/ServiceProviderService" use="encoded"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getServingRouterResponse">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://www.sonusnet.com/sms/smsapi/r08_03/ServiceProviderService" use="encoded"/>
+
+         </wsdl:output>
+
+         <wsdl:fault name="SMSAPINetworkException">
+
+            <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="SMSAPINetworkException" namespace="http://www.sonusnet.com/sms/smsapi/r08_03/ServiceProviderService" use="encoded"/>
+
+         </wsdl:fault>
+
+         <wsdl:fault name="SMSAPIValidationException">
+
+            <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="SMSAPIValidationException" namespace="http://www.sonusnet.com/sms/smsapi/r08_03/ServiceProviderService" use="encoded"/>
+
+         </wsdl:fault>
+
+         <wsdl:fault name="SMSAPIInternalException">
+
+            <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="SMSAPIInternalException" namespace="http://www.sonusnet.com/sms/smsapi/r08_03/ServiceProviderService" use="encoded"/>
+
+         </wsdl:fault>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="listADSNodes">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="listADSNodesRequest">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://www.sonusnet.com/sms/smsapi/r08_03/ServiceProviderService" use="encoded"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="listADSNodesResponse">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://www.sonusnet.com/sms/smsapi/r08_03/ServiceProviderService" use="encoded"/>
+
+         </wsdl:output>
+
+         <wsdl:fault name="SMSAPINetworkException">
+
+            <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="SMSAPINetworkException" namespace="http://www.sonusnet.com/sms/smsapi/r08_03/ServiceProviderService" use="encoded"/>
+
+         </wsdl:fault>
+
+         <wsdl:fault name="SMSAPIValidationException">
+
+            <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="SMSAPIValidationException" namespace="http://www.sonusnet.com/sms/smsapi/r08_03/ServiceProviderService" use="encoded"/>
+
+         </wsdl:fault>
+
+         <wsdl:fault name="SMSAPIInternalException">
+
+            <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="SMSAPIInternalException" namespace="http://www.sonusnet.com/sms/smsapi/r08_03/ServiceProviderService" use="encoded"/>
+
+         </wsdl:fault>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="listASXs">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="listASXsRequest">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://www.sonusnet.com/sms/smsapi/r08_03/ServiceProviderService" use="encoded"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="listASXsResponse">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://www.sonusnet.com/sms/smsapi/r08_03/ServiceProviderService" use="encoded"/>
+
+         </wsdl:output>
+
+         <wsdl:fault name="SMSAPINetworkException">
+
+            <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="SMSAPINetworkException" namespace="http://www.sonusnet.com/sms/smsapi/r08_03/ServiceProviderService" use="encoded"/>
+
+         </wsdl:fault>
+
+         <wsdl:fault name="SMSAPIValidationException">
+
+            <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="SMSAPIValidationException" namespace="http://www.sonusnet.com/sms/smsapi/r08_03/ServiceProviderService" use="encoded"/>
+
+         </wsdl:fault>
+
+         <wsdl:fault name="SMSAPIInternalException">
+
+            <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="SMSAPIInternalException" namespace="http://www.sonusnet.com/sms/smsapi/r08_03/ServiceProviderService" use="encoded"/>
+
+         </wsdl:fault>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="deleteASX">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="deleteASXRequest">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://www.sonusnet.com/sms/smsapi/r08_03/ServiceProviderService" use="encoded"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="deleteASXResponse">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://www.sonusnet.com/sms/smsapi/r08_03/ServiceProviderService" use="encoded"/>
+
+         </wsdl:output>
+
+         <wsdl:fault name="SMSAPINetworkException">
+
+            <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="SMSAPINetworkException" namespace="http://www.sonusnet.com/sms/smsapi/r08_03/ServiceProviderService" use="encoded"/>
+
+         </wsdl:fault>
+
+         <wsdl:fault name="SMSAPIValidationException">
+
+            <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="SMSAPIValidationException" namespace="http://www.sonusnet.com/sms/smsapi/r08_03/ServiceProviderService" use="encoded"/>
+
+         </wsdl:fault>
+
+         <wsdl:fault name="SMSAPIInternalException">
+
+            <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="SMSAPIInternalException" namespace="http://www.sonusnet.com/sms/smsapi/r08_03/ServiceProviderService" use="encoded"/>
+
+         </wsdl:fault>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="createServingASX">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="createServingASXRequest">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://www.sonusnet.com/sms/smsapi/r08_03/ServiceProviderService" use="encoded"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="createServingASXResponse">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://www.sonusnet.com/sms/smsapi/r08_03/ServiceProviderService" use="encoded"/>
+
+         </wsdl:output>
+
+         <wsdl:fault name="SMSAPINetworkException">
+
+            <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="SMSAPINetworkException" namespace="http://www.sonusnet.com/sms/smsapi/r08_03/ServiceProviderService" use="encoded"/>
+
+         </wsdl:fault>
+
+         <wsdl:fault name="SMSAPIValidationException">
+
+            <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="SMSAPIValidationException" namespace="http://www.sonusnet.com/sms/smsapi/r08_03/ServiceProviderService" use="encoded"/>
+
+         </wsdl:fault>
+
+         <wsdl:fault name="SMSAPIInternalException">
+
+            <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="SMSAPIInternalException" namespace="http://www.sonusnet.com/sms/smsapi/r08_03/ServiceProviderService" use="encoded"/>
+
+         </wsdl:fault>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getServingASX">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getServingASXRequest">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://www.sonusnet.com/sms/smsapi/r08_03/ServiceProviderService" use="encoded"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getServingASXResponse">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://www.sonusnet.com/sms/smsapi/r08_03/ServiceProviderService" use="encoded"/>
+
+         </wsdl:output>
+
+         <wsdl:fault name="SMSAPINetworkException">
+
+            <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="SMSAPINetworkException" namespace="http://www.sonusnet.com/sms/smsapi/r08_03/ServiceProviderService" use="encoded"/>
+
+         </wsdl:fault>
+
+         <wsdl:fault name="SMSAPIValidationException">
+
+            <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="SMSAPIValidationException" namespace="http://www.sonusnet.com/sms/smsapi/r08_03/ServiceProviderService" use="encoded"/>
+
+         </wsdl:fault>
+
+         <wsdl:fault name="SMSAPIInternalException">
+
+            <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="SMSAPIInternalException" namespace="http://www.sonusnet.com/sms/smsapi/r08_03/ServiceProviderService" use="encoded"/>
+
+         </wsdl:fault>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="updateServingASX">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="updateServingASXRequest">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://www.sonusnet.com/sms/smsapi/r08_03/ServiceProviderService" use="encoded"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="updateServingASXResponse">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://www.sonusnet.com/sms/smsapi/r08_03/ServiceProviderService" use="encoded"/>
+
+         </wsdl:output>
+
+         <wsdl:fault name="SMSAPINetworkException">
+
+            <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="SMSAPINetworkException" namespace="http://www.sonusnet.com/sms/smsapi/r08_03/ServiceProviderService" use="encoded"/>
+
+         </wsdl:fault>
+
+         <wsdl:fault name="SMSAPIValidationException">
+
+            <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="SMSAPIValidationException" namespace="http://www.sonusnet.com/sms/smsapi/r08_03/ServiceProviderService" use="encoded"/>
+
+         </wsdl:fault>
+
+         <wsdl:fault name="SMSAPIInternalException">
+
+            <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="SMSAPIInternalException" namespace="http://www.sonusnet.com/sms/smsapi/r08_03/ServiceProviderService" use="encoded"/>
+
+         </wsdl:fault>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="deleteServingASX">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="deleteServingASXRequest">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://www.sonusnet.com/sms/smsapi/r08_03/ServiceProviderService" use="encoded"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="deleteServingASXResponse">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://www.sonusnet.com/sms/smsapi/r08_03/ServiceProviderService" use="encoded"/>
+
+         </wsdl:output>
+
+         <wsdl:fault name="SMSAPINetworkException">
+
+            <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="SMSAPINetworkException" namespace="http://www.sonusnet.com/sms/smsapi/r08_03/ServiceProviderService" use="encoded"/>
+
+         </wsdl:fault>
+
+         <wsdl:fault name="SMSAPIValidationException">
+
+            <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="SMSAPIValidationException" namespace="http://www.sonusnet.com/sms/smsapi/r08_03/ServiceProviderService" use="encoded"/>
+
+         </wsdl:fault>
+
+         <wsdl:fault name="SMSAPIInternalException">
+
+            <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="SMSAPIInternalException" namespace="http://www.sonusnet.com/sms/smsapi/r08_03/ServiceProviderService" use="encoded"/>
+
+         </wsdl:fault>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="updateEnterprise">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="updateEnterpriseRequest">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://www.sonusnet.com/sms/smsapi/r08_03/ServiceProviderService" use="encoded"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="updateEnterpriseResponse">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://www.sonusnet.com/sms/smsapi/r08_03/ServiceProviderService" use="encoded"/>
+
+         </wsdl:output>
+
+         <wsdl:fault name="SMSAPINetworkException">
+
+            <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="SMSAPINetworkException" namespace="http://www.sonusnet.com/sms/smsapi/r08_03/ServiceProviderService" use="encoded"/>
+
+         </wsdl:fault>
+
+         <wsdl:fault name="SMSAPIValidationException">
+
+            <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="SMSAPIValidationException" namespace="http://www.sonusnet.com/sms/smsapi/r08_03/ServiceProviderService" use="encoded"/>
+
+         </wsdl:fault>
+
+         <wsdl:fault name="SMSAPIInternalException">
+
+            <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="SMSAPIInternalException" namespace="http://www.sonusnet.com/sms/smsapi/r08_03/ServiceProviderService" use="encoded"/>
+
+         </wsdl:fault>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="listEnterprises">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="listEnterprisesRequest">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://www.sonusnet.com/sms/smsapi/r08_03/ServiceProviderService" use="encoded"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="listEnterprisesResponse">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://www.sonusnet.com/sms/smsapi/r08_03/ServiceProviderService" use="encoded"/>
+
+         </wsdl:output>
+
+         <wsdl:fault name="SMSAPINetworkException">
+
+            <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="SMSAPINetworkException" namespace="http://www.sonusnet.com/sms/smsapi/r08_03/ServiceProviderService" use="encoded"/>
+
+         </wsdl:fault>
+
+         <wsdl:fault name="SMSAPIValidationException">
+
+            <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="SMSAPIValidationException" namespace="http://www.sonusnet.com/sms/smsapi/r08_03/ServiceProviderService" use="encoded"/>
+
+         </wsdl:fault>
+
+         <wsdl:fault name="SMSAPIInternalException">
+
+            <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="SMSAPIInternalException" namespace="http://www.sonusnet.com/sms/smsapi/r08_03/ServiceProviderService" use="encoded"/>
+
+         </wsdl:fault>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="listServingASX">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="listServingASXRequest">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://www.sonusnet.com/sms/smsapi/r08_03/ServiceProviderService" use="encoded"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="listServingASXResponse">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://www.sonusnet.com/sms/smsapi/r08_03/ServiceProviderService" use="encoded"/>
+
+         </wsdl:output>
+
+         <wsdl:fault name="SMSAPINetworkException">
+
+            <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="SMSAPINetworkException" namespace="http://www.sonusnet.com/sms/smsapi/r08_03/ServiceProviderService" use="encoded"/>
+
+         </wsdl:fault>
+
+         <wsdl:fault name="SMSAPIValidationException">
+
+            <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="SMSAPIValidationException" namespace="http://www.sonusnet.com/sms/smsapi/r08_03/ServiceProviderService" use="encoded"/>
+
+         </wsdl:fault>
+
+         <wsdl:fault name="SMSAPIInternalException">
+
+            <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="SMSAPIInternalException" namespace="http://www.sonusnet.com/sms/smsapi/r08_03/ServiceProviderService" use="encoded"/>
+
+         </wsdl:fault>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="listServingASXsByLogicalASX">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="listServingASXsByLogicalASXRequest">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://www.sonusnet.com/sms/smsapi/r08_03/ServiceProviderService" use="encoded"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="listServingASXsByLogicalASXResponse">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://www.sonusnet.com/sms/smsapi/r08_03/ServiceProviderService" use="encoded"/>
+
+         </wsdl:output>
+
+         <wsdl:fault name="SMSAPINetworkException">
+
+            <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="SMSAPINetworkException" namespace="http://www.sonusnet.com/sms/smsapi/r08_03/ServiceProviderService" use="encoded"/>
+
+         </wsdl:fault>
+
+         <wsdl:fault name="SMSAPIValidationException">
+
+            <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="SMSAPIValidationException" namespace="http://www.sonusnet.com/sms/smsapi/r08_03/ServiceProviderService" use="encoded"/>
+
+         </wsdl:fault>
+
+         <wsdl:fault name="SMSAPIInternalException">
+
+            <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="SMSAPIInternalException" namespace="http://www.sonusnet.com/sms/smsapi/r08_03/ServiceProviderService" use="encoded"/>
+
+         </wsdl:fault>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="listASXSIPToCauseCodeMapping">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="listASXSIPToCauseCodeMappingRequest">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://www.sonusnet.com/sms/smsapi/r08_03/ServiceProviderService" use="encoded"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="listASXSIPToCauseCodeMappingResponse">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://www.sonusnet.com/sms/smsapi/r08_03/ServiceProviderService" use="encoded"/>
+
+         </wsdl:output>
+
+         <wsdl:fault name="SMSAPINetworkException">
+
+            <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="SMSAPINetworkException" namespace="http://www.sonusnet.com/sms/smsapi/r08_03/ServiceProviderService" use="encoded"/>
+
+         </wsdl:fault>
+
+         <wsdl:fault name="SMSAPIValidationException">
+
+            <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="SMSAPIValidationException" namespace="http://www.sonusnet.com/sms/smsapi/r08_03/ServiceProviderService" use="encoded"/>
+
+         </wsdl:fault>
+
+         <wsdl:fault name="SMSAPIInternalException">
+
+            <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="SMSAPIInternalException" namespace="http://www.sonusnet.com/sms/smsapi/r08_03/ServiceProviderService" use="encoded"/>
+
+         </wsdl:fault>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="listASXCauseCodeToSIPMapping">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="listASXCauseCodeToSIPMappingRequest">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://www.sonusnet.com/sms/smsapi/r08_03/ServiceProviderService" use="encoded"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="listASXCauseCodeToSIPMappingResponse">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://www.sonusnet.com/sms/smsapi/r08_03/ServiceProviderService" use="encoded"/>
+
+         </wsdl:output>
+
+         <wsdl:fault name="SMSAPINetworkException">
+
+            <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="SMSAPINetworkException" namespace="http://www.sonusnet.com/sms/smsapi/r08_03/ServiceProviderService" use="encoded"/>
+
+         </wsdl:fault>
+
+         <wsdl:fault name="SMSAPIValidationException">
+
+            <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="SMSAPIValidationException" namespace="http://www.sonusnet.com/sms/smsapi/r08_03/ServiceProviderService" use="encoded"/>
+
+         </wsdl:fault>
+
+         <wsdl:fault name="SMSAPIInternalException">
+
+            <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="SMSAPIInternalException" namespace="http://www.sonusnet.com/sms/smsapi/r08_03/ServiceProviderService" use="encoded"/>
+
+         </wsdl:fault>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="listASXSIPTransparencyInformation">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="listASXSIPTransparencyInformationRequest">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://www.sonusnet.com/sms/smsapi/r08_03/ServiceProviderService" use="encoded"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="listASXSIPTransparencyInformationResponse">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://www.sonusnet.com/sms/smsapi/r08_03/ServiceProviderService" use="encoded"/>
+
+         </wsdl:output>
+
+         <wsdl:fault name="SMSAPINetworkException">
+
+            <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="SMSAPINetworkException" namespace="http://www.sonusnet.com/sms/smsapi/r08_03/ServiceProviderService" use="encoded"/>
+
+         </wsdl:fault>
+
+         <wsdl:fault name="SMSAPIValidationException">
+
+            <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="SMSAPIValidationException" namespace="http://www.sonusnet.com/sms/smsapi/r08_03/ServiceProviderService" use="encoded"/>
+
+         </wsdl:fault>
+
+         <wsdl:fault name="SMSAPIInternalException">
+
+            <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="SMSAPIInternalException" namespace="http://www.sonusnet.com/sms/smsapi/r08_03/ServiceProviderService" use="encoded"/>
+
+         </wsdl:fault>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getEnterprise">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getEnterpriseRequest">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://www.sonusnet.com/sms/smsapi/r08_03/ServiceProviderService" use="encoded"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getEnterpriseResponse">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://www.sonusnet.com/sms/smsapi/r08_03/ServiceProviderService" use="encoded"/>
+
+         </wsdl:output>
+
+         <wsdl:fault name="SMSAPINetworkException">
+
+            <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="SMSAPINetworkException" namespace="http://www.sonusnet.com/sms/smsapi/r08_03/ServiceProviderService" use="encoded"/>
+
+         </wsdl:fault>
+
+         <wsdl:fault name="SMSAPIValidationException">
+
+            <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="SMSAPIValidationException" namespace="http://www.sonusnet.com/sms/smsapi/r08_03/ServiceProviderService" use="encoded"/>
+
+         </wsdl:fault>
+
+         <wsdl:fault name="SMSAPIInternalException">
+
+            <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="SMSAPIInternalException" namespace="http://www.sonusnet.com/sms/smsapi/r08_03/ServiceProviderService" use="encoded"/>
+
+         </wsdl:fault>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="deleteServingRouter">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="deleteServingRouterRequest">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://www.sonusnet.com/sms/smsapi/r08_03/ServiceProviderService" use="encoded"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="deleteServingRouterResponse">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://www.sonusnet.com/sms/smsapi/r08_03/ServiceProviderService" use="encoded"/>
+
+         </wsdl:output>
+
+         <wsdl:fault name="SMSAPINetworkException">
+
+            <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="SMSAPINetworkException" namespace="http://www.sonusnet.com/sms/smsapi/r08_03/ServiceProviderService" use="encoded"/>
+
+         </wsdl:fault>
+
+         <wsdl:fault name="SMSAPIValidationException">
+
+            <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="SMSAPIValidationException" namespace="http://www.sonusnet.com/sms/smsapi/r08_03/ServiceProviderService" use="encoded"/>
+
+         </wsdl:fault>
+
+         <wsdl:fault name="SMSAPIInternalException">
+
+            <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="SMSAPIInternalException" namespace="http://www.sonusnet.com/sms/smsapi/r08_03/ServiceProviderService" use="encoded"/>
+
+         </wsdl:fault>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="listServingRouters">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="listServingRoutersRequest">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://www.sonusnet.com/sms/smsapi/r08_03/ServiceProviderService" use="encoded"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="listServingRoutersResponse">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://www.sonusnet.com/sms/smsapi/r08_03/ServiceProviderService" use="encoded"/>
+
+         </wsdl:output>
+
+         <wsdl:fault name="SMSAPINetworkException">
+
+            <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="SMSAPINetworkException" namespace="http://www.sonusnet.com/sms/smsapi/r08_03/ServiceProviderService" use="encoded"/>
+
+         </wsdl:fault>
+
+         <wsdl:fault name="SMSAPIValidationException">
+
+            <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="SMSAPIValidationException" namespace="http://www.sonusnet.com/sms/smsapi/r08_03/ServiceProviderService" use="encoded"/>
+
+         </wsdl:fault>
+
+         <wsdl:fault name="SMSAPIInternalException">
+
+            <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="SMSAPIInternalException" namespace="http://www.sonusnet.com/sms/smsapi/r08_03/ServiceProviderService" use="encoded"/>
+
+         </wsdl:fault>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="listServingRoutersByASX">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="listServingRoutersByASXRequest">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://www.sonusnet.com/sms/smsapi/r08_03/ServiceProviderService" use="encoded"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="listServingRoutersByASXResponse">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://www.sonusnet.com/sms/smsapi/r08_03/ServiceProviderService" use="encoded"/>
+
+         </wsdl:output>
+
+         <wsdl:fault name="SMSAPINetworkException">
+
+            <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="SMSAPINetworkException" namespace="http://www.sonusnet.com/sms/smsapi/r08_03/ServiceProviderService" use="encoded"/>
+
+         </wsdl:fault>
+
+         <wsdl:fault name="SMSAPIValidationException">
+
+            <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="SMSAPIValidationException" namespace="http://www.sonusnet.com/sms/smsapi/r08_03/ServiceProviderService" use="encoded"/>
+
+         </wsdl:fault>
+
+         <wsdl:fault name="SMSAPIInternalException">
+
+            <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="SMSAPIInternalException" namespace="http://www.sonusnet.com/sms/smsapi/r08_03/ServiceProviderService" use="encoded"/>
+
+         </wsdl:fault>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="listASXSessionRedirectionInformation">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="listASXSessionRedirectionInformationRequest">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://www.sonusnet.com/sms/smsapi/r08_03/ServiceProviderService" use="encoded"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="listASXSessionRedirectionInformationResponse">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://www.sonusnet.com/sms/smsapi/r08_03/ServiceProviderService" use="encoded"/>
+
+         </wsdl:output>
+
+         <wsdl:fault name="SMSAPINetworkException">
+
+            <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="SMSAPINetworkException" namespace="http://www.sonusnet.com/sms/smsapi/r08_03/ServiceProviderService" use="encoded"/>
+
+         </wsdl:fault>
+
+         <wsdl:fault name="SMSAPIValidationException">
+
+            <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="SMSAPIValidationException" namespace="http://www.sonusnet.com/sms/smsapi/r08_03/ServiceProviderService" use="encoded"/>
+
+         </wsdl:fault>
+
+         <wsdl:fault name="SMSAPIInternalException">
+
+            <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="SMSAPIInternalException" namespace="http://www.sonusnet.com/sms/smsapi/r08_03/ServiceProviderService" use="encoded"/>
+
+         </wsdl:fault>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="setASXServiceKey">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="setASXServiceKeyRequest">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://www.sonusnet.com/sms/smsapi/r08_03/ServiceProviderService" use="encoded"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="setASXServiceKeyResponse">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://www.sonusnet.com/sms/smsapi/r08_03/ServiceProviderService" use="encoded"/>
+
+         </wsdl:output>
+
+         <wsdl:fault name="SMSAPINetworkException">
+
+            <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="SMSAPINetworkException" namespace="http://www.sonusnet.com/sms/smsapi/r08_03/ServiceProviderService" use="encoded"/>
+
+         </wsdl:fault>
+
+         <wsdl:fault name="SMSAPIValidationException">
+
+            <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="SMSAPIValidationException" namespace="http://www.sonusnet.com/sms/smsapi/r08_03/ServiceProviderService" use="encoded"/>
+
+         </wsdl:fault>
+
+         <wsdl:fault name="SMSAPIInternalException">
+
+            <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="SMSAPIInternalException" namespace="http://www.sonusnet.com/sms/smsapi/r08_03/ServiceProviderService" use="encoded"/>
+
+         </wsdl:fault>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="createASX">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="createASXRequest">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://www.sonusnet.com/sms/smsapi/r08_03/ServiceProviderService" use="encoded"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="createASXResponse">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://www.sonusnet.com/sms/smsapi/r08_03/ServiceProviderService" use="encoded"/>
+
+         </wsdl:output>
+
+         <wsdl:fault name="SMSAPINetworkException">
+
+            <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="SMSAPINetworkException" namespace="http://www.sonusnet.com/sms/smsapi/r08_03/ServiceProviderService" use="encoded"/>
+
+         </wsdl:fault>
+
+         <wsdl:fault name="SMSAPIValidationException">
+
+            <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="SMSAPIValidationException" namespace="http://www.sonusnet.com/sms/smsapi/r08_03/ServiceProviderService" use="encoded"/>
+
+         </wsdl:fault>
+
+         <wsdl:fault name="SMSAPIInternalException">
+
+            <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="SMSAPIInternalException" namespace="http://www.sonusnet.com/sms/smsapi/r08_03/ServiceProviderService" use="encoded"/>
+
+         </wsdl:fault>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="updateServingRouter">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="updateServingRouterRequest">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://www.sonusnet.com/sms/smsapi/r08_03/ServiceProviderService" use="encoded"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="updateServingRouterResponse">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://www.sonusnet.com/sms/smsapi/r08_03/ServiceProviderService" use="encoded"/>
+
+         </wsdl:output>
+
+         <wsdl:fault name="SMSAPINetworkException">
+
+            <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="SMSAPINetworkException" namespace="http://www.sonusnet.com/sms/smsapi/r08_03/ServiceProviderService" use="encoded"/>
+
+         </wsdl:fault>
+
+         <wsdl:fault name="SMSAPIValidationException">
+
+            <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="SMSAPIValidationException" namespace="http://www.sonusnet.com/sms/smsapi/r08_03/ServiceProviderService" use="encoded"/>
+
+         </wsdl:fault>
+
+         <wsdl:fault name="SMSAPIInternalException">
+
+            <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="SMSAPIInternalException" namespace="http://www.sonusnet.com/sms/smsapi/r08_03/ServiceProviderService" use="encoded"/>
+
+         </wsdl:fault>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="removeASXServiceKeys">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="removeASXServiceKeysRequest">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://www.sonusnet.com/sms/smsapi/r08_03/ServiceProviderService" use="encoded"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="removeASXServiceKeysResponse">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://www.sonusnet.com/sms/smsapi/r08_03/ServiceProviderService" use="encoded"/>
+
+         </wsdl:output>
+
+         <wsdl:fault name="SMSAPINetworkException">
+
+            <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="SMSAPINetworkException" namespace="http://www.sonusnet.com/sms/smsapi/r08_03/ServiceProviderService" use="encoded"/>
+
+         </wsdl:fault>
+
+         <wsdl:fault name="SMSAPIValidationException">
+
+            <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="SMSAPIValidationException" namespace="http://www.sonusnet.com/sms/smsapi/r08_03/ServiceProviderService" use="encoded"/>
+
+         </wsdl:fault>
+
+         <wsdl:fault name="SMSAPIInternalException">
+
+            <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="SMSAPIInternalException" namespace="http://www.sonusnet.com/sms/smsapi/r08_03/ServiceProviderService" use="encoded"/>
+
+         </wsdl:fault>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="setServingRouterPreSharedKey">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="setServingRouterPreSharedKeyRequest">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://www.sonusnet.com/sms/smsapi/r08_03/ServiceProviderService" use="encoded"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="setServingRouterPreSharedKeyResponse">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://www.sonusnet.com/sms/smsapi/r08_03/ServiceProviderService" use="encoded"/>
+
+         </wsdl:output>
+
+         <wsdl:fault name="SMSAPINetworkException">
+
+            <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="SMSAPINetworkException" namespace="http://www.sonusnet.com/sms/smsapi/r08_03/ServiceProviderService" use="encoded"/>
+
+         </wsdl:fault>
+
+         <wsdl:fault name="SMSAPIValidationException">
+
+            <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="SMSAPIValidationException" namespace="http://www.sonusnet.com/sms/smsapi/r08_03/ServiceProviderService" use="encoded"/>
+
+         </wsdl:fault>
+
+         <wsdl:fault name="SMSAPIInternalException">
+
+            <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="SMSAPIInternalException" namespace="http://www.sonusnet.com/sms/smsapi/r08_03/ServiceProviderService" use="encoded"/>
+
+         </wsdl:fault>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="compromiseAllASXServiceKeys">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="compromiseAllASXServiceKeysRequest">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://www.sonusnet.com/sms/smsapi/r08_03/ServiceProviderService" use="encoded"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="compromiseAllASXServiceKeysResponse">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://www.sonusnet.com/sms/smsapi/r08_03/ServiceProviderService" use="encoded"/>
+
+         </wsdl:output>
+
+         <wsdl:fault name="SMSAPINetworkException">
+
+            <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="SMSAPINetworkException" namespace="http://www.sonusnet.com/sms/smsapi/r08_03/ServiceProviderService" use="encoded"/>
+
+         </wsdl:fault>
+
+         <wsdl:fault name="SMSAPIValidationException">
+
+            <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="SMSAPIValidationException" namespace="http://www.sonusnet.com/sms/smsapi/r08_03/ServiceProviderService" use="encoded"/>
+
+         </wsdl:fault>
+
+         <wsdl:fault name="SMSAPIInternalException">
+
+            <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="SMSAPIInternalException" namespace="http://www.sonusnet.com/sms/smsapi/r08_03/ServiceProviderService" use="encoded"/>
+
+         </wsdl:fault>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getASX">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getASXRequest">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://www.sonusnet.com/sms/smsapi/r08_03/ServiceProviderService" use="encoded"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getASXResponse">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://www.sonusnet.com/sms/smsapi/r08_03/ServiceProviderService" use="encoded"/>
+
+         </wsdl:output>
+
+         <wsdl:fault name="SMSAPINetworkException">
+
+            <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="SMSAPINetworkException" namespace="http://www.sonusnet.com/sms/smsapi/r08_03/ServiceProviderService" use="encoded"/>
+
+         </wsdl:fault>
+
+         <wsdl:fault name="SMSAPIValidationException">
+
+            <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="SMSAPIValidationException" namespace="http://www.sonusnet.com/sms/smsapi/r08_03/ServiceProviderService" use="encoded"/>
+
+         </wsdl:fault>
+
+         <wsdl:fault name="SMSAPIInternalException">
+
+            <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="SMSAPIInternalException" namespace="http://www.sonusnet.com/sms/smsapi/r08_03/ServiceProviderService" use="encoded"/>
+
+         </wsdl:fault>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="updateASX">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="updateASXRequest">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://www.sonusnet.com/sms/smsapi/r08_03/ServiceProviderService" use="encoded"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="updateASXResponse">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://www.sonusnet.com/sms/smsapi/r08_03/ServiceProviderService" use="encoded"/>
+
+         </wsdl:output>
+
+         <wsdl:fault name="SMSAPINetworkException">
+
+            <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="SMSAPINetworkException" namespace="http://www.sonusnet.com/sms/smsapi/r08_03/ServiceProviderService" use="encoded"/>
+
+         </wsdl:fault>
+
+         <wsdl:fault name="SMSAPIValidationException">
+
+            <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="SMSAPIValidationException" namespace="http://www.sonusnet.com/sms/smsapi/r08_03/ServiceProviderService" use="encoded"/>
+
+         </wsdl:fault>
+
+         <wsdl:fault name="SMSAPIInternalException">
+
+            <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="SMSAPIInternalException" namespace="http://www.sonusnet.com/sms/smsapi/r08_03/ServiceProviderService" use="encoded"/>
+
+         </wsdl:fault>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="SMSAPIService-r08_03-ServiceProviderService">
+
+      <wsdl:port binding="impl:SMSAPI/r08_03/ServiceProviderServiceSoapBinding" name="SMSAPI/r08_03/ServiceProviderService">
+
+         <wsdlsoap:address location="http://localhost:8081/smsapi/services/SMSAPI/r08_03/ServiceProviderService"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>

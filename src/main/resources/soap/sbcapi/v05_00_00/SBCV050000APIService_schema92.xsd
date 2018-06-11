@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="sonusglobaltrunkgroup.types.v05_00_00.sbc.api.ems.sonus.com" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:simpleType name="sonusTgOperStateType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="inService"/>
+      <xs:enumeration value="outOfService"/>
+      <xs:enumeration value="oosPending"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusTgPacketOutageDetectionStateType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="normal"/>
+      <xs:enumeration value="packetOutageState"/>
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>
+

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="sonushornettc.types.v05_00_00.sbc.api.ems.sonus.com" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:simpleType name="sonusTransportProtocolType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="none"/>
+      <xs:enumeration value="tcp"/>
+      <xs:enumeration value="udp"/>
+      <xs:enumeration value="sctp"/>
+      <xs:enumeration value="tls-tcp"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusTlsCipherSuite">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="nosuite"/>
+      <xs:enumeration value="rsa-with-null-sha"/>
+      <xs:enumeration value="rsa-with-aes-128-cbc-sha"/>
+      <xs:enumeration value="rsa-with-3des-ede-cbc-sha"/>
+      <xs:enumeration value="rsa-with-aes-128-cbc-sha-256"/>
+      <xs:enumeration value="rsa-with-aes-256-cbc-sha-256"/>
+      <xs:enumeration value="rsa-with-aes-256-cbc-sha"/>
+      <xs:enumeration value="tls_ecdhe_rsa_with_aes_256_cbc_sha384"/>
+      <xs:enumeration value="tls_ecdh_ecdsa_with_aes_256_gcm_sha384"/>
+      <xs:enumeration value="tls_ecdh_ecdsa_with_aes_256_cbc_sha384"/>
+      <xs:enumeration value="tls_ecdhe_rsa_with_aes_128_cbc_sha"/>
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>
+

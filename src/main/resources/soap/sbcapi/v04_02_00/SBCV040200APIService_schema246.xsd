@@ -1,0 +1,306 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="ipsec.addresscontext.v04_02_00.sbc.api.ems.sonus.com" xmlns:ns2="sonusipsec.types.v04_02_00.sbc.api.ems.sonus.com" xmlns:ns1="sonustc.types.v04_02_00.sbc.api.ems.sonus.com" xmlns:ns4="v04_02_00.sbc.api.ems.sonus.com" xmlns:ns3="common.sbc.api.ems.sonus.com" xmlns:tns="ipsec.addresscontext.v04_02_00.sbc.api.ems.sonus.com" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ns5="addresscontext.v04_02_00.sbc.api.ems.sonus.com" xmlns:ns6="peer.ipsec.addresscontext.v04_02_00.sbc.api.ems.sonus.com">
+
+  <xs:import namespace="sonustc.types.v04_02_00.sbc.api.ems.sonus.com" schemaLocation="SBCV040200APIService_schema42.xsd"/>
+
+  <xs:import namespace="sonusipsec.types.v04_02_00.sbc.api.ems.sonus.com" schemaLocation="SBCV040200APIService_schema81.xsd"/>
+
+  <xs:import namespace="common.sbc.api.ems.sonus.com" schemaLocation="SBCV040200APIService_schema325.xsd"/>
+
+  <xs:import namespace="v04_02_00.sbc.api.ems.sonus.com" schemaLocation="SBCV040200APIService_schema7.xsd"/>
+
+  <xs:import namespace="addresscontext.v04_02_00.sbc.api.ems.sonus.com" schemaLocation="SBCV040200APIService_schema364.xsd"/>
+
+  <xs:import namespace="peer.ipsec.addresscontext.v04_02_00.sbc.api.ems.sonus.com" schemaLocation="SBCV040200APIService_schema209.xsd"/>
+
+  <xs:complexType name="spd">
+    <xs:complexContent>
+      <xs:extension base="ns3:sbcEntity">
+        <xs:sequence>
+          <xs:element name="name" type="xs:string" minOccurs="0"/>
+          <xs:element name="state" type="ns1:sonusAdminState" default="disabled" minOccurs="0"/>
+          <xs:element name="precedence" type="xs:unsignedShort" minOccurs="0"/>
+          <xs:element name="localIpAddr" type="xs:string" default="0.0.0.0" minOccurs="0"/>
+          <xs:element name="localIpPrefixLen" type="xs:unsignedInt" default="0" minOccurs="0"/>
+          <xs:element name="localPort" type="xs:unsignedShort" default="0" minOccurs="0"/>
+          <xs:element name="remoteIpAddr" type="xs:string" default="0.0.0.0" minOccurs="0"/>
+          <xs:element name="remoteIpPrefixLen" type="xs:unsignedInt" default="0" minOccurs="0"/>
+          <xs:element name="remotePort" type="xs:unsignedShort" default="0" minOccurs="0"/>
+          <xs:element name="protocol" type="xs:unsignedShort" default="0" minOccurs="0"/>
+          <xs:element name="action" type="ns2:sonusACIpsecSpdActionType" default="discard" minOccurs="0"/>
+          <xs:element name="protectionProfile" type="xs:string" minOccurs="0"/>
+          <xs:element name="peer" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="spdKey">
+    <xs:complexContent>
+      <xs:extension base="ns3:sbcKey">
+        <xs:sequence>
+          <xs:element name="name" type="xs:string" minOccurs="0"/>
+          <xs:element name="parentKey" type="ns5:ipsecKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="spdListWrapper">
+    <xs:complexContent>
+      <xs:extension base="ns3:sbcListWrapper">
+        <xs:sequence>
+          <xs:element name="spd" type="tns:spd" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="peer">
+    <xs:complexContent>
+      <xs:extension base="ns3:sbcEntity">
+        <xs:sequence>
+          <xs:element name="name" type="xs:string" minOccurs="0"/>
+          <xs:element name="ipAddress" type="xs:string" minOccurs="0"/>
+          <xs:element name="protocol" type="ns2:sonusACIpsecPeerProtocolType" default="ikev2" minOccurs="0"/>
+          <xs:element name="preSharedKey" type="xs:string" minOccurs="0"/>
+          <xs:element name="protectionProfile" type="xs:string" minOccurs="0"/>
+          <xs:element name="localIdentity" type="ns6:localIdentity" minOccurs="0"/>
+          <xs:element name="remoteIdentity" type="ns6:remoteIdentity" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="peerKey">
+    <xs:complexContent>
+      <xs:extension base="ns3:sbcKey">
+        <xs:sequence>
+          <xs:element name="name" type="xs:string" minOccurs="0"/>
+          <xs:element name="parentKey" type="ns5:ipsecKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="peerListWrapper">
+    <xs:complexContent>
+      <xs:extension base="ns3:sbcListWrapper">
+        <xs:sequence>
+          <xs:element name="peer" type="tns:peer" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="ikeSaStatus">
+    <xs:complexContent>
+      <xs:extension base="ns3:sbcEntity">
+        <xs:sequence>
+          <xs:element name="saIndex" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="localIpAddr" type="xs:string" minOccurs="0"/>
+          <xs:element name="peerIpAddr" type="xs:string" minOccurs="0"/>
+          <xs:element name="localId" type="xs:string" minOccurs="0"/>
+          <xs:element name="peerId" type="xs:string" minOccurs="0"/>
+          <xs:element name="encType" type="xs:string" minOccurs="0"/>
+          <xs:element name="integrityType" type="xs:string" minOccurs="0"/>
+          <xs:element name="secondsRemaining" type="xs:string" minOccurs="0"/>
+          <xs:element name="dhGroup" type="xs:string" minOccurs="0"/>
+          <xs:element name="ikeVersion" type="ns2:sonusACIpsecPeerProtocolType" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="ikeSaStatusKey">
+    <xs:complexContent>
+      <xs:extension base="ns3:sbcReadOnlyKey">
+        <xs:sequence>
+          <xs:element name="saIndex" type="xs:long" minOccurs="0"/>
+          <xs:element name="parentKey" type="ns5:ipsecKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="ikeSaStatusListWrapper">
+    <xs:complexContent>
+      <xs:extension base="ns3:sbcListWrapper">
+        <xs:sequence>
+          <xs:element name="ikeSaStatus" type="tns:ikeSaStatus" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="ipsecSaStatus">
+    <xs:complexContent>
+      <xs:extension base="ns3:sbcEntity">
+        <xs:sequence>
+          <xs:element name="localSPI" type="xs:string" minOccurs="0"/>
+          <xs:element name="remoteSPI" type="xs:string" minOccurs="0"/>
+          <xs:element name="localTerminationAddr" type="xs:string" minOccurs="0"/>
+          <xs:element name="remoteTerminationAddr" type="xs:string" minOccurs="0"/>
+          <xs:element name="localSelector" type="xs:string" minOccurs="0"/>
+          <xs:element name="remoteSelector" type="xs:string" minOccurs="0"/>
+          <xs:element name="upperLayerProtocol" type="xs:string" minOccurs="0"/>
+          <xs:element name="encType" type="xs:string" minOccurs="0"/>
+          <xs:element name="integrityType" type="xs:string" minOccurs="0"/>
+          <xs:element name="secondsRemaining" type="xs:string" minOccurs="0"/>
+          <xs:element name="bytesRemaining" type="xs:string" minOccurs="0"/>
+          <xs:element name="selectorName" type="xs:string" minOccurs="0"/>
+          <xs:element name="ikeSaIndex" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="ikeVersion" type="ns2:sonusACIpsecPeerProtocolType" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="ipsecSaStatusKey">
+    <xs:complexContent>
+      <xs:extension base="ns3:sbcReadOnlyKey">
+        <xs:sequence>
+          <xs:element name="localSPI" type="xs:string" minOccurs="0"/>
+          <xs:element name="parentKey" type="ns5:ipsecKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="ipsecSaStatusListWrapper">
+    <xs:complexContent>
+      <xs:extension base="ns3:sbcListWrapper">
+        <xs:sequence>
+          <xs:element name="ipsecSaStatus" type="tns:ipsecSaStatus" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="systemStatistics">
+    <xs:complexContent>
+      <xs:extension base="ns3:sbcEntity">
+        <xs:sequence>
+          <xs:element name="systemName" type="xs:string" minOccurs="0"/>
+          <xs:element name="inPacketDiscardInvalidSpi" type="xs:unsignedLong" minOccurs="0"/>
+          <xs:element name="inPacketDiscardProtected" type="xs:unsignedLong" minOccurs="0"/>
+          <xs:element name="inPacketDiscardDiscarded" type="xs:unsignedLong" minOccurs="0"/>
+          <xs:element name="outPacketDiscardProtected" type="xs:unsignedLong" minOccurs="0"/>
+          <xs:element name="outPacketDiscardDiscarded" type="xs:unsignedLong" minOccurs="0"/>
+          <xs:element name="inPacketDiscardNoState" type="xs:unsignedLong" minOccurs="0"/>
+          <xs:element name="inPacketDiscardSAExpired" type="xs:unsignedLong" minOccurs="0"/>
+          <xs:element name="inPacketDiscardSelectorMismatch" type="xs:unsignedLong" minOccurs="0"/>
+          <xs:element name="outPacketDiscardSSNWrap" type="xs:unsignedLong" minOccurs="0"/>
+          <xs:element name="outPacketDiscardSAExpired" type="xs:unsignedLong" minOccurs="0"/>
+          <xs:element name="ikeSaNegotiationsSucceeded" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="ikeSaNegotiationsFailed" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="ipsecSaNegotiationsSucceeded" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="ipsecSaNegotiationsFailed" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="pfsMismatch" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="ikev2SaNegotiationsFailedInitExchange" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="ikev2SaNegotiationsFailedAuthExchangeAuthFail" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="ikev2SaNegotiationsFailedAuthExchangeIdFail" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="ikev2SaNegotiationsFailedChildSaExchange" type="xs:unsignedInt" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="systemStatisticsKey">
+    <xs:complexContent>
+      <xs:extension base="ns3:sbcReadOnlyKey">
+        <xs:sequence>
+          <xs:element name="systemName" type="xs:string" minOccurs="0"/>
+          <xs:element name="parentKey" type="ns5:ipsecKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="systemStatisticsListWrapper">
+    <xs:complexContent>
+      <xs:extension base="ns3:sbcListWrapper">
+        <xs:sequence>
+          <xs:element name="systemStatistics" type="tns:systemStatistics" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="ikeSaStatistics">
+    <xs:complexContent>
+      <xs:extension base="ns3:sbcEntity">
+        <xs:sequence>
+          <xs:element name="saIndex" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="localIpAddr" type="xs:string" minOccurs="0"/>
+          <xs:element name="peerIpAddr" type="xs:string" minOccurs="0"/>
+          <xs:element name="ipsecSaNegotiationsSucceeded" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="ipsecSaNegotiationsFailed" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="ikeVersion" type="ns2:sonusACIpsecPeerProtocolType" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="ikeSaStatisticsKey">
+    <xs:complexContent>
+      <xs:extension base="ns3:sbcReadOnlyKey">
+        <xs:sequence>
+          <xs:element name="saIndex" type="xs:long" minOccurs="0"/>
+          <xs:element name="parentKey" type="ns5:ipsecKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="ikeSaStatisticsListWrapper">
+    <xs:complexContent>
+      <xs:extension base="ns3:sbcListWrapper">
+        <xs:sequence>
+          <xs:element name="ikeSaStatistics" type="tns:ikeSaStatistics" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="ipsecSaStatistics">
+    <xs:complexContent>
+      <xs:extension base="ns3:sbcEntity">
+        <xs:sequence>
+          <xs:element name="spi" type="xs:string" minOccurs="0"/>
+          <xs:element name="localIpAddr" type="xs:string" minOccurs="0"/>
+          <xs:element name="remoteSpi" type="xs:string" minOccurs="0"/>
+          <xs:element name="peerIpAddr" type="xs:string" minOccurs="0"/>
+          <xs:element name="inPacketsCount" type="xs:unsignedLong" minOccurs="0"/>
+          <xs:element name="outPacketsCount" type="xs:unsignedLong" minOccurs="0"/>
+          <xs:element name="inBytesCount" type="xs:unsignedLong" minOccurs="0"/>
+          <xs:element name="outBytesCount" type="xs:unsignedLong" minOccurs="0"/>
+          <xs:element name="inPacketDiscardFailedIntegrity" type="xs:unsignedLong" minOccurs="0"/>
+          <xs:element name="inPacketDiscardAntiReplay" type="xs:unsignedLong" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="ipsecSaStatisticsKey">
+    <xs:complexContent>
+      <xs:extension base="ns3:sbcReadOnlyKey">
+        <xs:sequence>
+          <xs:element name="spi" type="xs:string" minOccurs="0"/>
+          <xs:element name="parentKey" type="ns5:ipsecKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="ipsecSaStatisticsListWrapper">
+    <xs:complexContent>
+      <xs:extension base="ns3:sbcListWrapper">
+        <xs:sequence>
+          <xs:element name="ipsecSaStatistics" type="tns:ipsecSaStatistics" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+</xs:schema>
+

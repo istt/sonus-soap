@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="sonussipinternalcausemapprofile.types.v05_00_00.sbc.api.ems.sonus.com" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:simpleType name="sonusSipInternalCauseMappingInternalCauseType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="regTimeout"/>
+      <xs:enumeration value="regRatePolicing"/>
+      <xs:enumeration value="regTGLimit"/>
+      <xs:enumeration value="subsRatePolicing"/>
+      <xs:enumeration value="subsTGLimit"/>
+      <xs:enumeration value="otherReqRatePolicing"/>
+      <xs:enumeration value="congestionPolicing"/>
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>
+

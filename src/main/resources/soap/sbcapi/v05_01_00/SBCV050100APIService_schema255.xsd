@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="media.mediationserver.calldatachannel.intercept.addresscontext.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns2="sonustc.types.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns1="sonusli.types.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns4="calldatachannel.intercept.addresscontext.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns3="common.sbc.api.ems.sonus.com" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ns5="mediationserver.calldatachannel.intercept.addresscontext.v05_01_00.sbc.api.ems.sonus.com">
+
+  <xs:import namespace="sonusli.types.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema79.xsd"/>
+
+  <xs:import namespace="sonustc.types.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema44.xsd"/>
+
+  <xs:import namespace="common.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema360.xsd"/>
+
+  <xs:import namespace="calldatachannel.intercept.addresscontext.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema389.xsd"/>
+
+  <xs:import namespace="mediationserver.calldatachannel.intercept.addresscontext.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema251.xsd"/>
+
+  <xs:complexType name="tcp">
+    <xs:complexContent>
+      <xs:extension base="ns3:sbcEntity">
+        <xs:sequence>
+          <xs:element name="ipAddress" type="xs:string" minOccurs="0"/>
+          <xs:element name="portNumber" type="xs:string" minOccurs="0"/>
+          <xs:element name="portNumberUnion" type="ns1:SonusLiPortTypeUnion" minOccurs="0"/>
+          <xs:element name="dscpValue" type="xs:unsignedShort" default="16" minOccurs="0"/>
+          <xs:element name="mode" type="ns1:sonusLiChnStatusType" default="outOfService" minOccurs="0"/>
+          <xs:element name="state" type="ns2:sonusAdminState" default="disabled" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="tcpKey">
+    <xs:complexContent>
+      <xs:extension base="ns3:sbcUnCreatableKey">
+        <xs:sequence>
+          <xs:element name="parentKey" type="ns5:mediaKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="udp">
+    <xs:complexContent>
+      <xs:extension base="ns3:sbcEntity">
+        <xs:sequence>
+          <xs:element name="ipAddress" type="xs:string" minOccurs="0"/>
+          <xs:element name="portNumber" type="xs:string" minOccurs="0"/>
+          <xs:element name="portNumberUnion" type="ns1:SonusLiPortTypeUnion" minOccurs="0"/>
+          <xs:element name="dscpValue" type="xs:unsignedShort" default="16" minOccurs="0"/>
+          <xs:element name="mode" type="ns1:sonusLiChnStatusType" default="outOfService" minOccurs="0"/>
+          <xs:element name="state" type="ns2:sonusAdminState" default="disabled" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="udpKey">
+    <xs:complexContent>
+      <xs:extension base="ns3:sbcUnCreatableKey">
+        <xs:sequence>
+          <xs:element name="parentKey" type="ns5:mediaKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+</xs:schema>
+

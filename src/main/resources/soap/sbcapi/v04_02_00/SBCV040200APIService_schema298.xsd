@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="dns.servers.global.v04_02_00.sbc.api.ems.sonus.com" xmlns:ns2="global.v04_02_00.sbc.api.ems.sonus.com" xmlns:ns1="common.sbc.api.ems.sonus.com" xmlns:ns3="servers.global.v04_02_00.sbc.api.ems.sonus.com" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:import namespace="common.sbc.api.ems.sonus.com" schemaLocation="SBCV040200APIService_schema325.xsd"/>
+
+  <xs:import namespace="global.v04_02_00.sbc.api.ems.sonus.com" schemaLocation="SBCV040200APIService_schema271.xsd"/>
+
+  <xs:import namespace="servers.global.v04_02_00.sbc.api.ems.sonus.com" schemaLocation="SBCV040200APIService_schema166.xsd"/>
+
+  <xs:complexType name="global">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcEntity">
+        <xs:sequence>
+          <xs:element name="iterationCount" type="xs:unsignedByte" default="8" minOccurs="0"/>
+          <xs:element name="retransmissionCount" type="xs:unsignedByte" default="2" minOccurs="0"/>
+          <xs:element name="retransmissionTimer" type="xs:unsignedShort" default="500" minOccurs="0"/>
+          <xs:element name="monitoringInterval" type="xs:unsignedInt" default="5" minOccurs="0"/>
+          <xs:element name="timeouts" type="xs:unsignedInt" default="0" minOccurs="0"/>
+          <xs:element name="probeInterval" type="xs:unsignedInt" default="5" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="globalKey">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcUnCreatableKey">
+        <xs:sequence>
+          <xs:element name="parentKey" type="ns3:dnsKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+</xs:schema>
+

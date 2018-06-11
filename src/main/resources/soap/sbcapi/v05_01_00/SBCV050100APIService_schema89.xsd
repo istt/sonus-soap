@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="sonusipacl.types.v05_01_00.sbc.api.ems.sonus.com" xmlns:tns="sonusipacl.types.v05_01_00.sbc.api.ems.sonus.com" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:complexType name="SonusIpAclProtocolTypeUnion">
+    <xs:sequence>
+      <xs:element name="sonusIpAclProtocolTypeEnum" type="tns:sonusIpAclProtocolTypeEnum" minOccurs="0"/>
+      <xs:element name="sonusIpAclProtocolTypeVal" type="xs:unsignedInt" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="SonusIpAclPortTypeUnion">
+    <xs:sequence>
+      <xs:element name="sonusIpAclPortTypeAny" type="tns:sonusIpAclPortTypeAny" minOccurs="0"/>
+      <xs:element name="sonusIpAclPortTypeVal" type="xs:unsignedInt" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="SonusIpAclFillRateTypeUnion">
+    <xs:sequence>
+      <xs:element name="sonusIpAclFillRateUnlimited" type="tns:sonusIpAclFillRateUnlimited" minOccurs="0"/>
+      <xs:element name="sonusIpAclFillRateVal" type="xs:unsignedInt" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="SonusIpAclBucketSizeTypeUnion">
+    <xs:sequence>
+      <xs:element name="sonusIpAclBucketSizeUnlimited" type="tns:sonusIpAclBucketSizeUnlimited" minOccurs="0"/>
+      <xs:element name="sonusIpAclBucketSizeVal" type="xs:unsignedInt" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:simpleType name="sonusIpAclProtocolTypeEnum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="icmp"/>
+      <xs:enumeration value="tcp"/>
+      <xs:enumeration value="udp"/>
+      <xs:enumeration value="icmpv6"/>
+      <xs:enumeration value="ospf"/>
+      <xs:enumeration value="any"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusIpAclPortTypeAny">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="any"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusIpAclActionType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="accept"/>
+      <xs:enumeration value="discard"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusIpAclFillRateUnlimited">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="unlimited"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusIpAclBucketSizeUnlimited">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="unlimited"/>
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>
+

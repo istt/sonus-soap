@@ -1,0 +1,505 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="sonusgen2sipadaptor.types.v05_01_00.sbc.api.ems.sonus.com" xmlns:tns="sonusgen2sipadaptor.types.v05_01_00.sbc.api.ems.sonus.com" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:complexType name="SonusSipSmmSdpStreamInstanceIdUnion">
+    <xs:sequence>
+      <xs:element name="SonusSipSmmSdpStreamInstanceIdEnum" type="tns:sonusSipSmmSdpStreamInstanceIdEnum" minOccurs="0"/>
+      <xs:element name="SonusSipSmmSdpStreamInstanceIdValue" type="xs:unsignedByte" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="SonusSipSmmVariableOffsetTypeUnion">
+    <xs:sequence>
+      <xs:element name="SonusSipSmmVariableOffsetTypeWhole" type="tns:sonusSipSmmVariableOffsetTypeWhole" minOccurs="0"/>
+      <xs:element name="SonusSipSmmVariableOffsetTypeValue" type="xs:unsignedByte" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="SonusSipSmmVariableLengthTypeUnion">
+    <xs:sequence>
+      <xs:element name="SonusSipSmmVariableLengthTypeAll" type="tns:sonusSipSmmVariableLengthTypeAll" minOccurs="0"/>
+      <xs:element name="SonusSipSmmVariableLengthTypeValue" type="xs:unsignedByte" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="SonusSipSmmSdpCodecPositionUnion">
+    <xs:sequence>
+      <xs:element name="SonusSipSmmSdpCodecPositionLast" type="tns:sonusSipSmmSdpCodecPositionLast" minOccurs="0"/>
+      <xs:element name="SonusSipSmmSdpCodecPositionValue" type="xs:unsignedByte" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="SonusSipSmmSdpPayloadTypeUnion">
+    <xs:sequence>
+      <xs:element name="SonusSipSmmSdpPayloadTypeNext" type="tns:sonusSipSmmSdpPayloadTypeNext" minOccurs="0"/>
+      <xs:element name="SonusSipSmmSdpPayloadTypeValue" type="xs:unsignedByte" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:simpleType name="sonusProfileType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="messageManipulation"/>
+      <xs:enumeration value="flexiblePolicy"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusSipSmmActionHdrInstance">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="one"/>
+      <xs:enumeration value="two"/>
+      <xs:enumeration value="three"/>
+      <xs:enumeration value="four"/>
+      <xs:enumeration value="five"/>
+      <xs:enumeration value="six"/>
+      <xs:enumeration value="seven"/>
+      <xs:enumeration value="eight"/>
+      <xs:enumeration value="nine"/>
+      <xs:enumeration value="ten"/>
+      <xs:enumeration value="all"/>
+      <xs:enumeration value="last"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusSipSmmActionHdrRange">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="undefined"/>
+      <xs:enumeration value="two"/>
+      <xs:enumeration value="three"/>
+      <xs:enumeration value="four"/>
+      <xs:enumeration value="five"/>
+      <xs:enumeration value="six"/>
+      <xs:enumeration value="seven"/>
+      <xs:enumeration value="eight"/>
+      <xs:enumeration value="nine"/>
+      <xs:enumeration value="ten"/>
+      <xs:enumeration value="last"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusSipSmmCriterionType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="message"/>
+      <xs:enumeration value="header"/>
+      <xs:enumeration value="parameter"/>
+      <xs:enumeration value="token"/>
+      <xs:enumeration value="variable"/>
+      <xs:enumeration value="globalVar"/>
+      <xs:enumeration value="messageBody"/>
+      <xs:enumeration value="isupParameter"/>
+      <xs:enumeration value="sdpContent"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusSipPduManipulationMessageTypesType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="undefined"/>
+      <xs:enumeration value="request"/>
+      <xs:enumeration value="requestAll"/>
+      <xs:enumeration value="response"/>
+      <xs:enumeration value="responseAll"/>
+      <xs:enumeration value="all"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusSipPduManipulationMethodTypesType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="undefined"/>
+      <xs:enumeration value="options"/>
+      <xs:enumeration value="cancel"/>
+      <xs:enumeration value="invite"/>
+      <xs:enumeration value="ack"/>
+      <xs:enumeration value="prack"/>
+      <xs:enumeration value="info"/>
+      <xs:enumeration value="refer"/>
+      <xs:enumeration value="bye"/>
+      <xs:enumeration value="register"/>
+      <xs:enumeration value="notify"/>
+      <xs:enumeration value="subscribe"/>
+      <xs:enumeration value="update"/>
+      <xs:enumeration value="publish"/>
+      <xs:enumeration value="message"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusSipPduManipulationCriterionConditionType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="undefined"/>
+      <xs:enumeration value="exist"/>
+      <xs:enumeration value="absent"/>
+      <xs:enumeration value="has-value"/>
+      <xs:enumeration value="not-equal-to"/>
+      <xs:enumeration value="regex-match"/>
+      <xs:enumeration value="variables-equal"/>
+      <xs:enumeration value="variables-not-equal"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusSipSmmCriterionHdrInstance">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="one"/>
+      <xs:enumeration value="two"/>
+      <xs:enumeration value="three"/>
+      <xs:enumeration value="four"/>
+      <xs:enumeration value="five"/>
+      <xs:enumeration value="six"/>
+      <xs:enumeration value="seven"/>
+      <xs:enumeration value="eight"/>
+      <xs:enumeration value="nine"/>
+      <xs:enumeration value="ten"/>
+      <xs:enumeration value="all"/>
+      <xs:enumeration value="last"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusSipSmmCriterionHdrRange">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="undefined"/>
+      <xs:enumeration value="two"/>
+      <xs:enumeration value="three"/>
+      <xs:enumeration value="four"/>
+      <xs:enumeration value="five"/>
+      <xs:enumeration value="six"/>
+      <xs:enumeration value="seven"/>
+      <xs:enumeration value="eight"/>
+      <xs:enumeration value="nine"/>
+      <xs:enumeration value="ten"/>
+      <xs:enumeration value="last"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusSipPduManipulationCriterionTotalHdrConditionType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="undefined"/>
+      <xs:enumeration value="lessthan"/>
+      <xs:enumeration value="greater"/>
+      <xs:enumeration value="equal"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusSipPduManipulationCriterionRegexNumMatchType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="match"/>
+      <xs:enumeration value="notmatch"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusSipSmmParamType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="undefined"/>
+      <xs:enumeration value="userinfo"/>
+      <xs:enumeration value="uri"/>
+      <xs:enumeration value="generic"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusSipSmmTokenType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="undefined"/>
+      <xs:enumeration value="uridisplayname"/>
+      <xs:enumeration value="uriusername"/>
+      <xs:enumeration value="urihostname"/>
+      <xs:enumeration value="urischeme"/>
+      <xs:enumeration value="urihostport"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusSipSmmVariableType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="undefined"/>
+      <xs:enumeration value="var1"/>
+      <xs:enumeration value="var2"/>
+      <xs:enumeration value="var3"/>
+      <xs:enumeration value="var4"/>
+      <xs:enumeration value="var5"/>
+      <xs:enumeration value="var6"/>
+      <xs:enumeration value="var7"/>
+      <xs:enumeration value="var8"/>
+      <xs:enumeration value="var9"/>
+      <xs:enumeration value="var10"/>
+      <xs:enumeration value="var11"/>
+      <xs:enumeration value="var12"/>
+      <xs:enumeration value="var13"/>
+      <xs:enumeration value="var14"/>
+      <xs:enumeration value="var15"/>
+      <xs:enumeration value="var16"/>
+      <xs:enumeration value="var17"/>
+      <xs:enumeration value="var18"/>
+      <xs:enumeration value="var19"/>
+      <xs:enumeration value="var20"/>
+      <xs:enumeration value="var21"/>
+      <xs:enumeration value="var22"/>
+      <xs:enumeration value="var23"/>
+      <xs:enumeration value="var24"/>
+      <xs:enumeration value="var25"/>
+      <xs:enumeration value="var26"/>
+      <xs:enumeration value="var27"/>
+      <xs:enumeration value="var28"/>
+      <xs:enumeration value="var29"/>
+      <xs:enumeration value="var30"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusSipSmmGlobalVariableType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="undefined"/>
+      <xs:enumeration value="srcipaddr"/>
+      <xs:enumeration value="srcport"/>
+      <xs:enumeration value="sigportid"/>
+      <xs:enumeration value="localIP"/>
+      <xs:enumeration value="localPort"/>
+      <xs:enumeration value="egressTgName"/>
+      <xs:enumeration value="ingressTgName"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusSipSmmMessageBodyType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="undefined"/>
+      <xs:enumeration value="all"/>
+      <xs:enumeration value="isup"/>
+      <xs:enumeration value="sdp"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusSipSmmSdpStreamType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="session"/>
+      <xs:enumeration value="audio"/>
+      <xs:enumeration value="video"/>
+      <xs:enumeration value="application"/>
+      <xs:enumeration value="image"/>
+      <xs:enumeration value="text"/>
+      <xs:enumeration value="message"/>
+      <xs:enumeration value="data"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusSipSmmSdpStreamInstanceIdEnum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="all"/>
+      <xs:enumeration value="last"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusSipSmmActionType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="undefined"/>
+      <xs:enumeration value="header"/>
+      <xs:enumeration value="parameter"/>
+      <xs:enumeration value="token"/>
+      <xs:enumeration value="variable"/>
+      <xs:enumeration value="messageBody"/>
+      <xs:enumeration value="message"/>
+      <xs:enumeration value="isupParameter"/>
+      <xs:enumeration value="sdpContent"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusSipSmmOperationType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="undefined"/>
+      <xs:enumeration value="add"/>
+      <xs:enumeration value="delete"/>
+      <xs:enumeration value="modify"/>
+      <xs:enumeration value="store"/>
+      <xs:enumeration value="append"/>
+      <xs:enumeration value="regsub"/>
+      <xs:enumeration value="regdel"/>
+      <xs:enumeration value="regpresub"/>
+      <xs:enumeration value="regpredel"/>
+      <xs:enumeration value="regpostsub"/>
+      <xs:enumeration value="regpostdel"/>
+      <xs:enumeration value="regprepend"/>
+      <xs:enumeration value="regappend"/>
+      <xs:enumeration value="regstore"/>
+      <xs:enumeration value="rename"/>
+      <xs:enumeration value="ignore"/>
+      <xs:enumeration value="reject"/>
+      <xs:enumeration value="createuri"/>
+      <xs:enumeration value="bitOR"/>
+      <xs:enumeration value="bitAND"/>
+      <xs:enumeration value="bitNOT"/>
+      <xs:enumeration value="bitXOR"/>
+      <xs:enumeration value="asciiToBinaryStore"/>
+      <xs:enumeration value="asciiToBinaryAppend"/>
+      <xs:enumeration value="binaryToAsciiStore"/>
+      <xs:enumeration value="binaryToAsciiAppend"/>
+      <xs:enumeration value="addDigits"/>
+      <xs:enumeration value="getDigits"/>
+      <xs:enumeration value="writeCdr"/>
+      <xs:enumeration value="getCodecPosition"/>
+      <xs:enumeration value="getPayloadType"/>
+      <xs:enumeration value="filterCodec"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusSipPduManipulationOpValueOrLineType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="undefined"/>
+      <xs:enumeration value="fieldValue"/>
+      <xs:enumeration value="headerValue"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusSipPduManipulationHeaderPositionType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="undefined"/>
+      <xs:enumeration value="last"/>
+      <xs:enumeration value="first"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusSipSmmSdpContentSubType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="undefined"/>
+      <xs:enumeration value="stream"/>
+      <xs:enumeration value="line"/>
+      <xs:enumeration value="parameter"/>
+      <xs:enumeration value="codecByName"/>
+      <xs:enumeration value="codecByPosition"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusSmmUriType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="undefined"/>
+      <xs:enumeration value="value"/>
+      <xs:enumeration value="variable"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusSmmAllUriType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="undefined"/>
+      <xs:enumeration value="value"/>
+      <xs:enumeration value="variable"/>
+      <xs:enumeration value="globalVariable"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusSipmmFromType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="header"/>
+      <xs:enumeration value="parameter"/>
+      <xs:enumeration value="value"/>
+      <xs:enumeration value="token"/>
+      <xs:enumeration value="variable"/>
+      <xs:enumeration value="globalVariable"/>
+      <xs:enumeration value="messageBody"/>
+      <xs:enumeration value="isupParameter"/>
+      <xs:enumeration value="sdpContent"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusSipSmmVariableOffsetTypeWhole">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="whole"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusSipSmmVariableLengthTypeAll">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="all"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusSipSmmSdpCodecPositionLast">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="last"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusSmmSdpLineType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="undefined"/>
+      <xs:enumeration value="value"/>
+      <xs:enumeration value="variable"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusSipmmToType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="header"/>
+      <xs:enumeration value="parameter"/>
+      <xs:enumeration value="token"/>
+      <xs:enumeration value="variable"/>
+      <xs:enumeration value="messageBody"/>
+      <xs:enumeration value="isupParameter"/>
+      <xs:enumeration value="sdpContent"/>
+      <xs:enumeration value="cdrField"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusSipSmmVariableRangeType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="undefined"/>
+      <xs:enumeration value="var1"/>
+      <xs:enumeration value="var2"/>
+      <xs:enumeration value="var3"/>
+      <xs:enumeration value="var4"/>
+      <xs:enumeration value="var5"/>
+      <xs:enumeration value="var6"/>
+      <xs:enumeration value="var7"/>
+      <xs:enumeration value="var8"/>
+      <xs:enumeration value="var9"/>
+      <xs:enumeration value="var10"/>
+      <xs:enumeration value="var11"/>
+      <xs:enumeration value="var12"/>
+      <xs:enumeration value="var13"/>
+      <xs:enumeration value="var14"/>
+      <xs:enumeration value="var15"/>
+      <xs:enumeration value="var16"/>
+      <xs:enumeration value="var17"/>
+      <xs:enumeration value="var18"/>
+      <xs:enumeration value="var19"/>
+      <xs:enumeration value="var20"/>
+      <xs:enumeration value="var21"/>
+      <xs:enumeration value="var22"/>
+      <xs:enumeration value="var23"/>
+      <xs:enumeration value="var24"/>
+      <xs:enumeration value="var25"/>
+      <xs:enumeration value="var26"/>
+      <xs:enumeration value="var27"/>
+      <xs:enumeration value="var28"/>
+      <xs:enumeration value="var29"/>
+      <xs:enumeration value="var30"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusSipSmmVariableScopeType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="local"/>
+      <xs:enumeration value="message"/>
+      <xs:enumeration value="dialog"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusSipSmmCdrType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="cdr1"/>
+      <xs:enumeration value="cdr2"/>
+      <xs:enumeration value="cdr3"/>
+      <xs:enumeration value="cdr4"/>
+      <xs:enumeration value="cdr5"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusSipSmmSdpPayloadTypeNext">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="next"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusSipPduManipulationRegexMatchInstanceType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="one"/>
+      <xs:enumeration value="two"/>
+      <xs:enumeration value="three"/>
+      <xs:enumeration value="four"/>
+      <xs:enumeration value="five"/>
+      <xs:enumeration value="last"/>
+      <xs:enumeration value="all"/>
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>
+

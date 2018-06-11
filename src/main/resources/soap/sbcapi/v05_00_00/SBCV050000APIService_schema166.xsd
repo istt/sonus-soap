@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="security.system.v05_00_00.sbc.api.ems.sonus.com" xmlns:ns2="common.sbc.api.ems.sonus.com" xmlns:ns1="sonusgen2security.types.v05_00_00.sbc.api.ems.sonus.com" xmlns:ns4="system.v05_00_00.sbc.api.ems.sonus.com" xmlns:ns3="v05_00_00.sbc.api.ems.sonus.com" xmlns:tns="security.system.v05_00_00.sbc.api.ems.sonus.com" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ns5="sonustc.types.v05_00_00.sbc.api.ems.sonus.com" xmlns:ns6="pki.security.system.v05_00_00.sbc.api.ems.sonus.com">
+
+  <xs:import namespace="sonusgen2security.types.v05_00_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050000APIService_schema96.xsd"/>
+
+  <xs:import namespace="common.sbc.api.ems.sonus.com" schemaLocation="SBCV050000APIService_schema326.xsd"/>
+
+  <xs:import namespace="v05_00_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050000APIService_schema7.xsd"/>
+
+  <xs:import namespace="system.v05_00_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050000APIService_schema26.xsd"/>
+
+  <xs:import namespace="sonustc.types.v05_00_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050000APIService_schema42.xsd"/>
+
+  <xs:import namespace="pki.security.system.v05_00_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050000APIService_schema207.xsd"/>
+
+  <xs:complexType name="certExpiryCheck">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcEntity">
+        <xs:sequence>
+          <xs:element name="certReCheckRate" type="xs:string" default="24" minOccurs="0"/>
+          <xs:element name="certReCheckRateUnion" type="ns1:SonusPkiCertReCheckRateTypeUnion" minOccurs="0"/>
+          <xs:element name="expiryWarningThreshold" type="xs:string" default="60" minOccurs="0"/>
+          <xs:element name="expiryWarningThresholdUnion" type="ns1:SonusPkiDaysBeforeExpireTypeUnion" minOccurs="0"/>
+          <xs:element name="expirationPeriodicWarning" type="xs:string" default="7" minOccurs="0"/>
+          <xs:element name="expirationPeriodicWarningUnion" type="ns1:SonusPkiExpirationPeriodicWarningTypeUnion" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="certExpiryCheckKey">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcUnCreatableKey">
+        <xs:sequence>
+          <xs:element name="parentKey" type="ns4:securityKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="pki">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcEntity">
+        <xs:sequence>
+          <xs:element name="certificate" type="ns6:certificate" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="certStatistics" type="ns6:certStatistics" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="pkiKey">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcUnCreatableKey">
+        <xs:sequence>
+          <xs:element name="parentKey" type="ns4:securityKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="ipsec">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcEntity">
+        <xs:sequence>
+          <xs:element name="ikeRetransmitInterval" type="xs:unsignedShort" default="10" minOccurs="0"/>
+          <xs:element name="ikeRetransmitCount" type="xs:unsignedByte" default="3" minOccurs="0"/>
+          <xs:element name="ikeDpdInterval" type="xs:unsignedShort" default="3600" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="ipsecKey">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcUnCreatableKey">
+        <xs:sequence>
+          <xs:element name="parentKey" type="ns4:securityKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="ocspStatistics">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcEntity">
+        <xs:sequence>
+          <xs:element name="profileName" type="xs:string" minOccurs="0"/>
+          <xs:element name="ocspRequestAttempts" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="ocspResponsesGood" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="ocspResponsesRevoked" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="ocspResponsesUnknown" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="ocspMalformedRequests" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="ocspInternalErrors" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="ocspTryLaters" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="ocspSigRequired" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="ocspUnauthorized" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="ocspRepondersUnreachable" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="ocspResponseTimeouts" type="xs:unsignedInt" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="ocspStatisticsKey">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcReadOnlyKey">
+        <xs:sequence>
+          <xs:element name="profileName" type="xs:string" minOccurs="0"/>
+          <xs:element name="parentKey" type="ns4:securityKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="ocspStatisticsListWrapper">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcListWrapper">
+        <xs:sequence>
+          <xs:element name="ocspStatistics" type="tns:ocspStatistics" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="ocspProfileUses">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcEntity">
+        <xs:sequence>
+          <xs:element name="ocspName" type="xs:string" minOccurs="0"/>
+          <xs:element name="tlsName" type="xs:string" minOccurs="0"/>
+          <xs:element name="ocspTlsRefNum" type="xs:unsignedInt" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="ocspProfileUsesKey">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcReadOnlyKey">
+        <xs:sequence>
+          <xs:element name="ocspName" type="xs:string" minOccurs="0"/>
+          <xs:element name="tlsName" type="xs:string" minOccurs="0"/>
+          <xs:element name="parentKey" type="ns4:securityKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="ocspProfileUsesListWrapper">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcListWrapper">
+        <xs:sequence>
+          <xs:element name="ocspProfileUses" type="tns:ocspProfileUses" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+</xs:schema>
+

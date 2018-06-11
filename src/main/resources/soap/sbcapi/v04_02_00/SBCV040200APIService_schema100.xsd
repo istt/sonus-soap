@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="sonusgen2nrmtone.types.v04_02_00.sbc.api.ems.sonus.com" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:simpleType name="sonusToneProfileGenerationMethodType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="singleTone"/>
+      <xs:enumeration value="dualTone"/>
+      <xs:enumeration value="modulatedTone"/>
+      <xs:enumeration value="compositeTone"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusToneProfileTone1ApplyToCadenceNumberType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="allCadence"/>
+      <xs:enumeration value="cadence1"/>
+      <xs:enumeration value="cadence2"/>
+      <xs:enumeration value="cadence3"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusToneProfileTone2ApplyToCadenceNumberType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="allCadence"/>
+      <xs:enumeration value="cadence1"/>
+      <xs:enumeration value="cadence2"/>
+      <xs:enumeration value="cadence3"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusToneProfileTone3ApplyToCadenceNumberType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="allCadence"/>
+      <xs:enumeration value="cadence1"/>
+      <xs:enumeration value="cadence2"/>
+      <xs:enumeration value="cadence3"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusToneProfileTone4ApplyToCadenceNumberType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="allCadence"/>
+      <xs:enumeration value="cadence1"/>
+      <xs:enumeration value="cadence2"/>
+      <xs:enumeration value="cadence3"/>
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>
+

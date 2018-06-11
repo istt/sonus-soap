@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="sonusgen2nrmcalltrace.types.v05_00_00.sbc.api.ems.sonus.com" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:complexType name="SonusCallTraceKeyTypeBits">
+    <xs:sequence>
+      <xs:element name="called" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="calling" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="contractor" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="redirecting" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="transferCapability" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="trunkGroup" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="peerIpAddress" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="cddn" type="xs:boolean" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:simpleType name="sonusCallTraceErrorFilterTypeType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="none"/>
+      <xs:enumeration value="any"/>
+      <xs:enumeration value="parseError"/>
+      <xs:enumeration value="earlyAttempt"/>
+      <xs:enumeration value="outOfDialog"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusCallTraceStateType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="disabled"/>
+      <xs:enumeration value="enabled"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusCallTraceLevelType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="level1"/>
+      <xs:enumeration value="level2"/>
+      <xs:enumeration value="level3"/>
+      <xs:enumeration value="level4"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusCallTraceSupportFlag">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="unsupported"/>
+      <xs:enumeration value="supported"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusCallTraceTransferCapabilityType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="speech"/>
+      <xs:enumeration value="unrestricted"/>
+      <xs:enumeration value="audio31Khz"/>
+      <xs:enumeration value="unrestrictedWithTones"/>
+      <xs:enumeration value="video"/>
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>
+

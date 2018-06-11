@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="sonusipsec.types.v05_00_00.sbc.api.ems.sonus.com" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:simpleType name="sonusACIpsecSpdActionType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="discard"/>
+      <xs:enumeration value="bypass"/>
+      <xs:enumeration value="protect"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusACIpsecPeerProtocolType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="ikev1"/>
+      <xs:enumeration value="ikev2"/>
+      <xs:enumeration value="any"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusACIpsecLocalPeerIdentityTypeType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="ipV4Addr"/>
+      <xs:enumeration value="ipV6Addr"/>
+      <xs:enumeration value="ipVxAddr"/>
+      <xs:enumeration value="fqdn"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusACIpsecPeerIdentityTypeType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="ipV4Addr"/>
+      <xs:enumeration value="ipV6Addr"/>
+      <xs:enumeration value="fqdn"/>
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>
+

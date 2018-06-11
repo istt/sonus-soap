@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="sonusgwsigport.types.v05_00_00.sbc.api.ems.sonus.com" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:simpleType name="sonusGwSigPortRoleType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="primary"/>
+      <xs:enumeration value="secondary"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusGwSigActGwLnkProtoType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="ioi"/>
+      <xs:enumeration value="h323"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusGwSigActGwInterfaceType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="mgtNif"/>
+      <xs:enumeration value="nif"/>
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>
+

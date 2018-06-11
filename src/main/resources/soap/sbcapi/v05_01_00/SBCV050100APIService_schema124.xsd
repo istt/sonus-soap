@@ -1,0 +1,528 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="sonusdmpmcriteria.types.v05_01_00.sbc.api.ems.sonus.com" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:simpleType name="sonusRuleTypeRange">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="digit"/>
+      <xs:enumeration value="parameter"/>
+      <xs:enumeration value="uri"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusDigitTypeRange">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="callingNumber"/>
+      <xs:enumeration value="calledNumber"/>
+      <xs:enumeration value="pretranslated"/>
+      <xs:enumeration value="redirection"/>
+      <xs:enumeration value="originalCalledNumber"/>
+      <xs:enumeration value="location"/>
+      <xs:enumeration value="redirecting"/>
+      <xs:enumeration value="outpulseNumber"/>
+      <xs:enumeration value="billingNumber"/>
+      <xs:enumeration value="gnDialedDigits"/>
+      <xs:enumeration value="gnDestination"/>
+      <xs:enumeration value="gnUserCallingScreened"/>
+      <xs:enumeration value="gnUserCallingNotScreened"/>
+      <xs:enumeration value="gnRedirectingTerminating"/>
+      <xs:enumeration value="gnPortedDialed"/>
+      <xs:enumeration value="gnCalledCesId"/>
+      <xs:enumeration value="gnAdditionalCalled"/>
+      <xs:enumeration value="gnAdditionalConnected"/>
+      <xs:enumeration value="gnAdditionalCalling"/>
+      <xs:enumeration value="gnAdditionalOriginalCalled"/>
+      <xs:enumeration value="gnAdditionalRedirecting"/>
+      <xs:enumeration value="gnAdditionalRedirection"/>
+      <xs:enumeration value="252"/>
+      <xs:enumeration value="253"/>
+      <xs:enumeration value="254"/>
+      <xs:enumeration value="twoStageCollected"/>
+      <xs:enumeration value="contractorNumber"/>
+      <xs:enumeration value="gnNetworkProvidedNumber"/>
+      <xs:enumeration value="presentationNumber"/>
+      <xs:enumeration value="fromUri"/>
+      <xs:enumeration value="calledDirectoryNumber"/>
+      <xs:enumeration value="dialedNumber"/>
+      <xs:enumeration value="gnThirdPartyNumber"/>
+      <xs:enumeration value="gnCollectCallNumber"/>
+      <xs:enumeration value="gnLocalAni"/>
+      <xs:enumeration value="calledInNumber"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusParameterTypeRange">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="cpc"/>
+      <xs:enumeration value="olip"/>
+      <xs:enumeration value="forwardCallIndicator"/>
+      <xs:enumeration value="carrierSelectionParameter"/>
+      <xs:enumeration value="carrierCode"/>
+      <xs:enumeration value="transitNetworkSelection"/>
+      <xs:enumeration value="jurisdictionSwitch"/>
+      <xs:enumeration value="zzCode"/>
+      <xs:enumeration value="additionalCategory"/>
+      <xs:enumeration value="originatingCarrier"/>
+      <xs:enumeration value="callingName"/>
+      <xs:enumeration value="paiSipDisplayName"/>
+      <xs:enumeration value="paiTelDisplayName"/>
+      <xs:enumeration value="fromDisplayName"/>
+      <xs:enumeration value="causeOfNoId"/>
+      <xs:enumeration value="cliBlockingIndicator"/>
+      <xs:enumeration value="originatingChargeArea"/>
+      <xs:enumeration value="dpcIndicator"/>
+      <xs:enumeration value="callingPrefix"/>
+      <xs:enumeration value="calledPrefix"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusUriTypeRange">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="toUri"/>
+      <xs:enumeration value="fromUri"/>
+      <xs:enumeration value="paiSipUri"/>
+      <xs:enumeration value="callingUri"/>
+      <xs:enumeration value="calledUri"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusParameterPresenceCheckRange">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="exists"/>
+      <xs:enumeration value="doesntExist"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusEgressFlagRange">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="send"/>
+      <xs:enumeration value="dontSend"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusEgressFlagOperationRange">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="ignore"/>
+      <xs:enumeration value="equals"/>
+      <xs:enumeration value="notEquals"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusDigitMatchOperationRange">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="ignore"/>
+      <xs:enumeration value="equals"/>
+      <xs:enumeration value="notEquals"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusNatureOfAddressOperationRange">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="ignore"/>
+      <xs:enumeration value="equals"/>
+      <xs:enumeration value="notEquals"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusNumberingPlanIndicatorRange">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="isdn"/>
+      <xs:enumeration value="data"/>
+      <xs:enumeration value="telex"/>
+      <xs:enumeration value="private"/>
+      <xs:enumeration value="spare0Unknown"/>
+      <xs:enumeration value="spare1"/>
+      <xs:enumeration value="spare2"/>
+      <xs:enumeration value="spare3"/>
+      <xs:enumeration value="spare4"/>
+      <xs:enumeration value="spare5"/>
+      <xs:enumeration value="spare6"/>
+      <xs:enumeration value="spare7"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusNumberingPlanIndicatorOperationRange">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="ignore"/>
+      <xs:enumeration value="equals"/>
+      <xs:enumeration value="notEquals"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusNumberLengthPresenceRange">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="ignore"/>
+      <xs:enumeration value="equals"/>
+      <xs:enumeration value="notEquals"/>
+      <xs:enumeration value="lessThanOrEquals"/>
+      <xs:enumeration value="greaterThanOrEquals"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusPresentationMatchOperationRange">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="ignore"/>
+      <xs:enumeration value="equals"/>
+      <xs:enumeration value="notEquals"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusScreeningMatchOperationRange">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="ignore"/>
+      <xs:enumeration value="equals"/>
+      <xs:enumeration value="notEquals"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusNameOperationRange">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="ignore"/>
+      <xs:enumeration value="equals"/>
+      <xs:enumeration value="notEquals"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusInformationOperationRange">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="ignore"/>
+      <xs:enumeration value="equals"/>
+      <xs:enumeration value="notEquals"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusPrefixTypeRange">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="unknown"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusPrefixTypeOperationRange">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="ignore"/>
+      <xs:enumeration value="equals"/>
+      <xs:enumeration value="notEquals"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusCallingNameGenericOperationRange">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="ignore"/>
+      <xs:enumeration value="equals"/>
+      <xs:enumeration value="notEquals"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusPresentationRange">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="allowed"/>
+      <xs:enumeration value="restricted"/>
+      <xs:enumeration value="blockingToggle"/>
+      <xs:enumeration value="noIndication"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusPresentationOperationRange">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="ignore"/>
+      <xs:enumeration value="equals"/>
+      <xs:enumeration value="notEquals"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusTypeOfNameRange">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="spare"/>
+      <xs:enumeration value="calling"/>
+      <xs:enumeration value="originalCalled"/>
+      <xs:enumeration value="redirecting"/>
+      <xs:enumeration value="connected"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusTypeOfNameOperationRange">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="ignore"/>
+      <xs:enumeration value="equals"/>
+      <xs:enumeration value="notEquals"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusAvailabilityRange">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="yes"/>
+      <xs:enumeration value="no"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusAvailabilityOperationRange">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="ignore"/>
+      <xs:enumeration value="equals"/>
+      <xs:enumeration value="notEquals"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusCarrierCodeOperationRange">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="ignore"/>
+      <xs:enumeration value="equals"/>
+      <xs:enumeration value="notEquals"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusNetworkIdPlanOperationRange">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="ignore"/>
+      <xs:enumeration value="equals"/>
+      <xs:enumeration value="notEquals"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusNetworkIdTypeOperationRange">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="ignore"/>
+      <xs:enumeration value="equals"/>
+      <xs:enumeration value="notEquals"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusCircuitCodeOperationRange">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="ignore"/>
+      <xs:enumeration value="equals"/>
+      <xs:enumeration value="notEquals"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusYesNoRange">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="none"/>
+      <xs:enumeration value="yes"/>
+      <xs:enumeration value="no"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusPresubscriptionIndicatorOperationRange">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="ignore"/>
+      <xs:enumeration value="equals"/>
+      <xs:enumeration value="notEquals"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusCarrierSelectionOperationRange">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="ignore"/>
+      <xs:enumeration value="equals"/>
+      <xs:enumeration value="notEquals"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusCauseOfNoIdOperationRange">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="ignore"/>
+      <xs:enumeration value="equals"/>
+      <xs:enumeration value="notEquals"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusCliBlockingIndicatorRange">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="none"/>
+      <xs:enumeration value="numberMayNotBeDisclosed"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusCliBlockingIndicatorOperationRange">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="ignore"/>
+      <xs:enumeration value="equals"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusCallingPartyCategoryOperationRange">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="ignore"/>
+      <xs:enumeration value="equals"/>
+      <xs:enumeration value="notEquals"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusDpcInformationRange">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="none"/>
+      <xs:enumeration value="publicCallIndication"/>
+      <xs:enumeration value="memberCheckStatus"/>
+      <xs:enumeration value="noIdCallIndication"/>
+      <xs:enumeration value="daCallIndication"/>
+      <xs:enumeration value="originatingIgsGsIndication"/>
+      <xs:enumeration value="0088PrefixIndication"/>
+      <xs:enumeration value="virtualNetHandOffIndication"/>
+      <xs:enumeration value="originatingBypassIndication"/>
+      <xs:enumeration value="specifiedUnitRoutingSource"/>
+      <xs:enumeration value="specifiedUnitRoutingTransit"/>
+      <xs:enumeration value="specifiedUnitRoutingDestination"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusDpcInformationOperationRange">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="ignore"/>
+      <xs:enumeration value="equals"/>
+      <xs:enumeration value="notEquals"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusInternationalYesNoRange">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="none"/>
+      <xs:enumeration value="yes"/>
+      <xs:enumeration value="no"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusInternationalOperationRange">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="ignore"/>
+      <xs:enumeration value="equals"/>
+      <xs:enumeration value="notEquals"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusInterworkingYesNoRange">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="none"/>
+      <xs:enumeration value="yes"/>
+      <xs:enumeration value="no"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusInterworkingOperationRange">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="ignore"/>
+      <xs:enumeration value="equals"/>
+      <xs:enumeration value="notEquals"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusIsdnIndicatorYesNoRange">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="none"/>
+      <xs:enumeration value="yes"/>
+      <xs:enumeration value="no"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusIsdnIndicatorOperationRange">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="ignore"/>
+      <xs:enumeration value="equals"/>
+      <xs:enumeration value="notEquals"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusIsupBiccIndicatorYesNoRange">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="none"/>
+      <xs:enumeration value="yes"/>
+      <xs:enumeration value="no"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusIsupBiccIndicatorOperationRange">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="ignore"/>
+      <xs:enumeration value="equals"/>
+      <xs:enumeration value="notEquals"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusIsupBiccPreferenceOperationRange">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="ignore"/>
+      <xs:enumeration value="equals"/>
+      <xs:enumeration value="notEquals"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusCharacterMatchOperationRange">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="ignore"/>
+      <xs:enumeration value="equals"/>
+      <xs:enumeration value="notEquals"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusPaiCharacterMatchOperationRange">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="ignore"/>
+      <xs:enumeration value="equals"/>
+      <xs:enumeration value="notEquals"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusJurisdictionSwitchOperationRange">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="ignore"/>
+      <xs:enumeration value="equals"/>
+      <xs:enumeration value="notEquals"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusOlipOperationRange">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="ignore"/>
+      <xs:enumeration value="equals"/>
+      <xs:enumeration value="notEquals"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusPaiDisplayNameOperationRange">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="ignore"/>
+      <xs:enumeration value="equals"/>
+      <xs:enumeration value="notEquals"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusZzCodeOperationRange">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="ignore"/>
+      <xs:enumeration value="equals"/>
+      <xs:enumeration value="notEquals"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusValidateUserOperationRange">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="ignore"/>
+      <xs:enumeration value="equals"/>
+      <xs:enumeration value="notEquals"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusUriPresentationMatchOperationRange">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="ignore"/>
+      <xs:enumeration value="equals"/>
+      <xs:enumeration value="notEquals"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusHostOperationRange">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="ignore"/>
+      <xs:enumeration value="equals"/>
+      <xs:enumeration value="notEquals"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusUserInfoOperationRange">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="ignore"/>
+      <xs:enumeration value="equals"/>
+      <xs:enumeration value="notEquals"/>
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>
+

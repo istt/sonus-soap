@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="sonussystem.types.v05_01_00.sbc.api.ems.sonus.com" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:simpleType name="sonusNodeCeLicenseStatusType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="dualCe"/>
+      <xs:enumeration value="singleCe"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusNodeLiveSoftwareUpgradeStatusType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="idle"/>
+      <xs:enumeration value="upgradingStandby"/>
+      <xs:enumeration value="upgradingActive"/>
+      <xs:enumeration value="restartingStandby"/>
+      <xs:enumeration value="upgradeDone"/>
+      <xs:enumeration value="revertingStandby"/>
+      <xs:enumeration value="revertingActive"/>
+      <xs:enumeration value="revertDone"/>
+      <xs:enumeration value="upgradeStopped"/>
+      <xs:enumeration value="validatingCmd"/>
+      <xs:enumeration value="reverting"/>
+      <xs:enumeration value="standbyModelChange"/>
+      <xs:enumeration value="activeModelChange"/>
+      <xs:enumeration value="standbyRevertModelChange"/>
+      <xs:enumeration value="activeRevertModelChange"/>
+      <xs:enumeration value="waitRedundSyncComplete"/>
+      <xs:enumeration value="upgrading"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusNodeLiveSoftwareUpgradeReasonType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="none"/>
+      <xs:enumeration value="successfulCompletion"/>
+      <xs:enumeration value="initTimeout"/>
+      <xs:enumeration value="userInitiated"/>
+      <xs:enumeration value="fileUnavailable"/>
+      <xs:enumeration value="timeout"/>
+      <xs:enumeration value="unexpectedSwitchover"/>
+      <xs:enumeration value="internalError"/>
+      <xs:enumeration value="failedToRemoveOldPackage"/>
+      <xs:enumeration value="failedToInstallNewPackage"/>
+      <xs:enumeration value="failedToStartApplication"/>
+      <xs:enumeration value="userReset"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusNodeServerLiveSoftwareUpgradeStatusType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="none"/>
+      <xs:enumeration value="pendingUpgrade"/>
+      <xs:enumeration value="upgrading"/>
+      <xs:enumeration value="upgraded"/>
+      <xs:enumeration value="pendingRevert"/>
+      <xs:enumeration value="reverting"/>
+      <xs:enumeration value="reverted"/>
+      <xs:enumeration value="revertingOnError"/>
+      <xs:enumeration value="committed"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusDspMismatchAction">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="preserveRedundancy"/>
+      <xs:enumeration value="preserveCapacity"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusNodeDiskStatusType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="online"/>
+      <xs:enumeration value="missing"/>
+      <xs:enumeration value="failed"/>
+      <xs:enumeration value="unknown"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusNodeSrvrRole">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="primary"/>
+      <xs:enumeration value="secondary"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusNodeSyncStatusType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="synchronizingSource"/>
+      <xs:enumeration value="synchronizingDestination"/>
+      <xs:enumeration value="synchronized"/>
+      <xs:enumeration value="unprotected"/>
+      <xs:enumeration value="unknown"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusNodeSrvrSyncStatusType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="syncInProgress"/>
+      <xs:enumeration value="syncCompleted"/>
+      <xs:enumeration value="unprotected"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusDspDisableCleanupType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="graceful"/>
+      <xs:enumeration value="forced"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusNodeSrvrStatModeType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="unknown"/>
+      <xs:enumeration value="standby"/>
+      <xs:enumeration value="active"/>
+      <xs:enumeration value="switchoverPending"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusNodeSrvrLastRestartReasonType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="unknown"/>
+      <xs:enumeration value="systemRestart"/>
+      <xs:enumeration value="systemSoftReset"/>
+      <xs:enumeration value="serverRestart"/>
+      <xs:enumeration value="serverSoftReset"/>
+      <xs:enumeration value="switchover"/>
+      <xs:enumeration value="processAbnormalTermination"/>
+      <xs:enumeration value="softwareUpgradeOrRevert"/>
+      <xs:enumeration value="managementPortDown"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="daughterBoardOperationalStatus">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="enabled"/>
+      <xs:enumeration value="disabled"/>
+      <xs:enumeration value="dryup"/>
+      <xs:enumeration value="locked"/>
+      <xs:enumeration value="loading"/>
+      <xs:enumeration value="failed"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="macAddressStatusType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="free"/>
+      <xs:enumeration value="used"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusLeaderElectType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="currentValue"/>
+      <xs:enumeration value="standard"/>
+      <xs:enumeration value="enhanced"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusBondMonitorType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="currentValue"/>
+      <xs:enumeration value="direct-connect"/>
+      <xs:enumeration value="network-connect"/>
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>
+

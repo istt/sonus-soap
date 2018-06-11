@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="services.h323trunkgroup.zone.addresscontext.v04_02_00.sbc.api.ems.sonus.com" xmlns:ns2="common.sbc.api.ems.sonus.com" xmlns:ns1="sonush323trunkgroup.types.v04_02_00.sbc.api.ems.sonus.com" xmlns:ns4="h323trunkgroup.zone.addresscontext.v04_02_00.sbc.api.ems.sonus.com" xmlns:ns3="zone.addresscontext.v04_02_00.sbc.api.ems.sonus.com" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:import namespace="sonush323trunkgroup.types.v04_02_00.sbc.api.ems.sonus.com" schemaLocation="SBCV040200APIService_schema88.xsd"/>
+
+  <xs:import namespace="common.sbc.api.ems.sonus.com" schemaLocation="SBCV040200APIService_schema325.xsd"/>
+
+  <xs:import namespace="zone.addresscontext.v04_02_00.sbc.api.ems.sonus.com" schemaLocation="SBCV040200APIService_schema1.xsd"/>
+
+  <xs:import namespace="h323trunkgroup.zone.addresscontext.v04_02_00.sbc.api.ems.sonus.com" schemaLocation="SBCV040200APIService_schema268.xsd"/>
+
+  <xs:complexType name="overlapDialing">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcEntity">
+        <xs:sequence>
+          <xs:element name="overlapState" type="ns1:sonusH323SigTrunkGroupOverlapDialingStateType" default="disabled" minOccurs="0"/>
+          <xs:element name="minDigitsForQuery" type="xs:unsignedByte" default="0" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="overlapDialingKey">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcUnCreatableKey">
+        <xs:sequence>
+          <xs:element name="parentKey" type="ns4:servicesKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="longDurationCall">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcEntity">
+        <xs:sequence>
+          <xs:element name="ldcTimeout" type="xs:unsignedShort" default="0" minOccurs="0"/>
+          <xs:element name="ldcAction" type="ns1:sonusH323SigTrunkGroupLdcTimeoutActionType" default="noAction" minOccurs="0"/>
+          <xs:element name="ldcRelCause" type="xs:unsignedByte" default="41" minOccurs="0"/>
+          <xs:element name="ldcEmergencyCalls" type="ns1:sonusH323SigTrunkGroupLdcEmergencyCallsType" default="exclude" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="longDurationCallKey">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcUnCreatableKey">
+        <xs:sequence>
+          <xs:element name="parentKey" type="ns4:servicesKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+</xs:schema>
+

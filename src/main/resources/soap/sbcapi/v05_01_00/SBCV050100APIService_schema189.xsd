@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="rolloverlognow.operation.typeadmin.eventlog.oam.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns2="oam.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns1="sonusgen2eventlog.types.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns4="common.sbc.api.ems.sonus.com" xmlns:ns3="eventlog.oam.v05_01_00.sbc.api.ems.sonus.com" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:import namespace="sonusgen2eventlog.types.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema111.xsd"/>
+
+  <xs:import namespace="oam.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema240.xsd"/>
+
+  <xs:import namespace="eventlog.oam.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema308.xsd"/>
+
+  <xs:import namespace="common.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema360.xsd"/>
+
+  <xs:complexType name="rolloverLogNowKey">
+    <xs:complexContent>
+      <xs:extension base="ns4:sbcOperationKey">
+        <xs:sequence>
+          <xs:element name="parentKey" type="ns3:typeAdminKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="rolloverLogNow">
+    <xs:complexContent>
+      <xs:extension base="ns4:sbcOperationInput">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+</xs:schema>
+

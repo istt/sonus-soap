@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="sonusdiameter.types.v04_02_00.sbc.api.ems.sonus.com" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:simpleType name="sonusDiamAppIdType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="rx"/>
+      <xs:enumeration value="rf"/>
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>
+

@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="sharedcaclimitspool.cac.global.v04_02_00.sbc.api.ems.sonus.com" xmlns:ns2="common.sbc.api.ems.sonus.com" xmlns:ns1="sonussharedcacpool.types.v04_02_00.sbc.api.ems.sonus.com" xmlns:ns4="cac.global.v04_02_00.sbc.api.ems.sonus.com" xmlns:ns3="global.v04_02_00.sbc.api.ems.sonus.com" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:import namespace="sonussharedcacpool.types.v04_02_00.sbc.api.ems.sonus.com" schemaLocation="SBCV040200APIService_schema58.xsd"/>
+
+  <xs:import namespace="common.sbc.api.ems.sonus.com" schemaLocation="SBCV040200APIService_schema325.xsd"/>
+
+  <xs:import namespace="global.v04_02_00.sbc.api.ems.sonus.com" schemaLocation="SBCV040200APIService_schema271.xsd"/>
+
+  <xs:import namespace="cac.global.v04_02_00.sbc.api.ems.sonus.com" schemaLocation="SBCV040200APIService_schema357.xsd"/>
+
+  <xs:complexType name="ingress">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcEntity">
+        <xs:sequence>
+          <xs:element name="callRateMax" type="xs:string" default="unlimited" minOccurs="0"/>
+          <xs:element name="callRateMaxUnion" type="ns1:SonusTgMaxSustainedCallRateTypeUnion" minOccurs="0"/>
+          <xs:element name="callBurstMax" type="xs:string" default="unlimited" minOccurs="0"/>
+          <xs:element name="callBurstMaxUnion" type="ns1:SonusTgMaxCallBurstSizeTypeUnion" minOccurs="0"/>
+          <xs:element name="registerRateMax" type="xs:string" default="unlimited" minOccurs="0"/>
+          <xs:element name="registerRateMaxUnion" type="ns1:SonusTgMaxSustainedSIPRegRateTypeUnion" minOccurs="0"/>
+          <xs:element name="registerBurstMax" type="xs:string" default="unlimited" minOccurs="0"/>
+          <xs:element name="registerBurstMaxUnion" type="ns1:SonusTgMaxSIPRegBurstSizeTypeUnion" minOccurs="0"/>
+          <xs:element name="subscribeBurstMax" type="xs:string" default="unlimited" minOccurs="0"/>
+          <xs:element name="subscribeBurstMaxUnion" type="ns1:SonusTgMaxSIPSubsBurstSizeTypeUnion" minOccurs="0"/>
+          <xs:element name="subscribeRateMax" type="xs:string" default="unlimited" minOccurs="0"/>
+          <xs:element name="subscribeRateMaxUnion" type="ns1:SonusTgMaxSustainedSIPSubsRateTypeUnion" minOccurs="0"/>
+          <xs:element name="otherReqBurstMax" type="xs:string" default="unlimited" minOccurs="0"/>
+          <xs:element name="otherReqBurstMaxUnion" type="ns1:SonusTgMaxSIPOtherReqBurstSizeTypeUnion" minOccurs="0"/>
+          <xs:element name="otherReqRateMax" type="xs:string" default="unlimited" minOccurs="0"/>
+          <xs:element name="otherReqRateMaxUnion" type="ns1:SonusTgMaxSustainedSIPOtherReqRateTypeUnion" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="ingressKey">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcUnCreatableKey">
+        <xs:sequence>
+          <xs:element name="parentKey" type="ns4:sharedCacLimitsPoolKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="egress">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcEntity">
+        <xs:sequence>
+          <xs:element name="callRateMax" type="xs:string" default="unlimited" minOccurs="0"/>
+          <xs:element name="callRateMaxUnion" type="ns1:SonusTgMaxSustainedCallRateTypeUnion" minOccurs="0"/>
+          <xs:element name="callBurstMax" type="xs:string" default="unlimited" minOccurs="0"/>
+          <xs:element name="callBurstMaxUnion" type="ns1:SonusTgMaxCallBurstSizeTypeUnion" minOccurs="0"/>
+          <xs:element name="registerRateMax" type="xs:string" default="unlimited" minOccurs="0"/>
+          <xs:element name="registerRateMaxUnion" type="ns1:SonusTgMaxSustainedSIPRegRateTypeUnion" minOccurs="0"/>
+          <xs:element name="registerBurstMax" type="xs:string" default="unlimited" minOccurs="0"/>
+          <xs:element name="registerBurstMaxUnion" type="ns1:SonusTgMaxSIPRegBurstSizeTypeUnion" minOccurs="0"/>
+          <xs:element name="subscribeBurstMax" type="xs:string" default="unlimited" minOccurs="0"/>
+          <xs:element name="subscribeBurstMaxUnion" type="ns1:SonusTgMaxSIPSubsBurstSizeTypeUnion" minOccurs="0"/>
+          <xs:element name="subscribeRateMax" type="xs:string" default="unlimited" minOccurs="0"/>
+          <xs:element name="subscribeRateMaxUnion" type="ns1:SonusTgMaxSustainedSIPSubsRateTypeUnion" minOccurs="0"/>
+          <xs:element name="otherReqBurstMax" type="xs:string" default="unlimited" minOccurs="0"/>
+          <xs:element name="otherReqBurstMaxUnion" type="ns1:SonusTgMaxSIPOtherReqBurstSizeTypeUnion" minOccurs="0"/>
+          <xs:element name="otherReqRateMax" type="xs:string" default="unlimited" minOccurs="0"/>
+          <xs:element name="otherReqRateMaxUnion" type="ns1:SonusTgMaxSustainedSIPOtherReqRateTypeUnion" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="egressKey">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcUnCreatableKey">
+        <xs:sequence>
+          <xs:element name="parentKey" type="ns4:sharedCacLimitsPoolKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+</xs:schema>
+

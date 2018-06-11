@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="sonusannouncements.types.v05_00_00.sbc.api.ems.sonus.com" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:simpleType name="annAudioFmt">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="null"/>
+      <xs:enumeration value="g711MuLaw"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="annSegState">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="null"/>
+      <xs:enumeration value="notCached"/>
+      <xs:enumeration value="cached"/>
+      <xs:enumeration value="cachedModifyPending"/>
+      <xs:enumeration value="cachedDeletePending"/>
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>
+

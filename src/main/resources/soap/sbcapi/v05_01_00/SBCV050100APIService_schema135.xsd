@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="sonuscacdatatypes.types.v05_01_00.sbc.api.ems.sonus.com" xmlns:tns="sonuscacdatatypes.types.v05_01_00.sbc.api.ems.sonus.com" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:complexType name="SonusCacBandwidthLimitTypeUnion">
+    <xs:sequence>
+      <xs:element name="sonusCacLimitTypeVal" type="xs:int" minOccurs="0"/>
+      <xs:element name="sonusCacLimitTypeUnlimited" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="SonusCacCallLimitTypeUnion">
+    <xs:sequence>
+      <xs:element name="sonusCacLimitTypeVal" type="xs:int" minOccurs="0"/>
+      <xs:element name="sonusCacLimitTypeUnlimited" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="SonusCacRegLimitTypeUnion">
+    <xs:sequence>
+      <xs:element name="sonusCacLimitTypeVal" type="xs:int" minOccurs="0"/>
+      <xs:element name="sonusCacLimitTypeUnlimited" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="SonusCacSubsLimitTypeUnion">
+    <xs:sequence>
+      <xs:element name="sonusCacLimitTypeVal" type="xs:int" minOccurs="0"/>
+      <xs:element name="sonusCacLimitTypeUnlimited" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="SonusCacMaxSustainedCallRateTypeUnion">
+    <xs:sequence>
+      <xs:element name="sonusCacTypeUnlimited" type="tns:sonusCacTypeUnlimited" minOccurs="0"/>
+      <xs:element name="sonusCacMaxSustainedCallRateTypeValue" type="xs:unsignedShort" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="SonusCacMaxCallBurstSizeTypeUnion">
+    <xs:sequence>
+      <xs:element name="sonusCacTypeUnlimited" type="tns:sonusCacTypeUnlimited" minOccurs="0"/>
+      <xs:element name="sonusCacMaxCallBurstSizeTypeValue" type="xs:unsignedShort" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="SonusCacMaxSustainedSIPRegRateTypeUnion">
+    <xs:sequence>
+      <xs:element name="sonusCacTypeUnlimited" type="tns:sonusCacTypeUnlimited" minOccurs="0"/>
+      <xs:element name="sonusCacMaxSustainedSIPRegRateTypeValue" type="xs:unsignedShort" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="SonusCacMaxSIPRegBurstSizeTypeUnion">
+    <xs:sequence>
+      <xs:element name="sonusCacTypeUnlimited" type="tns:sonusCacTypeUnlimited" minOccurs="0"/>
+      <xs:element name="sonusCacMaxSIPRegBurstSizeTypeValue" type="xs:unsignedShort" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="SonusCacMaxSustainedSIPSubsRateTypeUnion">
+    <xs:sequence>
+      <xs:element name="sonusCacTypeUnlimited" type="tns:sonusCacTypeUnlimited" minOccurs="0"/>
+      <xs:element name="sonusCacMaxSustainedSIPSubsRateTypeValue" type="xs:unsignedShort" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="SonusCacMaxSIPSubsBurstSizeTypeUnion">
+    <xs:sequence>
+      <xs:element name="sonusCacTypeUnlimited" type="tns:sonusCacTypeUnlimited" minOccurs="0"/>
+      <xs:element name="sonusCacMaxSIPSubsBurstSizeTypeValue" type="xs:unsignedShort" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="SonusCacMaxSustainedSIPOtherReqRateTypeUnion">
+    <xs:sequence>
+      <xs:element name="sonusCacTypeUnlimited" type="tns:sonusCacTypeUnlimited" minOccurs="0"/>
+      <xs:element name="sonusCacMaxSustainedSIPOtherReqRateTypeValue" type="xs:unsignedShort" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="SonusCacMaxSIPOtherReqBurstSizeTypeUnion">
+    <xs:sequence>
+      <xs:element name="sonusCacTypeUnlimited" type="tns:sonusCacTypeUnlimited" minOccurs="0"/>
+      <xs:element name="sonusCacMaxSIPOtherReqBurstSizeTypeValue" type="xs:unsignedShort" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:simpleType name="sonusCacTypeUnlimited">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="unlimited"/>
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>
+

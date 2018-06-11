@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="dspstatus.system.v04_02_00.sbc.api.ems.sonus.com" xmlns:ns2="v04_02_00.sbc.api.ems.sonus.com" xmlns:ns1="common.sbc.api.ems.sonus.com" xmlns:ns3="system.v04_02_00.sbc.api.ems.sonus.com" xmlns:tns="dspstatus.system.v04_02_00.sbc.api.ems.sonus.com" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:import namespace="common.sbc.api.ems.sonus.com" schemaLocation="SBCV040200APIService_schema325.xsd"/>
+
+  <xs:import namespace="v04_02_00.sbc.api.ems.sonus.com" schemaLocation="SBCV040200APIService_schema7.xsd"/>
+
+  <xs:import namespace="system.v04_02_00.sbc.api.ems.sonus.com" schemaLocation="SBCV040200APIService_schema26.xsd"/>
+
+  <xs:complexType name="dspUsage">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcEntity">
+        <xs:sequence>
+          <xs:element name="systemName" type="xs:string" minOccurs="0"/>
+          <xs:element name="slot1ResourcesUtilized" type="xs:int" minOccurs="0"/>
+          <xs:element name="slot2ResourcesUtilized" type="xs:int" minOccurs="0"/>
+          <xs:element name="slot3ResourcesUtilized" type="xs:int" minOccurs="0"/>
+          <xs:element name="slot4ResourcesUtilized" type="xs:int" minOccurs="0"/>
+          <xs:element name="compressionTotal" type="xs:int" minOccurs="0"/>
+          <xs:element name="compressionAvailable" type="xs:int" minOccurs="0"/>
+          <xs:element name="compressionUtilization" type="xs:int" minOccurs="0"/>
+          <xs:element name="compressionAllocFailures" type="xs:int" minOccurs="0"/>
+          <xs:element name="g711Total" type="xs:int" minOccurs="0"/>
+          <xs:element name="g711Utilization" type="xs:int" minOccurs="0"/>
+          <xs:element name="g711SsTotal" type="xs:int" minOccurs="0"/>
+          <xs:element name="g711SsUtilization" type="xs:int" minOccurs="0"/>
+          <xs:element name="g726Total" type="xs:int" minOccurs="0"/>
+          <xs:element name="g726Utilization" type="xs:int" minOccurs="0"/>
+          <xs:element name="g7231Total" type="xs:int" minOccurs="0"/>
+          <xs:element name="g7231Utilization" type="xs:int" minOccurs="0"/>
+          <xs:element name="g722Total" type="xs:int" minOccurs="0"/>
+          <xs:element name="g722Utilization" type="xs:int" minOccurs="0"/>
+          <xs:element name="g7221Total" type="xs:int" minOccurs="0"/>
+          <xs:element name="g7221Utilization" type="xs:int" minOccurs="0"/>
+          <xs:element name="g729AbTotal" type="xs:int" minOccurs="0"/>
+          <xs:element name="g729AbUtilization" type="xs:int" minOccurs="0"/>
+          <xs:element name="ecmTotal" type="xs:int" minOccurs="0"/>
+          <xs:element name="ecmUtilization" type="xs:int" minOccurs="0"/>
+          <xs:element name="ilbcTotal" type="xs:int" minOccurs="0"/>
+          <xs:element name="ilbcUtilization" type="xs:int" minOccurs="0"/>
+          <xs:element name="amrNbTotal" type="xs:int" minOccurs="0"/>
+          <xs:element name="amrNbUtilization" type="xs:int" minOccurs="0"/>
+          <xs:element name="amrWbTotal" type="xs:int" minOccurs="0"/>
+          <xs:element name="amrWbUtilization" type="xs:int" minOccurs="0"/>
+          <xs:element name="evrcb0Total" type="xs:int" minOccurs="0"/>
+          <xs:element name="evrcb0Utilization" type="xs:int" minOccurs="0"/>
+          <xs:element name="evrc0Total" type="xs:int" minOccurs="0"/>
+          <xs:element name="evrc0Utilization" type="xs:int" minOccurs="0"/>
+          <xs:element name="toneTotal" type="xs:int" minOccurs="0"/>
+          <xs:element name="toneAvailable" type="xs:int" minOccurs="0"/>
+          <xs:element name="toneUtilization" type="xs:int" minOccurs="0"/>
+          <xs:element name="toneAllocFailures" type="xs:int" minOccurs="0"/>
+          <xs:element name="efrTotal" type="xs:int" minOccurs="0"/>
+          <xs:element name="efrUtilization" type="xs:int" minOccurs="0"/>
+          <xs:element name="g711V8Total" type="xs:int" minOccurs="0"/>
+          <xs:element name="g711V8Utilization" type="xs:int" minOccurs="0"/>
+          <xs:element name="g711SsV8Total" type="xs:int" minOccurs="0"/>
+          <xs:element name="g711SsV8Utilization" type="xs:int" minOccurs="0"/>
+          <xs:element name="g726V8Total" type="xs:int" minOccurs="0"/>
+          <xs:element name="g726V8Utilization" type="xs:int" minOccurs="0"/>
+          <xs:element name="g7231V8Total" type="xs:int" minOccurs="0"/>
+          <xs:element name="g7231V8Utilization" type="xs:int" minOccurs="0"/>
+          <xs:element name="g722V8Total" type="xs:int" minOccurs="0"/>
+          <xs:element name="g722V8Utilization" type="xs:int" minOccurs="0"/>
+          <xs:element name="g7221V8Total" type="xs:int" minOccurs="0"/>
+          <xs:element name="g7221V8Utilization" type="xs:int" minOccurs="0"/>
+          <xs:element name="g729AbV8Total" type="xs:int" minOccurs="0"/>
+          <xs:element name="g729AbV8Utilization" type="xs:int" minOccurs="0"/>
+          <xs:element name="ecmV34Total" type="xs:int" minOccurs="0"/>
+          <xs:element name="ecmV34Utilization" type="xs:int" minOccurs="0"/>
+          <xs:element name="ilbcV8Total" type="xs:int" minOccurs="0"/>
+          <xs:element name="ilbcV8Utilization" type="xs:int" minOccurs="0"/>
+          <xs:element name="opusTotal" type="xs:int" minOccurs="0"/>
+          <xs:element name="opusUtilization" type="xs:int" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="dspUsageKey">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcReadOnlyKey">
+        <xs:sequence>
+          <xs:element name="systemName" type="xs:string" minOccurs="0"/>
+          <xs:element name="parentKey" type="ns3:dspStatusKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="dspUsageListWrapper">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcListWrapper">
+        <xs:sequence>
+          <xs:element name="dspUsage" type="tns:dspUsage" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+</xs:schema>
+

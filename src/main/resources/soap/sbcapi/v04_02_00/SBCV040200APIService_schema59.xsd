@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="sonusroutinglabel.types.v04_02_00.sbc.api.ems.sonus.com" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:simpleType name="sonusNumberingPlanIndicatorRange">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="none"/>
+      <xs:enumeration value="isdn"/>
+      <xs:enumeration value="data"/>
+      <xs:enumeration value="telex"/>
+      <xs:enumeration value="private"/>
+      <xs:enumeration value="spare0Unknown"/>
+      <xs:enumeration value="spare1"/>
+      <xs:enumeration value="spare2"/>
+      <xs:enumeration value="spare3"/>
+      <xs:enumeration value="spare4"/>
+      <xs:enumeration value="spare5"/>
+      <xs:enumeration value="spare6"/>
+      <xs:enumeration value="spare7"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusRPT">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="sequence"/>
+      <xs:enumeration value="proportionAllocation"/>
+      <xs:enumeration value="roundRobin"/>
+      <xs:enumeration value="allProportionAllocation"/>
+      <xs:enumeration value="leastCostRouting"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusRPTFECR">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="sequence"/>
+      <xs:enumeration value="proportionAllocation"/>
+      <xs:enumeration value="roundRobin"/>
+      <xs:enumeration value="allProportionAllocation"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusAction">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="routes"/>
+      <xs:enumeration value="script"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusServiceState">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="inService"/>
+      <xs:enumeration value="outOfService"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusTesting">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="normal"/>
+      <xs:enumeration value="test"/>
+      <xs:enumeration value="nonTest"/>
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>
+

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="sonusgen2nrmcrankback.types.v04_02_00.sbc.api.ems.sonus.com" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:simpleType name="sonusCrankBackProfileLateCrankBackType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="disabled"/>
+      <xs:enumeration value="enabled"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusCrankBackProfileAttemptRecordGenerationType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="disabled"/>
+      <xs:enumeration value="enabled"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusCrankBackCompareLocationValueBeforeCrankingBackType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="disabled"/>
+      <xs:enumeration value="enabled"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusCrankBackLocationIndexType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="user"/>
+      <xs:enumeration value="privateLocal"/>
+      <xs:enumeration value="publicLocal"/>
+      <xs:enumeration value="transitNet"/>
+      <xs:enumeration value="publicRemote"/>
+      <xs:enumeration value="privateRemote"/>
+      <xs:enumeration value="natReserved6"/>
+      <xs:enumeration value="internationalNet"/>
+      <xs:enumeration value="netBeyondInterPoint"/>
+      <xs:enumeration value="natReserved12"/>
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>
+

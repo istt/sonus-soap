@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="sonuslvm.types.v05_01_00.sbc.api.ems.sonus.com" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:simpleType name="sonusLvmInterfaceType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="ip"/>
+      <xs:enumeration value="mgmt"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusLvmPhysicalPortType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="pkt0P"/>
+      <xs:enumeration value="pkt0S"/>
+      <xs:enumeration value="pkt1P"/>
+      <xs:enumeration value="pkt1S"/>
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>
+

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="resetstats.operation.filterstatus.eventlog.oam.v05_00_00.sbc.api.ems.sonus.com" xmlns:ns2="oam.v05_00_00.sbc.api.ems.sonus.com" xmlns:ns1="sonusgen2eventlog.types.v05_00_00.sbc.api.ems.sonus.com" xmlns:ns4="common.sbc.api.ems.sonus.com" xmlns:ns3="eventlog.oam.v05_00_00.sbc.api.ems.sonus.com" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:import namespace="sonusgen2eventlog.types.v05_00_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050000APIService_schema107.xsd"/>
+
+  <xs:import namespace="oam.v05_00_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050000APIService_schema220.xsd"/>
+
+  <xs:import namespace="eventlog.oam.v05_00_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050000APIService_schema280.xsd"/>
+
+  <xs:import namespace="common.sbc.api.ems.sonus.com" schemaLocation="SBCV050000APIService_schema326.xsd"/>
+
+  <xs:complexType name="resetStatsKey">
+    <xs:complexContent>
+      <xs:extension base="ns4:sbcOperationKey">
+        <xs:sequence>
+          <xs:element name="parentKey" type="ns3:filterStatusKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="resetStats">
+    <xs:complexContent>
+      <xs:extension base="ns4:sbcOperationInput">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+</xs:schema>
+

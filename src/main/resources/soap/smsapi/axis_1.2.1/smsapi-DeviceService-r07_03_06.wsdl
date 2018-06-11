@@ -1,0 +1,2342 @@
+<?xml version="1.0" encoding="UTF-8"?><!--"V09.03.00A018"-->
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://www.sonusnet.com/sms/smsapi/r07_03_06/DeviceService" xmlns:intf="http://www.sonusnet.com/sms/smsapi/r07_03_06/DeviceService" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tns1="http://www.sonusnet.com/sms/smsapi/r07_03_06/model" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.sonusnet.com/sms/smsapi/r07_03_06/DeviceService">
+<!--WSDL created by Apache Axis version: 1.2.1
+Built on Jun 14, 2005 (09:15:57 EDT)-->
+ <wsdl:types>
+  <schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.sonusnet.com/sms/smsapi/r07_03_06/model">
+   <import namespace="http://www.sonusnet.com/sms/smsapi/r07_03_06/DeviceService"/>
+   <import namespace="http://schemas.xmlsoap.org/soap/encoding/"/>
+   <complexType name="NamedValue">
+    <sequence>
+     <element name="name" nillable="true" type="xsd:string"/>
+     <element name="value" nillable="true" type="xsd:string"/>
+    </sequence>
+   </complexType>
+   <complexType name="ManagedEntityKey">
+    <sequence>
+     <element name="internalId" nillable="true" type="xsd:string"/>
+     <element name="displayAttributes" nillable="true" type="impl:ArrayOf_tns1_NamedValue"/>
+    </sequence>
+   </complexType>
+   <complexType name="DeviceKey">
+    <complexContent>
+     <extension base="tns1:ManagedEntityKey">
+      <sequence>
+       <element name="externalId" nillable="true" type="xsd:string"/>
+      </sequence>
+     </extension>
+    </complexContent>
+   </complexType>
+   <complexType name="EnterpriseKey">
+    <complexContent>
+     <extension base="tns1:ManagedEntityKey">
+      <sequence>
+       <element name="name" nillable="true" type="xsd:string"/>
+      </sequence>
+     </extension>
+    </complexContent>
+   </complexType>
+   <complexType name="SMSAPIException">
+    <sequence>
+     <element name="errorMessage" nillable="true" type="xsd:string"/>
+     <element name="exceptionDetails" nillable="true" type="impl:ArrayOf_tns1_NamedValue"/>
+     <element name="errorCode" type="xsd:int"/>
+     <element name="messageKey" nillable="true" type="xsd:string"/>
+     <element name="messageArgs" nillable="true" type="impl:ArrayOf_xsd_string"/>
+    </sequence>
+   </complexType>
+   <complexType name="SMSAPIValidationException">
+    <complexContent>
+     <extension base="tns1:SMSAPIException">
+      <sequence/>
+     </extension>
+    </complexContent>
+   </complexType>
+   <complexType name="SMSAPIInternalException">
+    <complexContent>
+     <extension base="tns1:SMSAPIException">
+      <sequence/>
+     </extension>
+    </complexContent>
+   </complexType>
+   <complexType name="SMSAPINetworkException">
+    <complexContent>
+     <extension base="tns1:SMSAPIException">
+      <sequence/>
+     </extension>
+    </complexContent>
+   </complexType>
+   <complexType name="ManagedEntityValue">
+    <sequence/>
+   </complexType>
+   <complexType name="ASXKey">
+    <complexContent>
+     <extension base="tns1:ManagedEntityKey">
+      <sequence/>
+     </extension>
+    </complexContent>
+   </complexType>
+   <simpleType name="ProtocolType">
+    <restriction base="xsd:string">
+     <enumeration value="MGCP"/>
+     <enumeration value="SIP"/>
+     <enumeration value="H248"/>
+    </restriction>
+   </simpleType>
+   <complexType name="HardwareTypeKey">
+    <complexContent>
+     <extension base="tns1:ManagedEntityKey">
+      <sequence>
+       <element name="servingHardwareId" nillable="true" type="xsd:string"/>
+       <element name="protocolType" nillable="true" type="tns1:ProtocolType"/>
+      </sequence>
+     </extension>
+    </complexContent>
+   </complexType>
+   <complexType name="Address">
+    <complexContent>
+     <extension base="tns1:ManagedEntityValue">
+      <sequence>
+       <element name="address1" nillable="true" type="xsd:string"/>
+       <element name="address2" nillable="true" type="xsd:string"/>
+       <element name="address3" nillable="true" type="xsd:string"/>
+       <element name="city" nillable="true" type="xsd:string"/>
+       <element name="state" nillable="true" type="xsd:string"/>
+       <element name="postalCode" nillable="true" type="xsd:string"/>
+       <element name="country" nillable="true" type="xsd:string"/>
+      </sequence>
+     </extension>
+    </complexContent>
+   </complexType>
+   <simpleType name="AddressFormatType">
+    <restriction base="xsd:string">
+     <enumeration value="IP"/>
+     <enumeration value="DomainName"/>
+     <enumeration value="MessageId"/>
+    </restriction>
+   </simpleType>
+   <simpleType name="ContactAddressFormatType">
+    <restriction base="xsd:string">
+     <enumeration value="IP"/>
+     <enumeration value="DomainName"/>
+    </restriction>
+   </simpleType>
+   <complexType name="DevicePortKey">
+    <complexContent>
+     <extension base="tns1:ManagedEntityKey">
+      <sequence>
+       <element name="deviceKey" nillable="true" type="tns1:DeviceKey"/>
+       <element name="portNumber" nillable="true" type="xsd:int"/>
+      </sequence>
+     </extension>
+    </complexContent>
+   </complexType>
+   <simpleType name="MaintenanceStateType">
+    <restriction base="xsd:string">
+     <enumeration value="InService"/>
+     <enumeration value="OutOfService"/>
+     <enumeration value="DryUp"/>
+    </restriction>
+   </simpleType>
+   <simpleType name="MaintenanceStateCodeType">
+    <restriction base="xsd:string">
+     <enumeration value="UNDER_PROVISIONING"/>
+     <enumeration value="UNDER_MAINTENANCE"/>
+     <enumeration value="OTHER"/>
+    </restriction>
+   </simpleType>
+   <complexType name="BusinessGroupKey">
+    <complexContent>
+     <extension base="tns1:ManagedEntityKey">
+      <sequence/>
+     </extension>
+    </complexContent>
+   </complexType>
+   <simpleType name="DNType">
+    <restriction base="xsd:string">
+     <enumeration value="Endpoint"/>
+     <enumeration value="HuntGroup"/>
+     <enumeration value="Virtual"/>
+     <enumeration value="GroupExtension"/>
+    </restriction>
+   </simpleType>
+   <complexType name="DirectoryNumberKey">
+    <complexContent>
+     <extension base="tns1:ManagedEntityKey">
+      <sequence>
+       <element name="countryCode" nillable="true" type="xsd:string"/>
+       <element name="number" nillable="true" type="xsd:string"/>
+       <element name="businessGroup" nillable="true" type="tns1:BusinessGroupKey"/>
+       <element name="dnType" nillable="true" type="tns1:DNType"/>
+      </sequence>
+     </extension>
+    </complexContent>
+   </complexType>
+   <complexType name="H248SignalingCapabilities">
+    <complexContent>
+     <extension base="tns1:ManagedEntityValue">
+      <sequence>
+       <element name="applyNormalPolarity" nillable="true" type="xsd:boolean"/>
+       <element name="applyReversePolarity" nillable="true" type="xsd:boolean"/>
+       <element name="applyDisconnectSupervision" nillable="true" type="xsd:boolean"/>
+       <element name="applyParkedLineFeed" nillable="true" type="xsd:boolean"/>
+       <element name="applyDisconnectReversePolarity" nillable="true" type="xsd:boolean"/>
+       <element name="applyCallFinishedSignal" nillable="true" type="xsd:boolean"/>
+       <element name="applyNormalPolarityAfterFlashHook" nillable="true" type="xsd:boolean"/>
+       <element name="applyLineSideAnswerSupervision" nillable="true" type="xsd:boolean"/>
+       <element name="applyNetworkDisconnect" nillable="true" type="xsd:boolean"/>
+       <element name="unusedBit9" nillable="true" type="xsd:boolean"/>
+       <element name="unusedBit10" nillable="true" type="xsd:boolean"/>
+       <element name="unusedBit11" nillable="true" type="xsd:boolean"/>
+       <element name="unusedBit12" nillable="true" type="xsd:boolean"/>
+       <element name="unusedBit13" nillable="true" type="xsd:boolean"/>
+       <element name="unusedBit14" nillable="true" type="xsd:boolean"/>
+       <element name="unusedBit15" nillable="true" type="xsd:boolean"/>
+       <element name="unusedBit16" nillable="true" type="xsd:boolean"/>
+       <element name="unusedBit17" nillable="true" type="xsd:boolean"/>
+       <element name="unusedBit18" nillable="true" type="xsd:boolean"/>
+       <element name="unusedBit19" nillable="true" type="xsd:boolean"/>
+       <element name="unusedBit20" nillable="true" type="xsd:boolean"/>
+       <element name="unusedBit21" nillable="true" type="xsd:boolean"/>
+       <element name="unusedBit22" nillable="true" type="xsd:boolean"/>
+       <element name="unusedBit23" nillable="true" type="xsd:boolean"/>
+       <element name="unusedBit24" nillable="true" type="xsd:boolean"/>
+       <element name="unusedBit25" nillable="true" type="xsd:boolean"/>
+       <element name="unusedBit26" nillable="true" type="xsd:boolean"/>
+       <element name="unusedBit27" nillable="true" type="xsd:boolean"/>
+       <element name="unusedBit28" nillable="true" type="xsd:boolean"/>
+       <element name="unusedBit29" nillable="true" type="xsd:boolean"/>
+       <element name="unusedBit30" nillable="true" type="xsd:boolean"/>
+       <element name="unusedBit31" nillable="true" type="xsd:boolean"/>
+      </sequence>
+     </extension>
+    </complexContent>
+   </complexType>
+   <simpleType name="LineType">
+    <restriction base="xsd:string">
+     <enumeration value="BasicAnalogLine"/>
+     <enumeration value="DirectExchangeLine"/>
+     <enumeration value="EarthCallingPBX"/>
+     <enumeration value="LoopPBX"/>
+     <enumeration value="IP"/>
+     <enumeration value="GroundStart"/>
+     <enumeration value="LoopStart"/>
+    </restriction>
+   </simpleType>
+   <simpleType name="WireType">
+    <restriction base="xsd:string">
+     <enumeration value="2"/>
+     <enumeration value="4"/>
+    </restriction>
+   </simpleType>
+   <complexType name="DevicePort">
+    <complexContent>
+     <extension base="tns1:ManagedEntityValue">
+      <sequence>
+       <element name="key" nillable="true" type="tns1:DevicePortKey"/>
+       <element name="portName" nillable="true" type="xsd:string"/>
+       <element name="maintenanceState" nillable="true" type="tns1:MaintenanceStateType"/>
+       <element name="maintenanceCode" nillable="true" type="tns1:MaintenanceStateCodeType"/>
+       <element name="maintenanceReason" nillable="true" type="xsd:string"/>
+       <element name="notes" nillable="true" type="xsd:string"/>
+       <element name="directoryNumberKeys" nillable="true" type="impl:ArrayOf_tns1_DirectoryNumberKey"/>
+       <element name="periodicPresenceAudit" nillable="true" type="xsd:boolean"/>
+       <element name="activeCallAudit" nillable="true" type="xsd:boolean"/>
+       <element name="activeCallAuditFrequency" nillable="true" type="xsd:int"/>
+       <element name="h248SignalingCapabilities" nillable="true" type="tns1:H248SignalingCapabilities"/>
+       <element name="lineType" nillable="true" type="tns1:LineType"/>
+       <element name="numberOfWires" nillable="true" type="tns1:WireType"/>
+      </sequence>
+     </extension>
+    </complexContent>
+   </complexType>
+   <complexType name="ContactInfo">
+    <complexContent>
+     <extension base="tns1:ManagedEntityValue">
+      <sequence>
+       <element name="salutation" nillable="true" type="xsd:string"/>
+       <element name="firstName" nillable="true" type="xsd:string"/>
+       <element name="middleName" nillable="true" type="xsd:string"/>
+       <element name="lastName" nillable="true" type="xsd:string"/>
+       <element name="suffix" nillable="true" type="xsd:string"/>
+       <element name="company" nillable="true" type="xsd:string"/>
+       <element name="address1" nillable="true" type="xsd:string"/>
+       <element name="address2" nillable="true" type="xsd:string"/>
+       <element name="address3" nillable="true" type="xsd:string"/>
+       <element name="city" nillable="true" type="xsd:string"/>
+       <element name="state" nillable="true" type="xsd:string"/>
+       <element name="postalCode" nillable="true" type="xsd:string"/>
+       <element name="country" nillable="true" type="xsd:string"/>
+       <element name="phoneNumber" nillable="true" type="xsd:string"/>
+       <element name="emailAddress" nillable="true" type="xsd:string"/>
+      </sequence>
+     </extension>
+    </complexContent>
+   </complexType>
+   <simpleType name="DeviceType">
+    <restriction base="xsd:string">
+     <enumeration value="IAD"/>
+     <enumeration value="PCClient"/>
+     <enumeration value="DedicatedDevice"/>
+     <enumeration value="MSAN"/>
+     <enumeration value="VAG"/>
+    </restriction>
+   </simpleType>
+   <complexType name="ServingRouterKey">
+    <complexContent>
+     <extension base="tns1:ManagedEntityKey">
+      <sequence/>
+     </extension>
+    </complexContent>
+   </complexType>
+   <simpleType name="H248EncodingType">
+    <restriction base="xsd:string">
+     <enumeration value="Short"/>
+     <enumeration value="Long"/>
+    </restriction>
+   </simpleType>
+   <simpleType name="MediaGatewayControllerType">
+    <restriction base="xsd:string">
+     <enumeration value="AS"/>
+     <enumeration value="AGCF"/>
+    </restriction>
+   </simpleType>
+   <simpleType name="H248LineSignalingPackageType">
+    <restriction base="xsd:string">
+     <enumeration value="AnalogLine"/>
+     <enumeration value="ExtendedAnalogLine"/>
+     <enumeration value="StimulusBasedAnalogLine"/>
+    </restriction>
+   </simpleType>
+   <complexType name="H248TrafficControls">
+    <complexContent>
+     <extension base="tns1:ManagedEntityValue">
+      <sequence>
+       <element name="normalThreshold" nillable="true" type="xsd:int"/>
+       <element name="priority2Threshold" nillable="true" type="xsd:int"/>
+       <element name="priority3Threshold" nillable="true" type="xsd:int"/>
+       <element name="leakRate" nillable="true" type="xsd:int"/>
+       <element name="thresholdCallCount" nillable="true" type="xsd:int"/>
+       <element name="thresholdPriorityCallCount" nillable="true" type="xsd:int"/>
+       <element name="normalLoadMaximumSubtract" nillable="true" type="xsd:int"/>
+       <element name="lowOverloadMaximumSubtract" nillable="true" type="xsd:int"/>
+       <element name="highOverloadMaximumSubtract" nillable="true" type="xsd:int"/>
+       <element name="earlyWarningThreshold" nillable="true" type="xsd:int"/>
+      </sequence>
+     </extension>
+    </complexContent>
+   </complexType>
+   <simpleType name="TransportType">
+    <restriction base="xsd:string">
+     <enumeration value="UDP"/>
+     <enumeration value="SCTP"/>
+    </restriction>
+   </simpleType>
+   <simpleType name="OverloadRateType">
+    <restriction base="xsd:string">
+     <enumeration value="0"/>
+     <enumeration value="0.1"/>
+     <enumeration value="0.2"/>
+     <enumeration value="0.3"/>
+     <enumeration value="0.4"/>
+     <enumeration value="0.5"/>
+     <enumeration value="0.6"/>
+     <enumeration value="0.7"/>
+     <enumeration value="0.8"/>
+     <enumeration value="0.9"/>
+     <enumeration value="1.0"/>
+    </restriction>
+   </simpleType>
+   <complexType name="DynamicTrafficControls">
+    <complexContent>
+     <extension base="tns1:ManagedEntityValue">
+      <sequence>
+       <element name="h24811TrafficControlsEnabled" nillable="true" type="xsd:boolean"/>
+       <element name="leakyBucketMaximumFill" nillable="true" type="xsd:int"/>
+       <element name="leakyBucketInitialFill" nillable="true" type="xsd:int"/>
+       <element name="leakyBucketInitialLeakRate" nillable="true" type="xsd:int"/>
+       <element name="leakyBucketSplashAmount" nillable="true" type="xsd:int"/>
+       <element name="targetOverloadRate" nillable="true" type="tns1:OverloadRateType"/>
+      </sequence>
+     </extension>
+    </complexContent>
+   </complexType>
+   <complexType name="Device">
+    <complexContent>
+     <extension base="tns1:ManagedEntityValue">
+      <sequence>
+       <element name="key" nillable="true" type="tns1:DeviceKey"/>
+       <element name="enterprise" nillable="true" type="tns1:EnterpriseKey"/>
+       <element name="name" nillable="true" type="xsd:string"/>
+       <element name="asx" nillable="true" type="tns1:ASXKey"/>
+       <element name="hardwareType" nillable="true" type="tns1:HardwareTypeKey"/>
+       <element name="location" nillable="true" type="tns1:Address"/>
+       <element name="addressFormat" nillable="true" type="tns1:AddressFormatType"/>
+       <element name="address" nillable="true" type="xsd:string"/>
+       <element name="port" nillable="true" type="xsd:int"/>
+       <element name="contactAddressFormat" nillable="true" type="tns1:ContactAddressFormatType"/>
+       <element name="contactAddress" nillable="true" type="xsd:string"/>
+       <element name="contactAddressPort" nillable="true" type="xsd:int"/>
+       <element name="numberOfPorts" nillable="true" type="xsd:int"/>
+       <element name="devicePort" nillable="true" type="impl:ArrayOf_tns1_DevicePort"/>
+       <element name="devicePortKeys" nillable="true" type="impl:ArrayOf_tns1_DevicePortKey"/>
+       <element name="maintenanceState" nillable="true" type="tns1:MaintenanceStateType"/>
+       <element name="maintenanceCode" nillable="true" type="tns1:MaintenanceStateCodeType"/>
+       <element name="maintenanceReason" nillable="true" type="xsd:string"/>
+       <element name="notes" nillable="true" type="xsd:string"/>
+       <element name="contactInfo" nillable="true" type="tns1:ContactInfo"/>
+       <element name="protocolType" nillable="true" type="tns1:ProtocolType"/>
+       <element name="deviceType" nillable="true" type="tns1:DeviceType"/>
+       <element name="periodicPresenceAudit" nillable="true" type="xsd:boolean"/>
+       <element name="activeCallAudit" nillable="true" type="xsd:boolean"/>
+       <element name="activeCallAuditFrequency" nillable="true" type="xsd:int"/>
+       <element name="servingRouter" nillable="true" type="tns1:ServingRouterKey"/>
+       <element name="securityIndicator" nillable="true" type="xsd:boolean"/>
+       <element name="customCallerIdReasons" nillable="true" type="xsd:boolean"/>
+       <element name="continuousCallWaitingTone" nillable="true" type="xsd:boolean"/>
+       <element name="experimentalJCPackage" nillable="true" type="xsd:boolean"/>
+       <element name="inactivityTimeout" nillable="true" type="xsd:int"/>
+       <element name="h248Encoding" nillable="true" type="tns1:H248EncodingType"/>
+       <element name="mediaGatewayController" nillable="true" type="tns1:MediaGatewayControllerType"/>
+       <element name="h248LineSignalingPackage" nillable="true" type="tns1:H248LineSignalingPackageType"/>
+       <element name="h248TrafficControls" nillable="true" type="tns1:H248TrafficControls"/>
+       <element name="h248SignalingCapabilities" nillable="true" type="tns1:H248SignalingCapabilities"/>
+       <element name="lineType" nillable="true" type="tns1:LineType"/>
+       <element name="numberOfWires" nillable="true" type="tns1:WireType"/>
+       <element name="collectCallStats" nillable="true" type="xsd:boolean"/>
+       <element name="transportParameter" nillable="true" type="tns1:TransportType"/>
+       <element name="overloadRateWeight" nillable="true" type="xsd:int"/>
+       <element name="dynamicTrafficControls" nillable="true" type="tns1:DynamicTrafficControls"/>
+       <element name="gr303" nillable="true" type="xsd:boolean"/>
+       <element name="endpointLocalNameTemplate" nillable="true" type="xsd:string"/>
+      </sequence>
+     </extension>
+    </complexContent>
+   </complexType>
+   <complexType name="AuditInformation">
+    <complexContent>
+     <extension base="tns1:ManagedEntityValue">
+      <sequence>
+       <element name="auditState" nillable="true" type="xsd:string"/>
+       <element name="lastAuditTime" nillable="true" type="xsd:long"/>
+       <element name="maintenanceState" nillable="true" type="tns1:MaintenanceStateType"/>
+       <element name="maintenanceStateCode" nillable="true" type="tns1:MaintenanceStateCodeType"/>
+      </sequence>
+     </extension>
+    </complexContent>
+   </complexType>
+   <complexType name="IPAddress">
+    <complexContent>
+     <extension base="tns1:ManagedEntityValue">
+      <sequence>
+       <element name="ipAddress" nillable="true" type="xsd:string"/>
+      </sequence>
+     </extension>
+    </complexContent>
+   </complexType>
+   <complexType name="DevicePortTemplate">
+    <complexContent>
+     <extension base="tns1:ManagedEntityValue">
+      <sequence>
+       <element name="endpointLocalNameTemplate" nillable="true" type="xsd:string"/>
+       <element name="startingPortNumber" nillable="true" type="xsd:int"/>
+       <element name="startingEndpointLocalNamePortNumber" nillable="true" type="xsd:int"/>
+       <element name="periodicPresenceAudit" nillable="true" type="xsd:boolean"/>
+       <element name="activeCallAudit" nillable="true" type="xsd:boolean"/>
+       <element name="activeCallAuditFrequency" nillable="true" type="xsd:int"/>
+       <element name="h248SignalingCapabilities" nillable="true" type="tns1:H248SignalingCapabilities"/>
+       <element name="lineType" nillable="true" type="tns1:LineType"/>
+       <element name="numberOfWires" nillable="true" type="tns1:WireType"/>
+      </sequence>
+     </extension>
+    </complexContent>
+   </complexType>
+   <complexType name="EnabledFeatures">
+    <complexContent>
+     <extension base="tns1:ManagedEntityValue">
+      <sequence>
+       <element name="messageWaitingIndicator" nillable="true" type="xsd:boolean"/>
+       <element name="callForwardingVariable" nillable="true" type="xsd:boolean"/>
+       <element name="callForwardingDontAnswer" nillable="true" type="xsd:boolean"/>
+       <element name="callForwardingBusyLine" nillable="true" type="xsd:boolean"/>
+       <element name="remoteCallForwarding" nillable="true" type="xsd:boolean"/>
+       <element name="selectiveCallForwarding" nillable="true" type="xsd:boolean"/>
+       <element name="callWaiting" nillable="true" type="xsd:boolean"/>
+       <element name="callerId" nillable="true" type="xsd:boolean"/>
+       <element name="callingPartyCallerIdVSCControl" nillable="true" type="xsd:boolean"/>
+       <element name="callerIdWithName" nillable="true" type="xsd:boolean"/>
+       <element name="anonymousCallRejection" nillable="true" type="xsd:boolean"/>
+       <element name="callHold" nillable="true" type="xsd:boolean"/>
+       <element name="threeWayCalling" nillable="true" type="xsd:boolean"/>
+       <element name="callTransfer" nillable="true" type="xsd:boolean"/>
+       <element name="multilineHunting" nillable="true" type="xsd:boolean"/>
+       <element name="faxModemControl" nillable="true" type="xsd:boolean"/>
+       <element name="sipEndpointSupport" nillable="true" type="xsd:boolean"/>
+       <element name="callConfirmationTone" nillable="true" type="xsd:boolean"/>
+       <element name="simpleCodecEnforcement" nillable="true" type="xsd:boolean"/>
+       <element name="callCrankbackSupport" nillable="true" type="xsd:boolean"/>
+       <element name="smartAuditSupport" nillable="true" type="xsd:boolean"/>
+       <element name="callAnalysisSupport" nillable="true" type="xsd:boolean"/>
+       <element name="pilotNumberPresentation" nillable="true" type="xsd:boolean"/>
+       <element name="nWayCalling" nillable="true" type="xsd:boolean"/>
+       <element name="speedDialingSingleDigit" nillable="true" type="xsd:boolean"/>
+       <element name="speedDialingTwoDigit" nillable="true" type="xsd:boolean"/>
+       <element name="distinctiveRinging" nillable="true" type="xsd:boolean"/>
+       <element name="doNotDisturb" nillable="true" type="xsd:boolean"/>
+       <element name="findMeFollowMe" nillable="true" type="xsd:boolean"/>
+       <element name="clickToDial" nillable="true" type="xsd:boolean"/>
+       <element name="packetCableDQoS" nillable="true" type="xsd:boolean"/>
+       <element name="cmsCmtsSecurity" nillable="true" type="xsd:boolean"/>
+       <element name="rtpRtcpEncryption" nillable="true" type="xsd:boolean"/>
+       <element name="automaticCallback" nillable="true" type="xsd:boolean"/>
+       <element name="automaticRecall" nillable="true" type="xsd:boolean"/>
+       <element name="busyBuster" nillable="true" type="xsd:boolean"/>
+       <element name="selectiveCallAcceptance" nillable="true" type="xsd:boolean"/>
+       <element name="selectiveCallRejection" nillable="true" type="xsd:boolean"/>
+       <element name="musicOnHold" nillable="true" type="xsd:boolean"/>
+       <element name="incomingMemorySlot" nillable="true" type="xsd:boolean"/>
+       <element name="outgoingMemorySlot" nillable="true" type="xsd:boolean"/>
+       <element name="voiceMailAccessVSC" nillable="true" type="xsd:boolean"/>
+       <element name="applicationServerFeatureControlVSC" nillable="true" type="xsd:boolean"/>
+       <element name="sessionRedirection" nillable="true" type="xsd:boolean"/>
+       <element name="customCallForwarding" nillable="true" type="xsd:boolean"/>
+       <element name="remoteFeatureControl" nillable="true" type="xsd:boolean"/>
+       <element name="maliciousCallIdentification" nillable="true" type="xsd:boolean"/>
+       <element name="ringBackWhenFree" nillable="true" type="xsd:boolean"/>
+       <element name="ringBackWhenFreeQueuing" nillable="true" type="xsd:boolean"/>
+       <element name="outgoingCallRestriction" nillable="true" type="xsd:boolean"/>
+       <element name="sipTransparency" nillable="true" type="xsd:boolean"/>
+       <element name="sdpTransparency" nillable="true" type="xsd:boolean"/>
+       <element name="routeHeaderProcessing" nillable="true" type="xsd:boolean"/>
+       <element name="multiServiceControl" nillable="true" type="xsd:boolean"/>
+       <element name="callForwardingUnreachable" nillable="true" type="xsd:boolean"/>
+       <element name="H248Support" nillable="true" type="xsd:boolean"/>
+       <element name="directedCallPickup" nillable="true" type="xsd:boolean"/>
+       <element name="businessGroupFeatureControls" nillable="true" type="xsd:boolean"/>
+       <element name="presentationNumber" nillable="true" type="xsd:boolean"/>
+       <element name="callingNumberSourceSupport" nillable="true" type="xsd:boolean"/>
+       <element name="alarmCall" nillable="true" type="xsd:boolean"/>
+       <element name="callOffer" nillable="true" type="xsd:boolean"/>
+       <element name="callPark" nillable="true" type="xsd:boolean"/>
+       <element name="changeNumber" nillable="true" type="xsd:boolean"/>
+       <element name="hotLine" nillable="true" type="xsd:boolean"/>
+       <element name="warmLine" nillable="true" type="xsd:boolean"/>
+       <element name="pilotNumberHunting" nillable="true" type="xsd:boolean"/>
+       <element name="bypassPSXIfCalledPublicUserIdentity" nillable="true" type="xsd:boolean"/>
+       <element name="multiplePublicUserIdentitySupport" nillable="true" type="xsd:boolean"/>
+       <element name="egressOverlapSignaling" nillable="true" type="xsd:boolean"/>
+       <element name="agcfSupport" nillable="true" type="xsd:boolean"/>
+       <element name="deluxeFlashProcessing" nillable="true" type="xsd:boolean"/>
+       <element name="callQueuing" nillable="true" type="xsd:boolean"/>
+       <element name="huntGroupControls" nillable="true" type="xsd:boolean"/>
+       <element name="collectH248ServingDeviceCallStats" nillable="true" type="xsd:boolean"/>
+       <element name="collectSipMwBusinessGroupCallStats" nillable="true" type="xsd:boolean"/>
+       <element name="collectKPICallStats" nillable="true" type="xsd:boolean"/>
+       <element name="trafficControls" nillable="true" type="xsd:boolean"/>
+       <element name="applicationServerControl" nillable="true" type="xsd:boolean"/>
+       <element name="groupRegistrationSupport" nillable="true" type="xsd:boolean"/>
+       <element name="sctpSupport" nillable="true" type="xsd:boolean"/>
+       <element name="incomingMemorySlotReplication" nillable="true" type="xsd:boolean"/>
+       <element name="outgoingMemorySlotReplication" nillable="true" type="xsd:boolean"/>
+       <element name="callNotification" nillable="true" type="xsd:boolean"/>
+       <element name="multipleRegistrations" nillable="true" type="xsd:boolean"/>
+       <element name="outgoingMemorySlotFromSpecificContact" nillable="true" type="xsd:boolean"/>
+      </sequence>
+     </extension>
+    </complexContent>
+   </complexType>
+   <simpleType name="RegistrationMethodType">
+    <restriction base="xsd:string">
+     <enumeration value="None"/>
+     <enumeration value="Line"/>
+     <enumeration value="Group"/>
+    </restriction>
+   </simpleType>
+   <simpleType name="RegistrationStatusType">
+    <restriction base="xsd:string">
+     <enumeration value="Idle"/>
+     <enumeration value="InService"/>
+     <enumeration value="OutOfService"/>
+     <enumeration value="NotProvisioned"/>
+     <enumeration value="Unknown"/>
+    </restriction>
+   </simpleType>
+   <complexType name="AGCFRegistrationStatus">
+    <complexContent>
+     <extension base="tns1:ManagedEntityValue">
+      <sequence>
+       <element name="h248RegistrationStatus" nillable="true" type="tns1:RegistrationStatusType"/>
+       <element name="sipMwRegistrationStatus" nillable="true" type="tns1:RegistrationStatusType"/>
+       <element name="sipMwRegistrationTimeRemaining" nillable="true" type="xsd:int"/>
+       <element name="sipMwServiceRouteHeader" nillable="true" type="xsd:string"/>
+      </sequence>
+     </extension>
+    </complexContent>
+   </complexType>
+  </schema>
+  <schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.sonusnet.com/sms/smsapi/r07_03_06/DeviceService">
+   <import namespace="http://www.sonusnet.com/sms/smsapi/r07_03_06/model"/>
+   <import namespace="http://schemas.xmlsoap.org/soap/encoding/"/>
+   <complexType name="ArrayOf_tns1_NamedValue">
+    <complexContent>
+     <restriction base="soapenc:Array">
+      <attribute ref="soapenc:arrayType" wsdl:arrayType="tns1:NamedValue[]"/>
+     </restriction>
+    </complexContent>
+   </complexType>
+   <complexType name="ArrayOf_xsd_string">
+    <complexContent>
+     <restriction base="soapenc:Array">
+      <attribute ref="soapenc:arrayType" wsdl:arrayType="xsd:string[]"/>
+     </restriction>
+    </complexContent>
+   </complexType>
+   <complexType name="ArrayOf_tns1_DirectoryNumberKey">
+    <complexContent>
+     <restriction base="soapenc:Array">
+      <attribute ref="soapenc:arrayType" wsdl:arrayType="tns1:DirectoryNumberKey[]"/>
+     </restriction>
+    </complexContent>
+   </complexType>
+   <complexType name="ArrayOf_tns1_DevicePort">
+    <complexContent>
+     <restriction base="soapenc:Array">
+      <attribute ref="soapenc:arrayType" wsdl:arrayType="tns1:DevicePort[]"/>
+     </restriction>
+    </complexContent>
+   </complexType>
+   <complexType name="ArrayOf_tns1_DevicePortKey">
+    <complexContent>
+     <restriction base="soapenc:Array">
+      <attribute ref="soapenc:arrayType" wsdl:arrayType="tns1:DevicePortKey[]"/>
+     </restriction>
+    </complexContent>
+   </complexType>
+   <complexType name="ArrayOf_tns1_HardwareTypeKey">
+    <complexContent>
+     <restriction base="soapenc:Array">
+      <attribute ref="soapenc:arrayType" wsdl:arrayType="tns1:HardwareTypeKey[]"/>
+     </restriction>
+    </complexContent>
+   </complexType>
+   <complexType name="ArrayOf_tns1_DeviceKey">
+    <complexContent>
+     <restriction base="soapenc:Array">
+      <attribute ref="soapenc:arrayType" wsdl:arrayType="tns1:DeviceKey[]"/>
+     </restriction>
+    </complexContent>
+   </complexType>
+   <complexType name="ArrayOf_tns1_Device">
+    <complexContent>
+     <restriction base="soapenc:Array">
+      <attribute ref="soapenc:arrayType" wsdl:arrayType="tns1:Device[]"/>
+     </restriction>
+    </complexContent>
+   </complexType>
+   <complexType name="ArrayOf_tns1_ASXKey">
+    <complexContent>
+     <restriction base="soapenc:Array">
+      <attribute ref="soapenc:arrayType" wsdl:arrayType="tns1:ASXKey[]"/>
+     </restriction>
+    </complexContent>
+   </complexType>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="getDeviceDetailsRequest1">
+
+      <wsdl:part name="in0" type="tns1:DirectoryNumberKey"/>
+
+      <wsdl:part name="in1" type="tns1:EnterpriseKey"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="getAGCFRegistrationStatusResponse">
+
+      <wsdl:part name="getAGCFRegistrationStatusReturn" type="tns1:AGCFRegistrationStatus"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="getDeviceResponse1">
+
+      <wsdl:part name="getDeviceReturn" type="tns1:Device"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="requestDevicePortAuditRequest">
+
+      <wsdl:part name="in0" type="tns1:DevicePortKey"/>
+
+      <wsdl:part name="in1" type="tns1:EnterpriseKey"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="updateDevicePortRequest">
+
+      <wsdl:part name="in0" type="tns1:DevicePort"/>
+
+      <wsdl:part name="in1" type="tns1:EnterpriseKey"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="getEnabledFeaturesRequest">
+
+      <wsdl:part name="in0" type="tns1:ASXKey"/>
+
+      <wsdl:part name="in1" type="tns1:EnterpriseKey"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="updateDeviceIpResponse">
+
+   </wsdl:message>
+
+   <wsdl:message name="SMSAPIValidationException">
+
+      <wsdl:part name="fault" type="tns1:SMSAPIValidationException"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="getDevicePortResponse">
+
+      <wsdl:part name="getDevicePortReturn" type="tns1:DevicePort"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="getDeviceRequest">
+
+      <wsdl:part name="in0" type="tns1:DeviceKey"/>
+
+      <wsdl:part name="in1" type="tns1:EnterpriseKey"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="deleteDeviceResponse">
+
+   </wsdl:message>
+
+   <wsdl:message name="getDevicesDetailsResponse">
+
+      <wsdl:part name="getDevicesDetailsReturn" type="impl:ArrayOf_tns1_Device"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="listASXsResponse">
+
+      <wsdl:part name="listASXsReturn" type="impl:ArrayOf_tns1_ASXKey"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="getDeviceDetailsResponse1">
+
+      <wsdl:part name="getDeviceDetailsReturn" type="tns1:Device"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="getLastDevicePortAuditInfoResponse">
+
+      <wsdl:part name="getLastDevicePortAuditInfoReturn" type="tns1:AuditInformation"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="createDevicePortsRequest">
+
+      <wsdl:part name="in0" type="tns1:DeviceKey"/>
+
+      <wsdl:part name="in1" type="xsd:int"/>
+
+      <wsdl:part name="in2" type="tns1:EnterpriseKey"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="updateDeviceIpRequest">
+
+      <wsdl:part name="in0" type="tns1:DeviceKey"/>
+
+      <wsdl:part name="in1" type="tns1:IPAddress"/>
+
+      <wsdl:part name="in2" type="tns1:EnterpriseKey"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="createDevicePortsResponse1">
+
+   </wsdl:message>
+
+   <wsdl:message name="listHardwareTypesRequest">
+
+      <wsdl:part name="in0" type="tns1:EnterpriseKey"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="getDeviceDetailsByDNResponse">
+
+      <wsdl:part name="getDeviceDetailsByDNReturn" type="tns1:Device"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="getDeviceNoPortKeysResponse">
+
+      <wsdl:part name="getDeviceNoPortKeysReturn" type="tns1:Device"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="getEnabledFeaturesResponse">
+
+      <wsdl:part name="getEnabledFeaturesReturn" type="tns1:EnabledFeatures"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="getDeviceDetailsResponse">
+
+      <wsdl:part name="getDeviceDetailsReturn" type="tns1:Device"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="requestDevicePortAuditResponse">
+
+   </wsdl:message>
+
+   <wsdl:message name="updateDeviceResponse">
+
+   </wsdl:message>
+
+   <wsdl:message name="createDeviceRequest">
+
+      <wsdl:part name="in0" type="tns1:Device"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="SMSAPIInternalException">
+
+      <wsdl:part name="fault" type="tns1:SMSAPIInternalException"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="getDevicesDetailsRequest">
+
+      <wsdl:part name="in0" type="impl:ArrayOf_tns1_DeviceKey"/>
+
+      <wsdl:part name="in1" type="tns1:EnterpriseKey"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="createDevicePortsRequest1">
+
+      <wsdl:part name="in0" type="tns1:DeviceKey"/>
+
+      <wsdl:part name="in1" type="tns1:DevicePortTemplate"/>
+
+      <wsdl:part name="in2" type="xsd:int"/>
+
+      <wsdl:part name="in3" type="tns1:EnterpriseKey"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="getDevicePortsResponse">
+
+      <wsdl:part name="getDevicePortsReturn" type="impl:ArrayOf_tns1_DevicePort"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="createDeviceResponse">
+
+      <wsdl:part name="createDeviceReturn" type="tns1:DeviceKey"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="getAGCFRegistrationStatusRequest">
+
+      <wsdl:part name="in0" type="tns1:ASXKey"/>
+
+      <wsdl:part name="in1" type="xsd:string"/>
+
+      <wsdl:part name="in2" type="xsd:string"/>
+
+      <wsdl:part name="in3" type="tns1:RegistrationMethodType"/>
+
+      <wsdl:part name="in4" type="tns1:EnterpriseKey"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="deleteDevicesResponse">
+
+   </wsdl:message>
+
+   <wsdl:message name="getLastDevicePortAuditInfoRequest">
+
+      <wsdl:part name="in0" type="tns1:DevicePortKey"/>
+
+      <wsdl:part name="in1" type="tns1:EnterpriseKey"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="listHardwareByTypeResponse">
+
+      <wsdl:part name="listHardwareByTypeReturn" type="impl:ArrayOf_tns1_HardwareTypeKey"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="updateDevicePortResponse">
+
+   </wsdl:message>
+
+   <wsdl:message name="listASXsRequest">
+
+      <wsdl:part name="in0" type="tns1:EnterpriseKey"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="deleteDeviceRequest">
+
+      <wsdl:part name="in0" type="tns1:DeviceKey"/>
+
+      <wsdl:part name="in1" type="tns1:EnterpriseKey"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="getDevicesRequest">
+
+      <wsdl:part name="in0" type="impl:ArrayOf_tns1_DeviceKey"/>
+
+      <wsdl:part name="in1" type="tns1:EnterpriseKey"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="getDevicePortsRequest">
+
+      <wsdl:part name="in0" type="tns1:DeviceKey"/>
+
+      <wsdl:part name="in1" type="xsd:string"/>
+
+      <wsdl:part name="in2" type="tns1:EnterpriseKey"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="SMSAPINetworkException">
+
+      <wsdl:part name="fault" type="tns1:SMSAPINetworkException"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="updateDeviceRequest">
+
+      <wsdl:part name="in0" type="tns1:Device"/>
+
+      <wsdl:part name="in1" type="tns1:EnterpriseKey"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="listHardwareByTypeRequest">
+
+      <wsdl:part name="in0" type="tns1:ProtocolType"/>
+
+      <wsdl:part name="in1" type="tns1:EnterpriseKey"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="getDeviceByDNResponse">
+
+      <wsdl:part name="getDeviceByDNReturn" type="tns1:Device"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="getDevicePortRequest">
+
+      <wsdl:part name="in0" type="tns1:DevicePortKey"/>
+
+      <wsdl:part name="in1" type="tns1:EnterpriseKey"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="getDevicesResponse">
+
+      <wsdl:part name="getDevicesReturn" type="impl:ArrayOf_tns1_Device"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="getDeviceDetailsRequest">
+
+      <wsdl:part name="in0" type="tns1:DeviceKey"/>
+
+      <wsdl:part name="in1" type="tns1:EnterpriseKey"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="getDeviceNoPortKeysRequest">
+
+      <wsdl:part name="in0" type="tns1:DeviceKey"/>
+
+      <wsdl:part name="in1" type="tns1:EnterpriseKey"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="createDevicePortsResponse">
+
+   </wsdl:message>
+
+   <wsdl:message name="getDeviceByDNRequest">
+
+      <wsdl:part name="in0" type="tns1:DirectoryNumberKey"/>
+
+      <wsdl:part name="in1" type="tns1:EnterpriseKey"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="getDeviceDetailsByDNRequest">
+
+      <wsdl:part name="in0" type="tns1:DirectoryNumberKey"/>
+
+      <wsdl:part name="in1" type="tns1:EnterpriseKey"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="listHardwareTypesResponse">
+
+      <wsdl:part name="listHardwareTypesReturn" type="impl:ArrayOf_tns1_HardwareTypeKey"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="deleteDevicesRequest">
+
+      <wsdl:part name="in0" type="impl:ArrayOf_tns1_DeviceKey"/>
+
+      <wsdl:part name="in1" type="tns1:EnterpriseKey"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="getDeviceResponse">
+
+      <wsdl:part name="getDeviceReturn" type="tns1:Device"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="getDeviceRequest1">
+
+      <wsdl:part name="in0" type="tns1:DirectoryNumberKey"/>
+
+      <wsdl:part name="in1" type="tns1:EnterpriseKey"/>
+
+   </wsdl:message>
+
+   <wsdl:portType name="SMSAPI-r07_03_06-DeviceService">
+
+      <wsdl:operation name="deleteDevice" parameterOrder="in0 in1">
+
+         <wsdl:input message="impl:deleteDeviceRequest" name="deleteDeviceRequest"/>
+
+         <wsdl:output message="impl:deleteDeviceResponse" name="deleteDeviceResponse"/>
+
+         <wsdl:fault message="impl:SMSAPINetworkException" name="SMSAPINetworkException"/>
+
+         <wsdl:fault message="impl:SMSAPIValidationException" name="SMSAPIValidationException"/>
+
+         <wsdl:fault message="impl:SMSAPIInternalException" name="SMSAPIInternalException"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="createDevice" parameterOrder="in0">
+
+         <wsdl:input message="impl:createDeviceRequest" name="createDeviceRequest"/>
+
+         <wsdl:output message="impl:createDeviceResponse" name="createDeviceResponse"/>
+
+         <wsdl:fault message="impl:SMSAPINetworkException" name="SMSAPINetworkException"/>
+
+         <wsdl:fault message="impl:SMSAPIValidationException" name="SMSAPIValidationException"/>
+
+         <wsdl:fault message="impl:SMSAPIInternalException" name="SMSAPIInternalException"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="updateDevice" parameterOrder="in0 in1">
+
+         <wsdl:input message="impl:updateDeviceRequest" name="updateDeviceRequest"/>
+
+         <wsdl:output message="impl:updateDeviceResponse" name="updateDeviceResponse"/>
+
+         <wsdl:fault message="impl:SMSAPINetworkException" name="SMSAPINetworkException"/>
+
+         <wsdl:fault message="impl:SMSAPIValidationException" name="SMSAPIValidationException"/>
+
+         <wsdl:fault message="impl:SMSAPIInternalException" name="SMSAPIInternalException"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getDeviceByDN" parameterOrder="in0 in1">
+
+         <wsdl:input message="impl:getDeviceByDNRequest" name="getDeviceByDNRequest"/>
+
+         <wsdl:output message="impl:getDeviceByDNResponse" name="getDeviceByDNResponse"/>
+
+         <wsdl:fault message="impl:SMSAPINetworkException" name="SMSAPINetworkException"/>
+
+         <wsdl:fault message="impl:SMSAPIValidationException" name="SMSAPIValidationException"/>
+
+         <wsdl:fault message="impl:SMSAPIInternalException" name="SMSAPIInternalException"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getDeviceDetailsByDN" parameterOrder="in0 in1">
+
+         <wsdl:input message="impl:getDeviceDetailsByDNRequest" name="getDeviceDetailsByDNRequest"/>
+
+         <wsdl:output message="impl:getDeviceDetailsByDNResponse" name="getDeviceDetailsByDNResponse"/>
+
+         <wsdl:fault message="impl:SMSAPINetworkException" name="SMSAPINetworkException"/>
+
+         <wsdl:fault message="impl:SMSAPIValidationException" name="SMSAPIValidationException"/>
+
+         <wsdl:fault message="impl:SMSAPIInternalException" name="SMSAPIInternalException"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getDevicePort" parameterOrder="in0 in1">
+
+         <wsdl:input message="impl:getDevicePortRequest" name="getDevicePortRequest"/>
+
+         <wsdl:output message="impl:getDevicePortResponse" name="getDevicePortResponse"/>
+
+         <wsdl:fault message="impl:SMSAPINetworkException" name="SMSAPINetworkException"/>
+
+         <wsdl:fault message="impl:SMSAPIValidationException" name="SMSAPIValidationException"/>
+
+         <wsdl:fault message="impl:SMSAPIInternalException" name="SMSAPIInternalException"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="listHardwareTypes" parameterOrder="in0">
+
+         <wsdl:input message="impl:listHardwareTypesRequest" name="listHardwareTypesRequest"/>
+
+         <wsdl:output message="impl:listHardwareTypesResponse" name="listHardwareTypesResponse"/>
+
+         <wsdl:fault message="impl:SMSAPINetworkException" name="SMSAPINetworkException"/>
+
+         <wsdl:fault message="impl:SMSAPIValidationException" name="SMSAPIValidationException"/>
+
+         <wsdl:fault message="impl:SMSAPIInternalException" name="SMSAPIInternalException"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="listHardwareByType" parameterOrder="in0 in1">
+
+         <wsdl:input message="impl:listHardwareByTypeRequest" name="listHardwareByTypeRequest"/>
+
+         <wsdl:output message="impl:listHardwareByTypeResponse" name="listHardwareByTypeResponse"/>
+
+         <wsdl:fault message="impl:SMSAPINetworkException" name="SMSAPINetworkException"/>
+
+         <wsdl:fault message="impl:SMSAPIValidationException" name="SMSAPIValidationException"/>
+
+         <wsdl:fault message="impl:SMSAPIInternalException" name="SMSAPIInternalException"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getLastDevicePortAuditInfo" parameterOrder="in0 in1">
+
+         <wsdl:input message="impl:getLastDevicePortAuditInfoRequest" name="getLastDevicePortAuditInfoRequest"/>
+
+         <wsdl:output message="impl:getLastDevicePortAuditInfoResponse" name="getLastDevicePortAuditInfoResponse"/>
+
+         <wsdl:fault message="impl:SMSAPINetworkException" name="SMSAPINetworkException"/>
+
+         <wsdl:fault message="impl:SMSAPIValidationException" name="SMSAPIValidationException"/>
+
+         <wsdl:fault message="impl:SMSAPIInternalException" name="SMSAPIInternalException"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getDeviceDetails" parameterOrder="in0 in1">
+
+         <wsdl:input message="impl:getDeviceDetailsRequest" name="getDeviceDetailsRequest"/>
+
+         <wsdl:output message="impl:getDeviceDetailsResponse" name="getDeviceDetailsResponse"/>
+
+         <wsdl:fault message="impl:SMSAPINetworkException" name="SMSAPINetworkException"/>
+
+         <wsdl:fault message="impl:SMSAPIValidationException" name="SMSAPIValidationException"/>
+
+         <wsdl:fault message="impl:SMSAPIInternalException" name="SMSAPIInternalException"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getDeviceDetails" parameterOrder="in0 in1">
+
+         <wsdl:input message="impl:getDeviceDetailsRequest1" name="getDeviceDetailsRequest1"/>
+
+         <wsdl:output message="impl:getDeviceDetailsResponse1" name="getDeviceDetailsResponse1"/>
+
+         <wsdl:fault message="impl:SMSAPINetworkException" name="SMSAPINetworkException"/>
+
+         <wsdl:fault message="impl:SMSAPIValidationException" name="SMSAPIValidationException"/>
+
+         <wsdl:fault message="impl:SMSAPIInternalException" name="SMSAPIInternalException"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getDeviceNoPortKeys" parameterOrder="in0 in1">
+
+         <wsdl:input message="impl:getDeviceNoPortKeysRequest" name="getDeviceNoPortKeysRequest"/>
+
+         <wsdl:output message="impl:getDeviceNoPortKeysResponse" name="getDeviceNoPortKeysResponse"/>
+
+         <wsdl:fault message="impl:SMSAPINetworkException" name="SMSAPINetworkException"/>
+
+         <wsdl:fault message="impl:SMSAPIValidationException" name="SMSAPIValidationException"/>
+
+         <wsdl:fault message="impl:SMSAPIInternalException" name="SMSAPIInternalException"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getDevices" parameterOrder="in0 in1">
+
+         <wsdl:input message="impl:getDevicesRequest" name="getDevicesRequest"/>
+
+         <wsdl:output message="impl:getDevicesResponse" name="getDevicesResponse"/>
+
+         <wsdl:fault message="impl:SMSAPINetworkException" name="SMSAPINetworkException"/>
+
+         <wsdl:fault message="impl:SMSAPIValidationException" name="SMSAPIValidationException"/>
+
+         <wsdl:fault message="impl:SMSAPIInternalException" name="SMSAPIInternalException"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getDevicesDetails" parameterOrder="in0 in1">
+
+         <wsdl:input message="impl:getDevicesDetailsRequest" name="getDevicesDetailsRequest"/>
+
+         <wsdl:output message="impl:getDevicesDetailsResponse" name="getDevicesDetailsResponse"/>
+
+         <wsdl:fault message="impl:SMSAPINetworkException" name="SMSAPINetworkException"/>
+
+         <wsdl:fault message="impl:SMSAPIValidationException" name="SMSAPIValidationException"/>
+
+         <wsdl:fault message="impl:SMSAPIInternalException" name="SMSAPIInternalException"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="listASXs" parameterOrder="in0">
+
+         <wsdl:input message="impl:listASXsRequest" name="listASXsRequest"/>
+
+         <wsdl:output message="impl:listASXsResponse" name="listASXsResponse"/>
+
+         <wsdl:fault message="impl:SMSAPINetworkException" name="SMSAPINetworkException"/>
+
+         <wsdl:fault message="impl:SMSAPIValidationException" name="SMSAPIValidationException"/>
+
+         <wsdl:fault message="impl:SMSAPIInternalException" name="SMSAPIInternalException"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getDevice" parameterOrder="in0 in1">
+
+         <wsdl:input message="impl:getDeviceRequest" name="getDeviceRequest"/>
+
+         <wsdl:output message="impl:getDeviceResponse" name="getDeviceResponse"/>
+
+         <wsdl:fault message="impl:SMSAPINetworkException" name="SMSAPINetworkException"/>
+
+         <wsdl:fault message="impl:SMSAPIValidationException" name="SMSAPIValidationException"/>
+
+         <wsdl:fault message="impl:SMSAPIInternalException" name="SMSAPIInternalException"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getDevice" parameterOrder="in0 in1">
+
+         <wsdl:input message="impl:getDeviceRequest1" name="getDeviceRequest1"/>
+
+         <wsdl:output message="impl:getDeviceResponse1" name="getDeviceResponse1"/>
+
+         <wsdl:fault message="impl:SMSAPINetworkException" name="SMSAPINetworkException"/>
+
+         <wsdl:fault message="impl:SMSAPIValidationException" name="SMSAPIValidationException"/>
+
+         <wsdl:fault message="impl:SMSAPIInternalException" name="SMSAPIInternalException"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="updateDeviceIp" parameterOrder="in0 in1 in2">
+
+         <wsdl:input message="impl:updateDeviceIpRequest" name="updateDeviceIpRequest"/>
+
+         <wsdl:output message="impl:updateDeviceIpResponse" name="updateDeviceIpResponse"/>
+
+         <wsdl:fault message="impl:SMSAPINetworkException" name="SMSAPINetworkException"/>
+
+         <wsdl:fault message="impl:SMSAPIValidationException" name="SMSAPIValidationException"/>
+
+         <wsdl:fault message="impl:SMSAPIInternalException" name="SMSAPIInternalException"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="deleteDevices" parameterOrder="in0 in1">
+
+         <wsdl:input message="impl:deleteDevicesRequest" name="deleteDevicesRequest"/>
+
+         <wsdl:output message="impl:deleteDevicesResponse" name="deleteDevicesResponse"/>
+
+         <wsdl:fault message="impl:SMSAPINetworkException" name="SMSAPINetworkException"/>
+
+         <wsdl:fault message="impl:SMSAPIValidationException" name="SMSAPIValidationException"/>
+
+         <wsdl:fault message="impl:SMSAPIInternalException" name="SMSAPIInternalException"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="updateDevicePort" parameterOrder="in0 in1">
+
+         <wsdl:input message="impl:updateDevicePortRequest" name="updateDevicePortRequest"/>
+
+         <wsdl:output message="impl:updateDevicePortResponse" name="updateDevicePortResponse"/>
+
+         <wsdl:fault message="impl:SMSAPINetworkException" name="SMSAPINetworkException"/>
+
+         <wsdl:fault message="impl:SMSAPIValidationException" name="SMSAPIValidationException"/>
+
+         <wsdl:fault message="impl:SMSAPIInternalException" name="SMSAPIInternalException"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="createDevicePorts" parameterOrder="in0 in1 in2">
+
+         <wsdl:input message="impl:createDevicePortsRequest" name="createDevicePortsRequest"/>
+
+         <wsdl:output message="impl:createDevicePortsResponse" name="createDevicePortsResponse"/>
+
+         <wsdl:fault message="impl:SMSAPINetworkException" name="SMSAPINetworkException"/>
+
+         <wsdl:fault message="impl:SMSAPIValidationException" name="SMSAPIValidationException"/>
+
+         <wsdl:fault message="impl:SMSAPIInternalException" name="SMSAPIInternalException"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="createDevicePorts" parameterOrder="in0 in1 in2 in3">
+
+         <wsdl:input message="impl:createDevicePortsRequest1" name="createDevicePortsRequest1"/>
+
+         <wsdl:output message="impl:createDevicePortsResponse1" name="createDevicePortsResponse1"/>
+
+         <wsdl:fault message="impl:SMSAPINetworkException" name="SMSAPINetworkException"/>
+
+         <wsdl:fault message="impl:SMSAPIValidationException" name="SMSAPIValidationException"/>
+
+         <wsdl:fault message="impl:SMSAPIInternalException" name="SMSAPIInternalException"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="requestDevicePortAudit" parameterOrder="in0 in1">
+
+         <wsdl:input message="impl:requestDevicePortAuditRequest" name="requestDevicePortAuditRequest"/>
+
+         <wsdl:output message="impl:requestDevicePortAuditResponse" name="requestDevicePortAuditResponse"/>
+
+         <wsdl:fault message="impl:SMSAPINetworkException" name="SMSAPINetworkException"/>
+
+         <wsdl:fault message="impl:SMSAPIValidationException" name="SMSAPIValidationException"/>
+
+         <wsdl:fault message="impl:SMSAPIInternalException" name="SMSAPIInternalException"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getEnabledFeatures" parameterOrder="in0 in1">
+
+         <wsdl:input message="impl:getEnabledFeaturesRequest" name="getEnabledFeaturesRequest"/>
+
+         <wsdl:output message="impl:getEnabledFeaturesResponse" name="getEnabledFeaturesResponse"/>
+
+         <wsdl:fault message="impl:SMSAPINetworkException" name="SMSAPINetworkException"/>
+
+         <wsdl:fault message="impl:SMSAPIValidationException" name="SMSAPIValidationException"/>
+
+         <wsdl:fault message="impl:SMSAPIInternalException" name="SMSAPIInternalException"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getAGCFRegistrationStatus" parameterOrder="in0 in1 in2 in3 in4">
+
+         <wsdl:input message="impl:getAGCFRegistrationStatusRequest" name="getAGCFRegistrationStatusRequest"/>
+
+         <wsdl:output message="impl:getAGCFRegistrationStatusResponse" name="getAGCFRegistrationStatusResponse"/>
+
+         <wsdl:fault message="impl:SMSAPINetworkException" name="SMSAPINetworkException"/>
+
+         <wsdl:fault message="impl:SMSAPIValidationException" name="SMSAPIValidationException"/>
+
+         <wsdl:fault message="impl:SMSAPIInternalException" name="SMSAPIInternalException"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getDevicePorts" parameterOrder="in0 in1 in2">
+
+         <wsdl:input message="impl:getDevicePortsRequest" name="getDevicePortsRequest"/>
+
+         <wsdl:output message="impl:getDevicePortsResponse" name="getDevicePortsResponse"/>
+
+         <wsdl:fault message="impl:SMSAPINetworkException" name="SMSAPINetworkException"/>
+
+         <wsdl:fault message="impl:SMSAPIValidationException" name="SMSAPIValidationException"/>
+
+         <wsdl:fault message="impl:SMSAPIInternalException" name="SMSAPIInternalException"/>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="SMSAPI/r07_03_06/DeviceServiceSoapBinding" type="impl:SMSAPI-r07_03_06-DeviceService">
+
+      <wsdlsoap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="deleteDevice">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="deleteDeviceRequest">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://www.sonusnet.com/sms/smsapi/r07_03_06/DeviceService" use="encoded"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="deleteDeviceResponse">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://www.sonusnet.com/sms/smsapi/r07_03_06/DeviceService" use="encoded"/>
+
+         </wsdl:output>
+
+         <wsdl:fault name="SMSAPINetworkException">
+
+            <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="SMSAPINetworkException" namespace="http://www.sonusnet.com/sms/smsapi/r07_03_06/DeviceService" use="encoded"/>
+
+         </wsdl:fault>
+
+         <wsdl:fault name="SMSAPIValidationException">
+
+            <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="SMSAPIValidationException" namespace="http://www.sonusnet.com/sms/smsapi/r07_03_06/DeviceService" use="encoded"/>
+
+         </wsdl:fault>
+
+         <wsdl:fault name="SMSAPIInternalException">
+
+            <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="SMSAPIInternalException" namespace="http://www.sonusnet.com/sms/smsapi/r07_03_06/DeviceService" use="encoded"/>
+
+         </wsdl:fault>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="createDevice">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="createDeviceRequest">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://www.sonusnet.com/sms/smsapi/r07_03_06/DeviceService" use="encoded"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="createDeviceResponse">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://www.sonusnet.com/sms/smsapi/r07_03_06/DeviceService" use="encoded"/>
+
+         </wsdl:output>
+
+         <wsdl:fault name="SMSAPINetworkException">
+
+            <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="SMSAPINetworkException" namespace="http://www.sonusnet.com/sms/smsapi/r07_03_06/DeviceService" use="encoded"/>
+
+         </wsdl:fault>
+
+         <wsdl:fault name="SMSAPIValidationException">
+
+            <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="SMSAPIValidationException" namespace="http://www.sonusnet.com/sms/smsapi/r07_03_06/DeviceService" use="encoded"/>
+
+         </wsdl:fault>
+
+         <wsdl:fault name="SMSAPIInternalException">
+
+            <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="SMSAPIInternalException" namespace="http://www.sonusnet.com/sms/smsapi/r07_03_06/DeviceService" use="encoded"/>
+
+         </wsdl:fault>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="updateDevice">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="updateDeviceRequest">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://www.sonusnet.com/sms/smsapi/r07_03_06/DeviceService" use="encoded"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="updateDeviceResponse">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://www.sonusnet.com/sms/smsapi/r07_03_06/DeviceService" use="encoded"/>
+
+         </wsdl:output>
+
+         <wsdl:fault name="SMSAPINetworkException">
+
+            <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="SMSAPINetworkException" namespace="http://www.sonusnet.com/sms/smsapi/r07_03_06/DeviceService" use="encoded"/>
+
+         </wsdl:fault>
+
+         <wsdl:fault name="SMSAPIValidationException">
+
+            <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="SMSAPIValidationException" namespace="http://www.sonusnet.com/sms/smsapi/r07_03_06/DeviceService" use="encoded"/>
+
+         </wsdl:fault>
+
+         <wsdl:fault name="SMSAPIInternalException">
+
+            <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="SMSAPIInternalException" namespace="http://www.sonusnet.com/sms/smsapi/r07_03_06/DeviceService" use="encoded"/>
+
+         </wsdl:fault>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getDeviceByDN">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getDeviceByDNRequest">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://www.sonusnet.com/sms/smsapi/r07_03_06/DeviceService" use="encoded"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getDeviceByDNResponse">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://www.sonusnet.com/sms/smsapi/r07_03_06/DeviceService" use="encoded"/>
+
+         </wsdl:output>
+
+         <wsdl:fault name="SMSAPINetworkException">
+
+            <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="SMSAPINetworkException" namespace="http://www.sonusnet.com/sms/smsapi/r07_03_06/DeviceService" use="encoded"/>
+
+         </wsdl:fault>
+
+         <wsdl:fault name="SMSAPIValidationException">
+
+            <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="SMSAPIValidationException" namespace="http://www.sonusnet.com/sms/smsapi/r07_03_06/DeviceService" use="encoded"/>
+
+         </wsdl:fault>
+
+         <wsdl:fault name="SMSAPIInternalException">
+
+            <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="SMSAPIInternalException" namespace="http://www.sonusnet.com/sms/smsapi/r07_03_06/DeviceService" use="encoded"/>
+
+         </wsdl:fault>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getDeviceDetailsByDN">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getDeviceDetailsByDNRequest">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://www.sonusnet.com/sms/smsapi/r07_03_06/DeviceService" use="encoded"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getDeviceDetailsByDNResponse">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://www.sonusnet.com/sms/smsapi/r07_03_06/DeviceService" use="encoded"/>
+
+         </wsdl:output>
+
+         <wsdl:fault name="SMSAPINetworkException">
+
+            <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="SMSAPINetworkException" namespace="http://www.sonusnet.com/sms/smsapi/r07_03_06/DeviceService" use="encoded"/>
+
+         </wsdl:fault>
+
+         <wsdl:fault name="SMSAPIValidationException">
+
+            <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="SMSAPIValidationException" namespace="http://www.sonusnet.com/sms/smsapi/r07_03_06/DeviceService" use="encoded"/>
+
+         </wsdl:fault>
+
+         <wsdl:fault name="SMSAPIInternalException">
+
+            <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="SMSAPIInternalException" namespace="http://www.sonusnet.com/sms/smsapi/r07_03_06/DeviceService" use="encoded"/>
+
+         </wsdl:fault>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getDevicePort">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getDevicePortRequest">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://www.sonusnet.com/sms/smsapi/r07_03_06/DeviceService" use="encoded"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getDevicePortResponse">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://www.sonusnet.com/sms/smsapi/r07_03_06/DeviceService" use="encoded"/>
+
+         </wsdl:output>
+
+         <wsdl:fault name="SMSAPINetworkException">
+
+            <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="SMSAPINetworkException" namespace="http://www.sonusnet.com/sms/smsapi/r07_03_06/DeviceService" use="encoded"/>
+
+         </wsdl:fault>
+
+         <wsdl:fault name="SMSAPIValidationException">
+
+            <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="SMSAPIValidationException" namespace="http://www.sonusnet.com/sms/smsapi/r07_03_06/DeviceService" use="encoded"/>
+
+         </wsdl:fault>
+
+         <wsdl:fault name="SMSAPIInternalException">
+
+            <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="SMSAPIInternalException" namespace="http://www.sonusnet.com/sms/smsapi/r07_03_06/DeviceService" use="encoded"/>
+
+         </wsdl:fault>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="listHardwareTypes">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="listHardwareTypesRequest">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://www.sonusnet.com/sms/smsapi/r07_03_06/DeviceService" use="encoded"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="listHardwareTypesResponse">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://www.sonusnet.com/sms/smsapi/r07_03_06/DeviceService" use="encoded"/>
+
+         </wsdl:output>
+
+         <wsdl:fault name="SMSAPINetworkException">
+
+            <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="SMSAPINetworkException" namespace="http://www.sonusnet.com/sms/smsapi/r07_03_06/DeviceService" use="encoded"/>
+
+         </wsdl:fault>
+
+         <wsdl:fault name="SMSAPIValidationException">
+
+            <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="SMSAPIValidationException" namespace="http://www.sonusnet.com/sms/smsapi/r07_03_06/DeviceService" use="encoded"/>
+
+         </wsdl:fault>
+
+         <wsdl:fault name="SMSAPIInternalException">
+
+            <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="SMSAPIInternalException" namespace="http://www.sonusnet.com/sms/smsapi/r07_03_06/DeviceService" use="encoded"/>
+
+         </wsdl:fault>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="listHardwareByType">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="listHardwareByTypeRequest">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://www.sonusnet.com/sms/smsapi/r07_03_06/DeviceService" use="encoded"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="listHardwareByTypeResponse">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://www.sonusnet.com/sms/smsapi/r07_03_06/DeviceService" use="encoded"/>
+
+         </wsdl:output>
+
+         <wsdl:fault name="SMSAPINetworkException">
+
+            <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="SMSAPINetworkException" namespace="http://www.sonusnet.com/sms/smsapi/r07_03_06/DeviceService" use="encoded"/>
+
+         </wsdl:fault>
+
+         <wsdl:fault name="SMSAPIValidationException">
+
+            <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="SMSAPIValidationException" namespace="http://www.sonusnet.com/sms/smsapi/r07_03_06/DeviceService" use="encoded"/>
+
+         </wsdl:fault>
+
+         <wsdl:fault name="SMSAPIInternalException">
+
+            <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="SMSAPIInternalException" namespace="http://www.sonusnet.com/sms/smsapi/r07_03_06/DeviceService" use="encoded"/>
+
+         </wsdl:fault>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getLastDevicePortAuditInfo">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getLastDevicePortAuditInfoRequest">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://www.sonusnet.com/sms/smsapi/r07_03_06/DeviceService" use="encoded"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getLastDevicePortAuditInfoResponse">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://www.sonusnet.com/sms/smsapi/r07_03_06/DeviceService" use="encoded"/>
+
+         </wsdl:output>
+
+         <wsdl:fault name="SMSAPINetworkException">
+
+            <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="SMSAPINetworkException" namespace="http://www.sonusnet.com/sms/smsapi/r07_03_06/DeviceService" use="encoded"/>
+
+         </wsdl:fault>
+
+         <wsdl:fault name="SMSAPIValidationException">
+
+            <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="SMSAPIValidationException" namespace="http://www.sonusnet.com/sms/smsapi/r07_03_06/DeviceService" use="encoded"/>
+
+         </wsdl:fault>
+
+         <wsdl:fault name="SMSAPIInternalException">
+
+            <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="SMSAPIInternalException" namespace="http://www.sonusnet.com/sms/smsapi/r07_03_06/DeviceService" use="encoded"/>
+
+         </wsdl:fault>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getDeviceDetails">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getDeviceDetailsRequest">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://www.sonusnet.com/sms/smsapi/r07_03_06/DeviceService" use="encoded"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getDeviceDetailsResponse">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://www.sonusnet.com/sms/smsapi/r07_03_06/DeviceService" use="encoded"/>
+
+         </wsdl:output>
+
+         <wsdl:fault name="SMSAPINetworkException">
+
+            <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="SMSAPINetworkException" namespace="http://www.sonusnet.com/sms/smsapi/r07_03_06/DeviceService" use="encoded"/>
+
+         </wsdl:fault>
+
+         <wsdl:fault name="SMSAPIValidationException">
+
+            <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="SMSAPIValidationException" namespace="http://www.sonusnet.com/sms/smsapi/r07_03_06/DeviceService" use="encoded"/>
+
+         </wsdl:fault>
+
+         <wsdl:fault name="SMSAPIInternalException">
+
+            <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="SMSAPIInternalException" namespace="http://www.sonusnet.com/sms/smsapi/r07_03_06/DeviceService" use="encoded"/>
+
+         </wsdl:fault>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getDeviceDetails">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getDeviceDetailsRequest1">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://www.sonusnet.com/sms/smsapi/r07_03_06/DeviceService" use="encoded"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getDeviceDetailsResponse1">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://www.sonusnet.com/sms/smsapi/r07_03_06/DeviceService" use="encoded"/>
+
+         </wsdl:output>
+
+         <wsdl:fault name="SMSAPINetworkException">
+
+            <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="SMSAPINetworkException" namespace="http://www.sonusnet.com/sms/smsapi/r07_03_06/DeviceService" use="encoded"/>
+
+         </wsdl:fault>
+
+         <wsdl:fault name="SMSAPIValidationException">
+
+            <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="SMSAPIValidationException" namespace="http://www.sonusnet.com/sms/smsapi/r07_03_06/DeviceService" use="encoded"/>
+
+         </wsdl:fault>
+
+         <wsdl:fault name="SMSAPIInternalException">
+
+            <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="SMSAPIInternalException" namespace="http://www.sonusnet.com/sms/smsapi/r07_03_06/DeviceService" use="encoded"/>
+
+         </wsdl:fault>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getDeviceNoPortKeys">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getDeviceNoPortKeysRequest">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://www.sonusnet.com/sms/smsapi/r07_03_06/DeviceService" use="encoded"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getDeviceNoPortKeysResponse">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://www.sonusnet.com/sms/smsapi/r07_03_06/DeviceService" use="encoded"/>
+
+         </wsdl:output>
+
+         <wsdl:fault name="SMSAPINetworkException">
+
+            <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="SMSAPINetworkException" namespace="http://www.sonusnet.com/sms/smsapi/r07_03_06/DeviceService" use="encoded"/>
+
+         </wsdl:fault>
+
+         <wsdl:fault name="SMSAPIValidationException">
+
+            <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="SMSAPIValidationException" namespace="http://www.sonusnet.com/sms/smsapi/r07_03_06/DeviceService" use="encoded"/>
+
+         </wsdl:fault>
+
+         <wsdl:fault name="SMSAPIInternalException">
+
+            <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="SMSAPIInternalException" namespace="http://www.sonusnet.com/sms/smsapi/r07_03_06/DeviceService" use="encoded"/>
+
+         </wsdl:fault>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getDevices">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getDevicesRequest">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://www.sonusnet.com/sms/smsapi/r07_03_06/DeviceService" use="encoded"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getDevicesResponse">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://www.sonusnet.com/sms/smsapi/r07_03_06/DeviceService" use="encoded"/>
+
+         </wsdl:output>
+
+         <wsdl:fault name="SMSAPINetworkException">
+
+            <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="SMSAPINetworkException" namespace="http://www.sonusnet.com/sms/smsapi/r07_03_06/DeviceService" use="encoded"/>
+
+         </wsdl:fault>
+
+         <wsdl:fault name="SMSAPIValidationException">
+
+            <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="SMSAPIValidationException" namespace="http://www.sonusnet.com/sms/smsapi/r07_03_06/DeviceService" use="encoded"/>
+
+         </wsdl:fault>
+
+         <wsdl:fault name="SMSAPIInternalException">
+
+            <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="SMSAPIInternalException" namespace="http://www.sonusnet.com/sms/smsapi/r07_03_06/DeviceService" use="encoded"/>
+
+         </wsdl:fault>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getDevicesDetails">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getDevicesDetailsRequest">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://www.sonusnet.com/sms/smsapi/r07_03_06/DeviceService" use="encoded"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getDevicesDetailsResponse">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://www.sonusnet.com/sms/smsapi/r07_03_06/DeviceService" use="encoded"/>
+
+         </wsdl:output>
+
+         <wsdl:fault name="SMSAPINetworkException">
+
+            <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="SMSAPINetworkException" namespace="http://www.sonusnet.com/sms/smsapi/r07_03_06/DeviceService" use="encoded"/>
+
+         </wsdl:fault>
+
+         <wsdl:fault name="SMSAPIValidationException">
+
+            <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="SMSAPIValidationException" namespace="http://www.sonusnet.com/sms/smsapi/r07_03_06/DeviceService" use="encoded"/>
+
+         </wsdl:fault>
+
+         <wsdl:fault name="SMSAPIInternalException">
+
+            <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="SMSAPIInternalException" namespace="http://www.sonusnet.com/sms/smsapi/r07_03_06/DeviceService" use="encoded"/>
+
+         </wsdl:fault>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="listASXs">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="listASXsRequest">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://www.sonusnet.com/sms/smsapi/r07_03_06/DeviceService" use="encoded"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="listASXsResponse">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://www.sonusnet.com/sms/smsapi/r07_03_06/DeviceService" use="encoded"/>
+
+         </wsdl:output>
+
+         <wsdl:fault name="SMSAPINetworkException">
+
+            <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="SMSAPINetworkException" namespace="http://www.sonusnet.com/sms/smsapi/r07_03_06/DeviceService" use="encoded"/>
+
+         </wsdl:fault>
+
+         <wsdl:fault name="SMSAPIValidationException">
+
+            <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="SMSAPIValidationException" namespace="http://www.sonusnet.com/sms/smsapi/r07_03_06/DeviceService" use="encoded"/>
+
+         </wsdl:fault>
+
+         <wsdl:fault name="SMSAPIInternalException">
+
+            <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="SMSAPIInternalException" namespace="http://www.sonusnet.com/sms/smsapi/r07_03_06/DeviceService" use="encoded"/>
+
+         </wsdl:fault>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getDevice">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getDeviceRequest">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://www.sonusnet.com/sms/smsapi/r07_03_06/DeviceService" use="encoded"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getDeviceResponse">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://www.sonusnet.com/sms/smsapi/r07_03_06/DeviceService" use="encoded"/>
+
+         </wsdl:output>
+
+         <wsdl:fault name="SMSAPINetworkException">
+
+            <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="SMSAPINetworkException" namespace="http://www.sonusnet.com/sms/smsapi/r07_03_06/DeviceService" use="encoded"/>
+
+         </wsdl:fault>
+
+         <wsdl:fault name="SMSAPIValidationException">
+
+            <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="SMSAPIValidationException" namespace="http://www.sonusnet.com/sms/smsapi/r07_03_06/DeviceService" use="encoded"/>
+
+         </wsdl:fault>
+
+         <wsdl:fault name="SMSAPIInternalException">
+
+            <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="SMSAPIInternalException" namespace="http://www.sonusnet.com/sms/smsapi/r07_03_06/DeviceService" use="encoded"/>
+
+         </wsdl:fault>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getDevice">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getDeviceRequest1">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://www.sonusnet.com/sms/smsapi/r07_03_06/DeviceService" use="encoded"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getDeviceResponse1">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://www.sonusnet.com/sms/smsapi/r07_03_06/DeviceService" use="encoded"/>
+
+         </wsdl:output>
+
+         <wsdl:fault name="SMSAPINetworkException">
+
+            <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="SMSAPINetworkException" namespace="http://www.sonusnet.com/sms/smsapi/r07_03_06/DeviceService" use="encoded"/>
+
+         </wsdl:fault>
+
+         <wsdl:fault name="SMSAPIValidationException">
+
+            <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="SMSAPIValidationException" namespace="http://www.sonusnet.com/sms/smsapi/r07_03_06/DeviceService" use="encoded"/>
+
+         </wsdl:fault>
+
+         <wsdl:fault name="SMSAPIInternalException">
+
+            <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="SMSAPIInternalException" namespace="http://www.sonusnet.com/sms/smsapi/r07_03_06/DeviceService" use="encoded"/>
+
+         </wsdl:fault>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="updateDeviceIp">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="updateDeviceIpRequest">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://www.sonusnet.com/sms/smsapi/r07_03_06/DeviceService" use="encoded"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="updateDeviceIpResponse">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://www.sonusnet.com/sms/smsapi/r07_03_06/DeviceService" use="encoded"/>
+
+         </wsdl:output>
+
+         <wsdl:fault name="SMSAPINetworkException">
+
+            <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="SMSAPINetworkException" namespace="http://www.sonusnet.com/sms/smsapi/r07_03_06/DeviceService" use="encoded"/>
+
+         </wsdl:fault>
+
+         <wsdl:fault name="SMSAPIValidationException">
+
+            <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="SMSAPIValidationException" namespace="http://www.sonusnet.com/sms/smsapi/r07_03_06/DeviceService" use="encoded"/>
+
+         </wsdl:fault>
+
+         <wsdl:fault name="SMSAPIInternalException">
+
+            <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="SMSAPIInternalException" namespace="http://www.sonusnet.com/sms/smsapi/r07_03_06/DeviceService" use="encoded"/>
+
+         </wsdl:fault>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="deleteDevices">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="deleteDevicesRequest">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://www.sonusnet.com/sms/smsapi/r07_03_06/DeviceService" use="encoded"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="deleteDevicesResponse">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://www.sonusnet.com/sms/smsapi/r07_03_06/DeviceService" use="encoded"/>
+
+         </wsdl:output>
+
+         <wsdl:fault name="SMSAPINetworkException">
+
+            <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="SMSAPINetworkException" namespace="http://www.sonusnet.com/sms/smsapi/r07_03_06/DeviceService" use="encoded"/>
+
+         </wsdl:fault>
+
+         <wsdl:fault name="SMSAPIValidationException">
+
+            <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="SMSAPIValidationException" namespace="http://www.sonusnet.com/sms/smsapi/r07_03_06/DeviceService" use="encoded"/>
+
+         </wsdl:fault>
+
+         <wsdl:fault name="SMSAPIInternalException">
+
+            <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="SMSAPIInternalException" namespace="http://www.sonusnet.com/sms/smsapi/r07_03_06/DeviceService" use="encoded"/>
+
+         </wsdl:fault>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="updateDevicePort">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="updateDevicePortRequest">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://www.sonusnet.com/sms/smsapi/r07_03_06/DeviceService" use="encoded"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="updateDevicePortResponse">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://www.sonusnet.com/sms/smsapi/r07_03_06/DeviceService" use="encoded"/>
+
+         </wsdl:output>
+
+         <wsdl:fault name="SMSAPINetworkException">
+
+            <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="SMSAPINetworkException" namespace="http://www.sonusnet.com/sms/smsapi/r07_03_06/DeviceService" use="encoded"/>
+
+         </wsdl:fault>
+
+         <wsdl:fault name="SMSAPIValidationException">
+
+            <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="SMSAPIValidationException" namespace="http://www.sonusnet.com/sms/smsapi/r07_03_06/DeviceService" use="encoded"/>
+
+         </wsdl:fault>
+
+         <wsdl:fault name="SMSAPIInternalException">
+
+            <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="SMSAPIInternalException" namespace="http://www.sonusnet.com/sms/smsapi/r07_03_06/DeviceService" use="encoded"/>
+
+         </wsdl:fault>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="createDevicePorts">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="createDevicePortsRequest">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://www.sonusnet.com/sms/smsapi/r07_03_06/DeviceService" use="encoded"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="createDevicePortsResponse">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://www.sonusnet.com/sms/smsapi/r07_03_06/DeviceService" use="encoded"/>
+
+         </wsdl:output>
+
+         <wsdl:fault name="SMSAPINetworkException">
+
+            <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="SMSAPINetworkException" namespace="http://www.sonusnet.com/sms/smsapi/r07_03_06/DeviceService" use="encoded"/>
+
+         </wsdl:fault>
+
+         <wsdl:fault name="SMSAPIValidationException">
+
+            <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="SMSAPIValidationException" namespace="http://www.sonusnet.com/sms/smsapi/r07_03_06/DeviceService" use="encoded"/>
+
+         </wsdl:fault>
+
+         <wsdl:fault name="SMSAPIInternalException">
+
+            <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="SMSAPIInternalException" namespace="http://www.sonusnet.com/sms/smsapi/r07_03_06/DeviceService" use="encoded"/>
+
+         </wsdl:fault>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="createDevicePorts">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="createDevicePortsRequest1">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://www.sonusnet.com/sms/smsapi/r07_03_06/DeviceService" use="encoded"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="createDevicePortsResponse1">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://www.sonusnet.com/sms/smsapi/r07_03_06/DeviceService" use="encoded"/>
+
+         </wsdl:output>
+
+         <wsdl:fault name="SMSAPINetworkException">
+
+            <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="SMSAPINetworkException" namespace="http://www.sonusnet.com/sms/smsapi/r07_03_06/DeviceService" use="encoded"/>
+
+         </wsdl:fault>
+
+         <wsdl:fault name="SMSAPIValidationException">
+
+            <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="SMSAPIValidationException" namespace="http://www.sonusnet.com/sms/smsapi/r07_03_06/DeviceService" use="encoded"/>
+
+         </wsdl:fault>
+
+         <wsdl:fault name="SMSAPIInternalException">
+
+            <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="SMSAPIInternalException" namespace="http://www.sonusnet.com/sms/smsapi/r07_03_06/DeviceService" use="encoded"/>
+
+         </wsdl:fault>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="requestDevicePortAudit">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="requestDevicePortAuditRequest">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://www.sonusnet.com/sms/smsapi/r07_03_06/DeviceService" use="encoded"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="requestDevicePortAuditResponse">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://www.sonusnet.com/sms/smsapi/r07_03_06/DeviceService" use="encoded"/>
+
+         </wsdl:output>
+
+         <wsdl:fault name="SMSAPINetworkException">
+
+            <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="SMSAPINetworkException" namespace="http://www.sonusnet.com/sms/smsapi/r07_03_06/DeviceService" use="encoded"/>
+
+         </wsdl:fault>
+
+         <wsdl:fault name="SMSAPIValidationException">
+
+            <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="SMSAPIValidationException" namespace="http://www.sonusnet.com/sms/smsapi/r07_03_06/DeviceService" use="encoded"/>
+
+         </wsdl:fault>
+
+         <wsdl:fault name="SMSAPIInternalException">
+
+            <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="SMSAPIInternalException" namespace="http://www.sonusnet.com/sms/smsapi/r07_03_06/DeviceService" use="encoded"/>
+
+         </wsdl:fault>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getEnabledFeatures">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getEnabledFeaturesRequest">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://www.sonusnet.com/sms/smsapi/r07_03_06/DeviceService" use="encoded"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getEnabledFeaturesResponse">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://www.sonusnet.com/sms/smsapi/r07_03_06/DeviceService" use="encoded"/>
+
+         </wsdl:output>
+
+         <wsdl:fault name="SMSAPINetworkException">
+
+            <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="SMSAPINetworkException" namespace="http://www.sonusnet.com/sms/smsapi/r07_03_06/DeviceService" use="encoded"/>
+
+         </wsdl:fault>
+
+         <wsdl:fault name="SMSAPIValidationException">
+
+            <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="SMSAPIValidationException" namespace="http://www.sonusnet.com/sms/smsapi/r07_03_06/DeviceService" use="encoded"/>
+
+         </wsdl:fault>
+
+         <wsdl:fault name="SMSAPIInternalException">
+
+            <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="SMSAPIInternalException" namespace="http://www.sonusnet.com/sms/smsapi/r07_03_06/DeviceService" use="encoded"/>
+
+         </wsdl:fault>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getAGCFRegistrationStatus">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getAGCFRegistrationStatusRequest">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://www.sonusnet.com/sms/smsapi/r07_03_06/DeviceService" use="encoded"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getAGCFRegistrationStatusResponse">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://www.sonusnet.com/sms/smsapi/r07_03_06/DeviceService" use="encoded"/>
+
+         </wsdl:output>
+
+         <wsdl:fault name="SMSAPINetworkException">
+
+            <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="SMSAPINetworkException" namespace="http://www.sonusnet.com/sms/smsapi/r07_03_06/DeviceService" use="encoded"/>
+
+         </wsdl:fault>
+
+         <wsdl:fault name="SMSAPIValidationException">
+
+            <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="SMSAPIValidationException" namespace="http://www.sonusnet.com/sms/smsapi/r07_03_06/DeviceService" use="encoded"/>
+
+         </wsdl:fault>
+
+         <wsdl:fault name="SMSAPIInternalException">
+
+            <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="SMSAPIInternalException" namespace="http://www.sonusnet.com/sms/smsapi/r07_03_06/DeviceService" use="encoded"/>
+
+         </wsdl:fault>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getDevicePorts">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getDevicePortsRequest">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://www.sonusnet.com/sms/smsapi/r07_03_06/DeviceService" use="encoded"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getDevicePortsResponse">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://www.sonusnet.com/sms/smsapi/r07_03_06/DeviceService" use="encoded"/>
+
+         </wsdl:output>
+
+         <wsdl:fault name="SMSAPINetworkException">
+
+            <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="SMSAPINetworkException" namespace="http://www.sonusnet.com/sms/smsapi/r07_03_06/DeviceService" use="encoded"/>
+
+         </wsdl:fault>
+
+         <wsdl:fault name="SMSAPIValidationException">
+
+            <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="SMSAPIValidationException" namespace="http://www.sonusnet.com/sms/smsapi/r07_03_06/DeviceService" use="encoded"/>
+
+         </wsdl:fault>
+
+         <wsdl:fault name="SMSAPIInternalException">
+
+            <wsdlsoap:fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" name="SMSAPIInternalException" namespace="http://www.sonusnet.com/sms/smsapi/r07_03_06/DeviceService" use="encoded"/>
+
+         </wsdl:fault>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="SMSAPIService-r07_03_06-DeviceService">
+
+      <wsdl:port binding="impl:SMSAPI/r07_03_06/DeviceServiceSoapBinding" name="SMSAPI/r07_03_06/DeviceService">
+
+         <wsdlsoap:address location="http://localhost:8081/smsapi/services/SMSAPI/r07_03_06/DeviceService"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>

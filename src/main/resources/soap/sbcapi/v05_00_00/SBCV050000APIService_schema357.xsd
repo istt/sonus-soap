@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="cac.h323trunkgroup.zone.addresscontext.v05_00_00.sbc.api.ems.sonus.com" xmlns:ns2="common.sbc.api.ems.sonus.com" xmlns:ns1="sonush323trunkgroup.types.v05_00_00.sbc.api.ems.sonus.com" xmlns:ns4="h323trunkgroup.zone.addresscontext.v05_00_00.sbc.api.ems.sonus.com" xmlns:ns3="zone.addresscontext.v05_00_00.sbc.api.ems.sonus.com" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:import namespace="sonush323trunkgroup.types.v05_00_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050000APIService_schema88.xsd"/>
+
+  <xs:import namespace="common.sbc.api.ems.sonus.com" schemaLocation="SBCV050000APIService_schema326.xsd"/>
+
+  <xs:import namespace="zone.addresscontext.v05_00_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050000APIService_schema1.xsd"/>
+
+  <xs:import namespace="h323trunkgroup.zone.addresscontext.v05_00_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050000APIService_schema269.xsd"/>
+
+  <xs:complexType name="ingress">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcEntity">
+        <xs:sequence>
+          <xs:element name="callRateMax" type="xs:string" default="unlimited" minOccurs="0"/>
+          <xs:element name="callRateMaxUnion" type="ns1:SonusH323TgMaxSustainedCallRateTypeUnion" minOccurs="0"/>
+          <xs:element name="callBurstMax" type="xs:string" default="unlimited" minOccurs="0"/>
+          <xs:element name="callBurstMaxUnion" type="ns1:SonusH323TgMaxCallBurstSizeTypeUnion" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="ingressKey">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcUnCreatableKey">
+        <xs:sequence>
+          <xs:element name="parentKey" type="ns4:cacKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="egress">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcEntity">
+        <xs:sequence>
+          <xs:element name="callLimit" type="xs:string" default="unlimited" minOccurs="0"/>
+          <xs:element name="callLimitUnion" type="ns1:SonusH323TgCallLimitTypeUnion" minOccurs="0"/>
+          <xs:element name="callRateMax" type="xs:string" default="unlimited" minOccurs="0"/>
+          <xs:element name="callRateMaxUnion" type="ns1:SonusH323TgMaxSustainedCallRateTypeUnion" minOccurs="0"/>
+          <xs:element name="callBurstMax" type="xs:string" default="unlimited" minOccurs="0"/>
+          <xs:element name="callBurstMaxUnion" type="ns1:SonusH323TgMaxCallBurstSizeTypeUnion" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="egressKey">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcUnCreatableKey">
+        <xs:sequence>
+          <xs:element name="parentKey" type="ns4:cacKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+</xs:schema>
+

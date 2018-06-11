@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="ingress.signalingprofile.signaling.profiles.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns2="sonussignalingprofile.types.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns1="sonustc.types.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns4="signaling.profiles.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns3="common.sbc.api.ems.sonus.com" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ns5="signalingprofile.signaling.profiles.v05_01_00.sbc.api.ems.sonus.com">
+
+  <xs:import namespace="sonustc.types.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema44.xsd"/>
+
+  <xs:import namespace="sonussignalingprofile.types.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema60.xsd"/>
+
+  <xs:import namespace="common.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema360.xsd"/>
+
+  <xs:import namespace="signaling.profiles.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema169.xsd"/>
+
+  <xs:import namespace="signalingprofile.signaling.profiles.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema166.xsd"/>
+
+  <xs:complexType name="cft">
+    <xs:complexContent>
+      <xs:extension base="ns3:sbcEntity">
+        <xs:sequence>
+          <xs:element name="sendCftInformation" type="ns1:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="cftInfoForEarlyBackwardMessage" type="ns2:sonusOffnetOnnet" default="onnet" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="cftKey">
+    <xs:complexContent>
+      <xs:extension base="ns3:sbcUnCreatableKey">
+        <xs:sequence>
+          <xs:element name="parentKey" type="ns5:ingressKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="ingressFlags">
+    <xs:complexContent>
+      <xs:extension base="ns3:sbcEntity">
+        <xs:sequence>
+          <xs:element name="disallowMissingCallingNumber" type="ns1:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="disallowTnsAndTrunkGroupOriginatingCarrierMatch" type="ns1:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="disallowWithoutBillingNumber" type="ns1:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="disallowWithoutOlip" type="ns1:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="discardRedirectionBackwardInformation" type="ns1:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="discardRedirectionCountForRelease" type="ns1:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="dontGenerateExitMessage" type="ns1:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="enableRedirectionCapabilty" type="ns1:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="feParamInShortForm" type="ns1:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="generateChargeMessage" type="ns1:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="generateCpgForCallForwardNotify" type="ns1:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="inboundTnsAllowed" type="ns1:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="normalizeCarrierCode" type="ns1:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="performCallingPartyScreening" type="ns1:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="performCpcScreening" type="ns1:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="propagateEgressChannelInfo" type="ns1:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="propagateFeParam" type="ns1:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="separateAlertFromProgressForSipInterworking" type="ns1:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="treatCic0000AsNoCic" type="ns1:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="useIsupRelOnSusTimer" type="ns1:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="validateGapTypePortedNumber" type="ns1:sonusEnableDisable" default="disable" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="ingressFlagsKey">
+    <xs:complexContent>
+      <xs:extension base="ns3:sbcUnCreatableKey">
+        <xs:sequence>
+          <xs:element name="parentKey" type="ns5:ingressKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+</xs:schema>
+

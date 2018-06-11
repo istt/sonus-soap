@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="sonusgen2eventlog.types.v05_00_00.sbc.api.ems.sonus.com" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:simpleType name="sonusEvLogTypeType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="system"/>
+      <xs:enumeration value="debug"/>
+      <xs:enumeration value="trace"/>
+      <xs:enumeration value="acct"/>
+      <xs:enumeration value="security"/>
+      <xs:enumeration value="audit"/>
+      <xs:enumeration value="packet"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusEvLogTypeAdminStateType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="disabled"/>
+      <xs:enumeration value="enabled"/>
+      <xs:enumeration value="rollfile"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusEvLogTypeSaveToType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="none"/>
+      <xs:enumeration value="disk"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusEvLogTypeRolloverTypeType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="repetitive"/>
+      <xs:enumeration value="nonrepetitive"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusEvLogTypeRolloverActionType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="start"/>
+      <xs:enumeration value="stop"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusEvLogTypeFileWriteModeType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="default"/>
+      <xs:enumeration value="optimize"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusEvLogTypeSyslogStateType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="disabled"/>
+      <xs:enumeration value="enabled"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="syslogRemoteProtocolType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="udp"/>
+      <xs:enumeration value="tcp"/>
+      <xs:enumeration value="relp"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusEvLogTypeStatusTypeType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="system"/>
+      <xs:enumeration value="debug"/>
+      <xs:enumeration value="trace"/>
+      <xs:enumeration value="acct"/>
+      <xs:enumeration value="security"/>
+      <xs:enumeration value="audit"/>
+      <xs:enumeration value="packet"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusEvLogTypeStatusLogDestinationType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="nfsServer"/>
+      <xs:enumeration value="localDisk"/>
+      <xs:enumeration value="streamServer"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="infoLevelLoggingState">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="false"/>
+      <xs:enumeration value="true"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusEvLogFilterTypeType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="system"/>
+      <xs:enumeration value="debug"/>
+      <xs:enumeration value="trace"/>
+      <xs:enumeration value="security"/>
+      <xs:enumeration value="audit"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="eventClassType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="sysmgmt"/>
+      <xs:enumeration value="callproc"/>
+      <xs:enumeration value="resmgmt"/>
+      <xs:enumeration value="directory"/>
+      <xs:enumeration value="netmgmt"/>
+      <xs:enumeration value="signaling"/>
+      <xs:enumeration value="routing"/>
+      <xs:enumeration value="trace"/>
+      <xs:enumeration value="security"/>
+      <xs:enumeration value="policy"/>
+      <xs:enumeration value="audit"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusEvLogFilterStateType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="off"/>
+      <xs:enumeration value="on"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusEvLogFilterStatusTypeType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="system"/>
+      <xs:enumeration value="debug"/>
+      <xs:enumeration value="trace"/>
+      <xs:enumeration value="security"/>
+      <xs:enumeration value="audit"/>
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>
+

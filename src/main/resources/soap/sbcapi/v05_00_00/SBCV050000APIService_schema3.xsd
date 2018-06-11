@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="xheaderprofile.signaling.profiles.v05_00_00.sbc.api.ems.sonus.com" xmlns:ns2="p_headerextensions.xheaderprofile.signaling.profiles.v05_00_00.sbc.api.ems.sonus.com" xmlns:ns1="sonustc.types.v05_00_00.sbc.api.ems.sonus.com" xmlns:ns4="profiles.v05_00_00.sbc.api.ems.sonus.com" xmlns:ns3="common.sbc.api.ems.sonus.com" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ns5="signaling.profiles.v05_00_00.sbc.api.ems.sonus.com" xmlns:ns6="x_headerextensions.xheaderprofile.signaling.profiles.v05_00_00.sbc.api.ems.sonus.com" xmlns:ns7="x_header_default_value.xheaderprofile.signaling.profiles.v05_00_00.sbc.api.ems.sonus.com">
+
+  <xs:import namespace="sonustc.types.v05_00_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050000APIService_schema42.xsd"/>
+
+  <xs:import namespace="p_headerextensions.xheaderprofile.signaling.profiles.v05_00_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050000APIService_schema216.xsd"/>
+
+  <xs:import namespace="common.sbc.api.ems.sonus.com" schemaLocation="SBCV050000APIService_schema326.xsd"/>
+
+  <xs:import namespace="profiles.v05_00_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050000APIService_schema197.xsd"/>
+
+  <xs:import namespace="signaling.profiles.v05_00_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050000APIService_schema158.xsd"/>
+
+  <xs:import namespace="x_headerextensions.xheaderprofile.signaling.profiles.v05_00_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050000APIService_schema4.xsd"/>
+
+  <xs:import namespace="x_header_default_value.xheaderprofile.signaling.profiles.v05_00_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050000APIService_schema5.xsd"/>
+
+  <xs:complexType name="P-HeaderExtensions">
+    <xs:complexContent>
+      <xs:extension base="ns3:sbcEntity">
+        <xs:sequence>
+          <xs:element name="P-Area-Info" type="ns2:P-Area-Info" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="P-HeaderExtensionsKey">
+    <xs:complexContent>
+      <xs:extension base="ns3:sbcUnCreatableKey">
+        <xs:sequence>
+          <xs:element name="parentKey" type="ns5:XHeaderProfileKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="X-HeaderExtensions">
+    <xs:complexContent>
+      <xs:extension base="ns3:sbcEntity">
+        <xs:sequence>
+          <xs:element name="X-ATP" type="ns6:X-ATP" minOccurs="0"/>
+          <xs:element name="X-AUT" type="ns6:X-AUT" minOccurs="0"/>
+          <xs:element name="X-BCI" type="ns6:X-BCI" minOccurs="0"/>
+          <xs:element name="X-CALLING-NUM" type="ns6:X-CALLING-NUM" minOccurs="0"/>
+          <xs:element name="X-CHGDelay" type="ns6:X-CHGDelay" minOccurs="0"/>
+          <xs:element name="X-CHGInfo" type="ns6:X-CHGInfo" minOccurs="0"/>
+          <xs:element name="X-CONTRACT-ADDR" type="ns6:X-CONTRACT-ADDR" minOccurs="0"/>
+          <xs:element name="X-Carrier-Info" type="ns6:X-Carrier-Info" minOccurs="0"/>
+          <xs:element name="X-FCI" type="ns6:X-FCI" minOccurs="0"/>
+          <xs:element name="X-FWDORIG-NUM" type="ns6:X-FWDORIG-NUM" minOccurs="0"/>
+          <xs:element name="X-GENERIC-NUM" type="ns6:X-GENERIC-NUM" minOccurs="0"/>
+          <xs:element name="X-ISUPEvent" type="ns6:X-ISUPEvent" minOccurs="0"/>
+          <xs:element name="X-ISUPMtype" type="ns6:X-ISUPMtype" minOccurs="0"/>
+          <xs:element name="X-NOCI" type="ns6:X-NOCI" minOccurs="0"/>
+          <xs:element name="X-OBCI" type="ns6:X-OBCI" minOccurs="0"/>
+          <xs:element name="X-ORIGCLD-NUM" type="ns6:X-ORIGCLD-NUM" minOccurs="0"/>
+          <xs:element name="X-TMR" type="ns6:X-TMR" minOccurs="0"/>
+          <xs:element name="X-USI" type="ns6:X-USI" minOccurs="0"/>
+          <xs:element name="X-EMG" type="ns6:X-EMG" minOccurs="0"/>
+          <xs:element name="X-REDCNT" type="ns6:X-REDCNT" minOccurs="0"/>
+          <xs:element name="X-REDBWDINF" type="ns6:X-REDBWDINF" minOccurs="0"/>
+          <xs:element name="X-REDFWDINF" type="ns6:X-REDFWDINF" minOccurs="0"/>
+          <xs:element name="X-REDCAP" type="ns6:X-REDCAP" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="X-HeaderExtensionsKey">
+    <xs:complexContent>
+      <xs:extension base="ns3:sbcUnCreatableKey">
+        <xs:sequence>
+          <xs:element name="parentKey" type="ns5:XHeaderProfileKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="X-Header-default-value">
+    <xs:complexContent>
+      <xs:extension base="ns3:sbcEntity">
+        <xs:sequence>
+          <xs:element name="X-IsupMtype-ACM" type="ns7:X-IsupMtype-ACM" minOccurs="0"/>
+          <xs:element name="X-IsupMtype-ANM" type="ns7:X-IsupMtype-ANM" minOccurs="0"/>
+          <xs:element name="X-IsupMtype-IAM" type="ns7:X-IsupMtype-IAM" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="X-Header-default-valueKey">
+    <xs:complexContent>
+      <xs:extension base="ns3:sbcUnCreatableKey">
+        <xs:sequence>
+          <xs:element name="parentKey" type="ns5:XHeaderProfileKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="X-HeaderFlags">
+    <xs:complexContent>
+      <xs:extension base="ns3:sbcEntity">
+        <xs:sequence>
+          <xs:element name="sendSuspend" type="ns1:sonusAdminState" default="disabled" minOccurs="0"/>
+          <xs:element name="recvSuspend" type="ns1:sonusAdminState" default="disabled" minOccurs="0"/>
+          <xs:element name="sendResume" type="ns1:sonusAdminState" default="disabled" minOccurs="0"/>
+          <xs:element name="recvResume" type="ns1:sonusAdminState" default="disabled" minOccurs="0"/>
+          <xs:element name="sendCfn" type="ns1:sonusAdminState" default="disabled" minOccurs="0"/>
+          <xs:element name="recvCfn" type="ns1:sonusAdminState" default="disabled" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="X-HeaderFlagsKey">
+    <xs:complexContent>
+      <xs:extension base="ns3:sbcUnCreatableKey">
+        <xs:sequence>
+          <xs:element name="parentKey" type="ns5:XHeaderProfileKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+</xs:schema>
+

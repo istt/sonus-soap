@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="uriparametermanipulation.subrule.dmpmrule.digitparameterhandling.profiles.v05_00_00.sbc.api.ems.sonus.com" xmlns:ns2="common.sbc.api.ems.sonus.com" xmlns:ns1="sonusdmpmrule.types.v05_00_00.sbc.api.ems.sonus.com" xmlns:ns4="subrule.dmpmrule.digitparameterhandling.profiles.v05_00_00.sbc.api.ems.sonus.com" xmlns:ns3="dmpmrule.digitparameterhandling.profiles.v05_00_00.sbc.api.ems.sonus.com" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ns5="userinfomanipulation.uriparametermanipulation.subrule.dmpmrule.digitparameterhandling.profiles.v05_00_00.sbc.api.ems.sonus.com" xmlns:ns6="hostportmanipulation.uriparametermanipulation.subrule.dmpmrule.digitparameterhandling.profiles.v05_00_00.sbc.api.ems.sonus.com">
+
+  <xs:import namespace="sonusdmpmrule.types.v05_00_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050000APIService_schema116.xsd"/>
+
+  <xs:import namespace="common.sbc.api.ems.sonus.com" schemaLocation="SBCV050000APIService_schema326.xsd"/>
+
+  <xs:import namespace="dmpmrule.digitparameterhandling.profiles.v05_00_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050000APIService_schema301.xsd"/>
+
+  <xs:import namespace="subrule.dmpmrule.digitparameterhandling.profiles.v05_00_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050000APIService_schema33.xsd"/>
+
+  <xs:import namespace="userinfomanipulation.uriparametermanipulation.subrule.dmpmrule.digitparameterhandling.profiles.v05_00_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050000APIService_schema8.xsd"/>
+
+  <xs:import namespace="hostportmanipulation.uriparametermanipulation.subrule.dmpmrule.digitparameterhandling.profiles.v05_00_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050000APIService_schema266.xsd"/>
+
+  <xs:complexType name="uriParameterManipulation">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcEntity">
+        <xs:sequence>
+          <xs:element name="userParameter" type="ns1:sonusUriUserParamRange" default="none" minOccurs="0"/>
+          <xs:element name="scheme" type="ns1:sonusUriSchemeRange" default="none" minOccurs="0"/>
+          <xs:element name="username" type="ns1:sonusUriFlagRange" default="none" minOccurs="0"/>
+          <xs:element name="presentation" type="ns1:sonusPresentationRange" default="none" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="uriParameterManipulationKey">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcUnCreatableKey">
+        <xs:sequence>
+          <xs:element name="parentKey" type="ns4:uriParameterManipulationKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="userInfoManipulation">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcEntity">
+        <xs:sequence>
+          <xs:element name="startCharacterPosition" type="xs:unsignedInt" default="0" minOccurs="0"/>
+          <xs:element name="numberOfCharacters" type="xs:unsignedInt" default="0" minOccurs="0"/>
+          <xs:element name="userinfoLength" type="xs:string" default="noInput" minOccurs="0"/>
+          <xs:element name="userinfoLengthUnion" type="ns1:SonusUserInfoLengthRangeUnion" minOccurs="0"/>
+          <xs:element name="replacement" type="ns5:replacement" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="userInfoManipulationKey">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcUnCreatableKey">
+        <xs:sequence>
+          <xs:element name="parentKey" type="ns4:uriParameterManipulationKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="hostPortManipulation">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcEntity">
+        <xs:sequence>
+          <xs:element name="portNumber" type="xs:string" default="noChange" minOccurs="0"/>
+          <xs:element name="portNumberUnion" type="ns1:SonusPortNumberRangeNoChangeUnion" minOccurs="0"/>
+          <xs:element name="startCharacterPosition" type="xs:unsignedInt" default="0" minOccurs="0"/>
+          <xs:element name="numberOfCharacters" type="xs:unsignedInt" default="0" minOccurs="0"/>
+          <xs:element name="replacement" type="ns6:replacement" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="hostPortManipulationKey">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcUnCreatableKey">
+        <xs:sequence>
+          <xs:element name="parentKey" type="ns4:uriParameterManipulationKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+</xs:schema>
+

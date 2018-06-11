@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="media.siptrunkgroup.zone.addresscontext.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns2="common.sbc.api.ems.sonus.com" xmlns:ns1="sonussiptrunkgroup.types.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns4="siptrunkgroup.zone.addresscontext.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns3="zone.addresscontext.v05_01_00.sbc.api.ems.sonus.com" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ns5="sonustc.types.v05_01_00.sbc.api.ems.sonus.com">
+
+  <xs:import namespace="sonussiptrunkgroup.types.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema48.xsd"/>
+
+  <xs:import namespace="common.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema360.xsd"/>
+
+  <xs:import namespace="zone.addresscontext.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema1.xsd"/>
+
+  <xs:import namespace="siptrunkgroup.zone.addresscontext.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema146.xsd"/>
+
+  <xs:import namespace="sonustc.types.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema44.xsd"/>
+
+  <xs:complexType name="anat">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcEntity">
+        <xs:sequence>
+          <xs:element name="offerPreference" type="ns1:sonusOfferBothEgVersionPrec" default="matchSigAddrType" minOccurs="0"/>
+          <xs:element name="answerPreference" type="ns1:sonusOfferBothInVersionPrec" default="matchSigAddrType" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="anatKey">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcUnCreatableKey">
+        <xs:sequence>
+          <xs:element name="parentKey" type="ns4:mediaKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="ice">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcEntity">
+        <xs:sequence>
+          <xs:element name="offerPreference" type="ns1:sonusOfferBothEgVersionPrec" default="matchSigAddrType" minOccurs="0"/>
+          <xs:element name="answerPreference" type="ns1:sonusOfferBothInVersionPrec" default="matchSigAddrType" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="iceKey">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcUnCreatableKey">
+        <xs:sequence>
+          <xs:element name="parentKey" type="ns4:mediaKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="earlyMedia">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcEntity">
+        <xs:sequence>
+          <xs:element name="method" type="ns1:sonusEarlyMediaMethodType" default="sessionAnswer" minOccurs="0"/>
+          <xs:element name="egressSupport" type="ns5:sonusAdminState" default="enabled" minOccurs="0"/>
+          <xs:element name="defaultGatingMethod" type="ns1:sonusPEarlyMediaGatingType" default="sendrecv" minOccurs="0"/>
+          <xs:element name="rtpServerTableName" type="xs:string" minOccurs="0"/>
+          <xs:element name="forkingBehaviour" type="ns1:sonusEarlyDialogMediaForkingBehaviour" default="lastProvResponse" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="earlyMediaKey">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcUnCreatableKey">
+        <xs:sequence>
+          <xs:element name="parentKey" type="ns4:mediaKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="pcrf">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcEntity">
+        <xs:sequence>
+          <xs:element name="pcrfRealm" type="xs:string" minOccurs="0"/>
+          <xs:element name="pcrfCommitment" type="ns1:sonusPcrfCommitmentType" default="none" minOccurs="0"/>
+          <xs:element name="cushionPacketSize" type="ns5:sonusAdminState" default="disabled" minOccurs="0"/>
+          <xs:element name="cushionNullSdp" type="ns5:sonusAdminState" default="disabled" minOccurs="0"/>
+          <xs:element name="signallingPath" type="ns5:sonusAdminState" default="disabled" minOccurs="0"/>
+          <xs:element name="fetchLocationInfo" type="ns1:sonusFetchLocationInfoType" default="none" minOccurs="0"/>
+          <xs:element name="provSignalingFlow" type="ns5:sonusAdminState" default="disabled" minOccurs="0"/>
+          <xs:element name="terminateOnNwFailure" type="ns5:sonusAdminState" default="disabled" minOccurs="0"/>
+          <xs:element name="pcrfInteractionMode" type="ns1:sonusPcrfInteractionModeType" default="synchronous" minOccurs="0"/>
+          <xs:element name="pcrfSendAarOnlyForSessionAnswer" type="ns5:sonusAdminState" default="disabled" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="pcrfKey">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcUnCreatableKey">
+        <xs:sequence>
+          <xs:element name="parentKey" type="ns4:mediaKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="mediaPortRange">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcEntity">
+        <xs:sequence>
+          <xs:element name="baseUdpPort" type="xs:string" default="none" minOccurs="0"/>
+          <xs:element name="baseUdpPortUnion" type="ns1:SonusUdpPortNumTypeUnion" minOccurs="0"/>
+          <xs:element name="maxUdpPort" type="xs:string" default="none" minOccurs="0"/>
+          <xs:element name="maxUdpPortUnion" type="ns1:SonusUdpPortNumTypeUnion" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="mediaPortRangeKey">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcUnCreatableKey">
+        <xs:sequence>
+          <xs:element name="parentKey" type="ns4:mediaKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="tcpPortRange">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcEntity">
+        <xs:sequence>
+          <xs:element name="baseServerPort" type="xs:string" default="none" minOccurs="0"/>
+          <xs:element name="baseServerPortUnion" type="ns1:SonusTcpPortNumTypeUnion" minOccurs="0"/>
+          <xs:element name="maxServerPort" type="xs:string" default="none" minOccurs="0"/>
+          <xs:element name="maxServerPortUnion" type="ns1:SonusTcpPortNumTypeUnion" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="tcpPortRangeKey">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcUnCreatableKey">
+        <xs:sequence>
+          <xs:element name="parentKey" type="ns4:mediaKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+</xs:schema>
+

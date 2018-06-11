@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="common.sbc.api.ems.sonus.com" xmlns:tns="common.sbc.api.ems.sonus.com" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:complexType name="sbcResource" abstract="true">
+    <xs:complexContent>
+      <xs:extension base="tns:sbcEntity">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="sbcEntity" abstract="true">
+    <xs:complexContent>
+      <xs:extension base="tns:sbcPayload">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="sbcPayload" abstract="true">
+    <xs:sequence/>
+  </xs:complexType>
+
+  <xs:complexType name="sbcUnCreatableKey" abstract="true">
+    <xs:complexContent>
+      <xs:extension base="tns:sbcKey">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="sbcKey" abstract="true">
+    <xs:sequence/>
+  </xs:complexType>
+
+  <xs:complexType name="sbcOperationKey" abstract="true">
+    <xs:sequence/>
+  </xs:complexType>
+
+  <xs:complexType name="sbcOperationOutput" abstract="true">
+    <xs:complexContent>
+      <xs:extension base="tns:sbcPayload">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="sbcOperationInput" abstract="true">
+    <xs:complexContent>
+      <xs:extension base="tns:sbcPayload">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="sbcReadOnlyKey" abstract="true">
+    <xs:complexContent>
+      <xs:extension base="tns:sbcUnCreatableKey">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="sbcListWrapper" abstract="true">
+    <xs:complexContent>
+      <xs:extension base="tns:sbcPayload">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="sbcFilter">
+    <xs:sequence>
+      <xs:element name="shallow" type="xs:boolean" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="sbcSelector">
+    <xs:complexContent>
+      <xs:extension base="tns:sbcFilter">
+        <xs:sequence>
+          <xs:element name="nodeNames" type="xs:string" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="subSelectors" type="tns:sbcSubSelector" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="sbcSubSelector">
+    <xs:sequence>
+      <xs:element name="entity" type="xs:string" minOccurs="0"/>
+      <xs:element name="selector" type="tns:sbcSelector" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="sbcSubSetFilter">
+    <xs:complexContent>
+      <xs:extension base="tns:sbcFilter">
+        <xs:sequence>
+          <xs:element name="limit" type="xs:int" minOccurs="0"/>
+          <xs:element name="offset" type="xs:int" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+</xs:schema>
+

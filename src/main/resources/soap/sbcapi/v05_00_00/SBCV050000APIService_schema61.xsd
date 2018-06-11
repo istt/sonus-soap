@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="sonusprefixprofile.types.v05_00_00.sbc.api.ems.sonus.com" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:simpleType name="sonusDigitType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="unknown"/>
+      <xs:enumeration value="subscriber"/>
+      <xs:enumeration value="national"/>
+      <xs:enumeration value="international"/>
+      <xs:enumeration value="subscriberOperator"/>
+      <xs:enumeration value="nationalOperator"/>
+      <xs:enumeration value="internationalOperator"/>
+      <xs:enumeration value="verticalServiceCode"/>
+      <xs:enumeration value="easilyIdentifiableNumber"/>
+      <xs:enumeration value="tollFree"/>
+      <xs:enumeration value="900PremiumToll"/>
+      <xs:enumeration value="950CarrierAccess"/>
+      <xs:enumeration value="localOperator"/>
+      <xs:enumeration value="longDistanceOperator"/>
+      <xs:enumeration value="emergency"/>
+      <xs:enumeration value="directoryAssistance"/>
+      <xs:enumeration value="serviceAccessCode"/>
+      <xs:enumeration value="internetOffloadPremium"/>
+      <xs:enumeration value="internetOffloadStandard"/>
+      <xs:enumeration value="internetOffloadEconomy"/>
+      <xs:enumeration value="internetOffloadAnonymous"/>
+      <xs:enumeration value="ipVpn"/>
+      <xs:enumeration value="test"/>
+      <xs:enumeration value="internetReception"/>
+      <xs:enumeration value="transit"/>
+      <xs:enumeration value="otherCarrierChosen"/>
+      <xs:enumeration value="carrierAccess"/>
+      <xs:enumeration value="noDigits"/>
+      <xs:enumeration value="private"/>
+      <xs:enumeration value="governmentEmergency"/>
+      <xs:enumeration value="userName"/>
+      <xs:enumeration value="ieps"/>
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>
+

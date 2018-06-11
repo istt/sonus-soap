@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="dspadmin.traps.oam.v04_02_00.sbc.api.ems.sonus.com" xmlns:ns2="common.sbc.api.ems.sonus.com" xmlns:ns1="callfailuretrap.dspadmin.traps.oam.v04_02_00.sbc.api.ems.sonus.com" xmlns:ns4="traps.oam.v04_02_00.sbc.api.ems.sonus.com" xmlns:ns3="oam.v04_02_00.sbc.api.ems.sonus.com" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:import namespace="callfailuretrap.dspadmin.traps.oam.v04_02_00.sbc.api.ems.sonus.com" schemaLocation="SBCV040200APIService_schema352.xsd"/>
+
+  <xs:import namespace="common.sbc.api.ems.sonus.com" schemaLocation="SBCV040200APIService_schema325.xsd"/>
+
+  <xs:import namespace="oam.v04_02_00.sbc.api.ems.sonus.com" schemaLocation="SBCV040200APIService_schema220.xsd"/>
+
+  <xs:import namespace="traps.oam.v04_02_00.sbc.api.ems.sonus.com" schemaLocation="SBCV040200APIService_schema15.xsd"/>
+
+  <xs:complexType name="callFailureTrap">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcEntity">
+        <xs:sequence>
+          <xs:element name="lackdsp" type="ns1:lackdsp" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="callFailureTrapKey">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcUnCreatableKey">
+        <xs:sequence>
+          <xs:element name="parentKey" type="ns4:dspAdminKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="dspAvailabilityTrap">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcEntity">
+        <xs:sequence>
+          <xs:element name="g729Threshold" type="xs:unsignedInt" default="0" minOccurs="0"/>
+          <xs:element name="g726Threshold" type="xs:unsignedInt" default="0" minOccurs="0"/>
+          <xs:element name="g711PacketThreshold" type="xs:unsignedInt" default="0" minOccurs="0"/>
+          <xs:element name="allThreshold" type="xs:unsignedInt" default="0" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="dspAvailabilityTrapKey">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcUnCreatableKey">
+        <xs:sequence>
+          <xs:element name="parentKey" type="ns4:dspAdminKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+</xs:schema>
+

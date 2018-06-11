@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="carriercode.parametercriteria.dmpmcriteria.digitparameterhandling.profiles.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns2="carriercodedigitmatch.carriercode.parametercriteria.dmpmcriteria.digitparameterhandling.profiles.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns1="sonusdmpmcriteria.types.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns4="dmpmcriteria.digitparameterhandling.profiles.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns3="common.sbc.api.ems.sonus.com" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ns5="parametercriteria.dmpmcriteria.digitparameterhandling.profiles.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns6="sonusorcatc.types.v05_01_00.sbc.api.ems.sonus.com">
+
+  <xs:import namespace="sonusdmpmcriteria.types.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema124.xsd"/>
+
+  <xs:import namespace="carriercodedigitmatch.carriercode.parametercriteria.dmpmcriteria.digitparameterhandling.profiles.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema375.xsd"/>
+
+  <xs:import namespace="common.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema360.xsd"/>
+
+  <xs:import namespace="dmpmcriteria.digitparameterhandling.profiles.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema333.xsd"/>
+
+  <xs:import namespace="parametercriteria.dmpmcriteria.digitparameterhandling.profiles.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema231.xsd"/>
+
+  <xs:import namespace="sonusorcatc.types.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema70.xsd"/>
+
+  <xs:complexType name="carrierCodeDigitMatch">
+    <xs:complexContent>
+      <xs:extension base="ns3:sbcEntity">
+        <xs:sequence>
+          <xs:element name="operation" type="ns1:sonusCarrierCodeOperationRange" default="ignore" minOccurs="0"/>
+          <xs:element name="value" type="ns2:value" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="carrierCodeDigitMatchKey">
+    <xs:complexContent>
+      <xs:extension base="ns3:sbcUnCreatableKey">
+        <xs:sequence>
+          <xs:element name="parentKey" type="ns5:carrierCodeKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="networkIdPlan">
+    <xs:complexContent>
+      <xs:extension base="ns3:sbcEntity">
+        <xs:sequence>
+          <xs:element name="value" type="ns6:sonusNetworkIdPlanRange" default="none" minOccurs="0"/>
+          <xs:element name="operation" type="ns1:sonusNetworkIdPlanOperationRange" default="ignore" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="networkIdPlanKey">
+    <xs:complexContent>
+      <xs:extension base="ns3:sbcUnCreatableKey">
+        <xs:sequence>
+          <xs:element name="parentKey" type="ns5:carrierCodeKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="networkIdType">
+    <xs:complexContent>
+      <xs:extension base="ns3:sbcEntity">
+        <xs:sequence>
+          <xs:element name="value" type="ns6:sonusNetworkIdTypeRange" default="none" minOccurs="0"/>
+          <xs:element name="operation" type="ns1:sonusNetworkIdTypeOperationRange" default="ignore" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="networkIdTypeKey">
+    <xs:complexContent>
+      <xs:extension base="ns3:sbcUnCreatableKey">
+        <xs:sequence>
+          <xs:element name="parentKey" type="ns5:carrierCodeKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="circuitCode">
+    <xs:complexContent>
+      <xs:extension base="ns3:sbcEntity">
+        <xs:sequence>
+          <xs:element name="value" type="ns6:sonusCircuitCodeRange" default="none" minOccurs="0"/>
+          <xs:element name="operation" type="ns1:sonusCircuitCodeOperationRange" default="ignore" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="circuitCodeKey">
+    <xs:complexContent>
+      <xs:extension base="ns3:sbcUnCreatableKey">
+        <xs:sequence>
+          <xs:element name="parentKey" type="ns5:carrierCodeKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="presubscriptionIndicator">
+    <xs:complexContent>
+      <xs:extension base="ns3:sbcEntity">
+        <xs:sequence>
+          <xs:element name="value" type="ns1:sonusYesNoRange" default="no" minOccurs="0"/>
+          <xs:element name="operation" type="ns1:sonusPresubscriptionIndicatorOperationRange" default="ignore" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="presubscriptionIndicatorKey">
+    <xs:complexContent>
+      <xs:extension base="ns3:sbcUnCreatableKey">
+        <xs:sequence>
+          <xs:element name="parentKey" type="ns5:carrierCodeKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+</xs:schema>
+

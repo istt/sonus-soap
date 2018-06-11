@@ -1,0 +1,291 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="sipcacprofile.profiles.v05_00_00.sbc.api.ems.sonus.com" xmlns:ns2="common.sbc.api.ems.sonus.com" xmlns:ns1="sonussipcacprofile.types.v05_00_00.sbc.api.ems.sonus.com" xmlns:ns4="profiles.v05_00_00.sbc.api.ems.sonus.com" xmlns:ns3="v05_00_00.sbc.api.ems.sonus.com" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ns5="qoe.sipcacprofile.profiles.v05_00_00.sbc.api.ems.sonus.com">
+
+  <xs:import namespace="sonussipcacprofile.types.v05_00_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050000APIService_schema55.xsd"/>
+
+  <xs:import namespace="common.sbc.api.ems.sonus.com" schemaLocation="SBCV050000APIService_schema326.xsd"/>
+
+  <xs:import namespace="v05_00_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050000APIService_schema7.xsd"/>
+
+  <xs:import namespace="profiles.v05_00_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050000APIService_schema197.xsd"/>
+
+  <xs:import namespace="qoe.sipcacprofile.profiles.v05_00_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050000APIService_schema195.xsd"/>
+
+  <xs:complexType name="aggregateMessage">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcEntity">
+        <xs:sequence>
+          <xs:element name="ingressBurstSize" type="xs:unsignedInt" default="10" minOccurs="0"/>
+          <xs:element name="ingressRate" type="xs:string" default="unlimited" minOccurs="0"/>
+          <xs:element name="ingressRateUnion" type="ns1:SonusSipCacAggregateMessageIngressRateTypeUnion" minOccurs="0"/>
+          <xs:element name="ingressRatePeriod" type="xs:unsignedByte" default="1" minOccurs="0"/>
+          <xs:element name="egressBurstSize" type="xs:unsignedInt" default="10" minOccurs="0"/>
+          <xs:element name="egressRate" type="xs:string" default="unlimited" minOccurs="0"/>
+          <xs:element name="egressRateUnion" type="ns1:SonusSipCacAggregateMessageEgressRateTypeUnion" minOccurs="0"/>
+          <xs:element name="egressRatePeriod" type="xs:unsignedByte" default="1" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="aggregateMessageKey">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcUnCreatableKey">
+        <xs:sequence>
+          <xs:element name="parentKey" type="ns4:sipCacProfileKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="dblAggregateRej">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcEntity">
+        <xs:sequence>
+          <xs:element name="ingressBurstSize" type="xs:unsignedInt" default="1" minOccurs="0"/>
+          <xs:element name="ingressRate" type="xs:string" default="unlimited" minOccurs="0"/>
+          <xs:element name="ingressRateUnion" type="ns1:SonusSipCacDblAggregateRejectIngressRateTypeUnion" minOccurs="0"/>
+          <xs:element name="ingressRatePeriod" type="xs:unsignedShort" default="1" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="dblAggregateRejKey">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcUnCreatableKey">
+        <xs:sequence>
+          <xs:element name="parentKey" type="ns4:sipCacProfileKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="message">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcEntity">
+        <xs:sequence>
+          <xs:element name="ingressAggregatePreference" type="xs:unsignedByte" default="1" minOccurs="0"/>
+          <xs:element name="ingressBurstSize" type="xs:unsignedInt" default="1" minOccurs="0"/>
+          <xs:element name="ingressRate" type="xs:string" default="unlimited" minOccurs="0"/>
+          <xs:element name="ingressRateUnion" type="ns1:SonusSipCacMessageIngressRateTypeUnion" minOccurs="0"/>
+          <xs:element name="ingressRatePeriod" type="xs:unsignedByte" default="1" minOccurs="0"/>
+          <xs:element name="egressAggregatePreference" type="xs:unsignedByte" default="1" minOccurs="0"/>
+          <xs:element name="egressBurstSize" type="xs:unsignedInt" default="1" minOccurs="0"/>
+          <xs:element name="egressRate" type="xs:string" default="unlimited" minOccurs="0"/>
+          <xs:element name="egressRateUnion" type="ns1:SonusSipCacMessageEgressRateTypeUnion" minOccurs="0"/>
+          <xs:element name="egressRatePeriod" type="xs:unsignedByte" default="1" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="messageKey">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcUnCreatableKey">
+        <xs:sequence>
+          <xs:element name="parentKey" type="ns4:sipCacProfileKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="notify">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcEntity">
+        <xs:sequence>
+          <xs:element name="ingressAggregatePreference" type="xs:unsignedByte" default="1" minOccurs="0"/>
+          <xs:element name="ingressBurstSize" type="xs:unsignedInt" default="1" minOccurs="0"/>
+          <xs:element name="ingressRate" type="xs:string" default="unlimited" minOccurs="0"/>
+          <xs:element name="ingressRateUnion" type="ns1:SonusSipCacNotifyIngressRateTypeUnion" minOccurs="0"/>
+          <xs:element name="ingressRatePeriod" type="xs:unsignedByte" default="1" minOccurs="0"/>
+          <xs:element name="egressAggregatePreference" type="xs:unsignedByte" default="1" minOccurs="0"/>
+          <xs:element name="egressBurstSize" type="xs:unsignedInt" default="1" minOccurs="0"/>
+          <xs:element name="egressRate" type="xs:string" default="unlimited" minOccurs="0"/>
+          <xs:element name="egressRateUnion" type="ns1:SonusSipCacNotifyEgressRateTypeUnion" minOccurs="0"/>
+          <xs:element name="egressRatePeriod" type="xs:unsignedByte" default="1" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="notifyKey">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcUnCreatableKey">
+        <xs:sequence>
+          <xs:element name="parentKey" type="ns4:sipCacProfileKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="options">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcEntity">
+        <xs:sequence>
+          <xs:element name="ingressAggregatePreference" type="xs:unsignedByte" default="1" minOccurs="0"/>
+          <xs:element name="ingressBurstSize" type="xs:unsignedInt" default="1" minOccurs="0"/>
+          <xs:element name="ingressRate" type="xs:string" default="unlimited" minOccurs="0"/>
+          <xs:element name="ingressRateUnion" type="ns1:SonusSipCacOptionsIngressRateTypeUnion" minOccurs="0"/>
+          <xs:element name="ingressRatePeriod" type="xs:unsignedByte" default="1" minOccurs="0"/>
+          <xs:element name="egressAggregatePreference" type="xs:unsignedByte" default="1" minOccurs="0"/>
+          <xs:element name="egressBurstSize" type="xs:unsignedInt" default="1" minOccurs="0"/>
+          <xs:element name="egressRate" type="xs:string" default="unlimited" minOccurs="0"/>
+          <xs:element name="egressRateUnion" type="ns1:SonusSipCacOptionsEgressRateTypeUnion" minOccurs="0"/>
+          <xs:element name="egressRatePeriod" type="xs:unsignedByte" default="1" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="optionsKey">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcUnCreatableKey">
+        <xs:sequence>
+          <xs:element name="parentKey" type="ns4:sipCacProfileKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="otherRequests">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcEntity">
+        <xs:sequence>
+          <xs:element name="ingressAggregatePreference" type="xs:unsignedByte" default="1" minOccurs="0"/>
+          <xs:element name="ingressBurstSize" type="xs:unsignedInt" default="5" minOccurs="0"/>
+          <xs:element name="ingressRate" type="xs:string" default="unlimited" minOccurs="0"/>
+          <xs:element name="ingressRateUnion" type="ns1:SonusSipCacOtherRequestsIngressRateTypeUnion" minOccurs="0"/>
+          <xs:element name="ingressRatePeriod" type="xs:unsignedByte" default="1" minOccurs="0"/>
+          <xs:element name="egressAggregatePreference" type="xs:unsignedByte" default="1" minOccurs="0"/>
+          <xs:element name="egressBurstSize" type="xs:unsignedInt" default="5" minOccurs="0"/>
+          <xs:element name="egressRate" type="xs:string" default="unlimited" minOccurs="0"/>
+          <xs:element name="egressRateUnion" type="ns1:SonusSipCacOtherRequestsEgressRateTypeUnion" minOccurs="0"/>
+          <xs:element name="egressRatePeriod" type="xs:unsignedByte" default="1" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="otherRequestsKey">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcUnCreatableKey">
+        <xs:sequence>
+          <xs:element name="parentKey" type="ns4:sipCacProfileKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="refer">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcEntity">
+        <xs:sequence>
+          <xs:element name="ingressAggregatePreference" type="xs:unsignedByte" default="1" minOccurs="0"/>
+          <xs:element name="ingressBurstSize" type="xs:unsignedInt" default="1" minOccurs="0"/>
+          <xs:element name="ingressRate" type="xs:string" default="unlimited" minOccurs="0"/>
+          <xs:element name="ingressRateUnion" type="ns1:SonusSipCacReferIngressRateTypeUnion" minOccurs="0"/>
+          <xs:element name="ingressRatePeriod" type="xs:unsignedByte" default="1" minOccurs="0"/>
+          <xs:element name="egressAggregatePreference" type="xs:unsignedByte" default="1" minOccurs="0"/>
+          <xs:element name="egressBurstSize" type="xs:unsignedInt" default="1" minOccurs="0"/>
+          <xs:element name="egressRate" type="xs:string" default="unlimited" minOccurs="0"/>
+          <xs:element name="egressRateUnion" type="ns1:SonusSipCacReferEgressRateTypeUnion" minOccurs="0"/>
+          <xs:element name="egressRatePeriod" type="xs:unsignedByte" default="1" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="referKey">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcUnCreatableKey">
+        <xs:sequence>
+          <xs:element name="parentKey" type="ns4:sipCacProfileKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="response">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcEntity">
+        <xs:sequence>
+          <xs:element name="ingressAggregatePreference" type="xs:unsignedByte" default="1" minOccurs="0"/>
+          <xs:element name="ingressBurstSize" type="xs:unsignedInt" default="5" minOccurs="0"/>
+          <xs:element name="ingressRate" type="xs:string" default="unlimited" minOccurs="0"/>
+          <xs:element name="ingressRateUnion" type="ns1:SonusSipCacResponseIngressRateTypeUnion" minOccurs="0"/>
+          <xs:element name="ingressRatePeriod" type="xs:unsignedByte" default="1" minOccurs="0"/>
+          <xs:element name="egressAggregatePreference" type="xs:unsignedByte" default="1" minOccurs="0"/>
+          <xs:element name="egressBurstSize" type="xs:unsignedInt" default="5" minOccurs="0"/>
+          <xs:element name="egressRate" type="xs:string" default="unlimited" minOccurs="0"/>
+          <xs:element name="egressRateUnion" type="ns1:SonusSipCacResponseEgressRateTypeUnion" minOccurs="0"/>
+          <xs:element name="egressRatePeriod" type="xs:unsignedByte" default="1" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="responseKey">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcUnCreatableKey">
+        <xs:sequence>
+          <xs:element name="parentKey" type="ns4:sipCacProfileKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="subscribe">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcEntity">
+        <xs:sequence>
+          <xs:element name="ingressAggregatePreference" type="xs:unsignedByte" default="1" minOccurs="0"/>
+          <xs:element name="ingressBurstSize" type="xs:unsignedInt" default="1" minOccurs="0"/>
+          <xs:element name="ingressRate" type="xs:string" default="unlimited" minOccurs="0"/>
+          <xs:element name="ingressRateUnion" type="ns1:SonusSipCacSubscribeIngressRateTypeUnion" minOccurs="0"/>
+          <xs:element name="ingressRatePeriod" type="xs:unsignedByte" default="1" minOccurs="0"/>
+          <xs:element name="egressAggregatePreference" type="xs:unsignedByte" default="1" minOccurs="0"/>
+          <xs:element name="egressBurstSize" type="xs:unsignedInt" default="1" minOccurs="0"/>
+          <xs:element name="egressRate" type="xs:string" default="unlimited" minOccurs="0"/>
+          <xs:element name="egressRateUnion" type="ns1:SonusSipCacSubscribeEgressRateTypeUnion" minOccurs="0"/>
+          <xs:element name="egressRatePeriod" type="xs:unsignedByte" default="1" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="subscribeKey">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcUnCreatableKey">
+        <xs:sequence>
+          <xs:element name="parentKey" type="ns4:sipCacProfileKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="qoe">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcEntity">
+        <xs:sequence>
+          <xs:element name="minTimeToProceed" type="xs:unsignedShort" default="60" minOccurs="0"/>
+          <xs:element name="asr" type="ns5:asr" minOccurs="0"/>
+          <xs:element name="pgrd" type="ns5:pgrd" minOccurs="0"/>
+          <xs:element name="scru" type="ns5:scru" minOccurs="0"/>
+          <xs:element name="clu" type="ns5:clu" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="qoeKey">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcUnCreatableKey">
+        <xs:sequence>
+          <xs:element name="parentKey" type="ns4:sipCacProfileKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+</xs:schema>
+

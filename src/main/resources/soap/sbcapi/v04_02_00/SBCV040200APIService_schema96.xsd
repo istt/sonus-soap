@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="sonusgen2security.types.v04_02_00.sbc.api.ems.sonus.com" xmlns:tns="sonusgen2security.types.v04_02_00.sbc.api.ems.sonus.com" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:complexType name="SonusPkiCertReCheckRateTypeUnion">
+    <xs:sequence>
+      <xs:element name="sonusPkiCertRatesDisableTypeEnum" type="tns:sonusPkiCertRatesDisableTypeEnum" minOccurs="0"/>
+      <xs:element name="sonusPkiCertReCheckRateTypeVal" type="xs:unsignedShort" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="SonusPkiDaysBeforeExpireTypeUnion">
+    <xs:sequence>
+      <xs:element name="sonusPkiCertRatesDisableTypeEnum" type="tns:sonusPkiCertRatesDisableTypeEnum" minOccurs="0"/>
+      <xs:element name="sonusPkiDaysBeforeExpireTypeVal" type="xs:unsignedShort" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="SonusPkiExpirationPeriodicWarningTypeUnion">
+    <xs:sequence>
+      <xs:element name="sonusPkiCertRatesDisableTypeEnum" type="tns:sonusPkiCertRatesDisableTypeEnum" minOccurs="0"/>
+      <xs:element name="sonusPkiExpirationPeriodicWarningTypeVal" type="xs:unsignedShort" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:simpleType name="sonusPkiCertRatesDisableTypeEnum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="disable"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusSecurityCertificateTypeType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="remote"/>
+      <xs:enumeration value="local"/>
+      <xs:enumeration value="local-internal"/>
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>
+

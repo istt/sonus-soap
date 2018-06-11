@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="sonusema.types.v04_02_00.sbc.api.ems.sonus.com" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:simpleType name="emaClientAuthMethodType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="usernamePasswordOnly"/>
+      <xs:enumeration value="pkiCertOnly"/>
+      <xs:enumeration value="usernamePasswordOrPkiCert"/>
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>
+

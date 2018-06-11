@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="elementroutingpriority.callrouting.profiles.v04_02_00.sbc.api.ems.sonus.com" xmlns:ns2="common.sbc.api.ems.sonus.com" xmlns:ns1="sonusorcatc.types.v04_02_00.sbc.api.ems.sonus.com" xmlns:ns4="callrouting.profiles.v04_02_00.sbc.api.ems.sonus.com" xmlns:ns3="profiles.v04_02_00.sbc.api.ems.sonus.com" xmlns:tns="elementroutingpriority.callrouting.profiles.v04_02_00.sbc.api.ems.sonus.com" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:import namespace="sonusorcatc.types.v04_02_00.sbc.api.ems.sonus.com" schemaLocation="SBCV040200APIService_schema66.xsd"/>
+
+  <xs:import namespace="common.sbc.api.ems.sonus.com" schemaLocation="SBCV040200APIService_schema325.xsd"/>
+
+  <xs:import namespace="profiles.v04_02_00.sbc.api.ems.sonus.com" schemaLocation="SBCV040200APIService_schema198.xsd"/>
+
+  <xs:import namespace="callrouting.profiles.v04_02_00.sbc.api.ems.sonus.com" schemaLocation="SBCV040200APIService_schema344.xsd"/>
+
+  <xs:complexType name="entry">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcEntity">
+        <xs:sequence>
+          <xs:element name="callType" type="ns1:sonusLinearCallType" minOccurs="0"/>
+          <xs:element name="entityPriority" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="entityType" type="ns1:sonusEntityType" default="none" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="entryKey">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcKey">
+        <xs:sequence>
+          <xs:element name="callType" type="ns1:sonusLinearCallType" minOccurs="0"/>
+          <xs:element name="entityPriority" type="xs:long" minOccurs="0"/>
+          <xs:element name="parentKey" type="ns4:elementRoutingPriorityKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="entryListWrapper">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcListWrapper">
+        <xs:sequence>
+          <xs:element name="entry" type="tns:entry" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+</xs:schema>
+

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="sonusgwtrunkgroup.types.v05_01_00.sbc.api.ems.sonus.com" xmlns:tns="sonusgwtrunkgroup.types.v05_01_00.sbc.api.ems.sonus.com" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:complexType name="SonusGwUdpPortNumTypeUnion">
+    <xs:sequence>
+      <xs:element name="sonusGwUdpPortNumTypeNone" type="tns:sonusGwUdpPortNumTypeNone" minOccurs="0"/>
+      <xs:element name="sonusGwUdpPortNumTypeVal" type="xs:unsignedShort" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:simpleType name="sonusGwSigTrunkGroupActionType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="dryUp"/>
+      <xs:enumeration value="force"/>
+      <xs:enumeration value="undefined"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusGwUdpPortNumTypeNone">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="none"/>
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>
+

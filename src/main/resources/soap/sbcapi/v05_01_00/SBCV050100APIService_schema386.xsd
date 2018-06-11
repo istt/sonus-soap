@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="callforwarding.sipheadersandparameters.egressipattributes.ipsignalingprofile.signaling.profiles.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns2="common.sbc.api.ems.sonus.com" xmlns:ns1="sonustc.types.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns4="sipheadersandparameters.egressipattributes.ipsignalingprofile.signaling.profiles.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns3="egressipattributes.ipsignalingprofile.signaling.profiles.v05_01_00.sbc.api.ems.sonus.com" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:import namespace="sonustc.types.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema44.xsd"/>
+
+  <xs:import namespace="common.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema360.xsd"/>
+
+  <xs:import namespace="egressipattributes.ipsignalingprofile.signaling.profiles.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema319.xsd"/>
+
+  <xs:import namespace="sipheadersandparameters.egressipattributes.ipsignalingprofile.signaling.profiles.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema159.xsd"/>
+
+  <xs:complexType name="historyInformation">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcEntity">
+        <xs:sequence>
+          <xs:element name="includeHistoryInformation" type="ns1:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="causeParameterInRFC4458" type="ns1:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="reasonWithCauseValueAsPerRFC4244" type="ns1:sonusEnableDisable" default="disable" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="historyInformationKey">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcUnCreatableKey">
+        <xs:sequence>
+          <xs:element name="parentKey" type="ns4:callForwardingKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+</xs:schema>
+

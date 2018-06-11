@@ -1,0 +1,302 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="http://www.sonus.com/ems/api/sbc/v05_01_00" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ns42="callrouting.global.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns41="global.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns40="cac.global.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns46="policyserver.global.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns45="security.global.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns44="signaling.global.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns43="servers.global.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns49="subscriber.global.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns48="sonusmonitor.types.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns47="monitorendpoint.global.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns16="digitprofile.profiles.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns17="ipsignalingpeergroup.profiles.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns14="featurecontrolprofile.profiles.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns15="sonusgen2nrmdigits.types.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns18="sonussipcacprofile.types.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns19="sonuscacdatatypes.types.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns12="signaling.profiles.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns13="sonustc.types.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns10="services.profiles.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns11="security.profiles.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns60="traps.oam.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns51="carrier.global.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns50="sonusactivecall.types.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns53="calltrace.global.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns52="country.global.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns55="sonusglobaltrunkgroup.types.v05_01_00.sbc.api.ems.sonus.com" xmlns:tns="http://www.sonus.com/ems/api/sbc/v05_01_00" xmlns:ns54="sonusgen2nrmcalltrace.types.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns57="oam.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns56="accounting.oam.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns59="eventlog.oam.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns58="alarms.oam.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns29="networkprocessorstatistics.system.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns25="announcements.system.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns26="dspstatus.system.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns27="ippolicing.system.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns28="jsrcserver.system.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns21="sonussystem.types.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns22="system.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns23="admin.system.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns24="snmpv2_tc.types.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns20="sipcacprofile.profiles.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns65="sonusema.types.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns64="snmp.oam.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns63="snmp_framework_mib.types.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns62="sonussnmp.types.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns61="localauth.oam.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns38="sonusgen2nrmcongestion.types.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns39="congestion.system.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns36="ethernetport.system.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns37="dspres.system.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns9="media.profiles.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns34="mgmtipinterfacegroup.system.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns35="sonusmgmtipinterface.types.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns32="ntp.system.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns33="security.system.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns5="system.profiles.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns30="policyserver.system.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns6="profiles.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns31="media.system.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns7="digitparameterhandling.profiles.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns8="callrouting.profiles.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns2="current.alarms.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns1="alarms.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns4="common.sbc.api.ems.sonus.com" xmlns:ns3="sonusalarmmgr.types.v05_01_00.sbc.api.ems.sonus.com">
+
+  <xs:import namespace="alarms.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema399.xsd"/>
+
+  <xs:import namespace="current.alarms.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema350.xsd"/>
+
+  <xs:import namespace="sonusalarmmgr.types.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema138.xsd"/>
+
+  <xs:import namespace="common.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema360.xsd"/>
+
+  <xs:import namespace="system.profiles.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema29.xsd"/>
+
+  <xs:import namespace="profiles.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema217.xsd"/>
+
+  <xs:import namespace="digitparameterhandling.profiles.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema340.xsd"/>
+
+  <xs:import namespace="callrouting.profiles.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema380.xsd"/>
+
+  <xs:import namespace="media.profiles.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema254.xsd"/>
+
+  <xs:import namespace="services.profiles.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema175.xsd"/>
+
+  <xs:import namespace="security.profiles.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema179.xsd"/>
+
+  <xs:import namespace="signaling.profiles.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema169.xsd"/>
+
+  <xs:import namespace="sonustc.types.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema44.xsd"/>
+
+  <xs:import namespace="featurecontrolprofile.profiles.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema307.xsd"/>
+
+  <xs:import namespace="sonusgen2nrmdigits.types.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema106.xsd"/>
+
+  <xs:import namespace="digitprofile.profiles.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema339.xsd"/>
+
+  <xs:import namespace="ipsignalingpeergroup.profiles.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema267.xsd"/>
+
+  <xs:import namespace="sonussipcacprofile.types.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema58.xsd"/>
+
+  <xs:import namespace="sonuscacdatatypes.types.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema135.xsd"/>
+
+  <xs:import namespace="sipcacprofile.profiles.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema162.xsd"/>
+
+  <xs:import namespace="sonussystem.types.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema45.xsd"/>
+
+  <xs:import namespace="system.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema28.xsd"/>
+
+  <xs:import namespace="admin.system.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema406.xsd"/>
+
+  <xs:import namespace="snmpv2_tc.types.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema143.xsd"/>
+
+  <xs:import namespace="announcements.system.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema397.xsd"/>
+
+  <xs:import namespace="dspstatus.system.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema325.xsd"/>
+
+  <xs:import namespace="ippolicing.system.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema271.xsd"/>
+
+  <xs:import namespace="jsrcserver.system.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema265.xsd"/>
+
+  <xs:import namespace="networkprocessorstatistics.system.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema244.xsd"/>
+
+  <xs:import namespace="policyserver.system.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema221.xsd"/>
+
+  <xs:import namespace="media.system.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema252.xsd"/>
+
+  <xs:import namespace="ntp.system.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema243.xsd"/>
+
+  <xs:import namespace="security.system.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema178.xsd"/>
+
+  <xs:import namespace="mgmtipinterfacegroup.system.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema248.xsd"/>
+
+  <xs:import namespace="sonusmgmtipinterface.types.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema76.xsd"/>
+
+  <xs:import namespace="ethernetport.system.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema309.xsd"/>
+
+  <xs:import namespace="dspres.system.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema326.xsd"/>
+
+  <xs:import namespace="sonusgen2nrmcongestion.types.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema108.xsd"/>
+
+  <xs:import namespace="congestion.system.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema358.xsd"/>
+
+  <xs:import namespace="cac.global.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema394.xsd"/>
+
+  <xs:import namespace="global.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema295.xsd"/>
+
+  <xs:import namespace="callrouting.global.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema381.xsd"/>
+
+  <xs:import namespace="servers.global.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema177.xsd"/>
+
+  <xs:import namespace="signaling.global.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema170.xsd"/>
+
+  <xs:import namespace="security.global.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema180.xsd"/>
+
+  <xs:import namespace="policyserver.global.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema222.xsd"/>
+
+  <xs:import namespace="monitorendpoint.global.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema247.xsd"/>
+
+  <xs:import namespace="sonusmonitor.types.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema75.xsd"/>
+
+  <xs:import namespace="subscriber.global.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema34.xsd"/>
+
+  <xs:import namespace="sonusactivecall.types.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema139.xsd"/>
+
+  <xs:import namespace="carrier.global.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema378.xsd"/>
+
+  <xs:import namespace="country.global.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema357.xsd"/>
+
+  <xs:import namespace="calltrace.global.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema379.xsd"/>
+
+  <xs:import namespace="sonusgen2nrmcalltrace.types.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema109.xsd"/>
+
+  <xs:import namespace="sonusglobaltrunkgroup.types.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema96.xsd"/>
+
+  <xs:import namespace="accounting.oam.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema413.xsd"/>
+
+  <xs:import namespace="oam.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema240.xsd"/>
+
+  <xs:import namespace="alarms.oam.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema400.xsd"/>
+
+  <xs:import namespace="eventlog.oam.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema308.xsd"/>
+
+  <xs:import namespace="traps.oam.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema16.xsd"/>
+
+  <xs:import namespace="localauth.oam.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema260.xsd"/>
+
+  <xs:import namespace="sonussnmp.types.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema47.xsd"/>
+
+  <xs:import namespace="snmp_framework_mib.types.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema144.xsd"/>
+
+  <xs:import namespace="snmp.oam.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema145.xsd"/>
+
+  <xs:import namespace="sonusema.types.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema116.xsd"/>
+
+  <xs:element name="ApiAccessException" nillable="true" type="tns:checkFaultBean"/>
+
+  <xs:element name="ProvApiException" nillable="true" type="tns:checkFaultBean"/>
+
+  <xs:complexType name="alarms">
+    <xs:complexContent>
+      <xs:extension base="ns4:sbcResource">
+        <xs:sequence>
+          <xs:element name="clear" type="ns1:clear" minOccurs="0"/>
+          <xs:element name="current" type="ns1:current" minOccurs="0"/>
+          <xs:element name="currentStatus" type="ns1:currentStatus" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="historyStatus" type="ns1:historyStatus" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="profiles">
+    <xs:complexContent>
+      <xs:extension base="ns4:sbcResource">
+        <xs:sequence>
+          <xs:element name="system" type="ns6:system" minOccurs="0"/>
+          <xs:element name="digitParameterHandling" type="ns6:digitParameterHandling" minOccurs="0"/>
+          <xs:element name="callRouting" type="ns6:callRouting" minOccurs="0"/>
+          <xs:element name="media" type="ns6:media" minOccurs="0"/>
+          <xs:element name="services" type="ns6:services" minOccurs="0"/>
+          <xs:element name="security" type="ns6:security" minOccurs="0"/>
+          <xs:element name="signaling" type="ns6:signaling" minOccurs="0"/>
+          <xs:element name="callParameterFilterProfile" type="ns6:callParameterFilterProfile" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="featureControlProfile" type="ns6:featureControlProfile" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="digitProfile" type="ns6:digitProfile" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="dtmfTrigger" type="ns6:dtmfTrigger" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="ipSignalingPeerGroup" type="ns6:ipSignalingPeerGroup" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="sipCacProfile" type="ns6:sipCacProfile" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="system">
+    <xs:complexContent>
+      <xs:extension base="ns4:sbcResource">
+        <xs:sequence>
+          <xs:element name="licenseStatus" type="ns22:licenseStatus" minOccurs="0"/>
+          <xs:element name="softwareUpgradeStatus" type="ns22:softwareUpgradeStatus" minOccurs="0"/>
+          <xs:element name="fileStatisticsStatus" type="ns22:fileStatisticsStatus" minOccurs="0"/>
+          <xs:element name="admin" type="ns22:admin" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="hardDiskStatus" type="ns22:hardDiskStatus" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="hardDiskUsage" type="ns22:hardDiskUsage" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="fanStatus" type="ns22:fanStatus" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="powerSupplyStatus" type="ns22:powerSupplyStatus" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="syncStatus" type="ns22:syncStatus" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="ledStatus" type="ns22:ledStatus" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="serverAdmin" type="ns22:serverAdmin" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="daughterBoardAdmin" type="ns22:daughterBoardAdmin" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="serverStatus" type="ns22:serverStatus" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="daughterBoard3Status" type="ns22:daughterBoard3Status" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="serverSoftwareUpgradeStatus" type="ns22:serverSoftwareUpgradeStatus" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="softwareUpgradeDetailedStatus" type="ns22:softwareUpgradeDetailedStatus" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="licenseInfo" type="ns22:licenseInfo" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="baseMacAddress" type="ns22:baseMacAddress" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="cpuUtilCurrentStatistics" type="ns22:cpuUtilCurrentStatistics" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="cpuUtilIntervalStatistics" type="ns22:cpuUtilIntervalStatistics" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="memoryUtilCurrentStatistics" type="ns22:memoryUtilCurrentStatistics" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="memoryUtilIntervalStatistics" type="ns22:memoryUtilIntervalStatistics" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="coredumpList" type="ns22:coredumpList" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="coredumpSummary" type="ns22:coredumpSummary" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="savedConfigList" type="ns22:savedConfigList" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="fipsFSM2State" type="ns22:fipsFSM2State" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="dodModeStatus" type="ns22:dodModeStatus" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="macAddress2Status" type="ns22:macAddress2Status" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="haConfig" type="ns22:haConfig" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="announcements" type="ns22:announcements" minOccurs="0"/>
+          <xs:element name="dspStatus" type="ns22:dspStatus" minOccurs="0"/>
+          <xs:element name="mediaProfile" type="ns22:mediaProfile" minOccurs="0"/>
+          <xs:element name="dspPad" type="ns22:dspPad" minOccurs="0"/>
+          <xs:element name="ipPolicing" type="ns22:ipPolicing" minOccurs="0"/>
+          <xs:element name="jsrcServer" type="ns22:jsrcServer" minOccurs="0"/>
+          <xs:element name="networkProcessorStatistics" type="ns22:networkProcessorStatistics" minOccurs="0"/>
+          <xs:element name="intervalStatistics" type="ns22:intervalStatistics" minOccurs="0"/>
+          <xs:element name="fileStatisticsAdmin" type="ns22:fileStatisticsAdmin" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="policyServer" type="ns22:policyServer" minOccurs="0"/>
+          <xs:element name="media" type="ns22:media" minOccurs="0"/>
+          <xs:element name="ntp" type="ns22:ntp" minOccurs="0"/>
+          <xs:element name="security" type="ns22:security" minOccurs="0"/>
+          <xs:element name="mgmtIpInterfaceGroup" type="ns22:mgmtIpInterfaceGroup" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="mgmtStaticRoute" type="ns22:mgmtStaticRoute" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="logicalMgmtIpInterface" type="ns22:logicalMgmtIpInterface" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="logicalMgmtIpInterfaceStatus" type="ns22:logicalMgmtIpInterfaceStatus" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="ethernetPort" type="ns22:ethernetPort" minOccurs="0"/>
+          <xs:element name="dspRes" type="ns22:dspRes" minOccurs="0"/>
+          <xs:element name="congestion" type="ns22:congestion" minOccurs="0"/>
+          <xs:element name="systemCongestionStatus" type="ns22:systemCongestionStatus" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="systemCongestionCurrentStatistics" type="ns22:systemCongestionCurrentStatistics" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="systemCongestionIntervalStatistics" type="ns22:systemCongestionIntervalStatistics" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="global">
+    <xs:complexContent>
+      <xs:extension base="ns4:sbcResource">
+        <xs:sequence>
+          <xs:element name="cac" type="ns41:cac" minOccurs="0"/>
+          <xs:element name="callRouting" type="ns41:callRouting" minOccurs="0"/>
+          <xs:element name="qoeCallRouting" type="ns41:qoeCallRouting" minOccurs="0"/>
+          <xs:element name="servers" type="ns41:servers" minOccurs="0"/>
+          <xs:element name="signaling" type="ns41:signaling" minOccurs="0"/>
+          <xs:element name="security" type="ns41:security" minOccurs="0"/>
+          <xs:element name="policyServer" type="ns41:policyServer" minOccurs="0"/>
+          <xs:element name="callCountCurrentStatistics" type="ns41:callCountCurrentStatistics" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="callCountIntervalStatistics" type="ns41:callCountIntervalStatistics" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="ipGeneralGroupStatistics" type="ns41:ipGeneralGroupStatistics" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="icmpGeneralGroupStatistics" type="ns41:icmpGeneralGroupStatistics" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="tcpGeneralGroupStatistics" type="ns41:tcpGeneralGroupStatistics" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="udpGeneralGroupStatistics" type="ns41:udpGeneralGroupStatistics" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="monitorEndpoint" type="ns41:monitorEndpoint" minOccurs="0"/>
+          <xs:element name="mediaCapture" type="ns41:mediaCapture" minOccurs="0"/>
+          <xs:element name="siprec" type="ns41:siprec" minOccurs="0"/>
+          <xs:element name="monitorEndpointStatus" type="ns41:monitorEndpointStatus" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="monitorTarget" type="ns41:monitorTarget" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="monitorTargetStatus" type="ns41:monitorTargetStatus" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="siprecStatus" type="ns41:siprecStatus" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="npaNxx" type="ns41:npaNxx" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="script" type="ns41:script" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="sipDomain" type="ns41:sipDomain" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="subscriber" type="ns41:subscriber" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="callSummaryStatus" type="ns41:callSummaryStatus" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="callDetailStatus" type="ns41:callDetailStatus" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="callMediaStatus" type="ns41:callMediaStatus" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="callResourceDetailStatus" type="ns41:callResourceDetailStatus" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="callCountStatus" type="ns41:callCountStatus" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="ocsCallCountStatus" type="ns41:ocsCallCountStatus" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="srvccCallCountStatus" type="ns41:srvccCallCountStatus" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="carrier" type="ns41:carrier" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="country" type="ns41:country" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="dtlsSrtpStatistics" type="ns41:dtlsSrtpStatistics" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="callTrace" type="ns41:callTrace" minOccurs="0"/>
+          <xs:element name="callTraceStatus" type="ns41:callTraceStatus" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="globalTrunkGroupStatus" type="ns41:globalTrunkGroupStatus" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="oam">
+    <xs:complexContent>
+      <xs:extension base="ns4:sbcResource">
+        <xs:sequence>
+          <xs:element name="accounting" type="ns57:accounting" minOccurs="0"/>
+          <xs:element name="alarms" type="ns57:alarms" minOccurs="0"/>
+          <xs:element name="eventLog" type="ns57:eventLog" minOccurs="0"/>
+          <xs:element name="traps" type="ns57:traps" minOccurs="0"/>
+          <xs:element name="localAuth" type="ns57:localAuth" minOccurs="0"/>
+          <xs:element name="snmp" type="ns57:snmp" minOccurs="0"/>
+          <xs:element name="ema" type="ns57:ema" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="checkFaultBean">
+    <xs:sequence>
+      <xs:element name="message" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>
+

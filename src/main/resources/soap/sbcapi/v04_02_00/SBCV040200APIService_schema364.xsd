@@ -1,0 +1,1232 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="addresscontext.v04_02_00.sbc.api.ems.sonus.com" xmlns:ns29="sonussipsub.types.v04_02_00.sbc.api.ems.sonus.com" xmlns:ns25="sonuslvm.types.v04_02_00.sbc.api.ems.sonus.com" xmlns:ns26="linkdetectiongroup.addresscontext.v04_02_00.sbc.api.ems.sonus.com" xmlns:ns27="rtpservertable.addresscontext.v04_02_00.sbc.api.ems.sonus.com" xmlns:ns28="sonussipreg.types.v04_02_00.sbc.api.ems.sonus.com" xmlns:ns21="ipsec.addresscontext.v04_02_00.sbc.api.ems.sonus.com" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ns22="peer.ipsec.addresscontext.v04_02_00.sbc.api.ems.sonus.com" xmlns:ns23="sonusli.types.v04_02_00.sbc.api.ems.sonus.com" xmlns:ns24="intercept.addresscontext.v04_02_00.sbc.api.ems.sonus.com" xmlns:ns20="sonusipsec.types.v04_02_00.sbc.api.ems.sonus.com" xmlns:ns42="sonusmastertrunkgroupconnport.types.v04_02_00.sbc.api.ems.sonus.com" xmlns:ns41="sonusippeer.types.v04_02_00.sbc.api.ems.sonus.com" xmlns:ns40="ippeer.zone.addresscontext.v04_02_00.sbc.api.ems.sonus.com" xmlns:ns45="siptrunkgroup.zone.addresscontext.v04_02_00.sbc.api.ems.sonus.com" xmlns:ns44="sonussiptrunkgroup.types.v04_02_00.sbc.api.ems.sonus.com" xmlns:ns43="sonussipsigport.types.v04_02_00.sbc.api.ems.sonus.com" xmlns:ns16="ipinterface.ipinterfacegroup.addresscontext.v04_02_00.sbc.api.ems.sonus.com" xmlns:ns17="ipinterfacegroup.addresscontext.v04_02_00.sbc.api.ems.sonus.com" xmlns:ns14="ipaccesscontrollist.addresscontext.v04_02_00.sbc.api.ems.sonus.com" xmlns:ns15="sonusipinterface.types.v04_02_00.sbc.api.ems.sonus.com" xmlns:ns38="sonush323trunkgroup.types.v04_02_00.sbc.api.ems.sonus.com" xmlns:ns39="h323trunkgroup.zone.addresscontext.v04_02_00.sbc.api.ems.sonus.com" xmlns:ns18="sonusorcatc.types.v04_02_00.sbc.api.ems.sonus.com" xmlns:ns36="gwtrunkgroup.zone.addresscontext.v04_02_00.sbc.api.ems.sonus.com" xmlns:ns19="sonusiproute.types.v04_02_00.sbc.api.ems.sonus.com" xmlns:ns37="sonush323sigport.types.v04_02_00.sbc.api.ems.sonus.com" xmlns:ns9="snmpv2_tc.types.v04_02_00.sbc.api.ems.sonus.com" xmlns:ns34="sonusgwsigport.types.v04_02_00.sbc.api.ems.sonus.com" xmlns:ns35="sonusgwtrunkgroup.types.v04_02_00.sbc.api.ems.sonus.com" xmlns:ns32="cac.zone.addresscontext.v04_02_00.sbc.api.ems.sonus.com" xmlns:ns33="zone.addresscontext.v04_02_00.sbc.api.ems.sonus.com" xmlns:ns5="dynamicblacklist.addresscontext.v04_02_00.sbc.api.ems.sonus.com" xmlns:ns12="localrecord.dnsgroup.addresscontext.v04_02_00.sbc.api.ems.sonus.com" xmlns:ns30="sonuszone.types.v04_02_00.sbc.api.ems.sonus.com" xmlns:ns6="sonustc.types.v04_02_00.sbc.api.ems.sonus.com" xmlns:ns13="sonusipacl.types.v04_02_00.sbc.api.ems.sonus.com" xmlns:ns31="sonuscacdatatypes.types.v04_02_00.sbc.api.ems.sonus.com" xmlns:ns7="diamnode.addresscontext.v04_02_00.sbc.api.ems.sonus.com" xmlns:ns10="sonusdns.types.v04_02_00.sbc.api.ems.sonus.com" xmlns:ns8="sonusdiameter.types.v04_02_00.sbc.api.ems.sonus.com" xmlns:ns11="dnsgroup.addresscontext.v04_02_00.sbc.api.ems.sonus.com" xmlns:ns2="v04_02_00.sbc.api.ems.sonus.com" xmlns:ns1="common.sbc.api.ems.sonus.com" xmlns:ns4="sonusdbl.types.v04_02_00.sbc.api.ems.sonus.com" xmlns:ns3="natdirectmediagroup.addresscontext.v04_02_00.sbc.api.ems.sonus.com" xmlns:tns="addresscontext.v04_02_00.sbc.api.ems.sonus.com">
+
+  <xs:import namespace="common.sbc.api.ems.sonus.com" schemaLocation="SBCV040200APIService_schema325.xsd"/>
+
+  <xs:import namespace="v04_02_00.sbc.api.ems.sonus.com" schemaLocation="SBCV040200APIService_schema7.xsd"/>
+
+  <xs:import namespace="natdirectmediagroup.addresscontext.v04_02_00.sbc.api.ems.sonus.com" schemaLocation="SBCV040200APIService_schema225.xsd"/>
+
+  <xs:import namespace="sonusdbl.types.v04_02_00.sbc.api.ems.sonus.com" schemaLocation="SBCV040200APIService_schema120.xsd"/>
+
+  <xs:import namespace="dynamicblacklist.addresscontext.v04_02_00.sbc.api.ems.sonus.com" schemaLocation="SBCV040200APIService_schema292.xsd"/>
+
+  <xs:import namespace="sonustc.types.v04_02_00.sbc.api.ems.sonus.com" schemaLocation="SBCV040200APIService_schema42.xsd"/>
+
+  <xs:import namespace="diamnode.addresscontext.v04_02_00.sbc.api.ems.sonus.com" schemaLocation="SBCV040200APIService_schema311.xsd"/>
+
+  <xs:import namespace="sonusdiameter.types.v04_02_00.sbc.api.ems.sonus.com" schemaLocation="SBCV040200APIService_schema118.xsd"/>
+
+  <xs:import namespace="snmpv2_tc.types.v04_02_00.sbc.api.ems.sonus.com" schemaLocation="SBCV040200APIService_schema132.xsd"/>
+
+  <xs:import namespace="sonusdns.types.v04_02_00.sbc.api.ems.sonus.com" schemaLocation="SBCV040200APIService_schema114.xsd"/>
+
+  <xs:import namespace="dnsgroup.addresscontext.v04_02_00.sbc.api.ems.sonus.com" schemaLocation="SBCV040200APIService_schema297.xsd"/>
+
+  <xs:import namespace="localrecord.dnsgroup.addresscontext.v04_02_00.sbc.api.ems.sonus.com" schemaLocation="SBCV040200APIService_schema235.xsd"/>
+
+  <xs:import namespace="sonusipacl.types.v04_02_00.sbc.api.ems.sonus.com" schemaLocation="SBCV040200APIService_schema85.xsd"/>
+
+  <xs:import namespace="ipaccesscontrollist.addresscontext.v04_02_00.sbc.api.ems.sonus.com" schemaLocation="SBCV040200APIService_schema251.xsd"/>
+
+  <xs:import namespace="sonusipinterface.types.v04_02_00.sbc.api.ems.sonus.com" schemaLocation="SBCV040200APIService_schema84.xsd"/>
+
+  <xs:import namespace="ipinterface.ipinterfacegroup.addresscontext.v04_02_00.sbc.api.ems.sonus.com" schemaLocation="SBCV040200APIService_schema250.xsd"/>
+
+  <xs:import namespace="ipinterfacegroup.addresscontext.v04_02_00.sbc.api.ems.sonus.com" schemaLocation="SBCV040200APIService_schema249.xsd"/>
+
+  <xs:import namespace="sonusorcatc.types.v04_02_00.sbc.api.ems.sonus.com" schemaLocation="SBCV040200APIService_schema66.xsd"/>
+
+  <xs:import namespace="sonusiproute.types.v04_02_00.sbc.api.ems.sonus.com" schemaLocation="SBCV040200APIService_schema82.xsd"/>
+
+  <xs:import namespace="sonusipsec.types.v04_02_00.sbc.api.ems.sonus.com" schemaLocation="SBCV040200APIService_schema81.xsd"/>
+
+  <xs:import namespace="ipsec.addresscontext.v04_02_00.sbc.api.ems.sonus.com" schemaLocation="SBCV040200APIService_schema246.xsd"/>
+
+  <xs:import namespace="peer.ipsec.addresscontext.v04_02_00.sbc.api.ems.sonus.com" schemaLocation="SBCV040200APIService_schema209.xsd"/>
+
+  <xs:import namespace="sonusli.types.v04_02_00.sbc.api.ems.sonus.com" schemaLocation="SBCV040200APIService_schema75.xsd"/>
+
+  <xs:import namespace="intercept.addresscontext.v04_02_00.sbc.api.ems.sonus.com" schemaLocation="SBCV040200APIService_schema253.xsd"/>
+
+  <xs:import namespace="sonuslvm.types.v04_02_00.sbc.api.ems.sonus.com" schemaLocation="SBCV040200APIService_schema74.xsd"/>
+
+  <xs:import namespace="linkdetectiongroup.addresscontext.v04_02_00.sbc.api.ems.sonus.com" schemaLocation="SBCV040200APIService_schema239.xsd"/>
+
+  <xs:import namespace="rtpservertable.addresscontext.v04_02_00.sbc.api.ems.sonus.com" schemaLocation="SBCV040200APIService_schema173.xsd"/>
+
+  <xs:import namespace="sonussipreg.types.v04_02_00.sbc.api.ems.sonus.com" schemaLocation="SBCV040200APIService_schema53.xsd"/>
+
+  <xs:import namespace="sonussipsub.types.v04_02_00.sbc.api.ems.sonus.com" schemaLocation="SBCV040200APIService_schema49.xsd"/>
+
+  <xs:import namespace="sonuszone.types.v04_02_00.sbc.api.ems.sonus.com" schemaLocation="SBCV040200APIService_schema38.xsd"/>
+
+  <xs:import namespace="sonuscacdatatypes.types.v04_02_00.sbc.api.ems.sonus.com" schemaLocation="SBCV040200APIService_schema126.xsd"/>
+
+  <xs:import namespace="cac.zone.addresscontext.v04_02_00.sbc.api.ems.sonus.com" schemaLocation="SBCV040200APIService_schema354.xsd"/>
+
+  <xs:import namespace="zone.addresscontext.v04_02_00.sbc.api.ems.sonus.com" schemaLocation="SBCV040200APIService_schema1.xsd"/>
+
+  <xs:import namespace="sonusgwsigport.types.v04_02_00.sbc.api.ems.sonus.com" schemaLocation="SBCV040200APIService_schema91.xsd"/>
+
+  <xs:import namespace="sonusgwtrunkgroup.types.v04_02_00.sbc.api.ems.sonus.com" schemaLocation="SBCV040200APIService_schema90.xsd"/>
+
+  <xs:import namespace="gwtrunkgroup.zone.addresscontext.v04_02_00.sbc.api.ems.sonus.com" schemaLocation="SBCV040200APIService_schema269.xsd"/>
+
+  <xs:import namespace="sonush323sigport.types.v04_02_00.sbc.api.ems.sonus.com" schemaLocation="SBCV040200APIService_schema89.xsd"/>
+
+  <xs:import namespace="sonush323trunkgroup.types.v04_02_00.sbc.api.ems.sonus.com" schemaLocation="SBCV040200APIService_schema88.xsd"/>
+
+  <xs:import namespace="h323trunkgroup.zone.addresscontext.v04_02_00.sbc.api.ems.sonus.com" schemaLocation="SBCV040200APIService_schema268.xsd"/>
+
+  <xs:import namespace="ippeer.zone.addresscontext.v04_02_00.sbc.api.ems.sonus.com" schemaLocation="SBCV040200APIService_schema248.xsd"/>
+
+  <xs:import namespace="sonusippeer.types.v04_02_00.sbc.api.ems.sonus.com" schemaLocation="SBCV040200APIService_schema83.xsd"/>
+
+  <xs:import namespace="sonusmastertrunkgroupconnport.types.v04_02_00.sbc.api.ems.sonus.com" schemaLocation="SBCV040200APIService_schema73.xsd"/>
+
+  <xs:import namespace="sonussipsigport.types.v04_02_00.sbc.api.ems.sonus.com" schemaLocation="SBCV040200APIService_schema50.xsd"/>
+
+  <xs:import namespace="sonussiptrunkgroup.types.v04_02_00.sbc.api.ems.sonus.com" schemaLocation="SBCV040200APIService_schema46.xsd"/>
+
+  <xs:import namespace="siptrunkgroup.zone.addresscontext.v04_02_00.sbc.api.ems.sonus.com" schemaLocation="SBCV040200APIService_schema135.xsd"/>
+
+  <xs:complexType name="cmds">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcEntity">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="cmdsKey">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcUnCreatableKey">
+        <xs:sequence>
+          <xs:element name="parentKey" type="ns2:addressContextKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="natDirectMediaGroup">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcEntity">
+        <xs:sequence>
+          <xs:element name="name" type="xs:string" minOccurs="0"/>
+          <xs:element name="dmNatPrefix" type="ns3:dmNatPrefix" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="natDirectMediaGroupKey">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcKey">
+        <xs:sequence>
+          <xs:element name="name" type="xs:string" minOccurs="0"/>
+          <xs:element name="parentKey" type="ns2:addressContextKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="natDirectMediaGroupListWrapper">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcListWrapper">
+        <xs:sequence>
+          <xs:element name="natDirectMediaGroup" type="tns:natDirectMediaGroup" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="dynamicBlackList">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcEntity">
+        <xs:sequence>
+          <xs:element name="dblStatus" type="ns5:dblStatus" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="dblPolicerStatus" type="ns5:dblPolicerStatus" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="dynamicBlackListKey">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcUnCreatableKey">
+        <xs:sequence>
+          <xs:element name="parentKey" type="ns2:addressContextKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="diamNode">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcEntity">
+        <xs:sequence>
+          <xs:element name="name" type="xs:string" minOccurs="0"/>
+          <xs:element name="originRealm" type="xs:string" minOccurs="0"/>
+          <xs:element name="primaryOriginHost" type="xs:string" minOccurs="0"/>
+          <xs:element name="secondaryOriginHost" type="xs:string" minOccurs="0"/>
+          <xs:element name="transactionTimeout" type="xs:unsignedInt" default="1000" minOccurs="0"/>
+          <xs:element name="state" type="ns6:sonusAdminState" default="disabled" minOccurs="0"/>
+          <xs:element name="dumpPdu" type="ns6:sonusAdminState" default="disabled" minOccurs="0"/>
+          <xs:element name="ipInterfaceGroupName" type="xs:string" minOccurs="0"/>
+          <xs:element name="ipV4Address" type="xs:string" minOccurs="0"/>
+          <xs:element name="ipV6Address" type="xs:string" minOccurs="0"/>
+          <xs:element name="peer" type="ns7:peer" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="realmRoute" type="ns7:realmRoute" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="rfCurrentStatistics" type="ns7:rfCurrentStatistics" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="rfIntervalStatistics" type="ns7:rfIntervalStatistics" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="diamNodeKey">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcKey">
+        <xs:sequence>
+          <xs:element name="name" type="xs:string" minOccurs="0"/>
+          <xs:element name="parentKey" type="ns2:addressContextKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="diamNodeListWrapper">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcListWrapper">
+        <xs:sequence>
+          <xs:element name="diamNode" type="tns:diamNode" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="dnsGroup">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcEntity">
+        <xs:sequence>
+          <xs:element name="name" type="xs:string" minOccurs="0"/>
+          <xs:element name="type" type="ns10:sonusInterfaceType" default="none" minOccurs="0"/>
+          <xs:element name="ipInterface" type="xs:string" minOccurs="0"/>
+          <xs:element name="mgmtInterface" type="xs:string" minOccurs="0"/>
+          <xs:element name="server" type="ns11:server" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="dnsServerStatistics" type="ns11:dnsServerStatistics" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="dnsEntryStatus" type="ns11:dnsEntryStatus" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="localRecord" type="ns11:localRecord" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="dnsEntryDataStatus" type="ns11:dnsEntryDataStatus" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="dnsGroupKey">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcKey">
+        <xs:sequence>
+          <xs:element name="name" type="xs:string" minOccurs="0"/>
+          <xs:element name="parentKey" type="ns2:addressContextKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="dnsGroupListWrapper">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcListWrapper">
+        <xs:sequence>
+          <xs:element name="dnsGroup" type="tns:dnsGroup" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="ipAccessControlList">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcEntity">
+        <xs:sequence>
+          <xs:element name="rule" type="ns14:rule" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="ipAclRuleStatistics" type="ns14:ipAclRuleStatistics" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="ipAclOverallStatistics" type="ns14:ipAclOverallStatistics" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="ipAclRulesByPrecedence" type="ns14:ipAclRulesByPrecedence" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="defaultAclStatistics" type="ns14:defaultAclStatistics" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="getAggrPolicers" type="ns14:getAggrPolicers" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="ipAccessControlListKey">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcUnCreatableKey">
+        <xs:sequence>
+          <xs:element name="parentKey" type="ns2:addressContextKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="ipInterfaceGroup">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcEntity">
+        <xs:sequence>
+          <xs:element name="name" type="xs:string" minOccurs="0"/>
+          <xs:element name="ipsec" type="ns6:sonusAdminState" default="disabled" minOccurs="0"/>
+          <xs:element name="ipInterface" type="ns17:ipInterface" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="ipInterfaceStatus" type="ns17:ipInterfaceStatus" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="ipInterfaceGroupKey">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcKey">
+        <xs:sequence>
+          <xs:element name="name" type="xs:string" minOccurs="0"/>
+          <xs:element name="parentKey" type="ns2:addressContextKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="ipInterfaceGroupListWrapper">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcListWrapper">
+        <xs:sequence>
+          <xs:element name="ipInterfaceGroup" type="tns:ipInterfaceGroup" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="staticRoute">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcEntity">
+        <xs:sequence>
+          <xs:element name="destinationIpAddress" type="xs:string" minOccurs="0"/>
+          <xs:element name="prefix" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="nextHop" type="xs:string" minOccurs="0"/>
+          <xs:element name="ipInterfaceGroupName" type="xs:string" minOccurs="0"/>
+          <xs:element name="ipInterfaceName" type="xs:string" minOccurs="0"/>
+          <xs:element name="preference" type="xs:int" default="100" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="staticRouteKey">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcKey">
+        <xs:sequence>
+          <xs:element name="destinationIpAddress" type="xs:string" minOccurs="0"/>
+          <xs:element name="prefix" type="xs:long" minOccurs="0"/>
+          <xs:element name="nextHop" type="xs:string" minOccurs="0"/>
+          <xs:element name="ipInterfaceGroupName" type="xs:string" minOccurs="0"/>
+          <xs:element name="ipInterfaceName" type="xs:string" minOccurs="0"/>
+          <xs:element name="parentKey" type="ns2:addressContextKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="staticRouteListWrapper">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcListWrapper">
+        <xs:sequence>
+          <xs:element name="staticRoute" type="tns:staticRoute" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="logicalSigAddressBindingStatus">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcEntity">
+        <xs:sequence>
+          <xs:element name="ipInterface" type="xs:string" minOccurs="0"/>
+          <xs:element name="ipAddress" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="logicalSigAddressBindingStatusKey">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcReadOnlyKey">
+        <xs:sequence>
+          <xs:element name="ipInterface" type="xs:string" minOccurs="0"/>
+          <xs:element name="ipAddress" type="xs:string" minOccurs="0"/>
+          <xs:element name="parentKey" type="ns2:addressContextKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="logicalSigAddressBindingStatusListWrapper">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcListWrapper">
+        <xs:sequence>
+          <xs:element name="logicalSigAddressBindingStatus" type="tns:logicalSigAddressBindingStatus" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="ipRouteStatus">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcEntity">
+        <xs:sequence>
+          <xs:element name="ceName" type="xs:string" minOccurs="0"/>
+          <xs:element name="destIpAddress" type="xs:string" minOccurs="0"/>
+          <xs:element name="prefix" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="nextHop" type="xs:string" minOccurs="0"/>
+          <xs:element name="ipInterfaceName" type="xs:string" minOccurs="0"/>
+          <xs:element name="protocol" type="ns19:sonusIpRouteProtoType" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="ipRouteStatusKey">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcReadOnlyKey">
+        <xs:sequence>
+          <xs:element name="ceName" type="xs:string" minOccurs="0"/>
+          <xs:element name="destIpAddress" type="xs:string" minOccurs="0"/>
+          <xs:element name="prefix" type="xs:long" minOccurs="0"/>
+          <xs:element name="nextHop" type="xs:string" minOccurs="0"/>
+          <xs:element name="ipInterfaceName" type="xs:string" minOccurs="0"/>
+          <xs:element name="parentKey" type="ns2:addressContextKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="ipRouteStatusListWrapper">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcListWrapper">
+        <xs:sequence>
+          <xs:element name="ipRouteStatus" type="tns:ipRouteStatus" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="ipsec">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcEntity">
+        <xs:sequence>
+          <xs:element name="spd" type="ns21:spd" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="peer" type="ns21:peer" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="ikeSaStatus" type="ns21:ikeSaStatus" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="ipsecSaStatus" type="ns21:ipsecSaStatus" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="systemStatistics" type="ns21:systemStatistics" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="ikeSaStatistics" type="ns21:ikeSaStatistics" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="ipsecSaStatistics" type="ns21:ipsecSaStatistics" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="ipsecKey">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcUnCreatableKey">
+        <xs:sequence>
+          <xs:element name="parentKey" type="ns2:addressContextKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="intercept">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcEntity">
+        <xs:sequence>
+          <xs:element name="nodeNumber" type="xs:int" default="0" minOccurs="0"/>
+          <xs:element name="callDataChannel" type="ns24:callDataChannel" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="interceptCallDataChannelStatistics" type="ns24:interceptCallDataChannelStatistics" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="interceptKey">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcUnCreatableKey">
+        <xs:sequence>
+          <xs:element name="parentKey" type="ns2:addressContextKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="linkDetectionGroup">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcEntity">
+        <xs:sequence>
+          <xs:element name="name" type="xs:string" minOccurs="0"/>
+          <xs:element name="ceName" type="xs:string" minOccurs="0"/>
+          <xs:element name="type" type="ns25:sonusLvmInterfaceType" default="ip" minOccurs="0"/>
+          <xs:element name="threshold" type="xs:int" default="2" minOccurs="0"/>
+          <xs:element name="verifyTimer" type="xs:int" default="1000" minOccurs="0"/>
+          <xs:element name="responseTimer" type="xs:int" default="500" minOccurs="0"/>
+          <xs:element name="reattemptTimer" type="xs:int" default="1000" minOccurs="0"/>
+          <xs:element name="retries" type="xs:int" default="3" minOccurs="0"/>
+          <xs:element name="state" type="ns6:sonusAdminState" default="disabled" minOccurs="0"/>
+          <xs:element name="linkMonitor" type="ns26:linkMonitor" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="linkMonitorStatus" type="ns26:linkMonitorStatus" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="linkMonitorStatistics" type="ns26:linkMonitorStatistics" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="linkDetectionGroupKey">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcKey">
+        <xs:sequence>
+          <xs:element name="name" type="xs:string" minOccurs="0"/>
+          <xs:element name="parentKey" type="ns2:addressContextKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="linkDetectionGroupListWrapper">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcListWrapper">
+        <xs:sequence>
+          <xs:element name="linkDetectionGroup" type="tns:linkDetectionGroup" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="linkDetectionGroupStatus">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcEntity">
+        <xs:sequence>
+          <xs:element name="name" type="xs:string" minOccurs="0"/>
+          <xs:element name="failures" type="xs:int" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="linkDetectionGroupStatusKey">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcReadOnlyKey">
+        <xs:sequence>
+          <xs:element name="name" type="xs:string" minOccurs="0"/>
+          <xs:element name="parentKey" type="ns2:addressContextKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="linkDetectionGroupStatusListWrapper">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcListWrapper">
+        <xs:sequence>
+          <xs:element name="linkDetectionGroupStatus" type="tns:linkDetectionGroupStatus" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="linkDetectionGroupStatistics">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcEntity">
+        <xs:sequence>
+          <xs:element name="name" type="xs:string" minOccurs="0"/>
+          <xs:element name="singleFailures" type="xs:int" minOccurs="0"/>
+          <xs:element name="doubleFailures" type="xs:int" minOccurs="0"/>
+          <xs:element name="failures" type="xs:int" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="linkDetectionGroupStatisticsKey">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcReadOnlyKey">
+        <xs:sequence>
+          <xs:element name="name" type="xs:string" minOccurs="0"/>
+          <xs:element name="parentKey" type="ns2:addressContextKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="linkDetectionGroupStatisticsListWrapper">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcListWrapper">
+        <xs:sequence>
+          <xs:element name="linkDetectionGroupStatistics" type="tns:linkDetectionGroupStatistics" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="rtpServerTable">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcEntity">
+        <xs:sequence>
+          <xs:element name="name" type="xs:string" minOccurs="0"/>
+          <xs:element name="rtpServer" type="ns27:rtpServer" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="rtpServerTableKey">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcKey">
+        <xs:sequence>
+          <xs:element name="name" type="xs:string" minOccurs="0"/>
+          <xs:element name="parentKey" type="ns2:addressContextKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="rtpServerTableListWrapper">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcListWrapper">
+        <xs:sequence>
+          <xs:element name="rtpServerTable" type="tns:rtpServerTable" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="cacOffenderStatus">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcEntity">
+        <xs:sequence>
+          <xs:element name="index" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="ipAddress" type="xs:string" minOccurs="0"/>
+          <xs:element name="zoneId" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="ingressCallRejects" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="egressCallRejects" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="lastRejectAt" type="xs:dateTime" minOccurs="0"/>
+          <xs:element name="firstRejectAt" type="xs:dateTime" minOccurs="0"/>
+          <xs:element name="ingressSubscribeRejects" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="egressSubscribeRejects" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="subscribeLastRejectAt" type="xs:dateTime" minOccurs="0"/>
+          <xs:element name="subscribeFirstRejectAt" type="xs:dateTime" minOccurs="0"/>
+          <xs:element name="ingressReferRejects" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="egressReferRejects" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="referLastRejectAt" type="xs:dateTime" minOccurs="0"/>
+          <xs:element name="referFirstRejectAt" type="xs:dateTime" minOccurs="0"/>
+          <xs:element name="ingressNotifyRejects" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="egressNotifyRejects" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="notifyLastRejectAt" type="xs:dateTime" minOccurs="0"/>
+          <xs:element name="notifyFirstRejectAt" type="xs:dateTime" minOccurs="0"/>
+          <xs:element name="ingressOptionsRejects" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="egressOptionsRejects" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="optionsLastRejectAt" type="xs:dateTime" minOccurs="0"/>
+          <xs:element name="optionsFirstRejectAt" type="xs:dateTime" minOccurs="0"/>
+          <xs:element name="ingressMessageRejects" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="egressMessageRejects" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="messageLastRejectAt" type="xs:dateTime" minOccurs="0"/>
+          <xs:element name="messageFirstRejectAt" type="xs:dateTime" minOccurs="0"/>
+          <xs:element name="ingressOtherRequestRejects" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="egressOtherRequestRejects" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="otherLastRejectAt" type="xs:dateTime" minOccurs="0"/>
+          <xs:element name="otherFirstRejectAt" type="xs:dateTime" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="cacOffenderStatusKey">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcReadOnlyKey">
+        <xs:sequence>
+          <xs:element name="index" type="xs:long" minOccurs="0"/>
+          <xs:element name="parentKey" type="ns2:addressContextKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="cacOffenderStatusListWrapper">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcListWrapper">
+        <xs:sequence>
+          <xs:element name="cacOffenderStatus" type="tns:cacOffenderStatus" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="sipDeletedRegStatus">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcEntity">
+        <xs:sequence>
+          <xs:element name="id" type="xs:int" minOccurs="0"/>
+          <xs:element name="aorName" type="xs:string" minOccurs="0"/>
+          <xs:element name="reasonCode" type="ns28:sonusSipRegDelRegStatusReasonCodeType" minOccurs="0"/>
+          <xs:element name="contactURI" type="xs:string" minOccurs="0"/>
+          <xs:element name="nextHopIpAddress" type="xs:string" minOccurs="0"/>
+          <xs:element name="nextHopPortNum" type="xs:int" minOccurs="0"/>
+          <xs:element name="registrarIpAddress" type="xs:string" minOccurs="0"/>
+          <xs:element name="registrarPortNum" type="xs:int" minOccurs="0"/>
+          <xs:element name="creationTime" type="xs:dateTime" minOccurs="0"/>
+          <xs:element name="terminationTime" type="xs:dateTime" minOccurs="0"/>
+          <xs:element name="registrarDomainName" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="sipDeletedRegStatusKey">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcReadOnlyKey">
+        <xs:sequence>
+          <xs:element name="id" type="xs:int" minOccurs="0"/>
+          <xs:element name="parentKey" type="ns2:addressContextKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="sipDeletedRegStatusListWrapper">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcListWrapper">
+        <xs:sequence>
+          <xs:element name="sipDeletedRegStatus" type="tns:sipDeletedRegStatus" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="sipActiveRegisterNameStatus">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcEntity">
+        <xs:sequence>
+          <xs:element name="aorName" type="xs:string" minOccurs="0"/>
+          <xs:element name="id" type="xs:int" minOccurs="0"/>
+          <xs:element name="state" type="ns28:sonusSipRegActRegNameStatusStateType" minOccurs="0"/>
+          <xs:element name="contactURI" type="xs:string" minOccurs="0"/>
+          <xs:element name="nextHopIpAddress" type="xs:string" minOccurs="0"/>
+          <xs:element name="nextHopPortNum" type="xs:int" minOccurs="0"/>
+          <xs:element name="registrarIpAddress" type="xs:string" minOccurs="0"/>
+          <xs:element name="registrarPortNum" type="xs:int" minOccurs="0"/>
+          <xs:element name="externalExpirationTime" type="xs:int" minOccurs="0"/>
+          <xs:element name="internalExpirationTime" type="xs:int" minOccurs="0"/>
+          <xs:element name="creationTime" type="xs:dateTime" minOccurs="0"/>
+          <xs:element name="registrarDomainName" type="xs:string" minOccurs="0"/>
+          <xs:element name="endPointBehindNapt" type="xs:int" minOccurs="0"/>
+          <xs:element name="natPinholeLearningStatus" type="ns28:sonusNatPinholeLearningStatusType" minOccurs="0"/>
+          <xs:element name="securityMechanismType" type="ns28:sonusSipSecurityMechanismType" minOccurs="0"/>
+          <xs:element name="registrationType" type="ns28:sonusSipRegistrationType" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="sipActiveRegisterNameStatusKey">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcReadOnlyKey">
+        <xs:sequence>
+          <xs:element name="aorName" type="xs:string" minOccurs="0"/>
+          <xs:element name="id" type="xs:int" minOccurs="0"/>
+          <xs:element name="parentKey" type="ns2:addressContextKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="sipActiveRegisterNameStatusListWrapper">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcListWrapper">
+        <xs:sequence>
+          <xs:element name="sipActiveRegisterNameStatus" type="tns:sipActiveRegisterNameStatus" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="sipDeletedRegisterNameStatus">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcEntity">
+        <xs:sequence>
+          <xs:element name="aorName" type="xs:string" minOccurs="0"/>
+          <xs:element name="id" type="xs:int" minOccurs="0"/>
+          <xs:element name="reasonCode" type="ns28:sonusSipRegDelRegNameStatusReasonCodeType" minOccurs="0"/>
+          <xs:element name="contactURI" type="xs:string" minOccurs="0"/>
+          <xs:element name="nextHopIpAddress" type="xs:string" minOccurs="0"/>
+          <xs:element name="nextHopPortNum" type="xs:int" minOccurs="0"/>
+          <xs:element name="registrarIpAddress" type="xs:string" minOccurs="0"/>
+          <xs:element name="registrarPortNum" type="xs:int" minOccurs="0"/>
+          <xs:element name="creationTime" type="xs:dateTime" minOccurs="0"/>
+          <xs:element name="terminationTime" type="xs:dateTime" minOccurs="0"/>
+          <xs:element name="registrarDomainName" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="sipDeletedRegisterNameStatusKey">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcReadOnlyKey">
+        <xs:sequence>
+          <xs:element name="aorName" type="xs:string" minOccurs="0"/>
+          <xs:element name="id" type="xs:int" minOccurs="0"/>
+          <xs:element name="parentKey" type="ns2:addressContextKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="sipDeletedRegisterNameStatusListWrapper">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcListWrapper">
+        <xs:sequence>
+          <xs:element name="sipDeletedRegisterNameStatus" type="tns:sipDeletedRegisterNameStatus" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="sipActiveGroupRegStatus">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcEntity">
+        <xs:sequence>
+          <xs:element name="id" type="xs:int" minOccurs="0"/>
+          <xs:element name="nextId" type="xs:int" minOccurs="0"/>
+          <xs:element name="aorName" type="xs:string" minOccurs="0"/>
+          <xs:element name="state" type="ns28:sonusSipRegActGroupRegStatusStateType" minOccurs="0"/>
+          <xs:element name="contactURI" type="xs:string" minOccurs="0"/>
+          <xs:element name="nextHopIpAddress" type="xs:string" minOccurs="0"/>
+          <xs:element name="nextHopPortNum" type="xs:int" minOccurs="0"/>
+          <xs:element name="registrarIpAddress" type="xs:string" minOccurs="0"/>
+          <xs:element name="registrarPortNum" type="xs:int" minOccurs="0"/>
+          <xs:element name="extExpirationTime" type="xs:int" minOccurs="0"/>
+          <xs:element name="intExpirationTime" type="xs:int" minOccurs="0"/>
+          <xs:element name="creationTime" type="xs:dateTime" minOccurs="0"/>
+          <xs:element name="registrarDomainName" type="xs:string" minOccurs="0"/>
+          <xs:element name="regIdIsChild" type="xs:int" minOccurs="0"/>
+          <xs:element name="registrationType" type="ns28:sonusSipRegistrationType" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="sipActiveGroupRegStatusKey">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcReadOnlyKey">
+        <xs:sequence>
+          <xs:element name="id" type="xs:int" minOccurs="0"/>
+          <xs:element name="nextId" type="xs:int" minOccurs="0"/>
+          <xs:element name="parentKey" type="ns2:addressContextKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="sipActiveGroupRegStatusListWrapper">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcListWrapper">
+        <xs:sequence>
+          <xs:element name="sipActiveGroupRegStatus" type="tns:sipActiveGroupRegStatus" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="sipActiveGroupRegSummaryStatus">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcEntity">
+        <xs:sequence>
+          <xs:element name="registrarIpAddress" type="xs:string" minOccurs="0"/>
+          <xs:element name="nextRegId" type="xs:int" minOccurs="0"/>
+          <xs:element name="aorName" type="xs:string" minOccurs="0"/>
+          <xs:element name="state" type="ns28:sonusSipRegActGroupRegStatusSummaryStateType" minOccurs="0"/>
+          <xs:element name="nextRegIdIsChild" type="xs:int" minOccurs="0"/>
+          <xs:element name="registrationType" type="ns28:sonusSipRegistrationType" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="sipActiveGroupRegSummaryStatusKey">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcReadOnlyKey">
+        <xs:sequence>
+          <xs:element name="registrarIpAddress" type="xs:string" minOccurs="0"/>
+          <xs:element name="nextRegId" type="xs:int" minOccurs="0"/>
+          <xs:element name="parentKey" type="ns2:addressContextKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="sipActiveGroupRegSummaryStatusListWrapper">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcListWrapper">
+        <xs:sequence>
+          <xs:element name="sipActiveGroupRegSummaryStatus" type="tns:sipActiveGroupRegSummaryStatus" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="sipRegCountStatistics">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcEntity">
+        <xs:sequence>
+          <xs:element name="name" type="ns6:sonusOperScalarElemContainerKey" minOccurs="0"/>
+          <xs:element name="sipRegCountAttempts" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="sipRegCountCumCompletions" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="sipRegCountPending" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="sipRegCountStable" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="sipRegCountTotal" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="sipEmergencyRegAcceptTotal" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="sipEmergencyRegActiveTotal" type="xs:unsignedInt" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="sipRegCountStatisticsKey">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcReadOnlyKey">
+        <xs:sequence>
+          <xs:element name="name" type="ns6:sonusOperScalarElemContainerKey" minOccurs="0"/>
+          <xs:element name="parentKey" type="ns2:addressContextKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="sipRegCountStatisticsListWrapper">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcListWrapper">
+        <xs:sequence>
+          <xs:element name="sipRegCountStatistics" type="tns:sipRegCountStatistics" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="surrRegCountStatistics">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcEntity">
+        <xs:sequence>
+          <xs:element name="name" type="ns6:sonusOperScalarElemContainerKey" minOccurs="0"/>
+          <xs:element name="surrRegActiveRegCount" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="surrRegConfiguredCount" type="xs:unsignedInt" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="surrRegCountStatisticsKey">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcReadOnlyKey">
+        <xs:sequence>
+          <xs:element name="name" type="ns6:sonusOperScalarElemContainerKey" minOccurs="0"/>
+          <xs:element name="parentKey" type="ns2:addressContextKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="surrRegCountStatisticsListWrapper">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcListWrapper">
+        <xs:sequence>
+          <xs:element name="surrRegCountStatistics" type="tns:surrRegCountStatistics" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="sipSubscriptionStatus">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcEntity">
+        <xs:sequence>
+          <xs:element name="id" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="callId" type="xs:string" minOccurs="0"/>
+          <xs:element name="state" type="ns29:sonusSipActSubStatusStateType" minOccurs="0"/>
+          <xs:element name="nextHopIpAddress" type="xs:string" minOccurs="0"/>
+          <xs:element name="nextHopPortNum" type="xs:int" minOccurs="0"/>
+          <xs:element name="previousHopIpAddress" type="xs:string" minOccurs="0"/>
+          <xs:element name="previousHopPortNum" type="xs:int" minOccurs="0"/>
+          <xs:element name="expirationTime" type="xs:int" minOccurs="0"/>
+          <xs:element name="serverDomainName" type="xs:string" minOccurs="0"/>
+          <xs:element name="origEPDomain" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="sipSubscriptionStatusKey">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcReadOnlyKey">
+        <xs:sequence>
+          <xs:element name="id" type="xs:long" minOccurs="0"/>
+          <xs:element name="parentKey" type="ns2:addressContextKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="sipSubscriptionStatusListWrapper">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcListWrapper">
+        <xs:sequence>
+          <xs:element name="sipSubscriptionStatus" type="tns:sipSubscriptionStatus" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="sipSubCountStatistics">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcEntity">
+        <xs:sequence>
+          <xs:element name="name" type="ns6:sonusOperScalarElemContainerKey" minOccurs="0"/>
+          <xs:element name="sipSubCountAttempts" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="sipSubCountCumCompletions" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="sipSubCountStable" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="sipSubCountTotal" type="xs:unsignedInt" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="sipSubCountStatisticsKey">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcReadOnlyKey">
+        <xs:sequence>
+          <xs:element name="name" type="ns6:sonusOperScalarElemContainerKey" minOccurs="0"/>
+          <xs:element name="parentKey" type="ns2:addressContextKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="sipSubCountStatisticsListWrapper">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcListWrapper">
+        <xs:sequence>
+          <xs:element name="sipSubCountStatistics" type="tns:sipSubCountStatistics" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="zone">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcEntity">
+        <xs:sequence>
+          <xs:element name="name" type="xs:string" minOccurs="0"/>
+          <xs:element name="id" type="xs:unsignedShort" minOccurs="0"/>
+          <xs:element name="dnsGroup" type="xs:string" minOccurs="0"/>
+          <xs:element name="remoteDeviceType" type="ns30:sonusRemoteDeviceType" default="none" minOccurs="0"/>
+          <xs:element name="domainName" type="xs:string" minOccurs="0"/>
+          <xs:element name="cac" type="ns33:cac" minOccurs="0"/>
+          <xs:element name="messageManipulation" type="ns33:messageManipulation" minOccurs="0"/>
+          <xs:element name="gwSigPort" type="ns33:gwSigPort" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="gwSigPortStatus" type="ns33:gwSigPortStatus" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="gwSigPortStatistics" type="ns33:gwSigPortStatistics" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="gwTrunkGroup" type="ns33:gwTrunkGroup" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="h323SigPort" type="ns33:h323SigPort" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="h323SigPortStatus" type="ns33:h323SigPortStatus" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="h323SigPortStatistics" type="ns33:h323SigPortStatistics" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="h323TrunkGroup" type="ns33:h323TrunkGroup" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="ipPeer" type="ns33:ipPeer" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="sipPeerCacStatus" type="ns33:sipPeerCacStatus" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="sonusSipSigPeerOvldStatusEntry" type="ns33:sonusSipSigPeerOvldStatusEntry" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="peerPathchkStatus" type="ns33:peerPathchkStatus" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="peerSurrRegStatus" type="ns33:peerSurrRegStatus" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="peerQosStatus" type="ns33:peerQosStatus" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="mtrmConnPort" type="ns33:mtrmConnPort" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="mtrmConnPortPeerStatus" type="ns33:mtrmConnPortPeerStatus" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="mtrmConnPortPeerStatistics" type="ns33:mtrmConnPortPeerStatistics" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="sipCurrentStatistics" type="ns33:sipCurrentStatistics" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="sipIntervalStatistics" type="ns33:sipIntervalStatistics" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="sipOcsCallCurrentStatistics" type="ns33:sipOcsCallCurrentStatistics" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="sipOcsCallIntervalStatistics" type="ns33:sipOcsCallIntervalStatistics" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="sipSigPort" type="ns33:sipSigPort" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="sipSigPortStatus" type="ns33:sipSigPortStatus" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="sipSigPortStatistics" type="ns33:sipSigPortStatistics" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="sipSigConnStatus" type="ns33:sipSigConnStatus" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="sipSigConnStatistics" type="ns33:sipSigConnStatistics" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="sipSigPortTlsStatistics" type="ns33:sipSigPortTlsStatistics" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="sipSigTlsSessionStatus" type="ns33:sipSigTlsSessionStatus" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="callCurrentStatistics" type="ns33:callCurrentStatistics" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="callIntervalStatistics" type="ns33:callIntervalStatistics" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="callFailureCurrentStatistics" type="ns33:callFailureCurrentStatistics" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="callFailureIntervalStatistics" type="ns33:callFailureIntervalStatistics" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="trafficControlCurrentStatistics" type="ns33:trafficControlCurrentStatistics" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="trafficControlIntervalStatistics" type="ns33:trafficControlIntervalStatistics" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="sipTrunkGroup" type="ns33:sipTrunkGroup" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="trunkGroupStatus" type="ns33:trunkGroupStatus" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="trunkGroupQoeStatus" type="ns33:trunkGroupQoeStatus" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="sipArsStatus" type="ns33:sipArsStatus" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="sipRegAdaptiveNaptLearningStatistics" type="ns33:sipRegAdaptiveNaptLearningStatistics" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="zoneKey">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcKey">
+        <xs:sequence>
+          <xs:element name="name" type="xs:string" minOccurs="0"/>
+          <xs:element name="parentKey" type="ns2:addressContextKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="zoneListWrapper">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcListWrapper">
+        <xs:sequence>
+          <xs:element name="zone" type="tns:zone" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="zoneStatus">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcEntity">
+        <xs:sequence>
+          <xs:element name="name" type="xs:string" minOccurs="0"/>
+          <xs:element name="totalCallsAvailable" type="xs:int" minOccurs="0"/>
+          <xs:element name="inboundCallsUsage" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="outboundCallsUsage" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="totalCallsConfigured" type="xs:int" minOccurs="0"/>
+          <xs:element name="priorityCallUsage" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="bwCurrentLimit" type="xs:int" minOccurs="0"/>
+          <xs:element name="bwAvailable" type="xs:int" minOccurs="0"/>
+          <xs:element name="bwInboundUsage" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="bwOutboundUsage" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="emergencyCallsBwUsage" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="activeSipRegCount" type="xs:int" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="zoneStatusKey">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcReadOnlyKey">
+        <xs:sequence>
+          <xs:element name="name" type="xs:string" minOccurs="0"/>
+          <xs:element name="parentKey" type="ns2:addressContextKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="zoneStatusListWrapper">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcListWrapper">
+        <xs:sequence>
+          <xs:element name="zoneStatus" type="tns:zoneStatus" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="zoneCurrentStatistics">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcEntity">
+        <xs:sequence>
+          <xs:element name="name" type="xs:string" minOccurs="0"/>
+          <xs:element name="ingressFailCallLimit" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="egressFailCallLimit" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="ingressFailCallPolicing" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="egressFailCallPolicing" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="ingressFailBWLimit" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="egressFailBWLimit" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="ingressSipRegFailLimit" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="egressSipRegFailLimit" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="ingressSipRegPolicing" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="egressSipRegPolicing" type="xs:unsignedInt" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="zoneCurrentStatisticsKey">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcReadOnlyKey">
+        <xs:sequence>
+          <xs:element name="name" type="xs:string" minOccurs="0"/>
+          <xs:element name="parentKey" type="ns2:addressContextKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="zoneCurrentStatisticsListWrapper">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcListWrapper">
+        <xs:sequence>
+          <xs:element name="zoneCurrentStatistics" type="tns:zoneCurrentStatistics" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="zoneIntervalStatistics">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcEntity">
+        <xs:sequence>
+          <xs:element name="number" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="name" type="xs:string" minOccurs="0"/>
+          <xs:element name="intervalValid" type="ns9:truthValue" minOccurs="0"/>
+          <xs:element name="time" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="ingressFailCallLimit" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="egressFailCallLimit" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="ingressFailCallPolicing" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="egressFailCallPolicing" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="ingressFailBWLimit" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="egressFailBWLimit" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="ingressSipRegFailLimit" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="egressSipRegFailLimit" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="ingressSipRegPolicing" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="egressSipRegPolicing" type="xs:unsignedInt" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="zoneIntervalStatisticsKey">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcReadOnlyKey">
+        <xs:sequence>
+          <xs:element name="number" type="xs:long" minOccurs="0"/>
+          <xs:element name="name" type="xs:string" minOccurs="0"/>
+          <xs:element name="parentKey" type="ns2:addressContextKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="zoneIntervalStatisticsListWrapper">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcListWrapper">
+        <xs:sequence>
+          <xs:element name="zoneIntervalStatistics" type="tns:zoneIntervalStatistics" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+</xs:schema>
+

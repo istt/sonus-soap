@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="jsrcserver.system.v04_02_00.sbc.api.ems.sonus.com" xmlns:ns2="sonusjsrcserver.types.v04_02_00.sbc.api.ems.sonus.com" xmlns:ns1="sonustc.types.v04_02_00.sbc.api.ems.sonus.com" xmlns:ns4="v04_02_00.sbc.api.ems.sonus.com" xmlns:ns3="common.sbc.api.ems.sonus.com" xmlns:tns="jsrcserver.system.v04_02_00.sbc.api.ems.sonus.com" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ns5="system.v04_02_00.sbc.api.ems.sonus.com">
+
+  <xs:import namespace="sonustc.types.v04_02_00.sbc.api.ems.sonus.com" schemaLocation="SBCV040200APIService_schema42.xsd"/>
+
+  <xs:import namespace="sonusjsrcserver.types.v04_02_00.sbc.api.ems.sonus.com" schemaLocation="SBCV040200APIService_schema76.xsd"/>
+
+  <xs:import namespace="common.sbc.api.ems.sonus.com" schemaLocation="SBCV040200APIService_schema325.xsd"/>
+
+  <xs:import namespace="v04_02_00.sbc.api.ems.sonus.com" schemaLocation="SBCV040200APIService_schema7.xsd"/>
+
+  <xs:import namespace="system.v04_02_00.sbc.api.ems.sonus.com" schemaLocation="SBCV040200APIService_schema26.xsd"/>
+
+  <xs:complexType name="globalConfig">
+    <xs:complexContent>
+      <xs:extension base="ns3:sbcEntity">
+        <xs:sequence>
+          <xs:element name="srcBandwidithReservationEnabled" type="ns1:sonusAdminState" default="disabled" minOccurs="0"/>
+          <xs:element name="srcReconnectPollTimeout" type="xs:int" default="10" minOccurs="0"/>
+          <xs:element name="srcSessionTimeout" type="xs:int" default="3600" minOccurs="0"/>
+          <xs:element name="numberOfRetries" type="xs:int" default="2" minOccurs="0"/>
+          <xs:element name="maxNumberOfFailuresAllowed" type="xs:int" default="5" minOccurs="0"/>
+          <xs:element name="routerPolicyEnable" type="ns1:sonusAdminState" default="disabled" minOccurs="0"/>
+          <xs:element name="DNSuffix" type="xs:string" default="o=Users,o=UMC" minOccurs="0"/>
+          <xs:element name="retailerName" type="xs:string" default="Sonusnet" minOccurs="0"/>
+          <xs:element name="organizationalUnit" type="xs:string" default="SBC" minOccurs="0"/>
+          <xs:element name="reservationFailurePolicy" type="ns2:sonusJsrcServerReservationFailurePolicyType" default="reject" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="globalConfigKey">
+    <xs:complexContent>
+      <xs:extension base="ns3:sbcUnCreatableKey">
+        <xs:sequence>
+          <xs:element name="parentKey" type="ns5:jsrcServerKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="remoteServer">
+    <xs:complexContent>
+      <xs:extension base="ns3:sbcEntity">
+        <xs:sequence>
+          <xs:element name="srcName" type="xs:string" minOccurs="0"/>
+          <xs:element name="state" type="ns1:sonusAdminState" default="disabled" minOccurs="0"/>
+          <xs:element name="srcServerAddress" type="xs:string" minOccurs="0"/>
+          <xs:element name="srcUsername" type="xs:string" minOccurs="0"/>
+          <xs:element name="srcPassword" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="remoteServerKey">
+    <xs:complexContent>
+      <xs:extension base="ns3:sbcKey">
+        <xs:sequence>
+          <xs:element name="srcName" type="xs:string" minOccurs="0"/>
+          <xs:element name="parentKey" type="ns5:jsrcServerKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="remoteServerListWrapper">
+    <xs:complexContent>
+      <xs:extension base="ns3:sbcListWrapper">
+        <xs:sequence>
+          <xs:element name="remoteServer" type="tns:remoteServer" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="serverStatus">
+    <xs:complexContent>
+      <xs:extension base="ns3:sbcEntity">
+        <xs:sequence>
+          <xs:element name="serverName" type="xs:string" minOccurs="0"/>
+          <xs:element name="status" type="ns2:sonusJsrcServerStatusType" minOccurs="0"/>
+          <xs:element name="cacPolicyAttempts" type="xs:int" minOccurs="0"/>
+          <xs:element name="routerPolicyAttempts" type="xs:int" minOccurs="0"/>
+          <xs:element name="successfulCacPolicyAttempts" type="xs:int" minOccurs="0"/>
+          <xs:element name="successfulRouterPolicyAttempts" type="xs:int" minOccurs="0"/>
+          <xs:element name="failedCacPolicyAttempts" type="xs:int" minOccurs="0"/>
+          <xs:element name="failedRouterPolicyAttempts" type="xs:int" minOccurs="0"/>
+          <xs:element name="retries" type="xs:int" minOccurs="0"/>
+          <xs:element name="communicationFailures" type="xs:int" minOccurs="0"/>
+          <xs:element name="srcOperationallyDisabled" type="xs:int" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="serverStatusKey">
+    <xs:complexContent>
+      <xs:extension base="ns3:sbcReadOnlyKey">
+        <xs:sequence>
+          <xs:element name="serverName" type="xs:string" minOccurs="0"/>
+          <xs:element name="parentKey" type="ns5:jsrcServerKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="serverStatusListWrapper">
+    <xs:complexContent>
+      <xs:extension base="ns3:sbcListWrapper">
+        <xs:sequence>
+          <xs:element name="serverStatus" type="tns:serverStatus" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+</xs:schema>
+

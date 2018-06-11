@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="sonuscpctosipcausemapprofile.types.v04_02_00.sbc.api.ems.sonus.com" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:simpleType name="sonusCpcToSipCauseMappingBaseProfileType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="defaultCpcSip"/>
+      <xs:enumeration value="defaultQ1912CpcSip"/>
+      <xs:enumeration value="defaultRfc3398CpcSip"/>
+      <xs:enumeration value="defaultTs29163CpcSip"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusCpcToSipCauseMappingProfileUnrecActionType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="q1912Procedure"/>
+      <xs:enumeration value="rfc3398Procedure"/>
+      <xs:enumeration value="ts29163Procedure"/>
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>
+

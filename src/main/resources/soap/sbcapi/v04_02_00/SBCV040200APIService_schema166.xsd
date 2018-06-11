@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="servers.global.v04_02_00.sbc.api.ems.sonus.com" xmlns:ns2="v04_02_00.sbc.api.ems.sonus.com" xmlns:ns1="common.sbc.api.ems.sonus.com" xmlns:ns4="e911vpcdevice.servers.global.v04_02_00.sbc.api.ems.sonus.com" xmlns:ns3="global.v04_02_00.sbc.api.ems.sonus.com" xmlns:tns="servers.global.v04_02_00.sbc.api.ems.sonus.com" xmlns:ns9="enumservice.servers.global.v04_02_00.sbc.api.ems.sonus.com" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ns5="sonuse911.types.v04_02_00.sbc.api.ems.sonus.com" xmlns:ns6="e911.servers.global.v04_02_00.sbc.api.ems.sonus.com" xmlns:ns7="sonustc.types.v04_02_00.sbc.api.ems.sonus.com" xmlns:ns10="dns.servers.global.v04_02_00.sbc.api.ems.sonus.com" xmlns:ns8="sonusenum.types.v04_02_00.sbc.api.ems.sonus.com">
+
+  <xs:import namespace="common.sbc.api.ems.sonus.com" schemaLocation="SBCV040200APIService_schema325.xsd"/>
+
+  <xs:import namespace="v04_02_00.sbc.api.ems.sonus.com" schemaLocation="SBCV040200APIService_schema7.xsd"/>
+
+  <xs:import namespace="global.v04_02_00.sbc.api.ems.sonus.com" schemaLocation="SBCV040200APIService_schema271.xsd"/>
+
+  <xs:import namespace="e911vpcdevice.servers.global.v04_02_00.sbc.api.ems.sonus.com" schemaLocation="SBCV040200APIService_schema290.xsd"/>
+
+  <xs:import namespace="sonuse911.types.v04_02_00.sbc.api.ems.sonus.com" schemaLocation="SBCV040200APIService_schema112.xsd"/>
+
+  <xs:import namespace="e911.servers.global.v04_02_00.sbc.api.ems.sonus.com" schemaLocation="SBCV040200APIService_schema291.xsd"/>
+
+  <xs:import namespace="sonustc.types.v04_02_00.sbc.api.ems.sonus.com" schemaLocation="SBCV040200APIService_schema42.xsd"/>
+
+  <xs:import namespace="sonusenum.types.v04_02_00.sbc.api.ems.sonus.com" schemaLocation="SBCV040200APIService_schema109.xsd"/>
+
+  <xs:import namespace="enumservice.servers.global.v04_02_00.sbc.api.ems.sonus.com" schemaLocation="SBCV040200APIService_schema281.xsd"/>
+
+  <xs:import namespace="dns.servers.global.v04_02_00.sbc.api.ems.sonus.com" schemaLocation="SBCV040200APIService_schema298.xsd"/>
+
+  <xs:complexType name="enumDomain">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcEntity">
+        <xs:sequence>
+          <xs:element name="name" type="xs:string" minOccurs="0"/>
+          <xs:element name="ipAddress1" type="xs:string" default="0.0.0.0" minOccurs="0"/>
+          <xs:element name="ipAddress2" type="xs:string" default="0.0.0.0" minOccurs="0"/>
+          <xs:element name="ipAddress3" type="xs:string" default="0.0.0.0" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="enumDomainKey">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcKey">
+        <xs:sequence>
+          <xs:element name="name" type="xs:string" minOccurs="0"/>
+          <xs:element name="parentKey" type="ns3:serversKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="enumDomainListWrapper">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcListWrapper">
+        <xs:sequence>
+          <xs:element name="enumDomain" type="tns:enumDomain" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="e911VpcDevice">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcEntity">
+        <xs:sequence>
+          <xs:element name="name" type="xs:string" minOccurs="0"/>
+          <xs:element name="deviceData" type="ns4:deviceData" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="e911VpcDeviceKey">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcKey">
+        <xs:sequence>
+          <xs:element name="name" type="xs:string" minOccurs="0"/>
+          <xs:element name="parentKey" type="ns3:serversKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="e911VpcDeviceListWrapper">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcListWrapper">
+        <xs:sequence>
+          <xs:element name="e911VpcDevice" type="tns:e911VpcDevice" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="e911">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcEntity">
+        <xs:sequence>
+          <xs:element name="name" type="ns5:sonusE911Name" minOccurs="0"/>
+          <xs:element name="defaultTreatment" type="ns5:sonusScpTriggerTreatment" default="routeAsDialed" minOccurs="0"/>
+          <xs:element name="requestTimeOut" type="xs:unsignedInt" default="4000" minOccurs="0"/>
+          <xs:element name="routePrecedence" type="ns5:sonusRoutePrecedence" default="lro" minOccurs="0"/>
+          <xs:element name="vpcDevice" type="xs:string" minOccurs="0"/>
+          <xs:element name="criteria" type="ns6:criteria" minOccurs="0"/>
+          <xs:element name="flags" type="ns6:flags" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="e911Key">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcKey">
+        <xs:sequence>
+          <xs:element name="name" type="ns5:sonusE911Name" minOccurs="0"/>
+          <xs:element name="parentKey" type="ns3:serversKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="e911ListWrapper">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcListWrapper">
+        <xs:sequence>
+          <xs:element name="e911" type="tns:e911" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="enumService">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcEntity">
+        <xs:sequence>
+          <xs:element name="name" type="xs:string" minOccurs="0"/>
+          <xs:element name="defaultTreatment" type="ns8:sonusScpTriggerTreatment" default="routeAsDialed" minOccurs="0"/>
+          <xs:element name="serviceType" type="ns8:sonusServiceType" default="sipAor" minOccurs="0"/>
+          <xs:element name="requestTimeOut" type="xs:unsignedInt" default="2000" minOccurs="0"/>
+          <xs:element name="criteria" type="ns9:criteria" minOccurs="0"/>
+          <xs:element name="flags" type="ns9:flags" minOccurs="0"/>
+          <xs:element name="enumDefinitions" type="ns9:enumDefinitions" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="enumServiceKey">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcKey">
+        <xs:sequence>
+          <xs:element name="name" type="xs:string" minOccurs="0"/>
+          <xs:element name="parentKey" type="ns3:serversKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="enumServiceListWrapper">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcListWrapper">
+        <xs:sequence>
+          <xs:element name="enumService" type="tns:enumService" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="dns">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcEntity">
+        <xs:sequence>
+          <xs:element name="global" type="ns10:global" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="dnsKey">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcUnCreatableKey">
+        <xs:sequence>
+          <xs:element name="parentKey" type="ns3:serversKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+</xs:schema>
+

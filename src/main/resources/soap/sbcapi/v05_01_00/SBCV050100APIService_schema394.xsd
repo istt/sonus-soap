@@ -1,0 +1,501 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="cac.global.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns2="common.sbc.api.ems.sonus.com" xmlns:ns1="sonustc.types.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns4="global.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns3="v05_01_00.sbc.api.ems.sonus.com" xmlns:tns="cac.global.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns9="sharedcaclimitspool.cac.global.v05_01_00.sbc.api.ems.sonus.com" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ns5="sonusorcatc.types.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns6="sonusmtrgserver.types.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns7="snmpv2_tc.types.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns8="sonussharedcacpool.types.v05_01_00.sbc.api.ems.sonus.com">
+
+  <xs:import namespace="sonustc.types.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema44.xsd"/>
+
+  <xs:import namespace="common.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema360.xsd"/>
+
+  <xs:import namespace="v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema7.xsd"/>
+
+  <xs:import namespace="global.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema295.xsd"/>
+
+  <xs:import namespace="sonusorcatc.types.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema70.xsd"/>
+
+  <xs:import namespace="sonusmtrgserver.types.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema74.xsd"/>
+
+  <xs:import namespace="snmpv2_tc.types.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema143.xsd"/>
+
+  <xs:import namespace="sonussharedcacpool.types.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema61.xsd"/>
+
+  <xs:import namespace="sharedcaclimitspool.cac.global.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema171.xsd"/>
+
+  <xs:complexType name="mtrgClient">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcEntity">
+        <xs:sequence>
+          <xs:element name="name" type="xs:string" minOccurs="0"/>
+          <xs:element name="mtrmConnPortIndex" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="mode" type="ns1:sonusServiceState" default="inService" minOccurs="0"/>
+          <xs:element name="state" type="ns1:sonusAdminState" default="disabled" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="mtrgClientKey">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcKey">
+        <xs:sequence>
+          <xs:element name="name" type="xs:string" minOccurs="0"/>
+          <xs:element name="parentKey" type="ns4:cacKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="mtrgClientListWrapper">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcListWrapper">
+        <xs:sequence>
+          <xs:element name="mtrgClient" type="tns:mtrgClient" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="mtrgClientStatus">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcEntity">
+        <xs:sequence>
+          <xs:element name="name" type="xs:string" minOccurs="0"/>
+          <xs:element name="mtrgClientIndex" type="xs:unsignedInt" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="mtrgClientStatusKey">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcReadOnlyKey">
+        <xs:sequence>
+          <xs:element name="name" type="xs:string" minOccurs="0"/>
+          <xs:element name="parentKey" type="ns4:cacKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="mtrgClientStatusListWrapper">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcListWrapper">
+        <xs:sequence>
+          <xs:element name="mtrgClientStatus" type="tns:mtrgClientStatus" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="mtrgClientRegTgStatus">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcEntity">
+        <xs:sequence>
+          <xs:element name="name" type="xs:string" minOccurs="0"/>
+          <xs:element name="tgName" type="xs:string" minOccurs="0"/>
+          <xs:element name="nodeName" type="xs:string" minOccurs="0"/>
+          <xs:element name="tgType" type="ns5:sonusMtrmTgType" minOccurs="0"/>
+          <xs:element name="mtrgClientIndex" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="tgIndex" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="callsAllocated" type="xs:int" minOccurs="0"/>
+          <xs:element name="bwAllocated" type="xs:int" minOccurs="0"/>
+          <xs:element name="tgState" type="ns5:sonusMtrmTgStateType" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="mtrgClientRegTgStatusKey">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcReadOnlyKey">
+        <xs:sequence>
+          <xs:element name="name" type="xs:string" minOccurs="0"/>
+          <xs:element name="tgName" type="xs:string" minOccurs="0"/>
+          <xs:element name="nodeName" type="xs:string" minOccurs="0"/>
+          <xs:element name="tgType" type="ns5:sonusMtrmTgType" minOccurs="0"/>
+          <xs:element name="parentKey" type="ns4:cacKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="mtrgClientRegTgStatusListWrapper">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcListWrapper">
+        <xs:sequence>
+          <xs:element name="mtrgClientRegTgStatus" type="tns:mtrgClientRegTgStatus" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="mtrgServer">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcEntity">
+        <xs:sequence>
+          <xs:element name="name" type="xs:string" minOccurs="0"/>
+          <xs:element name="mode" type="ns1:sonusServiceState" default="inService" minOccurs="0"/>
+          <xs:element name="state" type="ns1:sonusAdminState" default="disabled" minOccurs="0"/>
+          <xs:element name="maxCalls" type="xs:int" default="1000" minOccurs="0"/>
+          <xs:element name="maxBandwidth" type="xs:int" default="64000" minOccurs="0"/>
+          <xs:element name="callsPerRequest" type="xs:unsignedInt" default="10" minOccurs="0"/>
+          <xs:element name="bandwidthPerRequest" type="xs:unsignedInt" default="5000" minOccurs="0"/>
+          <xs:element name="parentMtrg" type="xs:string" minOccurs="0"/>
+          <xs:element name="parentRequestMaxCalls" type="xs:int" default="-1" minOccurs="0"/>
+          <xs:element name="parentRequestMaxBw" type="xs:int" default="-1" minOccurs="0"/>
+          <xs:element name="mtrmConnPortIndex" type="xs:unsignedInt" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="mtrgServerKey">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcKey">
+        <xs:sequence>
+          <xs:element name="name" type="xs:string" minOccurs="0"/>
+          <xs:element name="parentKey" type="ns4:cacKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="mtrgServerListWrapper">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcListWrapper">
+        <xs:sequence>
+          <xs:element name="mtrgServer" type="tns:mtrgServer" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="mtrgServerStatus">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcEntity">
+        <xs:sequence>
+          <xs:element name="name" type="xs:string" minOccurs="0"/>
+          <xs:element name="mtrgServerIndex" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="maxGlbCallAvail" type="xs:int" minOccurs="0"/>
+          <xs:element name="maxGlbBwAvail" type="xs:int" minOccurs="0"/>
+          <xs:element name="callsAllocated" type="xs:int" minOccurs="0"/>
+          <xs:element name="bwAllocated" type="xs:int" minOccurs="0"/>
+          <xs:element name="callsUsage" type="xs:int" minOccurs="0"/>
+          <xs:element name="bwUsage" type="xs:int" minOccurs="0"/>
+          <xs:element name="parentMtrgIndex" type="xs:int" minOccurs="0"/>
+          <xs:element name="parentMtrgName" type="xs:string" minOccurs="0"/>
+          <xs:element name="parentMtrgState" type="ns6:sonusMtrmParentMtrgStateType" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="mtrgServerStatusKey">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcReadOnlyKey">
+        <xs:sequence>
+          <xs:element name="name" type="xs:string" minOccurs="0"/>
+          <xs:element name="parentKey" type="ns4:cacKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="mtrgServerStatusListWrapper">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcListWrapper">
+        <xs:sequence>
+          <xs:element name="mtrgServerStatus" type="tns:mtrgServerStatus" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="mtrgServerRegTgStatus">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcEntity">
+        <xs:sequence>
+          <xs:element name="name" type="xs:string" minOccurs="0"/>
+          <xs:element name="tgName" type="xs:string" minOccurs="0"/>
+          <xs:element name="nodeName" type="xs:string" minOccurs="0"/>
+          <xs:element name="tgType" type="ns5:sonusMtrmTgType" minOccurs="0"/>
+          <xs:element name="mtrgServerIndex" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="tgIndex" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="callsAllocated" type="xs:int" minOccurs="0"/>
+          <xs:element name="bwAllocated" type="xs:int" minOccurs="0"/>
+          <xs:element name="tgState" type="ns5:sonusMtrmTgStateType" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="mtrgServerRegTgStatusKey">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcReadOnlyKey">
+        <xs:sequence>
+          <xs:element name="name" type="xs:string" minOccurs="0"/>
+          <xs:element name="tgName" type="xs:string" minOccurs="0"/>
+          <xs:element name="nodeName" type="xs:string" minOccurs="0"/>
+          <xs:element name="tgType" type="ns5:sonusMtrmTgType" minOccurs="0"/>
+          <xs:element name="parentKey" type="ns4:cacKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="mtrgServerRegTgStatusListWrapper">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcListWrapper">
+        <xs:sequence>
+          <xs:element name="mtrgServerRegTgStatus" type="tns:mtrgServerRegTgStatus" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="sharedCacCurrentStatistics">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcEntity">
+        <xs:sequence>
+          <xs:element name="name" type="xs:string" minOccurs="0"/>
+          <xs:element name="maxActiveCalls" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="inBwUsage" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="outBwUsage" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="maxActiveBwUsage" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="activeRegs" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="maxActiveRegs" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="activeSubs" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="maxActiveSubs" type="xs:unsignedInt" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="sharedCacCurrentStatisticsKey">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcReadOnlyKey">
+        <xs:sequence>
+          <xs:element name="name" type="xs:string" minOccurs="0"/>
+          <xs:element name="parentKey" type="ns4:cacKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="sharedCacCurrentStatisticsListWrapper">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcListWrapper">
+        <xs:sequence>
+          <xs:element name="sharedCacCurrentStatistics" type="tns:sharedCacCurrentStatistics" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="sharedCacIntervalStatistics">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcEntity">
+        <xs:sequence>
+          <xs:element name="number" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="name" type="xs:string" minOccurs="0"/>
+          <xs:element name="intervalValid" type="ns7:truthValue" minOccurs="0"/>
+          <xs:element name="time" type="xs:long" minOccurs="0"/>
+          <xs:element name="maxActiveCalls" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="inBwUsage" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="outBwUsage" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="maxActiveBwUsage" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="activeRegs" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="maxActiveRegs" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="activeSubs" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="maxActiveSubs" type="xs:unsignedInt" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="sharedCacIntervalStatisticsKey">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcReadOnlyKey">
+        <xs:sequence>
+          <xs:element name="number" type="xs:long" minOccurs="0"/>
+          <xs:element name="name" type="xs:string" minOccurs="0"/>
+          <xs:element name="parentKey" type="ns4:cacKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="sharedCacIntervalStatisticsListWrapper">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcListWrapper">
+        <xs:sequence>
+          <xs:element name="sharedCacIntervalStatistics" type="tns:sharedCacIntervalStatistics" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="sharedCacFailureCurStats">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcEntity">
+        <xs:sequence>
+          <xs:element name="name" type="xs:string" minOccurs="0"/>
+          <xs:element name="allocFailBwLimit" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="allocFailCallLimit" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="allocFailParentConstraint" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="allocFailSipReg" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="sipSubsFailPolicing" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="sipOtherReqFailPolicing" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="videoThresholdLimit" type="xs:unsignedInt" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="sharedCacFailureCurStatsKey">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcReadOnlyKey">
+        <xs:sequence>
+          <xs:element name="name" type="xs:string" minOccurs="0"/>
+          <xs:element name="parentKey" type="ns4:cacKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="sharedCacFailureCurStatsListWrapper">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcListWrapper">
+        <xs:sequence>
+          <xs:element name="sharedCacFailureCurStats" type="tns:sharedCacFailureCurStats" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="sharedCacFailureIntStats">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcEntity">
+        <xs:sequence>
+          <xs:element name="number" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="name" type="xs:string" minOccurs="0"/>
+          <xs:element name="intervalValid" type="ns7:truthValue" minOccurs="0"/>
+          <xs:element name="time" type="xs:long" minOccurs="0"/>
+          <xs:element name="allocFailBwLimit" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="allocFailCallLimit" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="allocFailParentConstraint" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="allocFailSipReg" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="sipSubsFailPolicing" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="sipOtherReqFailPolicing" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="videoThresholdLimit" type="xs:unsignedInt" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="sharedCacFailureIntStatsKey">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcReadOnlyKey">
+        <xs:sequence>
+          <xs:element name="number" type="xs:long" minOccurs="0"/>
+          <xs:element name="name" type="xs:string" minOccurs="0"/>
+          <xs:element name="parentKey" type="ns4:cacKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="sharedCacFailureIntStatsListWrapper">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcListWrapper">
+        <xs:sequence>
+          <xs:element name="sharedCacFailureIntStats" type="tns:sharedCacFailureIntStats" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="sharedCacLimitsPool">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcEntity">
+        <xs:sequence>
+          <xs:element name="name" type="xs:string" minOccurs="0"/>
+          <xs:element name="parentSharedCacLimitsPoolName" type="xs:string" minOccurs="0"/>
+          <xs:element name="callLimit" type="xs:string" default="unlimited" minOccurs="0"/>
+          <xs:element name="callLimitUnion" type="ns8:SonusTgCallLimitTypeUnion" minOccurs="0"/>
+          <xs:element name="callLimitThreshold" type="xs:unsignedByte" default="0" minOccurs="0"/>
+          <xs:element name="bandwidthLimit" type="xs:string" default="unlimited" minOccurs="0"/>
+          <xs:element name="bandwidthLimitUnion" type="ns8:SonusTgBandwidthLimitTypeUnion" minOccurs="0"/>
+          <xs:element name="bandwidthLimitThreshold" type="xs:unsignedByte" default="0" minOccurs="0"/>
+          <xs:element name="bandwidthVideoThreshold" type="xs:unsignedByte" default="0" minOccurs="0"/>
+          <xs:element name="emergencyOversubscription" type="xs:unsignedShort" default="100" minOccurs="0"/>
+          <xs:element name="registrationLimit" type="xs:string" default="unlimited" minOccurs="0"/>
+          <xs:element name="registrationLimitUnion" type="ns8:SonusTgRegLimitTypeUnion" minOccurs="0"/>
+          <xs:element name="subscriptionLimit" type="xs:string" default="unlimited" minOccurs="0"/>
+          <xs:element name="subscriptionLimitUnion" type="ns8:SonusTgSubsLimitTypeUnion" minOccurs="0"/>
+          <xs:element name="ingress" type="ns9:ingress" minOccurs="0"/>
+          <xs:element name="egress" type="ns9:egress" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="sharedCacLimitsPoolKey">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcKey">
+        <xs:sequence>
+          <xs:element name="name" type="xs:string" minOccurs="0"/>
+          <xs:element name="parentKey" type="ns4:cacKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="sharedCacLimitsPoolListWrapper">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcListWrapper">
+        <xs:sequence>
+          <xs:element name="sharedCacLimitsPool" type="tns:sharedCacLimitsPool" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="sharedCacStatus">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcEntity">
+        <xs:sequence>
+          <xs:element name="name" type="xs:string" minOccurs="0"/>
+          <xs:element name="totalCallsAvailable" type="xs:int" minOccurs="0"/>
+          <xs:element name="inboundCallsUsage" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="outboundCallsUsage" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="bwAvailable" type="xs:int" minOccurs="0"/>
+          <xs:element name="bwInboundUsage" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="bwOutboundUsage" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="sipRegActive" type="xs:int" minOccurs="0"/>
+          <xs:element name="sipSubsActive" type="xs:int" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="sharedCacStatusKey">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcReadOnlyKey">
+        <xs:sequence>
+          <xs:element name="name" type="xs:string" minOccurs="0"/>
+          <xs:element name="parentKey" type="ns4:cacKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="sharedCacStatusListWrapper">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcListWrapper">
+        <xs:sequence>
+          <xs:element name="sharedCacStatus" type="tns:sharedCacStatus" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+</xs:schema>
+

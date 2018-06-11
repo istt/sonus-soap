@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="calldatachannel.intercept.addresscontext.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns2="sonustc.types.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns1="sonusli.types.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns4="media.mediationserver.calldatachannel.intercept.addresscontext.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns3="mediationserver.calldatachannel.intercept.addresscontext.v05_01_00.sbc.api.ems.sonus.com" xmlns:tns="calldatachannel.intercept.addresscontext.v05_01_00.sbc.api.ems.sonus.com" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ns5="common.sbc.api.ems.sonus.com" xmlns:ns6="addresscontext.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns7="intercept.addresscontext.v05_01_00.sbc.api.ems.sonus.com">
+
+  <xs:import namespace="sonusli.types.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema79.xsd"/>
+
+  <xs:import namespace="sonustc.types.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema44.xsd"/>
+
+  <xs:import namespace="mediationserver.calldatachannel.intercept.addresscontext.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema251.xsd"/>
+
+  <xs:import namespace="media.mediationserver.calldatachannel.intercept.addresscontext.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema255.xsd"/>
+
+  <xs:import namespace="common.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema360.xsd"/>
+
+  <xs:import namespace="addresscontext.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema408.xsd"/>
+
+  <xs:import namespace="intercept.addresscontext.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema277.xsd"/>
+
+  <xs:complexType name="mediationServer">
+    <xs:complexContent>
+      <xs:extension base="ns5:sbcEntity">
+        <xs:sequence>
+          <xs:element name="msname" type="xs:string" minOccurs="0"/>
+          <xs:element name="signaling" type="ns3:signaling" minOccurs="0"/>
+          <xs:element name="media" type="ns3:media" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="mediationServerKey">
+    <xs:complexContent>
+      <xs:extension base="ns5:sbcKey">
+        <xs:sequence>
+          <xs:element name="msname" type="xs:string" minOccurs="0"/>
+          <xs:element name="parentKey" type="ns7:callDataChannelKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="mediationServerListWrapper">
+    <xs:complexContent>
+      <xs:extension base="ns5:sbcListWrapper">
+        <xs:sequence>
+          <xs:element name="mediationServer" type="tns:mediationServer" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="mediationServerMediaStatus">
+    <xs:complexContent>
+      <xs:extension base="ns5:sbcEntity">
+        <xs:sequence>
+          <xs:element name="msname" type="xs:string" minOccurs="0"/>
+          <xs:element name="tcpChannelstatus" type="ns1:sonusLiChnStatusType" minOccurs="0"/>
+          <xs:element name="tcpPacketsSent" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="tcpPacketsLost" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="udpPacketsSent" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="udpPacketsLost" type="xs:unsignedInt" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="mediationServerMediaStatusKey">
+    <xs:complexContent>
+      <xs:extension base="ns5:sbcReadOnlyKey">
+        <xs:sequence>
+          <xs:element name="msname" type="xs:string" minOccurs="0"/>
+          <xs:element name="parentKey" type="ns7:callDataChannelKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="mediationServerMediaStatusListWrapper">
+    <xs:complexContent>
+      <xs:extension base="ns5:sbcListWrapper">
+        <xs:sequence>
+          <xs:element name="mediationServerMediaStatus" type="tns:mediationServerMediaStatus" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="mediationServerSignalingStatus">
+    <xs:complexContent>
+      <xs:extension base="ns5:sbcEntity">
+        <xs:sequence>
+          <xs:element name="msname" type="xs:string" minOccurs="0"/>
+          <xs:element name="tcpChannelStatus" type="ns1:sonusLiChnStatusType" minOccurs="0"/>
+          <xs:element name="DSRSuccess" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="DSRFailures" type="xs:unsignedInt" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="mediationServerSignalingStatusKey">
+    <xs:complexContent>
+      <xs:extension base="ns5:sbcReadOnlyKey">
+        <xs:sequence>
+          <xs:element name="msname" type="xs:string" minOccurs="0"/>
+          <xs:element name="parentKey" type="ns7:callDataChannelKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="mediationServerSignalingStatusListWrapper">
+    <xs:complexContent>
+      <xs:extension base="ns5:sbcListWrapper">
+        <xs:sequence>
+          <xs:element name="mediationServerSignalingStatus" type="tns:mediationServerSignalingStatus" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+</xs:schema>
+

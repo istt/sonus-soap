@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="sonuspathchkprofile.types.v05_01_00.sbc.api.ems.sonus.com" xmlns:tns="sonuspathchkprofile.types.v05_01_00.sbc.api.ems.sonus.com" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:complexType name="SonusResponseProfileTypeUnion">
+    <xs:sequence>
+      <xs:element name="sonusResponseKeywordTypeBits" type="tns:SonusResponseKeywordTypeBits" minOccurs="0"/>
+      <xs:element name="sonusResponseKeywordType" type="xs:string" minOccurs="0"/>
+      <xs:element name="sonusResponseProfileErrorCodeType" type="xs:unsignedShort" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="SonusResponseKeywordTypeBits">
+    <xs:sequence>
+      <xs:element name="all" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="all4xx" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="all5xx" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="all6xx" type="xs:boolean" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:simpleType name="sonusPathchkProfProtocolType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="sipOptions"/>
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>
+

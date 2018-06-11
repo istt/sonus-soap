@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="sipcausecodemapping.signaling.profiles.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns2="sonustc.types.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns1="sonuscpctosipcausemapprofile.types.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns4="common.sbc.api.ems.sonus.com" xmlns:ns3="cpctosipcausemapprofile.sipcausecodemapping.signaling.profiles.v05_01_00.sbc.api.ems.sonus.com" xmlns:tns="sipcausecodemapping.signaling.profiles.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns9="sonussiptocpccausemapprofile.types.v05_01_00.sbc.api.ems.sonus.com" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ns5="profiles.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns6="signaling.profiles.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns7="sonussipinternalcausemapprofile.types.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns10="siptocpccausemapprofile.sipcausecodemapping.signaling.profiles.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns8="internalsipcausemapprofile.sipcausecodemapping.signaling.profiles.v05_01_00.sbc.api.ems.sonus.com">
+
+  <xs:import namespace="sonuscpctosipcausemapprofile.types.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema130.xsd"/>
+
+  <xs:import namespace="sonustc.types.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema44.xsd"/>
+
+  <xs:import namespace="cpctosipcausemapprofile.sipcausecodemapping.signaling.profiles.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema355.xsd"/>
+
+  <xs:import namespace="common.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema360.xsd"/>
+
+  <xs:import namespace="profiles.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema217.xsd"/>
+
+  <xs:import namespace="signaling.profiles.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema169.xsd"/>
+
+  <xs:import namespace="sonussipinternalcausemapprofile.types.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema57.xsd"/>
+
+  <xs:import namespace="internalsipcausemapprofile.sipcausecodemapping.signaling.profiles.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema276.xsd"/>
+
+  <xs:import namespace="sonussiptocpccausemapprofile.types.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema50.xsd"/>
+
+  <xs:import namespace="siptocpccausemapprofile.sipcausecodemapping.signaling.profiles.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema147.xsd"/>
+
+  <xs:complexType name="cpcToSipCauseMapProfile">
+    <xs:complexContent>
+      <xs:extension base="ns4:sbcEntity">
+        <xs:sequence>
+          <xs:element name="name" type="xs:string" minOccurs="0"/>
+          <xs:element name="baseProfile" type="ns1:sonusCpcToSipCauseMappingBaseProfileType" minOccurs="0"/>
+          <xs:element name="unrecAction" type="ns1:sonusCpcToSipCauseMappingProfileUnrecActionType" default="rfc3398Procedure" minOccurs="0"/>
+          <xs:element name="includeQ850Reason" type="ns2:sonusAdminState" default="disabled" minOccurs="0"/>
+          <xs:element name="causeMap" type="ns3:causeMap" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="cpcToSipCauseMapProfileKey">
+    <xs:complexContent>
+      <xs:extension base="ns4:sbcKey">
+        <xs:sequence>
+          <xs:element name="name" type="xs:string" minOccurs="0"/>
+          <xs:element name="parentKey" type="ns6:sipCauseCodeMappingKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="cpcToSipCauseMapProfileListWrapper">
+    <xs:complexContent>
+      <xs:extension base="ns4:sbcListWrapper">
+        <xs:sequence>
+          <xs:element name="cpcToSipCauseMapProfile" type="tns:cpcToSipCauseMapProfile" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="internalSipCauseMapProfile">
+    <xs:complexContent>
+      <xs:extension base="ns4:sbcEntity">
+        <xs:sequence>
+          <xs:element name="name" type="xs:string" minOccurs="0"/>
+          <xs:element name="causeMap" type="ns8:causeMap" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="internalSipCauseMapProfileKey">
+    <xs:complexContent>
+      <xs:extension base="ns4:sbcKey">
+        <xs:sequence>
+          <xs:element name="name" type="xs:string" minOccurs="0"/>
+          <xs:element name="parentKey" type="ns6:sipCauseCodeMappingKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="internalSipCauseMapProfileListWrapper">
+    <xs:complexContent>
+      <xs:extension base="ns4:sbcListWrapper">
+        <xs:sequence>
+          <xs:element name="internalSipCauseMapProfile" type="tns:internalSipCauseMapProfile" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="sipToCpcCauseMapProfile">
+    <xs:complexContent>
+      <xs:extension base="ns4:sbcEntity">
+        <xs:sequence>
+          <xs:element name="name" type="xs:string" minOccurs="0"/>
+          <xs:element name="baseProfile" type="ns9:sonusSipToCpcCauseMappingBaseProfileType" minOccurs="0"/>
+          <xs:element name="cancelCause" type="xs:unsignedByte" default="16" minOccurs="0"/>
+          <xs:element name="locBye" type="ns9:sonusSipToCpcCauseMappingProfileByeLocType" default="networkBeyondPoint" minOccurs="0"/>
+          <xs:element name="locCancel" type="ns9:sonusSipToCpcCauseMappingProfileCancelLocType" default="networkBeyondPoint" minOccurs="0"/>
+          <xs:element name="loc3xx" type="ns9:sonusSipToCpcCauseMappingProfile3xxLocType" default="networkBeyondPoint" minOccurs="0"/>
+          <xs:element name="loc4xx" type="ns9:sonusSipToCpcCauseMappingProfile4xxLocType" default="networkBeyondPoint" minOccurs="0"/>
+          <xs:element name="loc5xx" type="ns9:sonusSipToCpcCauseMappingProfile5xxLocType" default="networkBeyondPoint" minOccurs="0"/>
+          <xs:element name="loc6xx" type="ns9:sonusSipToCpcCauseMappingProfile6xxLocType" default="networkBeyondPoint" minOccurs="0"/>
+          <xs:element name="causeMap" type="ns10:causeMap" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="sipToCpcCauseMapProfileKey">
+    <xs:complexContent>
+      <xs:extension base="ns4:sbcKey">
+        <xs:sequence>
+          <xs:element name="name" type="xs:string" minOccurs="0"/>
+          <xs:element name="parentKey" type="ns6:sipCauseCodeMappingKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="sipToCpcCauseMapProfileListWrapper">
+    <xs:complexContent>
+      <xs:extension base="ns4:sbcListWrapper">
+        <xs:sequence>
+          <xs:element name="sipToCpcCauseMapProfile" type="tns:sipToCpcCauseMapProfile" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+</xs:schema>
+

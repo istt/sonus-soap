@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="reason.crankbackprofile.callrouting.profiles.v04_02_00.sbc.api.ems.sonus.com" xmlns:ns2="common.sbc.api.ems.sonus.com" xmlns:ns1="sonusgen2nrmcrankback.types.v04_02_00.sbc.api.ems.sonus.com" xmlns:ns4="crankbackprofile.callrouting.profiles.v04_02_00.sbc.api.ems.sonus.com" xmlns:ns3="callrouting.profiles.v04_02_00.sbc.api.ems.sonus.com" xmlns:tns="reason.crankbackprofile.callrouting.profiles.v04_02_00.sbc.api.ems.sonus.com" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:import namespace="sonusgen2nrmcrankback.types.v04_02_00.sbc.api.ems.sonus.com" schemaLocation="SBCV040200APIService_schema103.xsd"/>
+
+  <xs:import namespace="common.sbc.api.ems.sonus.com" schemaLocation="SBCV040200APIService_schema325.xsd"/>
+
+  <xs:import namespace="callrouting.profiles.v04_02_00.sbc.api.ems.sonus.com" schemaLocation="SBCV040200APIService_schema344.xsd"/>
+
+  <xs:import namespace="crankbackprofile.callrouting.profiles.v04_02_00.sbc.api.ems.sonus.com" schemaLocation="SBCV040200APIService_schema318.xsd"/>
+
+  <xs:complexType name="location">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcEntity">
+        <xs:sequence>
+          <xs:element name="index" type="ns1:sonusCrankBackLocationIndexType" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="locationKey">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcKey">
+        <xs:sequence>
+          <xs:element name="index" type="ns1:sonusCrankBackLocationIndexType" minOccurs="0"/>
+          <xs:element name="parentKey" type="ns4:reasonKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="locationListWrapper">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcListWrapper">
+        <xs:sequence>
+          <xs:element name="location" type="tns:location" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+</xs:schema>
+

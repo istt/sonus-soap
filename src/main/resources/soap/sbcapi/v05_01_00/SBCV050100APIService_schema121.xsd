@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="sonusdnszone.types.v05_01_00.sbc.api.ems.sonus.com" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:simpleType name="sonusZoneType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="individual"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusLoadDistribution">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="sequence"/>
+      <xs:enumeration value="roundRobin"/>
+      <xs:enumeration value="proportion"/>
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>
+

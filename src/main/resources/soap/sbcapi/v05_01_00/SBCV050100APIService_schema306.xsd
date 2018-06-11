@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="filtersipsrc.zone.addresscontext.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns2="fqdnentry.filtersipsrc.zone.addresscontext.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns1="sonusfiltersipsrc.types.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns4="addresscontext.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns3="common.sbc.api.ems.sonus.com" xmlns:tns="filtersipsrc.zone.addresscontext.v05_01_00.sbc.api.ems.sonus.com" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ns5="zone.addresscontext.v05_01_00.sbc.api.ems.sonus.com">
+
+  <xs:import namespace="sonusfiltersipsrc.types.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema112.xsd"/>
+
+  <xs:import namespace="fqdnentry.filtersipsrc.zone.addresscontext.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema300.xsd"/>
+
+  <xs:import namespace="common.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema360.xsd"/>
+
+  <xs:import namespace="addresscontext.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema408.xsd"/>
+
+  <xs:import namespace="zone.addresscontext.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema1.xsd"/>
+
+  <xs:complexType name="fqdnEntry">
+    <xs:complexContent>
+      <xs:extension base="ns3:sbcEntity">
+        <xs:sequence>
+          <xs:element name="fqdnName" type="xs:string" minOccurs="0"/>
+          <xs:element name="fqdnType" type="ns1:sonusFqdnType" minOccurs="0"/>
+          <xs:element name="domainMapping" type="ns2:domainMapping" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="fqdnEntryKey">
+    <xs:complexContent>
+      <xs:extension base="ns3:sbcKey">
+        <xs:sequence>
+          <xs:element name="fqdnName" type="xs:string" minOccurs="0"/>
+          <xs:element name="fqdnType" type="ns1:sonusFqdnType" minOccurs="0"/>
+          <xs:element name="parentKey" type="ns5:filterSipSrcKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="fqdnEntryListWrapper">
+    <xs:complexContent>
+      <xs:extension base="ns3:sbcListWrapper">
+        <xs:sequence>
+          <xs:element name="fqdnEntry" type="tns:fqdnEntry" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+</xs:schema>
+

@@ -1,0 +1,611 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="sonusorcatc.types.v04_02_00.sbc.api.ems.sonus.com" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:complexType name="SonusCallTypeBitMaskBits">
+    <xs:sequence>
+      <xs:element name="private" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="nationalOperator" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="localOperator" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="nationalType" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="internationalType" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="internationalOperator" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="longDistanceOperator" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="ipVpnService" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="test" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="transit" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="otherCarrierChosen" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="carrierCutThrough" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="userName" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="mobile" type="xs:boolean" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="SonusDigitTypeBitMaskBits">
+    <xs:sequence>
+      <xs:element name="subscriberType" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="nationalType" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="internationalType" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="subscriberOperator" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="nationalOperator" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="internationalOperator" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="verticalServiceCode" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="easilyIdentifiableNumber" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="tollFree" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="_900PremiumToll" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="_950CarrierAccess" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="localOperator" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="longDistanceOperator" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="emergency" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="directoryAssistance" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="serviceAccessCode" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="ipVpn" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="test" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="transit" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="otherCarrierChosen" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="carrierAccess" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="noDigits" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="private" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="governmentEmergency" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="userName" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="ieps" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="all" type="xs:boolean" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:simpleType name="sonusNatureOfAddressRange">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="none"/>
+      <xs:enumeration value="passThrough"/>
+      <xs:enumeration value="subscriber"/>
+      <xs:enumeration value="national"/>
+      <xs:enumeration value="international"/>
+      <xs:enumeration value="networkSpecific"/>
+      <xs:enumeration value="unknown"/>
+      <xs:enumeration value="subscriberOperator"/>
+      <xs:enumeration value="nationalOperator"/>
+      <xs:enumeration value="internationalOperator"/>
+      <xs:enumeration value="testCode"/>
+      <xs:enumeration value="noNumberOperatorRequested"/>
+      <xs:enumeration value="noNumberCutThrough"/>
+      <xs:enumeration value="950"/>
+      <xs:enumeration value="aniOfCallingPartySubscriberNumber"/>
+      <xs:enumeration value="aniNotAvailableOrNotProvided"/>
+      <xs:enumeration value="aniOfCallingPartyNationalNumber"/>
+      <xs:enumeration value="aniOfCalledPartySubscriberNumber"/>
+      <xs:enumeration value="aniOfCalledPartyNoNumberPresent"/>
+      <xs:enumeration value="aniOfCalledPartyNationalNumber"/>
+      <xs:enumeration value="ss7Reserved"/>
+      <xs:enumeration value="nationalNotRestricted"/>
+      <xs:enumeration value="nationalRestricted"/>
+      <xs:enumeration value="internationalNotRestricted"/>
+      <xs:enumeration value="internationalRestricted"/>
+      <xs:enumeration value="ignore"/>
+      <xs:enumeration value="apnNumberingPlan"/>
+      <xs:enumeration value="sidNumber"/>
+      <xs:enumeration value="partialCallingLineId"/>
+      <xs:enumeration value="spare00"/>
+      <xs:enumeration value="spare01"/>
+      <xs:enumeration value="spare02"/>
+      <xs:enumeration value="spare03"/>
+      <xs:enumeration value="spare04"/>
+      <xs:enumeration value="spare05"/>
+      <xs:enumeration value="spare06"/>
+      <xs:enumeration value="spare07"/>
+      <xs:enumeration value="spare08"/>
+      <xs:enumeration value="spare09"/>
+      <xs:enumeration value="spare0A"/>
+      <xs:enumeration value="spare0B"/>
+      <xs:enumeration value="spare0C"/>
+      <xs:enumeration value="spare0D"/>
+      <xs:enumeration value="spare0E"/>
+      <xs:enumeration value="spare0F"/>
+      <xs:enumeration value="spare10"/>
+      <xs:enumeration value="spare11"/>
+      <xs:enumeration value="spare12"/>
+      <xs:enumeration value="spare13"/>
+      <xs:enumeration value="spare14"/>
+      <xs:enumeration value="spare15"/>
+      <xs:enumeration value="spare16"/>
+      <xs:enumeration value="spare17"/>
+      <xs:enumeration value="spare18"/>
+      <xs:enumeration value="spare19"/>
+      <xs:enumeration value="spare1A"/>
+      <xs:enumeration value="spare1B"/>
+      <xs:enumeration value="spare1C"/>
+      <xs:enumeration value="spare1D"/>
+      <xs:enumeration value="spare1E"/>
+      <xs:enumeration value="spare1F"/>
+      <xs:enumeration value="spare20"/>
+      <xs:enumeration value="spare21"/>
+      <xs:enumeration value="spare22"/>
+      <xs:enumeration value="spare23"/>
+      <xs:enumeration value="spare24"/>
+      <xs:enumeration value="spare25"/>
+      <xs:enumeration value="spare26"/>
+      <xs:enumeration value="spare27"/>
+      <xs:enumeration value="spare28"/>
+      <xs:enumeration value="spare29"/>
+      <xs:enumeration value="spare2A"/>
+      <xs:enumeration value="spare2B"/>
+      <xs:enumeration value="spare2C"/>
+      <xs:enumeration value="spare2D"/>
+      <xs:enumeration value="spare2E"/>
+      <xs:enumeration value="spare2F"/>
+      <xs:enumeration value="spare30"/>
+      <xs:enumeration value="spare31"/>
+      <xs:enumeration value="spare32"/>
+      <xs:enumeration value="spare33"/>
+      <xs:enumeration value="spare34"/>
+      <xs:enumeration value="spare35"/>
+      <xs:enumeration value="spare36"/>
+      <xs:enumeration value="spare37"/>
+      <xs:enumeration value="spare38"/>
+      <xs:enumeration value="spare39"/>
+      <xs:enumeration value="spare3A"/>
+      <xs:enumeration value="spare3B"/>
+      <xs:enumeration value="spare3C"/>
+      <xs:enumeration value="spare3D"/>
+      <xs:enumeration value="spare3E"/>
+      <xs:enumeration value="spare3F"/>
+      <xs:enumeration value="spare40"/>
+      <xs:enumeration value="spare41"/>
+      <xs:enumeration value="spare42"/>
+      <xs:enumeration value="spare43"/>
+      <xs:enumeration value="spare44"/>
+      <xs:enumeration value="spare45"/>
+      <xs:enumeration value="spare46"/>
+      <xs:enumeration value="spare47"/>
+      <xs:enumeration value="spare48"/>
+      <xs:enumeration value="spare49"/>
+      <xs:enumeration value="spare4A"/>
+      <xs:enumeration value="spare4B"/>
+      <xs:enumeration value="spare4C"/>
+      <xs:enumeration value="spare4D"/>
+      <xs:enumeration value="spare4E"/>
+      <xs:enumeration value="spare4F"/>
+      <xs:enumeration value="spare50"/>
+      <xs:enumeration value="spare51"/>
+      <xs:enumeration value="spare52"/>
+      <xs:enumeration value="spare53"/>
+      <xs:enumeration value="spare54"/>
+      <xs:enumeration value="spare55"/>
+      <xs:enumeration value="spare56"/>
+      <xs:enumeration value="spare57"/>
+      <xs:enumeration value="spare58"/>
+      <xs:enumeration value="spare59"/>
+      <xs:enumeration value="spare5A"/>
+      <xs:enumeration value="spare5B"/>
+      <xs:enumeration value="spare5C"/>
+      <xs:enumeration value="spare5D"/>
+      <xs:enumeration value="spare5E"/>
+      <xs:enumeration value="spare5F"/>
+      <xs:enumeration value="spare60"/>
+      <xs:enumeration value="spare61"/>
+      <xs:enumeration value="spare62"/>
+      <xs:enumeration value="spare63"/>
+      <xs:enumeration value="spare64"/>
+      <xs:enumeration value="spare65"/>
+      <xs:enumeration value="spare66"/>
+      <xs:enumeration value="spare67"/>
+      <xs:enumeration value="spare68"/>
+      <xs:enumeration value="spare69"/>
+      <xs:enumeration value="spare6A"/>
+      <xs:enumeration value="spare6B"/>
+      <xs:enumeration value="spare6C"/>
+      <xs:enumeration value="spare6D"/>
+      <xs:enumeration value="spare6E"/>
+      <xs:enumeration value="spare6F"/>
+      <xs:enumeration value="spare70"/>
+      <xs:enumeration value="spare71"/>
+      <xs:enumeration value="spare72"/>
+      <xs:enumeration value="spare73"/>
+      <xs:enumeration value="spare74"/>
+      <xs:enumeration value="spare75"/>
+      <xs:enumeration value="spare76"/>
+      <xs:enumeration value="spare77"/>
+      <xs:enumeration value="spare78"/>
+      <xs:enumeration value="spare79"/>
+      <xs:enumeration value="spare7A"/>
+      <xs:enumeration value="spare7B"/>
+      <xs:enumeration value="spare7C"/>
+      <xs:enumeration value="spare7D"/>
+      <xs:enumeration value="spare7E"/>
+      <xs:enumeration value="spare7F"/>
+      <xs:enumeration value="any"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusPresentationMatchRange">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="none"/>
+      <xs:enumeration value="allowed"/>
+      <xs:enumeration value="restricted"/>
+      <xs:enumeration value="numberUnavailable"/>
+      <xs:enumeration value="spare"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusScreeningMatchRange">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="none"/>
+      <xs:enumeration value="userProvidedNotScreened"/>
+      <xs:enumeration value="userProvidedPassedNetworkScreening"/>
+      <xs:enumeration value="userProvidedFailedNetworkScreening"/>
+      <xs:enumeration value="networkProvidedNotScreened"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusNameRange">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="mobile2"/>
+      <xs:enumeration value="mobile1"/>
+      <xs:enumeration value="pstn1"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusInformationRange">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="any"/>
+      <xs:enumeration value="auto"/>
+      <xs:enumeration value="maritime"/>
+      <xs:enumeration value="inflight"/>
+      <xs:enumeration value="pager"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusNetworkIdPlanRange">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="none"/>
+      <xs:enumeration value="ccittUnknown"/>
+      <xs:enumeration value="ccittPublicData"/>
+      <xs:enumeration value="ccittLandMobile"/>
+      <xs:enumeration value="ccittReserved1"/>
+      <xs:enumeration value="ccittReserved2"/>
+      <xs:enumeration value="nationalUnknown"/>
+      <xs:enumeration value="national3DigitCarrier"/>
+      <xs:enumeration value="nationa4DigitCarrier"/>
+      <xs:enumeration value="nationalReserved1"/>
+      <xs:enumeration value="nationalReserved2"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusNetworkIdTypeRange">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="none"/>
+      <xs:enumeration value="ccitt"/>
+      <xs:enumeration value="national"/>
+      <xs:enumeration value="other"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusCircuitCodeRange">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="none"/>
+      <xs:enumeration value="noOperator"/>
+      <xs:enumeration value="operator"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusCarrierSelectionRange">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="noIndication"/>
+      <xs:enumeration value="presubscriptionNotInput"/>
+      <xs:enumeration value="presubscriptionInput"/>
+      <xs:enumeration value="presubscriptionNoIndication"/>
+      <xs:enumeration value="notPresubscriptionInput"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusMatchNumberRange">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="invalid"/>
+      <xs:enumeration value="reserved"/>
+      <xs:enumeration value="userRequested"/>
+      <xs:enumeration value="interactionWithOtherService"/>
+      <xs:enumeration value="coinPhone"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusCallingPartyCategoryRange">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="unknown"/>
+      <xs:enumeration value="operatorFrench"/>
+      <xs:enumeration value="operatorEnglish"/>
+      <xs:enumeration value="operatorGerman"/>
+      <xs:enumeration value="operatorRussian"/>
+      <xs:enumeration value="operatorSpanish"/>
+      <xs:enumeration value="operatorAvailable1"/>
+      <xs:enumeration value="operatorAvailable2"/>
+      <xs:enumeration value="operatorAvailable3"/>
+      <xs:enumeration value="reserved"/>
+      <xs:enumeration value="ordinarySubscriber"/>
+      <xs:enumeration value="prioritySubscriber"/>
+      <xs:enumeration value="dataCall"/>
+      <xs:enumeration value="testCall"/>
+      <xs:enumeration value="spare"/>
+      <xs:enumeration value="payphone"/>
+      <xs:enumeration value="transitCallViaVoiceService"/>
+      <xs:enumeration value="interceptionOperator"/>
+      <xs:enumeration value="privateMetering"/>
+      <xs:enumeration value="pbx"/>
+      <xs:enumeration value="singaporePbxWithPriority"/>
+      <xs:enumeration value="cityWideCentrexSubscriber"/>
+      <xs:enumeration value="basicBusinessGroupSubscriber"/>
+      <xs:enumeration value="pabxWithPrivateMetering"/>
+      <xs:enumeration value="hotelSubscriber"/>
+      <xs:enumeration value="hotelSubscriberWithPriMetering"/>
+      <xs:enumeration value="denmark249"/>
+      <xs:enumeration value="denmark254"/>
+      <xs:enumeration value="ukOrdSubResidential"/>
+      <xs:enumeration value="ukOrdSubBusiness"/>
+      <xs:enumeration value="ukAdminDivOrd"/>
+      <xs:enumeration value="ukAdminDivPayphone"/>
+      <xs:enumeration value="ukIsdnResidential"/>
+      <xs:enumeration value="ukIsdnBusiness"/>
+      <xs:enumeration value="ukPayphonePublic"/>
+      <xs:enumeration value="ukPayphoneRentResidential"/>
+      <xs:enumeration value="ukPayphoneRentBusiness"/>
+      <xs:enumeration value="ukServiceLine"/>
+      <xs:enumeration value="ukCentrex"/>
+      <xs:enumeration value="ukOssOperator"/>
+      <xs:enumeration value="ukAmcOpNndInd"/>
+      <xs:enumeration value="ukAmcOpNnd"/>
+      <xs:enumeration value="ukDpnss"/>
+      <xs:enumeration value="ukRsvdItuLang1"/>
+      <xs:enumeration value="ukRsvdItuLang2"/>
+      <xs:enumeration value="ukRsvdItuLang3"/>
+      <xs:enumeration value="specialLine2"/>
+      <xs:enumeration value="slowOrdinary"/>
+      <xs:enumeration value="teletasa"/>
+      <xs:enumeration value="mobile"/>
+      <xs:enumeration value="virtualPrivateNetwork"/>
+      <xs:enumeration value="specialLine1"/>
+      <xs:enumeration value="nationalOperatorWithInterventionCapability"/>
+      <xs:enumeration value="immediateChargeRateService"/>
+      <xs:enumeration value="nationalOperatorWithTrunkOffer"/>
+      <xs:enumeration value="nationalOperatorWithoutTrunkOffer"/>
+      <xs:enumeration value="ccbSubscriber"/>
+      <xs:enumeration value="subscriberWithHomeMeter"/>
+      <xs:enumeration value="lineTestDesk"/>
+      <xs:enumeration value="semiPublicPhone"/>
+      <xs:enumeration value="subscriberSpecialCharge"/>
+      <xs:enumeration value="nationalPublicTelephone"/>
+      <xs:enumeration value="ordFreeLsLs"/>
+      <xs:enumeration value="ordPeriodicLsLs"/>
+      <xs:enumeration value="ordMeteringLsLs"/>
+      <xs:enumeration value="ordPrinterLsLs"/>
+      <xs:enumeration value="priorityFreeLsTs"/>
+      <xs:enumeration value="priorityPeriodicLsTs"/>
+      <xs:enumeration value="ordSubscriberLsLs"/>
+      <xs:enumeration value="messageInMailbox"/>
+      <xs:enumeration value="cancelMessage"/>
+      <xs:enumeration value="coinPhone"/>
+      <xs:enumeration value="nonInternationalNationalOperator"/>
+      <xs:enumeration value="prepaidPhone"/>
+      <xs:enumeration value="phoneBox"/>
+      <xs:enumeration value="ukAdminDivPayphonePriority"/>
+      <xs:enumeration value="ukAdminDivOrdPriority"/>
+      <xs:enumeration value="russiaSubscriberCategory0"/>
+      <xs:enumeration value="russiaSubscriberCategory1"/>
+      <xs:enumeration value="russiaSubscriberCategory2"/>
+      <xs:enumeration value="russiaSubscriberCategory3"/>
+      <xs:enumeration value="russiaSubscriberCategory4"/>
+      <xs:enumeration value="russiaSubscriberCategory5"/>
+      <xs:enumeration value="russiaSubscriberCategory6"/>
+      <xs:enumeration value="russiaSubscriberCategory7"/>
+      <xs:enumeration value="russiaSubscriberCategory8"/>
+      <xs:enumeration value="russiaSubscriberCategory9"/>
+      <xs:enumeration value="autoCallCategory1"/>
+      <xs:enumeration value="autoCallCategory2"/>
+      <xs:enumeration value="autoCallCategory3"/>
+      <xs:enumeration value="autoCallCategory4"/>
+      <xs:enumeration value="semiAutoCallCategory1"/>
+      <xs:enumeration value="semiAutoCallCategory2"/>
+      <xs:enumeration value="semiAutoCallCategory3"/>
+      <xs:enumeration value="semiAutoCallCategory4"/>
+      <xs:enumeration value="ccittSpare2"/>
+      <xs:enumeration value="emergency"/>
+      <xs:enumeration value="priorityEmergency"/>
+      <xs:enumeration value="nsepCallGovernmentEmergency"/>
+      <xs:enumeration value="ansiSpare1"/>
+      <xs:enumeration value="iepsCall"/>
+      <xs:enumeration value="cellular"/>
+      <xs:enumeration value="cellularRoaming"/>
+      <xs:enumeration value="ansiSpare2"/>
+      <xs:enumeration value="networkSpecific1"/>
+      <xs:enumeration value="networkSpecific2"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusIsupBiccPreferenceRange">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="none"/>
+      <xs:enumeration value="notRequired"/>
+      <xs:enumeration value="required"/>
+      <xs:enumeration value="preferred"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusOriginatingLineInformationRange">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="pots"/>
+      <xs:enumeration value="oni"/>
+      <xs:enumeration value="aniFailure"/>
+      <xs:enumeration value="hotel"/>
+      <xs:enumeration value="specialOperator"/>
+      <xs:enumeration value="restricted"/>
+      <xs:enumeration value="test1"/>
+      <xs:enumeration value="aiod"/>
+      <xs:enumeration value="identified"/>
+      <xs:enumeration value="tollfree"/>
+      <xs:enumeration value="payphoneTollfree"/>
+      <xs:enumeration value="coin"/>
+      <xs:enumeration value="inmate"/>
+      <xs:enumeration value="interceptBlank"/>
+      <xs:enumeration value="interceptTrouble"/>
+      <xs:enumeration value="interceptRegular"/>
+      <xs:enumeration value="telcoOperator"/>
+      <xs:enumeration value="outwats"/>
+      <xs:enumeration value="trs"/>
+      <xs:enumeration value="cellularType1"/>
+      <xs:enumeration value="cellularType2"/>
+      <xs:enumeration value="cellularRoaming"/>
+      <xs:enumeration value="privatePaystation"/>
+      <xs:enumeration value="restrictedCoinless"/>
+      <xs:enumeration value="privateVirtualNetwork"/>
+      <xs:enumeration value="pinkPublicPhone"/>
+      <xs:enumeration value="otherPhone"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusNumberingPlanIndicatorRange">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="none"/>
+      <xs:enumeration value="isdn"/>
+      <xs:enumeration value="data"/>
+      <xs:enumeration value="telex"/>
+      <xs:enumeration value="private"/>
+      <xs:enumeration value="offsetUnused"/>
+      <xs:enumeration value="spare0Unknown"/>
+      <xs:enumeration value="spare1"/>
+      <xs:enumeration value="spare2"/>
+      <xs:enumeration value="spare3"/>
+      <xs:enumeration value="spare4"/>
+      <xs:enumeration value="spare5"/>
+      <xs:enumeration value="spare6"/>
+      <xs:enumeration value="spare7"/>
+      <xs:enumeration value="telephony"/>
+      <xs:enumeration value="ignore"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusInformationMobile2Range">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="any"/>
+      <xs:enumeration value="analog"/>
+      <xs:enumeration value="njtacs"/>
+      <xs:enumeration value="pdc800Mhz"/>
+      <xs:enumeration value="pdc1500Mhz"/>
+      <xs:enumeration value="nstar"/>
+      <xs:enumeration value="cdma800Mhz"/>
+      <xs:enumeration value="iridium"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusInformationMobile1Range">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="any"/>
+      <xs:enumeration value="auto"/>
+      <xs:enumeration value="maritime"/>
+      <xs:enumeration value="inflight"/>
+      <xs:enumeration value="pager"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusInformationPstn1Range">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="any"/>
+      <xs:enumeration value="trainPublicPhone"/>
+      <xs:enumeration value="pinkPublicPhone"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusLinearCallType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="_private"/>
+      <xs:enumeration value="nationalOperator"/>
+      <xs:enumeration value="localOperator"/>
+      <xs:enumeration value="nationalType"/>
+      <xs:enumeration value="internationalType"/>
+      <xs:enumeration value="internationalOperator"/>
+      <xs:enumeration value="longDistanceOperator"/>
+      <xs:enumeration value="ipVpnService"/>
+      <xs:enumeration value="test"/>
+      <xs:enumeration value="transit"/>
+      <xs:enumeration value="otherCarrierChosen"/>
+      <xs:enumeration value="carrierCutThrough"/>
+      <xs:enumeration value="userName"/>
+      <xs:enumeration value="mobile"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusEntityType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="none"/>
+      <xs:enumeration value="carrier"/>
+      <xs:enumeration value="trunkGroup"/>
+      <xs:enumeration value="callingNumber"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusDigitTypeRange">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="callingNumber"/>
+      <xs:enumeration value="calledNumber"/>
+      <xs:enumeration value="pretranslated"/>
+      <xs:enumeration value="redirection"/>
+      <xs:enumeration value="originalCalledNumber"/>
+      <xs:enumeration value="location"/>
+      <xs:enumeration value="redirecting"/>
+      <xs:enumeration value="outpulseNumber"/>
+      <xs:enumeration value="billingNumber"/>
+      <xs:enumeration value="gnDialedDigits"/>
+      <xs:enumeration value="gnDestination"/>
+      <xs:enumeration value="gnUserCallingScreened"/>
+      <xs:enumeration value="gnUserCallingNotScreened"/>
+      <xs:enumeration value="gnRedirectingTerminating"/>
+      <xs:enumeration value="gnPortedDialed"/>
+      <xs:enumeration value="gnCalledCesId"/>
+      <xs:enumeration value="gnAdditionalCalled"/>
+      <xs:enumeration value="gnAdditionalConnected"/>
+      <xs:enumeration value="gnAdditionalCalling"/>
+      <xs:enumeration value="gnAdditionalOriginalCalled"/>
+      <xs:enumeration value="gnAdditionalRedirecting"/>
+      <xs:enumeration value="gnAdditionalRedirection"/>
+      <xs:enumeration value="252"/>
+      <xs:enumeration value="253"/>
+      <xs:enumeration value="254"/>
+      <xs:enumeration value="twoStageCollected"/>
+      <xs:enumeration value="contractorNumber"/>
+      <xs:enumeration value="gnNetworkProvidedNumber"/>
+      <xs:enumeration value="presentationNumber"/>
+      <xs:enumeration value="fromUri"/>
+      <xs:enumeration value="calledDirectoryNumber"/>
+      <xs:enumeration value="dialedNumber"/>
+      <xs:enumeration value="gnThirdPartyNumber"/>
+      <xs:enumeration value="gnCollectCallNumber"/>
+      <xs:enumeration value="gnLocalAni"/>
+      <xs:enumeration value="calledInNumber"/>
+      <xs:enumeration value="none"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusPktLifOutOfServiceReasonType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="notApplicable"/>
+      <xs:enumeration value="admin"/>
+      <xs:enumeration value="portDown"/>
+      <xs:enumeration value="serverDown"/>
+      <xs:enumeration value="linkDown"/>
+      <xs:enumeration value="standby"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusMtrmTgType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="SIPTG"/>
+      <xs:enumeration value="CHILDMTRG"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusMtrmTgStateType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="null"/>
+      <xs:enumeration value="unregistered"/>
+      <xs:enumeration value="registered"/>
+      <xs:enumeration value="audit"/>
+      <xs:enumeration value="active"/>
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>
+

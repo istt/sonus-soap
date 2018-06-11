@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="digitprofile.profiles.v05_00_00.sbc.api.ems.sonus.com" xmlns:ns2="v05_00_00.sbc.api.ems.sonus.com" xmlns:ns1="common.sbc.api.ems.sonus.com" xmlns:ns4="sonusgen2nrmdigits.types.v05_00_00.sbc.api.ems.sonus.com" xmlns:ns3="profiles.v05_00_00.sbc.api.ems.sonus.com" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:import namespace="common.sbc.api.ems.sonus.com" schemaLocation="SBCV050000APIService_schema326.xsd"/>
+
+  <xs:import namespace="v05_00_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050000APIService_schema7.xsd"/>
+
+  <xs:import namespace="profiles.v05_00_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050000APIService_schema197.xsd"/>
+
+  <xs:import namespace="sonusgen2nrmdigits.types.v05_00_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050000APIService_schema102.xsd"/>
+
+  <xs:complexType name="dtmfGenerate">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcEntity">
+        <xs:sequence>
+          <xs:element name="power" type="xs:int" default="-10" minOccurs="0"/>
+          <xs:element name="make" type="xs:int" default="100" minOccurs="0"/>
+          <xs:element name="break" type="xs:int" default="100" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="dtmfGenerateKey">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcUnCreatableKey">
+        <xs:sequence>
+          <xs:element name="parentKey" type="ns3:digitProfileKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="mfr1Generate">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcEntity">
+        <xs:sequence>
+          <xs:element name="power" type="xs:int" default="-7" minOccurs="0"/>
+          <xs:element name="make" type="xs:int" default="65" minOccurs="0"/>
+          <xs:element name="break" type="xs:int" default="65" minOccurs="0"/>
+          <xs:element name="makeKp" type="xs:int" default="105" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="mfr1GenerateKey">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcUnCreatableKey">
+        <xs:sequence>
+          <xs:element name="parentKey" type="ns3:digitProfileKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="mfr2Generate">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcEntity">
+        <xs:sequence>
+          <xs:element name="power" type="xs:int" default="-10" minOccurs="0"/>
+          <xs:element name="make" type="xs:int" default="150" minOccurs="0"/>
+          <xs:element name="break" type="xs:int" default="150" minOccurs="0"/>
+          <xs:element name="prePulseDelay" type="xs:int" default="100" minOccurs="0"/>
+          <xs:element name="maxFwdOnDuration" type="xs:int" default="15000" minOccurs="0"/>
+          <xs:element name="maxFwdOffDuration" type="xs:int" default="27000" minOccurs="0"/>
+          <xs:element name="finalDigitDelay" type="xs:int" default="50" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="mfr2GenerateKey">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcUnCreatableKey">
+        <xs:sequence>
+          <xs:element name="parentKey" type="ns3:digitProfileKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="dtmfDetect">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcEntity">
+        <xs:sequence>
+          <xs:element name="minPower" type="xs:int" default="-45" minOccurs="0"/>
+          <xs:element name="minOnDuration" type="xs:int" default="35" minOccurs="0"/>
+          <xs:element name="minOffDuration" type="xs:int" default="25" minOccurs="0"/>
+          <xs:element name="frequenceRange" type="ns4:sonusDigitProfileDtmfDetFreqAcceptRangeType" default="medium" minOccurs="0"/>
+          <xs:element name="twistCutoff" type="xs:int" default="8" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="dtmfDetectKey">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcUnCreatableKey">
+        <xs:sequence>
+          <xs:element name="parentKey" type="ns3:digitProfileKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="mfr1Detect">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcEntity">
+        <xs:sequence>
+          <xs:element name="minPower" type="xs:int" default="-30" minOccurs="0"/>
+          <xs:element name="minOnDuration" type="xs:int" default="25" minOccurs="0"/>
+          <xs:element name="minOffDuration" type="xs:int" default="15" minOccurs="0"/>
+          <xs:element name="frequenceRange" type="ns4:sonusDigitProfileDetFreqAcceptRangeType" default="narrow" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="mfr1DetectKey">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcUnCreatableKey">
+        <xs:sequence>
+          <xs:element name="parentKey" type="ns3:digitProfileKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="mfr2Detect">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcEntity">
+        <xs:sequence>
+          <xs:element name="minPower" type="xs:int" default="-30" minOccurs="0"/>
+          <xs:element name="minOnDuration" type="xs:int" default="25" minOccurs="0"/>
+          <xs:element name="minOffDuration" type="xs:int" default="15" minOccurs="0"/>
+          <xs:element name="frequenceRange" type="ns4:sonusDigitProfileDetFreqAcceptRangeType" default="narrow" minOccurs="0"/>
+          <xs:element name="maxPulseDuration" type="xs:int" default="1000" minOccurs="0"/>
+          <xs:element name="postPulseDelay" type="xs:int" default="250" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="mfr2DetectKey">
+    <xs:complexContent>
+      <xs:extension base="ns1:sbcUnCreatableKey">
+        <xs:sequence>
+          <xs:element name="parentKey" type="ns3:digitProfileKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+</xs:schema>
+

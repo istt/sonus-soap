@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="cdrserver.accounting.oam.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns2="common.sbc.api.ems.sonus.com" xmlns:ns1="sonuscdrserver.types.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns4="accounting.oam.v05_01_00.sbc.api.ems.sonus.com" xmlns:ns3="oam.v05_01_00.sbc.api.ems.sonus.com" xmlns:tns="cdrserver.accounting.oam.v05_01_00.sbc.api.ems.sonus.com" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:import namespace="sonuscdrserver.types.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema134.xsd"/>
+
+  <xs:import namespace="common.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema360.xsd"/>
+
+  <xs:import namespace="oam.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema240.xsd"/>
+
+  <xs:import namespace="accounting.oam.v05_01_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050100APIService_schema413.xsd"/>
+
+  <xs:complexType name="admin">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcEntity">
+        <xs:sequence>
+          <xs:element name="type" type="ns1:sonusCdrServerTypeType" minOccurs="0"/>
+          <xs:element name="ipAddress" type="xs:string" minOccurs="0"/>
+          <xs:element name="username" type="xs:string" minOccurs="0"/>
+          <xs:element name="password" type="xs:string" minOccurs="0"/>
+          <xs:element name="path" type="xs:string" minOccurs="0"/>
+          <xs:element name="filePrefix" type="xs:string" minOccurs="0"/>
+          <xs:element name="connectionTimeout" type="xs:int" default="30" minOccurs="0"/>
+          <xs:element name="transferTimeout" type="xs:int" default="120" minOccurs="0"/>
+          <xs:element name="bufferSize" type="xs:int" default="1024" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="adminKey">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcKey">
+        <xs:sequence>
+          <xs:element name="type" type="ns1:sonusCdrServerTypeType" minOccurs="0"/>
+          <xs:element name="parentKey" type="ns4:cdrServerKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="adminListWrapper">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcListWrapper">
+        <xs:sequence>
+          <xs:element name="admin" type="tns:admin" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="status">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcEntity">
+        <xs:sequence>
+          <xs:element name="type" type="ns1:sonusCdrServerTypeType" minOccurs="0"/>
+          <xs:element name="state" type="ns1:sonusCdrServerTypeState" minOccurs="0"/>
+          <xs:element name="progress" type="ns1:sonusCdrServerTypeXferState" minOccurs="0"/>
+          <xs:element name="successfulTransfers" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="failedTransfers" type="xs:unsignedInt" minOccurs="0"/>
+          <xs:element name="pendingTransfers" type="xs:unsignedInt" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="statusKey">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcReadOnlyKey">
+        <xs:sequence>
+          <xs:element name="type" type="ns1:sonusCdrServerTypeType" minOccurs="0"/>
+          <xs:element name="parentKey" type="ns4:cdrServerKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="statusListWrapper">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcListWrapper">
+        <xs:sequence>
+          <xs:element name="status" type="tns:status" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+</xs:schema>
+

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="sonusorca.types.v05_00_00.sbc.api.ems.sonus.com" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:simpleType name="sonusAlarmLevelType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="noAlarm"/>
+      <xs:enumeration value="minorAlarm"/>
+      <xs:enumeration value="majorAlarm"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sonusEthCrcAlarmLevelType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="disabled"/>
+      <xs:enumeration value="noAlarm"/>
+      <xs:enumeration value="majorAlarm"/>
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>
+

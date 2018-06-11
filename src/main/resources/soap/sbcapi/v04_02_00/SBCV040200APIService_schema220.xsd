@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="oam.v04_02_00.sbc.api.ems.sonus.com" xmlns:ns16="snmp_framework_mib.types.v04_02_00.sbc.api.ems.sonus.com" xmlns:ns17="snmp.oam.v04_02_00.sbc.api.ems.sonus.com" xmlns:ns14="localauth.oam.v04_02_00.sbc.api.ems.sonus.com" xmlns:ns15="sonussnmp.types.v04_02_00.sbc.api.ems.sonus.com" xmlns:ns18="sonusema.types.v04_02_00.sbc.api.ems.sonus.com" xmlns:ns9="sonusorca.types.v04_02_00.sbc.api.ems.sonus.com" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ns5="sonustc.types.v04_02_00.sbc.api.ems.sonus.com" xmlns:ns12="traps.oam.v04_02_00.sbc.api.ems.sonus.com" xmlns:ns13="dspadmin.traps.oam.v04_02_00.sbc.api.ems.sonus.com" xmlns:ns6="common.sbc.api.ems.sonus.com" xmlns:ns10="sonusgen2eventlog.types.v04_02_00.sbc.api.ems.sonus.com" xmlns:ns7="v04_02_00.sbc.api.ems.sonus.com" xmlns:ns11="eventlog.oam.v04_02_00.sbc.api.ems.sonus.com" xmlns:ns8="alarms.oam.v04_02_00.sbc.api.ems.sonus.com" xmlns:ns2="accounting.oam.v04_02_00.sbc.api.ems.sonus.com" xmlns:ns1="radius.accounting.oam.v04_02_00.sbc.api.ems.sonus.com" xmlns:ns4="sonusaccounting.types.v04_02_00.sbc.api.ems.sonus.com" xmlns:ns3="cdrserver.accounting.oam.v04_02_00.sbc.api.ems.sonus.com">
+
+  <xs:import namespace="radius.accounting.oam.v04_02_00.sbc.api.ems.sonus.com" schemaLocation="SBCV040200APIService_schema194.xsd"/>
+
+  <xs:import namespace="accounting.oam.v04_02_00.sbc.api.ems.sonus.com" schemaLocation="SBCV040200APIService_schema369.xsd"/>
+
+  <xs:import namespace="cdrserver.accounting.oam.v04_02_00.sbc.api.ems.sonus.com" schemaLocation="SBCV040200APIService_schema336.xsd"/>
+
+  <xs:import namespace="sonusaccounting.types.v04_02_00.sbc.api.ems.sonus.com" schemaLocation="SBCV040200APIService_schema129.xsd"/>
+
+  <xs:import namespace="sonustc.types.v04_02_00.sbc.api.ems.sonus.com" schemaLocation="SBCV040200APIService_schema42.xsd"/>
+
+  <xs:import namespace="common.sbc.api.ems.sonus.com" schemaLocation="SBCV040200APIService_schema325.xsd"/>
+
+  <xs:import namespace="v04_02_00.sbc.api.ems.sonus.com" schemaLocation="SBCV040200APIService_schema7.xsd"/>
+
+  <xs:import namespace="alarms.oam.v04_02_00.sbc.api.ems.sonus.com" schemaLocation="SBCV040200APIService_schema362.xsd"/>
+
+  <xs:import namespace="sonusorca.types.v04_02_00.sbc.api.ems.sonus.com" schemaLocation="SBCV040200APIService_schema67.xsd"/>
+
+  <xs:import namespace="sonusgen2eventlog.types.v04_02_00.sbc.api.ems.sonus.com" schemaLocation="SBCV040200APIService_schema107.xsd"/>
+
+  <xs:import namespace="eventlog.oam.v04_02_00.sbc.api.ems.sonus.com" schemaLocation="SBCV040200APIService_schema279.xsd"/>
+
+  <xs:import namespace="traps.oam.v04_02_00.sbc.api.ems.sonus.com" schemaLocation="SBCV040200APIService_schema15.xsd"/>
+
+  <xs:import namespace="dspadmin.traps.oam.v04_02_00.sbc.api.ems.sonus.com" schemaLocation="SBCV040200APIService_schema295.xsd"/>
+
+  <xs:import namespace="localauth.oam.v04_02_00.sbc.api.ems.sonus.com" schemaLocation="SBCV040200APIService_schema236.xsd"/>
+
+  <xs:import namespace="sonussnmp.types.v04_02_00.sbc.api.ems.sonus.com" schemaLocation="SBCV040200APIService_schema45.xsd"/>
+
+  <xs:import namespace="snmp_framework_mib.types.v04_02_00.sbc.api.ems.sonus.com" schemaLocation="SBCV040200APIService_schema133.xsd"/>
+
+  <xs:import namespace="snmp.oam.v04_02_00.sbc.api.ems.sonus.com" schemaLocation="SBCV040200APIService_schema134.xsd"/>
+
+  <xs:import namespace="sonusema.types.v04_02_00.sbc.api.ems.sonus.com" schemaLocation="SBCV040200APIService_schema111.xsd"/>
+
+  <xs:complexType name="accounting">
+    <xs:complexContent>
+      <xs:extension base="ns6:sbcEntity">
+        <xs:sequence>
+          <xs:element name="radius" type="ns2:radius" minOccurs="0"/>
+          <xs:element name="cdrServer" type="ns2:cdrServer" minOccurs="0"/>
+          <xs:element name="admin" type="ns2:admin" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="accountingKey">
+    <xs:complexContent>
+      <xs:extension base="ns6:sbcUnCreatableKey">
+        <xs:sequence>
+          <xs:element name="parentKey" type="ns7:oamKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="alarms">
+    <xs:complexContent>
+      <xs:extension base="ns6:sbcEntity">
+        <xs:sequence>
+          <xs:element name="ipPolicingAlarmAdmin" type="ns8:ipPolicingAlarmAdmin" minOccurs="0"/>
+          <xs:element name="ipPolicingAlarmStatus" type="ns8:ipPolicingAlarmStatus" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="alarmsKey">
+    <xs:complexContent>
+      <xs:extension base="ns6:sbcUnCreatableKey">
+        <xs:sequence>
+          <xs:element name="parentKey" type="ns7:oamKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="eventLog">
+    <xs:complexContent>
+      <xs:extension base="ns6:sbcEntity">
+        <xs:sequence>
+          <xs:element name="typeAdmin" type="ns11:typeAdmin" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="typeStatus" type="ns11:typeStatus" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="filterAdmin" type="ns11:filterAdmin" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="filterStatus" type="ns11:filterStatus" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="subSystemAdmin" type="ns11:subSystemAdmin" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="eventLogKey">
+    <xs:complexContent>
+      <xs:extension base="ns6:sbcUnCreatableKey">
+        <xs:sequence>
+          <xs:element name="parentKey" type="ns7:oamKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="traps">
+    <xs:complexContent>
+      <xs:extension base="ns6:sbcEntity">
+        <xs:sequence>
+          <xs:element name="admin" type="ns12:admin" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="dspAdmin" type="ns12:dspAdmin" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="trapsKey">
+    <xs:complexContent>
+      <xs:extension base="ns6:sbcUnCreatableKey">
+        <xs:sequence>
+          <xs:element name="parentKey" type="ns7:oamKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="localAuth">
+    <xs:complexContent>
+      <xs:extension base="ns6:sbcEntity">
+        <xs:sequence>
+          <xs:element name="users" type="ns14:users" minOccurs="0"/>
+          <xs:element name="userStatus" type="ns14:userStatus" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="localAuthKey">
+    <xs:complexContent>
+      <xs:extension base="ns6:sbcUnCreatableKey">
+        <xs:sequence>
+          <xs:element name="parentKey" type="ns7:oamKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="snmp">
+    <xs:complexContent>
+      <xs:extension base="ns6:sbcEntity">
+        <xs:sequence>
+          <xs:element name="version" type="ns15:sonusSnmpVersionType" default="v1v2c" minOccurs="0"/>
+          <xs:element name="localEngineId" type="xs:string" minOccurs="0"/>
+          <xs:element name="securityLevel" type="ns16:snmpSecurityLevel" default="authPriv" minOccurs="0"/>
+          <xs:element name="community" type="ns17:community" minOccurs="0"/>
+          <xs:element name="trapTarget" type="ns17:trapTarget" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="communityString" type="ns17:communityString" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="users" type="ns17:users" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="snmpKey">
+    <xs:complexContent>
+      <xs:extension base="ns6:sbcUnCreatableKey">
+        <xs:sequence>
+          <xs:element name="parentKey" type="ns7:oamKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="ema">
+    <xs:complexContent>
+      <xs:extension base="ns6:sbcEntity">
+        <xs:sequence>
+          <xs:element name="clientAuthMethod" type="ns18:emaClientAuthMethodType" default="usernamePasswordOnly" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="emaKey">
+    <xs:complexContent>
+      <xs:extension base="ns6:sbcUnCreatableKey">
+        <xs:sequence>
+          <xs:element name="parentKey" type="ns7:oamKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+</xs:schema>
+

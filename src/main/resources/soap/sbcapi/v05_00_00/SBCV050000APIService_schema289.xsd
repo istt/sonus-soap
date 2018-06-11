@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="egressipattributes.ipsignalingprofile.signaling.profiles.v05_00_00.sbc.api.ems.sonus.com" xmlns:ns2="common.sbc.api.ems.sonus.com" xmlns:ns1="sonustc.types.v05_00_00.sbc.api.ems.sonus.com" xmlns:ns4="ipsignalingprofile.signaling.profiles.v05_00_00.sbc.api.ems.sonus.com" xmlns:ns3="signaling.profiles.v05_00_00.sbc.api.ems.sonus.com" xmlns:ns9="sipheadersandparameters.egressipattributes.ipsignalingprofile.signaling.profiles.v05_00_00.sbc.api.ems.sonus.com" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ns5="sonusipsignalingprofile.types.v05_00_00.sbc.api.ems.sonus.com" xmlns:ns6="privacy.egressipattributes.ipsignalingprofile.signaling.profiles.v05_00_00.sbc.api.ems.sonus.com" xmlns:ns7="redirect.egressipattributes.ipsignalingprofile.signaling.profiles.v05_00_00.sbc.api.ems.sonus.com" xmlns:ns8="callforwarding.sipheadersandparameters.egressipattributes.ipsignalingprofile.signaling.profiles.v05_00_00.sbc.api.ems.sonus.com">
+
+  <xs:import namespace="sonustc.types.v05_00_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050000APIService_schema42.xsd"/>
+
+  <xs:import namespace="common.sbc.api.ems.sonus.com" schemaLocation="SBCV050000APIService_schema326.xsd"/>
+
+  <xs:import namespace="signaling.profiles.v05_00_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050000APIService_schema158.xsd"/>
+
+  <xs:import namespace="ipsignalingprofile.signaling.profiles.v05_00_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050000APIService_schema243.xsd"/>
+
+  <xs:import namespace="sonusipsignalingprofile.types.v05_00_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050000APIService_schema78.xsd"/>
+
+  <xs:import namespace="privacy.egressipattributes.ipsignalingprofile.signaling.profiles.v05_00_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050000APIService_schema198.xsd"/>
+
+  <xs:import namespace="redirect.egressipattributes.ipsignalingprofile.signaling.profiles.v05_00_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050000APIService_schema191.xsd"/>
+
+  <xs:import namespace="callforwarding.sipheadersandparameters.egressipattributes.ipsignalingprofile.signaling.profiles.v05_00_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050000APIService_schema351.xsd"/>
+
+  <xs:import namespace="sipheadersandparameters.egressipattributes.ipsignalingprofile.signaling.profiles.v05_00_00.sbc.api.ems.sonus.com" schemaLocation="SBCV050000APIService_schema149.xsd"/>
+
+  <xs:complexType name="flags">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcEntity">
+        <xs:sequence>
+          <xs:element name="bgcfTargetSchemeTransparency" type="ns1:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="convertInactiveToSendrecv" type="ns1:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="delayCutThrough" type="ns1:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="disable2806Compliance" type="ns1:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="disableOptionalRegisterParameters" type="ns1:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="dispositionHandlingRequired" type="ns1:sonusEnableDisable" default="enable" minOccurs="0"/>
+          <xs:element name="dontSendFastStartProposal" type="ns1:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="insertInBandIndication" type="ns1:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="map181Or182MessageTo183" type="ns1:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="mapContractorNumberInPSigInfoHeader" type="ns1:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="sameCallIdForRequiredAuthorization" type="ns1:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="suppressUnregister" type="ns1:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="ttcIsupMapping" type="ns1:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="useCalledPartyInRequestUri" type="ns1:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="useColonInSdpMediaTypeParameter" type="ns1:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="validateIsubAddress" type="ns1:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="waitTillConnectBeforeAbandonFastStart" type="ns1:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="qosBasedRouting" type="ns1:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="ignoreSdpAfterOfferAnswerCompleted" type="ns1:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="includeEnumParameters" type="ns1:sonusEnableDisable" default="disable" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="flagsKey">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcUnCreatableKey">
+        <xs:sequence>
+          <xs:element name="parentKey" type="ns4:egressIpAttributesKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="bci">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcEntity">
+        <xs:sequence>
+          <xs:element name="bciInterworkEncountered" type="ns1:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="bciIsdnAddess" type="ns1:sonusEnableDisable" default="disable" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="bciKey">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcUnCreatableKey">
+        <xs:sequence>
+          <xs:element name="parentKey" type="ns4:egressIpAttributesKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="domainName">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcEntity">
+        <xs:sequence>
+          <xs:element name="preserveIngressFromDomainName" type="ns1:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="preserveIngressRUriDomainName" type="ns1:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="useLowerCaseDomainNames" type="ns1:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="useSipDomainNameInFromField" type="ns1:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="useSipDomainNameInRequestUri" type="ns1:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="useZoneLevelDomainNameInContact" type="ns1:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="useIpSignalingPeerDomainInRequestUri" type="ns1:sonusEnableDisable" default="disable" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="domainNameKey">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcUnCreatableKey">
+        <xs:sequence>
+          <xs:element name="parentKey" type="ns4:egressIpAttributesKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="isub">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcEntity">
+        <xs:sequence>
+          <xs:element name="allowNsapIsub" type="ns1:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="allowUserSpecifiedIsub" type="ns1:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="includeCalledPartyIsub" type="ns1:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="includeCallingPartyIsub" type="ns1:sonusEnableDisable" default="disable" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="isubKey">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcUnCreatableKey">
+        <xs:sequence>
+          <xs:element name="parentKey" type="ns4:egressIpAttributesKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="numberPortabilityAttributes">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcEntity">
+        <xs:sequence>
+          <xs:element name="npdiOptions" type="ns5:sonusNpdiOptionsRange" default="includeNpdiYes" minOccurs="0"/>
+          <xs:element name="disableRn" type="ns1:sonusEnableDisable" default="disable" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="numberPortabilityAttributesKey">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcUnCreatableKey">
+        <xs:sequence>
+          <xs:element name="parentKey" type="ns4:egressIpAttributesKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="pChargeInfo">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcEntity">
+        <xs:sequence>
+          <xs:element name="pChargeInfoTransparency" type="ns1:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="pChargeInfoType" type="ns5:sonusPChargeInfoType" default="uriParameter" minOccurs="0"/>
+          <xs:element name="includeNPI" type="ns1:sonusEnableDisable" default="enable" minOccurs="0"/>
+          <xs:element name="includeNOA" type="ns1:sonusEnableDisable" default="disable" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="pChargeInfoKey">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcUnCreatableKey">
+        <xs:sequence>
+          <xs:element name="parentKey" type="ns4:egressIpAttributesKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="privacy">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcEntity">
+        <xs:sequence>
+          <xs:element name="transparency" type="ns1:sonusEnableDisable" default="disable" minOccurs="0"/>
+          <xs:element name="privacyInformation" type="ns5:sonusPrivacyInformation" default="pPreferredId" minOccurs="0"/>
+          <xs:element name="flags" type="ns6:flags" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="privacyKey">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcUnCreatableKey">
+        <xs:sequence>
+          <xs:element name="parentKey" type="ns4:egressIpAttributesKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="redirect">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcEntity">
+        <xs:sequence>
+          <xs:element name="mode" type="ns5:sonusModeRange" default="acceptRedirection" minOccurs="0"/>
+          <xs:element name="contactHandling" type="ns5:sonusContactHandlingRange" default="mergeReceivedContacts" minOccurs="0"/>
+          <xs:element name="flags" type="ns7:flags" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="redirectKey">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcUnCreatableKey">
+        <xs:sequence>
+          <xs:element name="parentKey" type="ns4:egressIpAttributesKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="sipHeadersAndParameters">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcEntity">
+        <xs:sequence>
+          <xs:element name="includeChargeInformation" type="ns5:sonusIncludeChargeInformationRange" default="includeNone" minOccurs="0"/>
+          <xs:element name="sessionExpiresRefresher" type="ns5:sonusSessionExpiresRefresherRange" default="notSend" minOccurs="0"/>
+          <xs:element name="sipToHeaderMapping" type="ns5:sonusSipToHeaderMappingRange" default="none" minOccurs="0"/>
+          <xs:element name="destinationTrunkGroupOptions" type="ns5:sonusDestinationTrunkGroupOptionsRange" default="includeNone" minOccurs="0"/>
+          <xs:element name="originatingTrunkGroupOptions" type="ns5:sonusOriginatingTrunkGroupOptionsRange" default="includeNone" minOccurs="0"/>
+          <xs:element name="callForwarding" type="ns9:callForwarding" minOccurs="0"/>
+          <xs:element name="flags" type="ns9:flags" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="sipHeadersAndParametersKey">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcUnCreatableKey">
+        <xs:sequence>
+          <xs:element name="parentKey" type="ns4:egressIpAttributesKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="transport">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcEntity">
+        <xs:sequence>
+          <xs:element name="type1" type="ns5:sonusTransportTypeRange" default="none" minOccurs="0"/>
+          <xs:element name="type2" type="ns5:sonusTransportTypeRange" default="none" minOccurs="0"/>
+          <xs:element name="type3" type="ns5:sonusTransportTypeRange" default="none" minOccurs="0"/>
+          <xs:element name="type4" type="ns5:sonusTransportTypeRange" default="none" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="transportKey">
+    <xs:complexContent>
+      <xs:extension base="ns2:sbcUnCreatableKey">
+        <xs:sequence>
+          <xs:element name="parentKey" type="ns4:egressIpAttributesKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+</xs:schema>
+
